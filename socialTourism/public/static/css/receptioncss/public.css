@@ -13,6 +13,8 @@ a{
 a:hover{
     text-decoration:none;
 }
+
+/*大屏幕*/
 @media (min-width: 1200px) {
     /*导航栏样式*/
     #nav{
@@ -166,7 +168,11 @@ a:hover{
     #footer .footer_box .foor_social .foot_kj{
         background: url("../../image/foot_icon_weibo.jpg");
     }
+    #nav_small{
+        display: none;
+    }
 }
+/*中屏幕*/
 @media (min-width: 992px) and (max-width: 1199px) {
     /*导航栏样式*/
     #nav{
@@ -323,6 +329,7 @@ a:hover{
         display: none;
     }
 }
+/*小屏幕*/
 @media (min-width: 768px) and (max-width: 991px) {
     /*导航栏样式*/
     #nav{
@@ -480,6 +487,7 @@ a:hover{
         display: none;
     }
 }
+/*超小屏幕*/
 @media (max-width: 767px) {
     /*导航栏样式*/
     #nav{

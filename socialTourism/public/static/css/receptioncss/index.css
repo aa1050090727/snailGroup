@@ -1,0 +1,52 @@
+/*通用样式*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial,"Lucida Grande","Microsoft Yahei","Hiragino Sans GB","Hiragino Sans GB W3",SimSun,"PingFang SC",STHeiti;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration:none;
+}
+a:hover{
+    text-decoration:none;
+}
+
+/*大屏幕*/
+@media (min-width: 1200px){
+    #content{
+
+    }
+    #content .search{
+        width: 520px;
+        height: 80px;
+        background-color: #8a6d3b;
+        margin: auto;
+        padding: 10px;
+    }
+    #content .search .search_info{
+        display: flex;
+        height: 30px;
+        line-height: 30px;
+    }
+    #content .search .search_info input{
+        width: 16px;
+        height: 16px;
+        align-self: center;
+        margin: 0 5px 0 10px;
+    }
+}
+/*中屏幕*/
+@media (min-width: 992px) and (max-width: 1199px){
+
+}
+/*小屏幕*/
+@media (min-width: 768px) and (max-width: 991px){
+
+}
+/*超小屏幕*/
+@media (max-width: 767px){
+
+}
