@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE-edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>目的地|旅游平台</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="__STATIC__/css/receptioncss/viewport.css" type="text/css">
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+<!--nav-->
+<!--<nav class="navbar navbar-default nav-fixed-top nav-margin">-->
+    <!--<div class="container">-->
+        <!--<div class="navbar-header">-->
+            <!--&lt;!&ndash;折叠按钮&ndash;&gt;-->
+            <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">-->
+                <!--<span class="sr-only">Toggle navigation</span>-->
+                <!--&lt;!&ndash;短横杠图标&ndash;&gt;-->
+                <!--<span class="icon-bar"></span>-->
+                <!--<span class="icon-bar"></span>-->
+                <!--<span class="icon-bar"></span>-->
+            <!--</button>-->
+            <!--<a href="#" class="navbar-brand" style="display: inline-block;width: 130px;height: 66px;">-->
+                <!--<img src="https://www.wjx.cn/images/newimg/index/logonew.png" alt="" class="img-responsive">-->
+            <!--</a>-->
+        <!--</div>-->
+        <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
+            <!--<ul class="nav navbar-nav navbar-right">-->
+                <!--<li class="active nav-li"><a href="#">首页</a></li>-->
+                <!--<li class="nav-li dropdown">-->
+                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">应用展示 <span class="caret"></span></a>-->
+                    <!--&lt;!&ndash;下拉菜单&ndash;&gt;-->
+                    <!--<ul class="dropdown-menu pull-left drop-menu">-->
+                        <!--<li class="menu"><a href="#">-->
+                            <!--<img src="https://image.wjx.cn/images/newimg/index/survey_orange.png" alt="" class="img-responsive">-->
+                            <!--<span>问卷调查</span>-->
+                        <!--</a></li>-->
+                        <!--<li class="menu"><a href="#">-->
+                            <!--<img src="https://image.wjx.cn/images/newimg/index/test_orange.png" alt="" class="img-responsive">-->
+                            <!--<span>在线考试</span>-->
+                        <!--</a></li>-->
+                        <!--<li class="menu"><a href="#">-->
+                            <!--<img src="https://image.wjx.cn/images/newimg/index/360_orange.png" alt="" class="img-responsive">-->
+                            <!--<span>360度评估</span>-->
+                        <!--</a></li>-->
+                        <!--<li class="menu"><a href="#">-->
+                            <!--<img src="https://image.wjx.cn/images/newimg/index/form_orange.png" alt="" class="img-responsive">-->
+                            <!--<span>报名表单</span>-->
+                        <!--</a></li>-->
+                        <!--<li class="menu"><a href="#">-->
+                            <!--<img src="https://image.wjx.cn/images/newimg/index/evaluation_orange.png" alt="" class="img-responsive">-->
+                            <!--<span>在线测评</span>-->
+                        <!--</a></li>-->
+                        <!--<li class="menu"><a href="#">-->
+                            <!--<img src="https://image.wjx.cn/images/newimg/index/vote_orange.png" alt="" class="img-responsive">-->
+                            <!--<span>在线投票</span>-->
+                        <!--</a></li>-->
+                    <!--</ul>-->
+                <!--</li>-->
+                <!--<li class="nav-li"><a href="#">企业服务</a></li>-->
+                <!--<li class="nav-li"><a href="#">样式服务</a></li>-->
+                <!--<li class="nav-li"><a href="#">问卷调查</a></li>-->
+                <!--<li class="nav-li">-->
+                    <!--<button type="button" class="btn btn-default nav-font nav-vertical text-center" onclick="showLogin()">登录</button>-->
+                    <!--<button type="button" class="btn btn-default nav-font nav-vertical text-center" id="register">注册</button>-->
+                    <!--<button type="button" class="btn btn-default nav-btn nav-vertical text-center">QQ登录</button>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</nav>-->
+<!------------------search------------------------>
+<div class="search_bg">
+    <div class="container">
+        <div class="row blank_height"></div>
+        <div class="row">
+            <div class="col-lg-1 col-md-1 col-sm-1"></div>
+            <div class="col-lg-5 col-md-5 col-sm-5 blank_height search_btn_bg">
+                <div class="row search_title_div">
+                    <h4 class="search_title">GO!</h4>
+                </div>
+                <form class="form-inline">
+                    <div class="input-group search_div">
+                        <input type="text" class="form-control search_input" style="border-radius: 5px" id="inputPassword2" placeholder="您想去...">
+                    </div>
+                    <button type="submit" class="btn btn-default search_btn"><span class="glyphicon glyphicon-search "></span></button>
+                </form>
+            </div>
+        </div>
+        <div class="row blank_height"></div>
+    </div>
+</div>
+<!---------------------------地点（二级菜单）--------------------------------->
+<div class="">
+    <div class="container">
+        <div class="row blank_height_pos"></div>
+        <div class="row blank_height_pos text-center"><h2>目的地</h2></div>
+        <div class="row blank_height_pos"></div>
+        <div class="row">
+            <ul class="nav nav-tabs center-block pos_ul">
+                <li role="presentation" class="active pos_font"><a href="#home" data-toggle="tab">国内</a></li>
+                <li role="presentation" class="pos_font center-block"><a href="#abroad" data-toggle="tab">国外</a></li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="home">
+                    <div class="pos_ul_blank"></div>
+                    <div class="">
+                        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                        <div class="col-lg-8 col-md-8 col-sm-8">
+                            <span class="pos_style" id="pos">北京</span>
+                            <span class="pos_style">乌鲁木齐</span>
+                            <span class="pos_style">广西壮族自治区</span>
+                            <span class="pos_style">北京</span>
+                            <span class="pos_style">广西壮族自治区</span>
+                            <span class="pos_style">广西壮族自治区</span>
+                            <span class="pos_style">北京</span>
+                            <span class="pos_style">广西壮族自治区</span>
+                            <span class="pos_style">广西壮族自治区</span>
+                            <span class="pos_style">广西壮族自治区</span>
+                            <span class="pos_style">乌鲁木齐</span>
+                            <span class="pos_style">广西壮族自治区</span>
+                            <span class="pos_style">北京</span>
+                            <span class="pos_style">广西壮族自治区</span>
+                            <span class="pos_style">广西壮族自治区</span>
+                            <span class="pos_style">广西壮族自治区</span>
+                            <span class="pos_style">广西壮族自治区</span>
+                            <span class="pos_style">乌鲁木齐</span>
+                            <span class="pos_style">广西壮族自治区</span>
+                        </div>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="abroad">
+                    <div class="blank_height_pos"></div>
+                    <div class="Eblank_height_pos text-center"><h2 class="xs_font">敬请期待...</h2></div>
+                </div>
+            </div>
+        </div>
+        <div class="row blank_height_pos"></div>
+    </div>
+</div>
+<!-------------------------当季推荐------------------------------------------->
+<div class=""  style="background-color: lavenderblush">
+    <div class="container">
+        <div class="row blank_height_pos text-center"><h2>当季景点推荐<span class="glyphicon glyphicon-refresh change_font">换一换</span></h2></div>
+        <div class="row blank_height_pos"></div>
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-3 nowaday_rec">
+                <div class="thumbnail">
+                    <img src="http://b3-q.mafengwo.net/s6/M00/F4/5B/wKgB4lM3um2AL0PZAAnnUoYzZMA50.jpeg" alt="...">
+                    <div class="caption">
+                        <h3>推荐景点门票名称</h3>
+                        <p>推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介</p>
+                        <p><span class="rec_price">￥2500</span> <span class="rec_sale">已售</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 nowaday_rec">
+                <div class="thumbnail">
+                    <img src="http://b3-q.mafengwo.net/s6/M00/F4/5B/wKgB4lM3um2AL0PZAAnnUoYzZMA50.jpeg" alt="...">
+                    <div class="caption">
+                        <h3>推荐景点门票名称</h3>
+                        <p>推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介</p>
+                        <p><span class="rec_price">￥2500</span> <span class="rec_sale">已售</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 nowaday_rec">
+                <div class="thumbnail">
+                    <img src="http://b3-q.mafengwo.net/s6/M00/F4/5B/wKgB4lM3um2AL0PZAAnnUoYzZMA50.jpeg" alt="...">
+                    <div class="caption">
+                        <h3>推荐景点门票名称</h3>
+                        <p>推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介</p>
+                        <p><span class="rec_price">￥2500</span> <span class="rec_sale">已售</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 nowaday_rec">
+                <div class="thumbnail">
+                    <img src="http://b3-q.mafengwo.net/s6/M00/F4/5B/wKgB4lM3um2AL0PZAAnnUoYzZMA50.jpeg" alt="...">
+                    <div class="caption">
+                        <h3>推荐景点门票名称</h3>
+                        <p>推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介</p>
+                        <p><span class="rec_price">￥2500</span> <span class="rec_sale">已售</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row blank_height_pos"></div>
+    </div>
+</div>
+<!--------------------------------------页脚-------------------------------------
+<div id="footer">
+    <div class="footer_box container-fluid">
+        <div class="foot_list row">
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                <ul>
+                    <li class="foot_title">中国领先的自由行服务平台</li>
+                    <li><a href="">覆盖全球200多个国家和地区</a></li>
+                    <li><a href=""><span>100,000,000</span> 位旅行者</a></li>
+                    <li><a href=""><span>920,000</span> 家国际酒店</a></li>
+                    <li><a href=""><span>21,000,000</span> 条真实点评</a></li>
+                    <li><a href=""><span>382,000,000</span> 次攻略下载</a></li>
+                    <li><a href=""><span>中国旅游行业第一部“玩法”</span></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                <ul>
+                    <li class="foot_title">关于我们</li>
+                    <li><a href="">关于蚂蜂窝</a></li>
+                    <li><a href="">网络信息侵权通知指引</a></li>
+                    <li><a href="">隐私政策 服务协议</a></li>
+                    <li><a href="">联系我们</a></li>
+                    <li><a href="">网站地图</a></li>
+                    <li><a href=""><span>加入蚂蜂窝</span></a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+                <ul>
+                    <li class="foot_title">旅行服务</li>
+                    <li><a href="">旅游攻略</a><a href="">酒店预订</a></li>
+                    <li><a href="">旅游特价</a><a href="">国际租车</a></li>
+                    <li><a href="">旅游问答</a><a href="">旅游保险</a></li>
+                    <li><a href="">旅游指南</a><a href="">订火车票</a></li>
+                    <li><a href="">旅游资讯</a><a href="">APP下载</a></li>
+                    <li><a href=""><span>全球供应商入驻</span></a></li>
+                </ul>
+            </div>
+            <div class="foot_qrcode foot_title col-lg-3 col-md-3 col-sm-12 col-xs-6">
+                <div>
+                    <span class="foot_qrcode_weixin"></span>
+                    <p>
+                        蚂蜂窝自由行<br>
+                        订阅号
+                    </p>
+                </div>
+                <div>
+                    <span class="foot_qrcode_tejia"></span>
+                    <p>
+                        蚂蜂窝良品<br>
+                        官方服务号
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="foor_social">
+            <p>向崇尚自由的加勒比海盗致敬！</p>
+            <p>
+                <i class="foot_weibo"></i>
+                <i class="foot_qq"></i>
+                <i class="foot_kj"></i>
+            </p>
+        </div>
+    </div>
+</div>-->
+</body>
+<script>
+    var viewport_url = "{:url('index/viewport/viewpos')}";
+</script>
+<script src="__STATIC__/js/viewport.js"></script>
+</html>
