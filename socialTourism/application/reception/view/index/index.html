@@ -11,22 +11,6 @@
     <link rel="stylesheet" href="__STATIC__/css/receptioncss/index.css" type="text/css">
 </head>
 <body>
-<<<<<<< HEAD
-<!--导航栏-->
-<div id="nav">
-    <div class="nav_box container">
-        <div class="row">
-            <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
-            <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
-                <li><a class="nav_index" href="">首页</a></li>
-                <li><a href="{:url('reception/index/viewport')}">目的地</a></li>
-                <li><a href="">旅游游记</a></li>
-                <li><a href="">商品活动</a></li>
-                <li><a href="">酒店</a></li>
-                <li><a href="">卖家入驻</a></li>
-            </ul>
-            <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8">
-=======
     <!--导航栏-->
     <div id="nav">
         <div class="nav_box container">
@@ -34,26 +18,24 @@
                 <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
                 <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
                     <li><a class="nav_index" href="">首页</a></li>
-                    <li><a href="">目的地</a></li>
+                    <li><a href="{:url('reception/index/viewport')}">目的地</a></li>
                     <li><a href="">旅游游记</a></li>
                     <li><a href="">商品活动</a></li>
                     <li><a href="">酒店</a></li>
                     <li><a href="">卖家入驻</a></li>
                 </ul>
                 <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8">
->>>>>>> f042a7f270c00f0135fa576b0fa0abf0f04a1594
-
-                    <li><a class="nav_qq" href=""></a></li>
-                    <li><a class="nav_weixin" href=""></a></li>
-                    <li><a class="nav_login" href="">登录</a></li>
-                    <li>
-                        <span class="nav_division">|</span>
-                    </li>
-                    <li><a class="nav_register" href="">注册</a></li>
-                </ul>
+                        <li><a class="nav_qq" href=""></a></li>
+                        <li><a class="nav_weixin" href=""></a></li>
+                        <li><a class="nav_login" href="">登录</a></li>
+                        <li>
+                            <span class="nav_division">|</span>
+                        </li>
+                        <li><a class="nav_register" href="">注册</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
     <!--轮播图-->
     <div id="banner">
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="4000">
@@ -82,6 +64,31 @@
             <a class="carousel-control right" href="#myCarousel" data-slide="next" role="button">
                 <span class="glyphicon glyphicon-chevron-right"></span>
             </a>
+        </div>
+    </div>
+    <!--搜索框-->
+    <div id="search">
+        <div class="container">
+            <div class="row">
+                <div class="search col-xs-12">
+                    <div class="search_info">
+                        <input type="radio" name="type">全部
+                        <input type="radio" name="type">酒店
+                        <input type="radio" name="type">目的地
+                        <input type="radio" name="type">商品活动
+                    </div>
+                    <form class="bs-example bs-example-form" role="form">
+                        <div class="input-group">
+                            <input type="text" class="form-control search_input" placeholder="搜目的地/酒店/商品活动">
+					        <span class="input-group-btn">
+                                <button class="btn btn-default search_btn" type="button">
+                                    <span class="glyphicon glyphicon-search "></span>
+                                </button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
     <!--小屏幕下的导航栏-->
@@ -120,28 +127,78 @@
     <!--页面主体-->
     <div id="content">
         <div class="container">
+            <!--广告栏加爆款热卖-->
             <div class="row">
-                <div class="col-lg-3"></div>
-                <div class="search col-xs-12">
-                    <div class="search_info">
-                        <input type="radio">全部
-                        <input type="radio">酒店
-                        <input type="radio">目的地
-                        <input type="radio">商品活动
+                <!--广告栏-->
+                <div class="container_ad col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="ad_title">广告专栏</div>
+                    <a href=""><img class="img-responsive" src="https://n2-q.mafengwo.net/s9/M00/F1/67/wKgBs1bEF1mAJGJDAAol24gLRuI56.jpeg?imageMogr2%2Fthumbnail%2F%21440x270r%2Fgravity%2FCenter%2Fcrop%2F%21440x270%2Fquality%2F90" alt=""></a>
+                    <div class="ad_text">
+                        <h5>金奈：殖民枪炮与印度神像共舞</h5>
+                        <p>浮雕上展示着类似于电灯泡的东西，引发了历史学家的讨论，甚至把古埃及文明跟外星人又一次联系到一起。</p>
                     </div>
-                    <div>
-                        <input type="text">
-                        <i></i>
+                </div>
+                <!--爆款热卖-->
+                <div class="container_activity col-lg-9 col-md-9 col-sm-9">
+                    <div class="row">
+                        <div class="activity_title col-xs-12">爆款热卖</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <a href="">
+                                <img class="img-responsive" src="https://n2-q.mafengwo.net/s9/M00/F1/67/wKgBs1bEF1mAJGJDAAol24gLRuI56.jpeg?imageMogr2%2Fthumbnail%2F%21440x270r%2Fgravity%2FCenter%2Fcrop%2F%21440x270%2Fquality%2F90" alt="">
+                            </a>
+                            <div class="activity_name">
+                                <p>[北京送签]美国旅游签证（高出签率+拒签退款+春节特价机票套餐+面试培训+陪签+诚信经营+暖心服务）</p>
+                                <div>￥<strong>2555</strong>起</div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <a href=""><img class="img-responsive" src="https://n2-q.mafengwo.net/s9/M00/F1/67/wKgBs1bEF1mAJGJDAAol24gLRuI56.jpeg?imageMogr2%2Fthumbnail%2F%21440x270r%2Fgravity%2FCenter%2Fcrop%2F%21440x270%2Fquality%2F90" alt=""></a>
+                            <div class="activity_name">
+                                <p>[北京送签]美国旅游签证（高出签率+拒签退款+春节特价机票套餐+面试培训+陪签+诚信经营+暖心服务）</p>
+                                <div>￥<strong>2555</strong>起</div>
+                            </div>
+
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <a href=""><img class="img-responsive" src="https://n2-q.mafengwo.net/s9/M00/F1/67/wKgBs1bEF1mAJGJDAAol24gLRuI56.jpeg?imageMogr2%2Fthumbnail%2F%21440x270r%2Fgravity%2FCenter%2Fcrop%2F%21440x270%2Fquality%2F90" alt=""></a>
+                            <div class="activity_name">
+                                <p>[北京送签]美国旅游签证（高出签率+拒签退款+春节特价机票套餐+面试培训+陪签+诚信经营+暖心服务）</p>
+                                <div>￥<strong>2555</strong>起</div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container">
+            <!--热门游记-->
             <div class="row">
-
+                <div>
+                    <ul id="myTab" class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#home" data-toggle="tab">
+                                热门游记
+                            </a>
+                        </li>
+                        <li><a href="#ios" data-toggle="tab">最新发表</a></li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active" id="home">
+                            <p>菜鸟教程是一个提供最新的web技术站点，本站免费提供了建站相关的技术文档，帮助广大web技术爱好者快速入门并建立自己的网站。菜鸟先飞早入行——学的不仅是技术，更是梦想。</p>
+                        </div>
+                        <div class="tab-pane fade" id="ios">
+                            <p>iOS 是一个由苹果公司开发和发布的手机操作系统。最初是于 2007 年首次发布 iPhone、iPod Touch 和 Apple
+                                TV。iOS 派生自 OS X，它们共享 Darwin 基础。OS X 操作系统是用在苹果电脑上，iOS 是苹果的移动版本。</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-
     </div>
-
     <!--页脚-->
     <div id="footer">
         <div class="footer_box container">

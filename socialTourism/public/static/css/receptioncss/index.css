@@ -17,88 +17,387 @@ a:hover{
 /*大屏幕*/
 @media (min-width: 1200px){
     /*搜索框*/
-    #content .search{
-        width: 520px;
-        height: 80px;
-        background-color: #8a6d3b;
-        margin: auto;
-        padding: 10px;
+    #search .row{
+        display: flex;
+        display: -webkit-flex;
     }
-    #content .search .search_info{
+    #search .search{
+        width: 540px;
+        height: 88px;
+        padding: 10px;
+        margin: auto;
+        align-self: center;
+    }
+    #search .search .search_info{
         display: flex;
         height: 30px;
         line-height: 30px;
+        text-align: center;
     }
-    #content .search .search_info input{
+    #search .search .search_info input{
         width: 16px;
         height: 16px;
         align-self: center;
         margin: 0 5px 0 10px;
+    }
+    .search_input{
+        height: 38px;
+        margin-right: 10px;
+    }
+    .search_btn {
+        background-color: orange;
+        border: 1px solid #ff9300;
+        font-size: 16px;
+        color: white;
+        height: 38px;
+
+    }
+    .btn-default:hover{
+        background-color: #ff9300;
+        color: #fff;
+        font-size: 16px;
+        border: 1px solid #ff9300;
+    }
+
+    /*广告栏*/
+    #content .container_ad{
+        padding-right: 30px;
+    }
+    #content .container_ad .ad_title{
+        height: 35px;
+        line-height: 35px;
+        margin-bottom: 12px;
+        font-size: 18px;
+        color: #333;
+        font-weight: normal;
+    }
+    #content .container_ad .ad_text{
+        padding: 9px;
+        color: #333;
+    }
+    #content .container_ad .ad_text h5{
+        font-size: 16px;
+        font-weight: normal;
+    }
+    #content .container_ad .ad_text p{
+        line-height: 20px;
+        font-size: 14px;
+        color: #666;
+    }
+
+    /*爆款热卖*/
+    #content .container_activity .activity_title{
+        padding: 0 15px;
+        height: 35px;
+        line-height: 35px;
+        margin-bottom: 12px;
+        font-size: 18px;
+        color: #333;
+        font-weight: normal;
+    }
+    #content .container_activity .activity_name{
+        padding: 10px;
+        font-size: 14px;
+        color: #000;
+        line-height: 20px;
+    }
+    #content .activity_name div{
+        text-align: right;
+        font-size: 16px;
+        color: #ff9d00;
+    }
+    #content .activity_name div strong{
+        font-size: 18px;
+    }
+
+    /*热门游记*/
+    #content .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+        color: #ff9d00;
+        font-size: 18px;
+        border: none;
+        border-bottom: 2px solid #ff9d00;
+    }
+    #content .nav-tabs>li>a{
+        color: #333;
+        font-size: 18px;
     }
 }
 /*中屏幕*/
 @media (min-width: 992px) and (max-width: 1199px){
     /*搜索框*/
-    #content .search{
-        width: 520px;
-        height: 80px;
-        background-color: #8a6d3b;
+    #search .row{
+        display: flex;
+        display: -webkit-flex;
+    }
+    #search .search{
+        width: 540px;
+        height: 88px;
         margin: auto;
         padding: 10px;
+        align-self: center;
     }
-    #content .search .search_info{
+    #search .search .search_info{
         display: flex;
         height: 30px;
         line-height: 30px;
     }
-    #content .search .search_info input{
+    #search .search .search_info input{
         width: 16px;
         height: 16px;
         align-self: center;
         margin: 0 5px 0 10px;
+    }
+    .search_input{
+        height: 38px;
+        margin-right: 10px;
+    }
+    .search_btn {
+        background-color: orange;
+        border: 1px solid #ff9300;
+        font-size: 16px;
+        color: white;
+        height: 38px;
+
+    }
+    .btn-default:hover{
+        background-color: #ff9300;
+        color: #fff;
+        font-size: 16px;
+        border: 1px solid #ff9300;
+    }
+    /*广告栏*/
+    #content .container_ad{
+        padding-right: 30px;
+    }
+    #content .container_ad .ad_title{
+        height: 35px;
+        line-height: 35px;
+        margin-bottom: 12px;
+        font-size: 18px;
+        color: #333;
+        font-weight: normal;
+        display: flex;
+    }
+    #content .container_ad .ad_text{
+        padding: 9px;
+        color: #333;
+    }
+    #content .container_ad .ad_text h5{
+        font-size: 16px;
+        font-weight: normal;
+    }
+    #content .container_ad .ad_text p{
+        line-height: 20px;
+        font-size: 14px;
+        color: #666;
+    }
+    /*爆款热卖*/
+    #content .container_activity .activity_title{
+        padding: 0 15px;
+        height: 35px;
+        line-height: 35px;
+        margin-bottom: 12px;
+        font-size: 18px;
+        color: #333;
+        font-weight: normal;
+    }
+    #content .container_activity .activity_name{
+        padding: 10px;
+        font-size: 14px;
+        color: #000;
+        line-height: 20px;
+    }
+    #content .activity_name div{
+        text-align: right;
+        font-size: 16px;
+        color: #ff9d00;
+    }
+    #content .activity_name div strong{
+        font-size: 18px;
     }
 }
 /*小屏幕*/
 @media (min-width: 768px) and (max-width: 991px){
     /*搜索框*/
-    #content .search{
-        width: 520px;
-        height: 80px;
-        background-color: #8a6d3b;
+    #search .row{
+        display: flex;
+        display: -webkit-flex;
+    }
+    #search .search{
+        width: 540px;
+        height: 88px;
         margin: auto;
         padding: 10px;
+        align-self: center;
     }
-    #content .search .search_info{
+    #search .search .search_info{
         display: flex;
         height: 30px;
         line-height: 30px;
     }
-    #content .search .search_info input{
+    #search .search .search_info input{
         width: 16px;
         height: 16px;
         align-self: center;
         margin: 0 5px 0 10px;
+    }
+    .search_input{
+        height: 38px;
+        margin-right: 10px;
+    }
+    .search_btn {
+        background-color: orange;
+        border: 1px solid #ff9300;
+        font-size: 16px;
+        color: white;
+        height: 38px;
+
+    }
+    .btn-default:hover{
+        background-color: #ff9300;
+        color: #fff;
+        font-size: 16px;
+        border: 1px solid #ff9300;
+    }
+    /*广告栏*/
+    #content .container_ad{
+        padding-right: 30px;
+    }
+    #content .container_ad .ad_title{
+        height: 35px;
+        line-height: 35px;
+        margin-bottom: 12px;
+        font-size: 18px;
+        color: #333;
+        font-weight: normal;
+        display: flex;
+    }
+    #content .container_ad .ad_text{
+        padding: 9px;
+        color: #333;
+    }
+    #content .container_ad .ad_text h5{
+        font-size: 16px;
+        font-weight: normal;
+    }
+    #content .container_ad .ad_text p{
+        line-height: 20px;
+        font-size: 14px;
+        color: #666;
+    }
+    /*爆款热卖*/
+    #content .container_activity .activity_title{
+        padding: 0 15px;
+        height: 35px;
+        line-height: 35px;
+        margin-bottom: 12px;
+        font-size: 18px;
+        color: #333;
+        font-weight: normal;
+    }
+    #content .container_activity .activity_name{
+        padding: 10px;
+        font-size: 14px;
+        color: #000;
+        line-height: 20px;
+    }
+    #content .activity_name div{
+        text-align: right;
+        font-size: 16px;
+        color: #ff9d00;
+    }
+    #content .activity_name div strong{
+        font-size: 18px;
     }
 }
 /*超小屏幕*/
 @media (max-width: 767px){
     /*搜索框*/
-    #content .search{
-        width: 520px;
-        height: 80px;
-        background-color: #8a6d3b;
+    #search .search{
+        height: 88px;
         margin: auto;
         padding: 10px;
     }
-    #content .search .search_info{
+    #search .search .search_info{
         display: flex;
         height: 30px;
         line-height: 30px;
     }
-    #content .search .search_info input{
+    #search .search .search_info input{
         width: 16px;
         height: 16px;
         align-self: center;
         margin: 0 5px 0 10px;
     }
+
+    .search_input{
+        height: 38px;
+        margin-right: 10px;
+    }
+    .search_btn {
+        background-color: orange;
+        border: 1px solid #ff9300;
+        font-size: 16px;
+        color: white;
+        height: 38px;
+
+    }
+    .btn-default:hover{
+        background-color: #ff9300;
+        color: #fff;
+        font-size: 16px;
+        border: 1px solid #ff9300;
+    }
+    /*广告栏*/
+    #content img{
+        margin-right: auto;
+        margin-left: auto;
+    }
+    #content .container_ad .ad_title{
+        height: 35px;
+        line-height: 35px;
+        margin-bottom: 12px;
+        font-size: 18px;
+        color: #333;
+        font-weight: normal;
+        display: flex;
+    }
+    #content .container_ad .ad_text{
+        padding: 9px;
+        color: #333;
+    }
+    #content .container_ad .ad_text h5{
+        font-size: 16px;
+        font-weight: normal;
+    }
+    #content .container_ad .ad_text p{
+        line-height: 20px;
+        font-size: 14px;
+        color: #666;
+    }
+    /*爆款热卖*/
+    #content .container_activity .activity_title{
+        padding: 0 15px;
+        height: 35px;
+        line-height: 35px;
+        margin-bottom: 12px;
+        font-size: 18px;
+        color: #333;
+        font-weight: normal;
+    }
+    #content .container_activity .activity_name{
+        padding: 10px;
+        font-size: 14px;
+        color: #000;
+        line-height: 20px;
+    }
+    #content .activity_name div{
+        text-align: right;
+        font-size: 16px;
+        color: #ff9d00;
+    }
+    #content .activity_name div strong{
+        font-size: 18px;
+    }
+
 }
