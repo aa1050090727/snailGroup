@@ -7,15 +7,15 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="__STATIC__/css/receptioncss/index.css" type="text/css">
+    <link rel="stylesheet" href="__STATIC__/css/receptioncss/public.css" type="text/css">
 </head>
 <body>
 <!--导航栏-->
 <div id="nav">
-    <div class="nav_box container-fluid">
+    <div class="nav_box container">
         <div class="row">
-            <a class="nav_logo col-lg-2 col-md-2 col-sm-3 col-xs-4" href="#"></a>
-            <ul class="nav_list col-lg-8 col-md-7 col-sm-8">
+            <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
+            <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
                 <li><a class="nav_index" href="">首页</a></li>
                 <li><a href="">目的地</a></li>
                 <li><a href="">旅游游记</a></li>
@@ -23,7 +23,7 @@
                 <li><a href="">酒店</a></li>
                 <li><a href="">卖家入驻</a></li>
             </ul>
-            <ul class="nav_out col-lg-3 col-md-3 col-sm-3 col-xs-8">
+            <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8">
 
                 <li><a class="nav_qq" href=""></a></li>
                 <li><a class="nav_weixin" href=""></a></li>
@@ -69,48 +69,46 @@
 
 <!--小屏幕下的导航栏-->
 <div id="nav_small">
-    <div class="container ">
+    <div class="container">
         <div class="row">
             <div class="col-xs-4">
-                <i class=""></i>
+                <i class="ns_index"></i>
                 <p>首页</p>
             </div>
             <div class="col-xs-4">
-                <i></i>
+                <i class="ns_place"></i>
                 <p>目的地</p>
             </div>
             <div class="col-xs-4">
-                <i></i>
+                <i class="ns_travels"></i>
                 <p>旅游游记</p>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-4">
-                <i></i>
-                <p>首页</p>
+                <i class="ns_activity"></i>
+                <p>商品活动</p>
             </div>
             <div class="col-xs-4">
-                <i></i>
-                <p>目的地</p>
+                <i class="ns_hotel"></i>
+                <p>酒店</p>
             </div>
             <div class="col-xs-4">
-                <i></i>
-                <p>旅游游记</p>
+                <i class="ns_settled"></i>
+                <p>卖家入驻</p>
             </div>
         </div>
     </div>
 </div>
 
 <!--页面主体-->
-<div id="content">
-
-</div>
+<div id="content"></div>
 
 <!--页脚-->
 <div id="footer">
-    <div class="footer_box container-fluid">
+    <div class="footer_box container">
         <div class="foot_list row">
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 foot_hidden">
                 <ul>
                     <li class="foot_title">中国领先的自由行服务平台</li>
                     <li><a href="">覆盖全球200多个国家和地区</a></li>
@@ -121,7 +119,7 @@
                     <li><a href=""><span>中国旅游行业第一部“玩法”</span></a></li>
                 </ul>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                 <ul>
                     <li class="foot_title">关于我们</li>
                     <li><a href="">关于蚂蜂窝</a></li>
@@ -132,7 +130,7 @@
                     <li><a href=""><span>加入蚂蜂窝</span></a></li>
                 </ul>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                 <ul>
                     <li class="foot_title">旅行服务</li>
                     <li><a href="">旅游攻略</a><a href="">酒店预订</a></li>
@@ -143,7 +141,7 @@
                     <li><a href=""><span>全球供应商入驻</span></a></li>
                 </ul>
             </div>
-            <div class="foot_qrcode foot_title col-lg-3 col-md-3 col-sm-12 col-xs-6">
+            <div class="foot_qrcode foot_title col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div>
                     <span class="foot_qrcode_weixin"></span>
                     <p>
@@ -167,8 +165,6 @@
                 <i class="foot_qq"></i>
                 <i class="foot_kj"></i>
             </p>
-        </div>
-
         </div>
     </div>
 </div>
