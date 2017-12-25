@@ -28,7 +28,7 @@ var app2 = new Vue({
                         alert('密码错误')
                     }else if(res==-2){
                         alert('输入不能为空')
-                    }else if(res==-2){
+                    }else if(res==-3){
                         alert('账号错误')
                     }
                 }

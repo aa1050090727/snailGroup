@@ -253,4 +253,13 @@ return [
         //验证成功后是否重置
         'reset' =>true
     ],
+
+    'msg' =>[
+        'verify' => [
+            'verify_error1' => '输入不能为空',
+            'verify_error' => '已注册,请重新输入',
+            'verify_success' => '未注册'
+        ]
+    ]
+
 ];

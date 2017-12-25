@@ -5,24 +5,68 @@ use \think\Controller;
 use \think\Db;
 use \think\Request;
 use think\Cache;
+use think\Session;
 
 
 class Login extends Controller
 {
-
+    //进入登录页面
     public function login(){
         return $this->fetch();
     }
 
-
+    //进入注册页面
     public function register(){
         return $this->fetch();
     }
 
+    //验证是否注册过
+    public function verify(){
+        $verifymsg = config('msg')['verify']; //调用配置文件
+        if(input('?post.uname')){//判断是否有值
+            $uname=input('param.uname');//接收
+            $phone1 = strip_tags($uname);
+            $name = addslashes($phone1);
+            $phone = [
+                'f_user_phone' =>   $name
+            ];
+            $res  = Db::table('f_user')->where($phone)->find();//数据库查询
+
+            if(!empty($res)){
+                return json(['code'=>10001,'msg'=>$verifymsg['verify_error'],'data'=>[],'url' => [] ]);
+            }else{
+                session_start();
+                Session::set('phone',$uname);
+                return json(['code'=>10000,'msg'=>$verifymsg['verify_success'],'data'=>[],'url'=>url('reception/Login/registeryan')]);
+            }
+        }else{
+            return json(['code'=>10002,'msg'=>$verifymsg['verify_error1'],'data'=>[],'url' => []]);
+        }
+    }
+
+    //填写信息页面
     public function registeryan(){
         return $this->fetch();
     }
 
+
+    //数据写入数据库
+    public function setmy(){
+        if(input('?post.name') && input('?post.pwd') && input('?post.password') && input('?post.code')) {//判断是否有值
+            $name = input('param.name');//接收
+            $pwd = input('param.pwd');
+            $password = input('param.password');
+            $code = input('param.code');
+            echo strlen($name);
+        }
+    }
+
+
+
+
+
+
+//省市区录入数据库
 //    public function city(){
 //        // $arr=input('post.city');
 //        set_time_limit(0);
@@ -5396,17 +5440,24 @@ class Login extends Controller
 //            }
 //        }
 //    }
+    //账号登录方法
 
+
+    //账号登录方法
     public function logincode(){
         if(input('?post.uname')  && input('?post.pwd')){
             $uname=input('param.uname');
             $pwd=input('param.pwd');
+            $phone1 = strip_tags($uname);
+            $name = addslashes($phone1);
+            $psw = strip_tags($pwd);
+            $password = addslashes($psw);
                 $phone = [
-                    'f_user_phone' =>   $uname
+                    'f_user_phone' =>   $name
                 ];
                 $where = [
-                    'f_user_phone' =>   $uname,
-                    'f_user_pwd' =>   $pwd
+                    'f_user_phone' =>   $name,
+                    'f_user_pwd' =>   md5($password)
                 ];
 
                 $res  = Db::table('f_user')->where($phone)->find();
@@ -5428,6 +5479,10 @@ class Login extends Controller
 
 
     }
+
+
+    //注册方法
+
 
 
     public function mian(){
