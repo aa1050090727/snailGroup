@@ -1,0 +1,233 @@
+
+@media (max-width:767px) {
+    .backdrop{
+        width: 100%;
+        height: 100%;
+        background-image: url("../../image/banner.jpg");
+
+    }
+    .login_box {
+        width:260px;
+        margin: 0 auto;
+        overflow: hidden;
+        background-color: #fff;
+        border-color: #ddd;
+        border-width: 1px;
+        border-radius: 4px 4px 0 0;
+        margin-top: 200px;
+    }
+
+    .login_form{
+        height: 160px;
+        margin: 0 auto;
+        margin-top: 26px;
+    }
+
+    .login_in{
+        width: 240px;
+        margin: 0 auto;
+    }
+
+    .login_third{
+        width:260px;
+        margin: 0 auto;
+        overflow: hidden;
+        background-color: #fff;
+        border-color: #ddd;
+        border-width: 1px;
+        border-radius: 0 0 4px 4px;
+        border-top: 1px solid #999;
+    }
+    .login_wai{
+        height: 100px;
+        margin: 0 auto;
+        margin-top: 26px;
+    }
+
+    .third_zi{
+        margin-left: 10px;
+        font-size: 12px;
+        color: #999;
+        line-height: 30px;
+    }
+
+    .image-text{
+        margin-left: 10px;
+        height: 50px;
+
+    }
+}
+@media (min-width:768px) and (max-width:991px) {
+    .backdrop{
+        width: 100%;
+        height: 100%;
+        background-image: url("../../image/banner.jpg");
+
+    }
+    .login_box {
+        width:170px;
+        margin: 0 auto;
+        overflow: hidden;
+        background-color: #fff;
+        border-color: #ddd;
+        border-width: 1px;
+        border-radius: 4px 4px 0 0;
+        margin-top: 200px;
+    }
+
+    .login_form{
+        height: 160px;
+        margin: 0 auto;
+        margin-top: 26px;
+    }
+
+    .login_in{
+        width: 150px;
+        margin: 0 auto;
+    }
+
+    .login_third{
+        width:300px;
+        margin: 0 auto;
+        overflow: hidden;
+        background-color: #fff;
+        border-color: #ddd;
+        border-width: 1px;
+        border-radius: 0 0 4px 4px;
+        border-top: 1px solid #999;
+    }
+    .login_wai{
+        height: 100px;
+        margin: 0 auto;
+        margin-top: 26px;
+    }
+
+    .third_zi{
+        margin-left: 10px;
+        font-size: 12px;
+        color: #999;
+        line-height: 30px;
+    }
+
+
+    .image-text{
+        margin-left: 10px;
+        height: 50px;
+
+    }
+}
+@media (min-width:992px) and (max-width:1199px) {
+    .backdrop{
+        width: 100%;
+        height: 100%;
+        background-image: url("../../image/banner.jpg");
+
+    }
+    .login_box {
+        width: 270px;
+        margin: 0 auto;
+        overflow: hidden;
+        background-color: #fff;
+        border-color: #ddd;
+        border-width: 1px;
+        border-radius: 4px 4px 0 0;
+        margin-top: 200px;
+    }
+
+    .login_form{
+        height: 160px;
+        margin: 0 auto;
+        margin-top: 26px;
+    }
+    .login_in{
+        width: 250px;
+        margin: 0 auto;
+    }
+
+    .login_third{
+        width:300px;
+        margin: 0 auto;
+        overflow: hidden;
+        background-color: #fff;
+        border-color: #ddd;
+        border-width: 1px;
+        border-radius: 0 0 4px 4px;
+        border-top: 1px solid #999;
+    }
+    .login_wai{
+        height: 100px;
+        margin: 0 auto;
+        margin-top: 26px;
+    }
+
+    .third_zi{
+        margin-left: 10px;
+        font-size: 12px;
+        color: #999;
+        line-height: 30px;
+    }
+
+
+    .image-text{
+        margin-left: 10px;
+        height: 50px;
+
+    }
+}
+@media (min-width:1200px) {
+    .backdrop{
+        width: 100%;
+        height: 100%;
+        background-image: url("../../image/banner.jpg");
+
+    }
+    .login_box {
+        width: 370px;
+        margin: 0 auto;
+        overflow: hidden;
+        background-color: #fff;
+        border-color: #ddd;
+        border-width: 1px;
+        border-radius: 4px 4px 0 0;
+        margin-top: 200px;
+    }
+
+    .login_form{
+        height: 160px;
+        margin: 0 auto;
+        margin-top: 26px;
+    }
+
+    .login_in{
+        width: 350px;
+        margin: 0 auto;
+    }
+
+    .login_third{
+        width:370px;
+        margin: 0 auto;
+        overflow: hidden;
+        background-color: #fff;
+        border-color: #ddd;
+        border-width: 1px;
+        border-radius: 0 0 4px 4px;
+        border-top: 1px solid #999;
+    }
+    .login_wai{
+        height: 100px;
+        margin: 0 auto;
+        margin-top: 26px;
+    }
+
+    .third_zi{
+        margin-left: 10px;
+        font-size: 12px;
+        color: #999;
+        line-height: 30px;
+    }
+    .image-text{
+        margin-left: 10px;
+        height: 50px;
+
+    }
+}

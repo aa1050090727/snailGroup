@@ -236,4 +236,21 @@ return [
         'var_page'  => 'page',
         'list_rows' => 15,
     ],
+    //验证码
+    'captcha' =>[
+        //验证码字符集合
+        'codeSet' =>'123456789zbcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
+        //验证码字体大小根据所需进行设置验证码字体大小
+        'fontSize' => 30,
+        //是否画混淆曲线
+        'useCurva' =>true,
+        //验证码图片高度，根据所需进行设置高度
+        'imageH' =>'',
+        //验证码图片宽度，根据所需进行设置宽度
+        'imageW' =>'',
+        //验证码位数，根据所需进行设置位数
+        'length' =>4,
+        //验证成功后是否重置
+        'reset' =>true
+    ],
 ];
