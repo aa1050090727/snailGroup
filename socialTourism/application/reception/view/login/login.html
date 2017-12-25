@@ -10,20 +10,20 @@
     <script src="__STATIC__/js/jquery-1.12.3.min.js" type="text/javascript"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="http://cdn.static.runoob.com/libs/angular.js/1.4.6/angular.min.js"></script>
-    <script src="__STATIC__/js/login.js" ></script>
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
 </head>
 <body class="backdrop">
-    <div class="container">
+    <div class="container" id="login">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-4"></div>
             <div class="col-lg-4 col-md-4 col-sm-4">
                 <div class="login_box">
                     <div class="login_form">
                         <div class="login_in">
-                            <input type="text" class="form-control" placeholder="您的邮箱/手机号">
-                            <input style="margin-top: 20px" type="text" class="form-control" placeholder="您的密码">
+                            <input type="text" class="form-control" placeholder="您的手机号" v-model="phone">
+                            <input style="margin-top: 20px" type="password" class="form-control" placeholder="您的密码" v-model="pwd">
                             <span style="float: right;margin-top: 40px;color: #FFA800">忘记密码</span><br>
-                            <button style="margin-top: 80px" type="button" class="btn btn-warning btn-group btn-group-justified">登录</button>
+                            <button style="margin-top: 80px" type="button" class="btn btn-warning btn-group btn-group-justified" v-on:click="login" >登录</button>
                         </div>
                     </div>
                 </div>
@@ -49,10 +49,15 @@
                 <div class="text-center" style="color: white;">
                     还没有账号？
                     <a style="color:#FFA800;" href="{:url('reception/Login/register')}">马上注册</a>
+
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4"></div>
         </div>
     </div>
 </body>
+<script>
+    var logincode = '{:url("reception/Login/logincode")}'
+</script>
+<script src="__STATIC__/js/login.js" ></script>
 </html>
