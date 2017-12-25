@@ -17,7 +17,21 @@ a:hover{
 
 /*大屏幕*/
 @media (min-width: 1200px){
-
+    /*排行字体*/
+    .rankSpan{
+        color: orange;
+        font-size: 23px;
+        font-weight: 800;
+    }
+    .rankSpanl{
+        font-size: 20px;
+        font-weight: 500;
+    }
+    /*游记字体*/
+    .travelSpan{
+        font-size: 23px;
+        font-weight: 500;
+    }
     /*热门游记*/
     #content .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
         color: #ff9d00;
@@ -60,7 +74,21 @@ a:hover{
 }
 /*中屏幕*/
 @media (min-width: 992px) and (max-width: 1199px){
-
+    /*排行字体*/
+    .rankSpan{
+        color: orange;
+        font-size: 23px;
+        font-weight: 800;
+    }
+    .rankSpanl{
+        font-size: 20px;
+        font-weight: 500;
+    }
+    /*游记字体*/
+    .travelSpan{
+        font-size: 20px;
+        font-weight: 500;
+    }
     /*热门游记*/
     #content .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
         color: #ff9d00;
@@ -102,7 +130,21 @@ a:hover{
 }
 /*小屏幕*/
 @media (min-width: 768px) and (max-width: 991px){
-
+    /*排行字体*/
+    .rankSpan{
+        color: orange;
+        font-size: 18px;
+        font-weight: 800;
+    }
+    .rankSpanl{
+        font-size: 16px;
+        font-weight: 500;
+    }
+    /*游记字体*/
+    .travelSpan{
+        font-size: 18px;
+        font-weight: 500;
+    }
     /*热门游记*/
     #content .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
         color: #ff9d00;
@@ -162,7 +204,21 @@ a:hover{
 }
 /*超小屏幕*/
 @media (max-width: 767px){
-
+    /*排行字体*/
+    .rankSpan{
+        color: orange;
+        font-size: 18px;
+        font-weight: 800;
+    }
+    .rankSpanl{
+        font-size: 16px;
+        font-weight: 500;
+    }
+    /*游记字体*/
+    .travelSpan{
+        font-size: 18px;
+        font-weight: 500;
+    }
     /*热门游记*/
     #content .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
         color: #ff9d00;
