@@ -16,17 +16,323 @@ a:hover{
 
 /*大屏幕*/
 @media (min-width: 1200px){
+    /*搜索框*/
+    #content{
+        margin-bottom: 30px;
+    }
+    #content .hotel_search{
+        margin: 30px 0;
+    }
+    .search_input{
+        height: 38px;
+        margin-right: 10px;
+    }
+    .search_btn {
+        background-color: orange;
+        border: 1px solid #ff9300;
+        font-size: 16px;
+        color: white;
+        height: 38px;
+    }
+    .search_btn:hover{
+        background-color: #ff9300;
+        color: #fff;
+        font-size: 16px;
+        border: 1px solid #ff9300;
+    }
+    #now_date{
+        height: 38px;
+        border-right-color: #ff9300;
+    }
+    .input-group-addon{
+        background-color: #ff9300;
+        border-color: #ff9300;
+    }
+    .input-group-addon .glyphicon{
+        color: #fff;
+    }
 
+
+    /*热门酒店*/
+    #content .hotel-title{
+        margin: 30px 0;
+        text-align: center;
+        color: #333;
+        font-size: 24px;
+    }
+    #content .hotel_list>div{
+        padding: 10px;
+    }
+    #content .hotel_list>div>div{
+        background-color: #F0F0F0;
+        padding: 15px;
+        border-radius: 3%;
+        cursor: pointer;
+        border: 1px solid #fff;
+    }
+    #content .hotel_list>div>div:hover{
+        border: 1px solid #CCCCCC;
+    }
+    #content .hotel_list .activity_name{
+        padding: 10px;
+
+    }
+    #content .activity_name p{
+        font-size: 14px;
+        color: #000;
+        line-height: 20px;
+        height: 40px;
+    }
+    #content .activity_name div{
+        font-size: 16px;
+        color: #ff9d00;
+        display: flex;
+        justify-content:space-between;
+    }
+    #content .activity_name .hotel_score{
+        color: #000;
+    }
 }
+
 /*中屏幕*/
 @media (min-width: 992px) and (max-width: 1199px){
+    #content{
+        margin-bottom: 30px;
+    }
+    /*搜索框*/
+    #content .hotel_search{
+        margin: 30px 0;
+    }
+    .search_input{
+        height: 38px;
+        margin-right: 10px;
+    }
+    .search_btn {
+        background-color: orange;
+        border: 1px solid #ff9300;
+        font-size: 16px;
+        color: white;
+        height: 38px;
+    }
+    .search_btn:hover{
+        background-color: #ff9300;
+        color: #fff;
+        font-size: 16px;
+        border: 1px solid #ff9300;
+    }
+    #now_date{
+        height: 38px;
+        border-right-color: #ff9300;
+    }
+    .input-group-addon{
+        background-color: #ff9300;
+        border-color: #ff9300;
+    }
+    .input-group-addon .glyphicon{
+        color: #fff;
+    }
+
+    /*热门酒店*/
+    #content .hotel-title{
+        margin: 30px 0;
+        text-align: center;
+        color: #333;
+        font-size: 24px;
+    }
+    #content .hotel_list>div{
+        padding: 10px;
+    }
+    #content .hotel_list>div>div{
+        background-color: #F0F0F0;
+        padding: 15px;
+        border-radius: 3%;
+        cursor: pointer;
+        border: 1px solid #fff;
+    }
+    #content .hotel_list>div>div:hover{
+        border: 1px solid #CCCCCC;
+    }
+    #content .hotel_list .activity_name{
+        padding: 10px;
+
+    }
+    #content .activity_name p{
+        font-size: 14px;
+        color: #000;
+        line-height: 20px;
+        height: 40px;
+    }
+    #content .activity_name div{
+        font-size: 16px;
+        color: #ff9d00;
+        display: flex;
+        justify-content:space-between;
+    }
+    #content .activity_name .hotel_score{
+        color: #000;
+    }
 
 }
 /*小屏幕*/
 @media (min-width: 768px) and (max-width: 991px){
+    #content{
+        margin-bottom: 30px;
+    }
+    /*搜索框*/
+    #content .hotel_search{
+        margin: 30px 0;
+    }
+    .search_input{
+        height: 38px;
+        margin-right: 10px;
+    }
+    .search_btn {
+        background-color: orange;
+        border: 1px solid #ff9300;
+        font-size: 16px;
+        color: white;
+        height: 38px;
+    }
+    .search_btn:hover{
+        background-color: #ff9300;
+        color: #fff;
+        font-size: 16px;
+        border: 1px solid #ff9300;
+    }
+    #now_date{
+        height: 38px;
+        border-right-color: #ff9300;
+    }
+    .input-group-addon{
+        background-color: #ff9300;
+        border-color: #ff9300;
+    }
+    .input-group-addon .glyphicon{
+        color: #fff;
+    }
 
+    /*热门酒店*/
+    #content .hotel-title{
+        margin: 30px 0;
+        text-align: center;
+        color: #333;
+        font-size: 24px;
+    }
+    #content .hotel_list>div{
+        padding: 10px;
+    }
+    #content .hotel_list>div>div{
+        background-color: #F0F0F0;
+        padding: 15px;
+        border-radius: 3%;
+        cursor: pointer;
+        border: 1px solid #fff;
+    }
+    #content .hotel_list>div>div:hover{
+        border: 1px solid #CCCCCC;
+    }
+    #content .hotel_list .activity_name{
+        padding: 10px;
+    }
+    #content .activity_name p{
+        font-size: 12px;
+        color: #000;
+        line-height: 18px;
+        height: 54px;
+        text-align: justify;
+    }
+    #content .activity_name div{
+        font-size: 14px;
+        color: #ff9d00;
+        display: flex;
+        justify-content:space-between;
+    }
+    #content .activity_name .hotel_score{
+        color: #000;
+    }
 }
 /*超小屏幕*/
 @media (max-width: 767px){
+    /*搜索框*/
+    #content .hotel_search{
+        margin: 30px 0;
+    }
+    .search_input{
+        height: 38px;
+        margin-right: 10px;
+    }
+    .search_btn {
+        background-color: orange;
+        border: 1px solid #ff9300;
+        font-size: 16px;
+        color: white;
+        height: 38px;
+    }
+    .search_btn:hover{
+        background-color: #ff9300;
+        color: #fff;
+        font-size: 16px;
+        border: 1px solid #ff9300;
+    }
+    #now_date{
+        height: 38px;
+        border-right-color: #ff9300;
+    }
+    .input-group-addon{
+        background-color: #ff9300;
+        border-color: #ff9300;
+    }
+    .input-group-addon .glyphicon{
+        color: #fff;
+    }
 
+    /*热门酒店*/
+    #content .hotel-title{
+        margin: 30px 0;
+        text-align: center;
+        color: #333;
+        font-size: 24px;
+    }
+    #content .hotel_list>div{
+        padding: 10px;
+    }
+    #content .hotel_list>div>div{
+        background-color: #F0F0F0;
+        padding: 15px;
+        border-radius: 3%;
+        cursor: pointer;
+        border: 1px solid #fff;
+    }
+    #content .hotel_list>div>div:hover{
+        border: 1px solid #CCCCCC;
+    }
+    #content .hotel_list .activity_name{
+        padding: 10px;
+
+    }
+    #content .activity_name p{
+        font-size: 14px;
+        color: #000;
+        line-height: 20px;
+        height: 40px;
+        text-align: justify;
+    }
+    #content .activity_name div{
+        font-size: 16px;
+        color: #ff9d00;
+        display: flex;
+        justify-content:space-between;
+    }
+    #content .activity_name .hotel_score{
+        color: #000;
+    }
+    #start_time{
+        margin-bottom: 20px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    #content .hotel_list img{
+        margin-left: auto;
+        margin-right: auto;
+    }
 }

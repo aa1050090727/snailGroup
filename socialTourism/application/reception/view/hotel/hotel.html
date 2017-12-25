@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="__STATIC__/css/receptioncss/public.css" type="text/css">
     <link rel="stylesheet" href="__STATIC__/css/receptioncss/hotel.css" type="text/css">
+    <link rel="stylesheet" href="__STATIC__/css/bootstrap/bootstrap-datetimepicker.min.css">
 </head>
 <body>
 <!--导航栏-->
@@ -71,7 +72,145 @@
 </div>
 <!--页面主体-->
 <div id="content">
-    
+    <div class="container">
+        <!-- 搜索框 -->
+        <div class="row hotel_search">
+        <div class="col-lg-3 col-md-3 col-sm-2"></div>
+        <!--日期-->
+        <div class="hotel_search_box col-lg-3 col-md-3 col-sm-4 col-xs-12">
+            <a class='input-group date start_time' id='start_time'>
+                <input type='text' class="form-control" id='now_date' />
+                    <span class="input-group-addon" style="width: 42px;">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+            </a>
+        </div>
+        <!--搜索输入框-->
+        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
+            <div class="input-group">
+                <input type="text" class="form-control search_input" placeholder="搜目的地/酒店/商品活动">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default search_btn" type="button">
+                            <span class="glyphicon glyphicon-search "></span>
+                        </button>
+                    </span>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-2 col-sm-1"></div>
+    </div>
+        <!-- 热门酒店 -->
+        <div class="row">
+            <div class="hotel-title col-lg-12">热门酒店</div>
+        </div>
+        <div class="row hotel_list">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div>
+                    <img class="img-responsive" src="http://c3-q.mafengwo.net/s10/M00/4E/E7/wKgBZ1mMe8aAcQnpAAEi2-pPGaE05.jpeg?imageMogr2%2Fthumbnail%2F%21480x480r%2Fgravity%2FCenter%2Fcrop%2F%21480x480%2Fquality%2F90"
+                         alt="">
+                    <div class="activity_name">
+                        <p>曼谷维酒店（原曼谷胜利纪念碑全季酒店）</p>
+                        <div>
+                            <div class="hotel_score">评分:<strong>7.8</strong></div>
+                            <div class="hotel_price">￥<strong>2555</strong>起</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div>
+                    <img class="img-responsive" src="http://c3-q.mafengwo.net/s10/M00/4E/E7/wKgBZ1mMe8aAcQnpAAEi2-pPGaE05.jpeg?imageMogr2%2Fthumbnail%2F%21480x480r%2Fgravity%2FCenter%2Fcrop%2F%21480x480%2Fquality%2F90"
+                         alt="">
+                    <div class="activity_name">
+                        <p>曼谷维酒店（原曼谷胜利纪念碑全季酒店）</p>
+                        <div>
+                            <div class="hotel_score">评分:<strong>7.8</strong></div>
+                            <div class="hotel_price">￥<strong>2555</strong>起</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div>
+                    <img class="img-responsive" src="http://c3-q.mafengwo.net/s10/M00/4E/E7/wKgBZ1mMe8aAcQnpAAEi2-pPGaE05.jpeg?imageMogr2%2Fthumbnail%2F%21480x480r%2Fgravity%2FCenter%2Fcrop%2F%21480x480%2Fquality%2F90"
+                         alt="">
+                    <div class="activity_name">
+                        <p>曼谷维酒店（原曼谷胜利纪念碑全季酒店）</p>
+                        <div>
+                            <div class="hotel_score">评分:<strong>7.8</strong></div>
+                            <div class="hotel_price">￥<strong>2555</strong>起</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div>
+                    <img class="img-responsive" src="http://c3-q.mafengwo.net/s10/M00/4E/E7/wKgBZ1mMe8aAcQnpAAEi2-pPGaE05.jpeg?imageMogr2%2Fthumbnail%2F%21480x480r%2Fgravity%2FCenter%2Fcrop%2F%21480x480%2Fquality%2F90"
+                         alt="">
+                    <div class="activity_name">
+                        <p>曼谷维酒店（原曼谷胜利纪念碑全季酒店）</p>
+                        <div>
+                            <div class="hotel_score">评分:<strong>7.8</strong></div>
+                            <div class="hotel_price">￥<strong>2555</strong>起</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row hotel_list">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div>
+                    <img class="img-responsive" src="http://c3-q.mafengwo.net/s10/M00/4E/E7/wKgBZ1mMe8aAcQnpAAEi2-pPGaE05.jpeg?imageMogr2%2Fthumbnail%2F%21480x480r%2Fgravity%2FCenter%2Fcrop%2F%21480x480%2Fquality%2F90"
+                         alt="">
+                    <div class="activity_name">
+                        <p>曼谷维酒店（原曼谷胜利纪念碑全季酒店）</p>
+                        <div>
+                            <div class="hotel_score">评分:<strong>7.8</strong></div>
+                            <div class="hotel_price">￥<strong>2555</strong>起</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div>
+                    <img class="img-responsive" src="http://c3-q.mafengwo.net/s10/M00/4E/E7/wKgBZ1mMe8aAcQnpAAEi2-pPGaE05.jpeg?imageMogr2%2Fthumbnail%2F%21480x480r%2Fgravity%2FCenter%2Fcrop%2F%21480x480%2Fquality%2F90"
+                         alt="">
+                    <div class="activity_name">
+                        <p>曼谷维酒店（原曼谷胜利纪念碑全季酒店）</p>
+                        <div>
+                            <div class="hotel_score">评分:<strong>7.8</strong></div>
+                            <div class="hotel_price">￥<strong>2555</strong>起</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div>
+                    <img class="img-responsive" src="http://c3-q.mafengwo.net/s10/M00/4E/E7/wKgBZ1mMe8aAcQnpAAEi2-pPGaE05.jpeg?imageMogr2%2Fthumbnail%2F%21480x480r%2Fgravity%2FCenter%2Fcrop%2F%21480x480%2Fquality%2F90"
+                         alt="">
+                    <div class="activity_name">
+                        <p>曼谷维酒店（原曼谷胜利纪念碑全季酒店）</p>
+                        <div>
+                            <div class="hotel_score">评分:<strong>7.8</strong></div>
+                            <div class="hotel_price">￥<strong>2555</strong>起</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div>
+                    <img class="img-responsive" src="http://c3-q.mafengwo.net/s10/M00/4E/E7/wKgBZ1mMe8aAcQnpAAEi2-pPGaE05.jpeg?imageMogr2%2Fthumbnail%2F%21480x480r%2Fgravity%2FCenter%2Fcrop%2F%21480x480%2Fquality%2F90"
+                         alt="">
+                    <div class="activity_name">
+                        <p>曼谷维酒店（原曼谷胜利纪念碑全季酒店）</p>
+                        <div>
+                            <div class="hotel_score">评分:<strong>7.8</strong></div>
+                            <div class="hotel_price">￥<strong>2555</strong>起</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 <!--页脚-->
 <div id="footer">
@@ -141,5 +280,31 @@
 <script src="__STATIC__/js/jquery-1.12.3.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+<script src="__STATIC__/js/moment-with-locales.js"></script>
+<script src="__STATIC__/js/bootstrap-datetimepicker.min.js"></script>
+<script src="__STATIC__/js/bootstrap-datetimepicker.zh-CN.js"></script>
+<script>
+    //设置日期时间控件
+    Datetime();
+    function Datetime() {
+        $('#start_time').datetimepicker({
+            language: 'zh-CN',//显示中文
+            format: 'yyyy-mm-dd',//显示格式
+            minView: "month",//设置只显示到月份
+            initialDate: new Date(),
+            autoclose: true,//选中自动关闭
+            todayBtn: true,//显示今日按钮
+            locale: moment.locale('zh-cn')
+        });
+        //默认获取当前日期
+        var today = new Date();
+        var nowdate = (today.getFullYear()) + "-" + (today.getMonth() + 1) + "-" + today.getDate();
+        //对日期格式进行处理
+        var date = new Date(nowdate);
+        var mon = date.getMonth() + 1;
+        var day = date.getDate();
+        var mydate = date.getFullYear() + "-" + (mon < 10 ? "0" + mon : mon) + "-" + (day < 10 ? "0" + day : day);
+        document.getElementById("now_date").value = mydate;
+    }
+</script>
 </html>
