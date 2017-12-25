@@ -1,0 +1,206 @@
+/*通用样式*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial,"Lucida Grande","Microsoft Yahei","Hiragino Sans GB","Hiragino Sans GB W3",SimSun,"PingFang SC",STHeiti;
+}
+
+li{
+    list-style: none;
+}
+a{
+    text-decoration:none;
+}
+a:hover{
+    text-decoration:none;
+}
+
+/*大屏幕*/
+@media (min-width: 1200px){
+
+    /*热门游记*/
+    #content .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+        color: #ff9d00;
+        font-size: 18px;
+        border: none;
+        border-bottom: 2px solid #ff9d00;
+    }
+    #content .nav-tabs>li>a{
+        color: #333;
+        font-size: 18px;
+    }
+    /*游记列表*/
+    #myTabContent .row{
+        margin: 0;
+    }
+    #myTabContent .travels_box .row{
+        margin: 20px 0;
+        padding: 10px 0;
+        cursor: pointer;
+    }
+    #myTabContent .travels_box .row:hover{
+        background-color: #F8F8F8;
+    }
+    #myTabContent .travels_box .travels_title{
+        height: 26px;
+        line-height: 26px;
+        color: #333;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    #myTabContent .travels_box .travels_footer{
+        height: 33px;
+    }
+    #myTabContent .travels_box .travels_body{
+        height: 69px;
+        line-height: 23px;
+        overflow: hidden;
+        text-align:justify;
+    }
+}
+/*中屏幕*/
+@media (min-width: 992px) and (max-width: 1199px){
+
+    /*热门游记*/
+    #content .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+        color: #ff9d00;
+        font-size: 18px;
+        border: none;
+        border-bottom: 2px solid #ff9d00;
+    }
+    #content .nav-tabs>li>a{
+        color: #333;
+        font-size: 18px;
+    }
+    /*游记列表*/
+    #myTabContent .row{
+        margin: 0;
+    }
+    #myTabContent .travels_box .row{
+        margin: 20px 0;
+        padding: 10px 0;
+        cursor: pointer;
+    }
+    #myTabContent .travels_box .row:hover{
+        background-color: #F8F8F8;
+    }
+    #myTabContent .travels_box .travels_title{
+        height: 26px;
+        line-height: 26px;
+        color: #333;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    #myTabContent .travels_box .travels_footer{
+        height: 33px;
+    }
+    #myTabContent .travels_box .travels_body{
+        height: 65.88px;
+        line-height: 21.96px;
+        overflow: hidden;
+    }
+}
+/*小屏幕*/
+@media (min-width: 768px) and (max-width: 991px){
+
+    /*热门游记*/
+    #content .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+        color: #ff9d00;
+        font-size: 18px;
+        border: none;
+        border-bottom: 2px solid #ff9d00;
+    }
+    #content .nav-tabs>li>a{
+        color: #333;
+        font-size: 18px;
+    }
+    /*游记列表*/
+    #myTabContent .row{
+        margin: 0;
+    }
+    #myTabContent .travels_box .row{
+        margin: 20px 0;
+        padding: 10px 0;
+        cursor: pointer;
+    }
+    #myTabContent .travels_box .row:hover{
+        background-color: #F8F8F8;
+    }
+    #myTabContent .travels_box .travels_title{
+        height: 26px;
+        line-height: 26px;
+        color: #333;
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+    #myTabContent .travels_box .travels_footer{
+        height: 33px;
+    }
+    /*游记列表*/
+    #myTabContent .row{
+        margin: 0;
+    }
+    #myTabContent .travels_box .row{
+        margin: 20px 0;
+    }
+    #myTabContent .travels_box .travels_title{
+        height: 24px;
+        line-height: 24px;
+        color: #333;
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+    #myTabContent .travels_box .travels_footer{
+        height: 33px;
+    }
+    #myTabContent .travels_box .travels_body{
+        height: 35.38px;
+        line-height: 17.69px;
+        overflow: hidden;
+    }
+
+}
+/*超小屏幕*/
+@media (max-width: 767px){
+
+    /*热门游记*/
+    #content .nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+        color: #ff9d00;
+        font-size: 18px;
+        border: none;
+        border-bottom: 2px solid #ff9d00;
+    }
+    #content .nav-tabs>li>a{
+        color: #333;
+        font-size: 18px;
+    }
+    /*游记列表*/
+    #myTabContent .row{
+        margin: 0;
+    }
+    #myTabContent .travels_box .row{
+        margin: 20px 0;
+        padding: 10px 0;
+        cursor: pointer;
+    }
+    #myTabContent .travels_box .row:hover{
+        background-color: #F8F8F8;
+    }
+    #myTabContent .travels_box .travels_title{
+        color: #333;
+        font-size: 18px;
+        margin: 10px 0;
+    }
+    #myTabContent .travels_box .travels_footer{
+        height: 33px;
+    }
+    #myTabContent .travels_box .travels_body{
+        height: 69px;
+        line-height: 23px;
+        overflow: hidden;
+        text-align:justify;
+    }
+    #myTabContent .travels_box .travels_content{
+
+    }
+}
