@@ -44,6 +44,41 @@ class Login extends Controller
         }
     }
 
+    //验证账号是否存在
+    public function verifyphone(){
+        $verifymsg = config('msg')['verifyphone']; //调用配置文件
+        if(input('?post.cellphone')){//判断是否有值
+            $cellphone=input('param.cellphone');//接收
+            $phone1 = strip_tags($cellphone);
+            $name = addslashes($phone1);
+            $phone = [
+                'f_user_phone' =>   $name
+            ];
+            $res  = Db::table('f_user')->where($phone)->find();//数据库查询
+            if(!empty($res)){
+                return json(['code'=>10001,'msg'=>$verifymsg['verifyphone_error'],'data'=>[],'url' => []]);
+            }else{
+                return json(['code'=>10000,'msg'=>$verifymsg['verifyphone_success'],'data'=>[],'url' => []]);
+            }
+        }
+    }
+
+
+    //验证验证码输入是否正确
+    public function verifycode(){
+        $verifymsg = config('msg')['verifycode']; //调用配置文件
+        if(input('?post.code')){//判断是否有值
+            $cellphone=input('param.code');//接收
+            $phone1 = strip_tags($cellphone);
+            $name = addslashes($phone1);
+            if(!captcha_check($name)){
+                return json(['code'=>10000,'msg'=>$verifymsg['verifycode_success'],'data'=>[],'url' => []]);
+            }else{
+                return json(['code'=>10001,'msg'=>$verifymsg['verifycode_error'],'data'=>[],'url' => []]);
+            }
+        }
+    }
+
     //填写信息页面
     public function registeryan(){
         return $this->fetch();

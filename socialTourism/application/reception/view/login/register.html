@@ -21,7 +21,8 @@
             <div class="login_box">
                 <div class="login_form">
                     <div class="login_in" id="register">
-                        <input type="text" class="form-control" placeholder="您的手机号" v-model="cellphone">
+                        <input type="text" class="form-control" placeholder="您的手机号" v-model="cellphone" v-on:change="phone">
+                        <div style="height: 30px" id="phonetps"></div>
                         <button style="margin-top: 40px" type="button" class="btn btn-warning btn-group btn-group-justified" v-on:click="regis">立即注册</button>
                         <span style="display:inline-block;padding-top:10px;font-size:12px;float: right;color: #ccc">
                             注册视为同意
@@ -60,6 +61,7 @@
 </body>
 <script>
     var verify = "{:url('reception/Login/verify')}";
+    var verifyphone = "{:url('reception/Login/verifyphone')}";
 </script>
 <script src="__STATIC__/js/register.js" ></script>
 </html>

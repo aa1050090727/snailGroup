@@ -275,6 +275,14 @@ return [
             'login_error1' => '账号不存在',
             'login_error2' => '密码错误',
             'login_success' =>'登录成功'
+        ],
+        'verifyphone' => [
+            'verifyphone_error' => '账号已存在',
+            'verifyphone_success' => '账号未注册'
+        ],
+        'verifycode' => [
+            'verifycode_error' =>'验证码输入错误',
+            'verifycode_success' =>'验证码输入正确'
         ]
     ]
 

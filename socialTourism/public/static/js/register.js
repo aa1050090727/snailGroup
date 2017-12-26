@@ -50,6 +50,48 @@ var vue = new Vue({
                 }
             }
 
+        },
+
+        phone:function(){
+            if(this.cellphone==''){
+                $('#phonetps').css('color','red');
+                $('#phonetps').css('font-size','20px');
+                $("#phonetps").html("× 输入不能为空")
+            }else if(this.cellphone.length<11){
+                $('#phonetps').css('color','red');
+                $('#phonetps').css('font-size','20px');
+                $("#phonetps").html("× 电话号码长度小于11位数")
+            }else if(this.cellphone.length>11){
+                $('#phonetps').css('color','red');
+                $('#phonetps').css('font-size','20px');
+                $("#phonetps").html("× 电话号码长度大于11位数")
+            }else if(!checkMobile(this.cellphone)){
+                $('#phonetps').css('color','red');
+                $('#phonetps').css('font-size','20px');
+                $("#phonetps").html("× 电话号码格式不正确")
+            }else {
+                var user ={
+                    'cellphone':this.cellphone
+                }
+                $.ajax({
+                    url:verifyphone,
+                    dateType:"json",
+                    data:user,
+                    type:"post",
+                    success:function(res){
+                        if(res['code']==10000){
+                            $('#phonetps').css('color','green');
+                            $('#phonetps').css('font-size','20px');
+                            $("#phonetps").html("√"+res['msg'])
+                        }else if(res['code']==10001){
+                            $('#phonetps').css('color','green');
+                            $('#phonetps').css('font-size','20px');
+                            $("#phonetps").html("√"+res['msg'])
+                        }
+                    }
+                })
+
+            }
         }
 
     }

@@ -80,6 +80,95 @@ var vue = new Vue({
                     })
                 }
             })
+        },
+
+        user:function(){
+            if(this.name==''){
+                $('#nametps').css('color','red');
+                $('#nametps').css('font-size','20px');
+                $("#nametps").html("× 输入不能为空")
+            }else if(this.name.length>8){
+                $('#nametps').css('color','red');
+                $('#nametps').css('font-size','20px');
+                $("#nametps").html("× 输入不能大于八位数")
+            }else{
+                $('#nametps').css('color','green');
+                $('#nametps').css('font-size','20px');
+                $("#nametps").html("√ 用户名可用")
+            }
+        },
+
+        pwdin:function(){
+            if(this.pwd==''){
+                $('#pwdtps').css('color','red');
+                $('#pwdtps').css('font-size','20px');
+                $("#pwdtps").html("× 输入不能为空")
+            }else if(this.pwd.length>20){
+                $('#pwdtps').css('color','red');
+                $('#pwdtps').css('font-size','20px');
+                $("#pwdtps").html("× 输入不能大于20位数")
+            }else if(this.pwd.length<6){
+                $('#pwdtps').css('color','red');
+                $('#pwdtps').css('font-size','20px');
+                $("#pwdtps").html("× 输入不能小于6位数")
+            }else{
+                $('#pwdtps').css('color','green');
+                $('#pwdtps').css('font-size','20px');
+                $("#pwdtps").html("√ 密码可用")
+            }
+        },
+
+        passwordin:function(){
+            if(this.pwd!=this.password){
+                $('#passwordtps').css('color','red');
+                $('#passwordtps').css('font-size','20px');
+                $("#passwordtps").html("× 两次密码输入不一致")
+            }else {
+                $('#pwdtps').css('color','green');
+                $('#pwdtps').css('font-size','20px');
+                $("#pwdtps").html("√ ")
+            }
+        },
+
+        codein:function(){
+            if(this.code==''){
+                $('#codetps').css('color','red');
+                $('#codetps').css('font-size','20px');
+                $("#codetps").html("× 输入不能为空")
+            }else {
+                var user = {
+                'code': this.code
+                }
+                $.ajax({
+                    url:verifycode,
+                    dateType:"json",
+                    data:user,
+                    type:"post",
+                    success:function(res){
+                        if(res['code']==10000){
+                            $('#codetps').css('color','green');
+                            $('#codetps').css('font-size','20px');
+                            $("#codetps").html("√"+res['msg'])
+                        }else if(res['code']==10001){
+                            $('#codetps').css('color','red');
+                            $('#codetps').css('font-size','20px');
+                            $("#codetps").html("×"+res['msg'])
+                        }
+                    }
+                })
+            }
+        } ,
+
+        cellcodein:function(){
+            if(this.cellcode==''){
+                $('#cellcodetps').css('color','red');
+                $('#cellcodetps').css('font-size','20px');
+                $("#cellcodetps").html("× 手机验证码不能为空")
+            }else {
+                $('#cellcodetps').css('color','green');
+                $('#cellcodetps').css('font-size','20px');
+                $("#cellcodetps").html("√ ")
+            }
         }
     }
 })
