@@ -6,14 +6,16 @@ var app2 = new Vue({
     el: '#login',
     data: {
         phone: '',
-        pwd:''
+        pwd:'',
+        code:''
     },
 
     methods: {
         login:function(){
             var user ={
                 'uname':this.phone,
-                'pwd':this.pwd
+                'pwd':this.pwd,
+                'code':this.code
             }
             $.ajax({
                 url:logincode,
@@ -30,6 +32,8 @@ var app2 = new Vue({
                     }else if(res['code']==10002){
                         alert(res['msg'])
                     }else if(res['code']==10003){
+                        alert(res['msg'])
+                    }else if(res['code']==10004){
                         alert(res['msg'])
                     }
                 }

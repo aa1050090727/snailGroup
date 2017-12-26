@@ -55,6 +55,18 @@
         height: 50px;
 
     }
+
+    .code{
+        width: 200px;
+        height: 40px;
+        margin-top: 10px
+    }
+
+    .input_code{
+        width:200px;
+        height: 40px;
+        margin-top: 10px
+    }
 }
 @media (min-width:768px) and (max-width:991px) {
     .backdrop{
@@ -112,6 +124,18 @@
         height: 50px;
 
     }
+
+    .code{
+        width: 150px;
+        height: 40px;
+        margin-top: 10px
+    }
+
+    .input_code{
+        width:150px;
+        height: 40px;
+        margin-top: 10px
+    }
 }
 @media (min-width:992px) and (max-width:1199px) {
     .backdrop{
@@ -168,6 +192,21 @@
         height: 50px;
 
     }
+
+    .code{
+        width: 80px;
+        height: 40px;
+        float: left;
+        margin-top: 10px
+    }
+
+    .input_code{
+        width: 180px;
+        height: 40px;
+        float: left;
+        margin-left: 20px;
+        margin-top: 10px
+    }
 }
 @media (min-width:1200px) {
     .backdrop{
@@ -222,5 +261,20 @@
         margin-left: 10px;
         height: 50px;
 
+    }
+
+    .code1{
+        width: 100px;
+        height: 40px;
+        float: left;
+        margin-top: 10px
+    }
+
+    .input_code{
+        width: 200px;
+        height: 40px;
+        float: left;
+        margin-left: 20px;
+        margin-top: 10px
     }
 }

@@ -5485,13 +5485,16 @@ class Login extends Controller
     //账号登录方法
     public function logincode(){
         $loginmsg = config('msg')['login']; //调用配置文件
-        if(input('?post.uname')  && input('?post.pwd')){
+        if(input('?post.uname')  && input('?post.pwd') &&  input('?post.code')){
             $uname=input('param.uname');
             $pwd=input('param.pwd');
+            $code=input('param.code');
             $phone1 = strip_tags($uname);
             $name = addslashes($phone1);
             $psw = strip_tags($pwd);
             $password = addslashes($psw);
+
+            if(!captcha_check($code)){
                 $phone = [
                     'f_user_phone' =>   $name
                 ];
@@ -5499,7 +5502,6 @@ class Login extends Controller
                     'f_user_phone' =>   $name,
                     'f_user_pwd' =>   md5($password)
                 ];
-
                 $res  = Db::table('f_user')->where($phone)->find();
                 if(!empty($res)){
                     $result  = Db::table('f_user')->where($where)->find();
@@ -5511,10 +5513,14 @@ class Login extends Controller
                 }else{
                     return json(['code'=>10002,'msg'=>$loginmsg['login_error1'],'data'=>[],'url' => []]);
                 }
-
             }else{
-                return json(['code'=>10003,'msg'=>$loginmsg['login_error'],'data'=>[],'url' => []]);
+                return json(['code'=>10004,'msg'=>$loginmsg['login_error2'],'data'=>[],'url' => []]);
             }
+
+
+        }else{
+            return json(['code'=>10003,'msg'=>$loginmsg['login_error'],'data'=>[],'url' => []]);
+        }
 
 
     }
