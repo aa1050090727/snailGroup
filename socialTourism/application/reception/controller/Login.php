@@ -194,7 +194,7 @@ class Login extends Controller
                     return json(['code'=>10002,'msg'=>$loginmsg['login_error1'],'data'=>[],'url' => []]);
                 }
             }else{
-                return json(['code'=>10004,'msg'=>$loginmsg['login_error2'],'data'=>[],'url' => []]);
+                return json(['code'=>10004,'msg'=>$loginmsg['login_error4'],'data'=>[],'url' => []]);
             }
 
         }else{

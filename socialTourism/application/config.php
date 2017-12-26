@@ -274,6 +274,8 @@ return [
             'login_error' => '输入不能为空',
             'login_error1' => '账号不存在',
             'login_error2' => '密码错误',
+            'login_error4' => '验证码错误',
+            'login_error3' => '账户被锁无法登陆',
             'login_success' =>'登录成功'
         ],
         'verifyphone' => [
