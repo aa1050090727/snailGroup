@@ -35,6 +35,8 @@ var app2 = new Vue({
                         alert(res['msg'])
                     }else if(res['code']==10004){
                         alert(res['msg'])
+                    }else if(res['code']==10005){
+                        alert(res['msg'])
                     }
                 }
             })

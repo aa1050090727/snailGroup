@@ -182,13 +182,22 @@ class Login extends Controller
                     'f_user_phone' =>   $name,
                     'f_user_pwd' =>   md5($password)
                 ];
+                $my =[
+                    'f_user_phone' =>   $name,
+                    'f_user_states' => '使用'
+                ];
                 $res  = Db::table('f_user')->where($phone)->find();
                 if(!empty($res)){
-                    $result  = Db::table('f_user')->where($where)->find();
-                    if(!empty($result)){
-                        return json(['code'=>10000,'msg'=>$loginmsg['login_success'],'data'=>[],'url' =>  url('reception/Index/index')]);
+                    $res  = Db::table('f_user')->where($my)->find();
+                    if(!empty($res)){
+                        $result  = Db::table('b_user')->where($where)->find();
+                        if(!empty($result)){
+                            return json(['code'=>10000,'msg'=>$loginmsg['login_success'],'data'=>[],'url' =>  url('backstage/Index/index')]);
+                        }else{
+                            return json(['code'=>10001,'msg'=>$loginmsg['login_error2'],'data'=>[],'url' => []]);
+                        }
                     }else{
-                        return json(['code'=>10001,'msg'=>$loginmsg['login_error2'],'data'=>[],'url' => []]);
+                        return json(['code'=>10005,'msg'=>$loginmsg['login_error3'],'data'=>[],'url' => []]);
                     }
                 }else{
                     return json(['code'=>10002,'msg'=>$loginmsg['login_error1'],'data'=>[],'url' => []]);
