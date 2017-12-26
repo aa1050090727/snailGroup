@@ -253,4 +253,39 @@ return [
         //验证成功后是否重置
         'reset' =>true
     ],
+
+    'msg' =>[
+        'verify' => [
+            'verify_error1' => '输入不能为空',
+            'verify_error' => '已注册,请重新输入',
+            'verify_success' => '未注册'
+        ],
+        'register' => [
+            'register_error' => '用户名长度不能超过8位',
+            'register_error1' => '密码长度不能小于6位',
+            'register_error2' => '密码长度不能大于20位',
+            'register_error3' => '两次密码不一致',
+            'register_error4' => '验证码错误',
+            'register_error5' => '手机验证码不正确',
+            'register_error6' => '非法注册',
+            'register_success' => '注册成功'
+        ],
+        'login' => [
+            'login_error' => '输入不能为空',
+            'login_error1' => '账号不存在',
+            'login_error2' => '密码错误',
+            'login_error4' => '验证码错误',
+            'login_error3' => '账户被锁无法登陆',
+            'login_success' =>'登录成功'
+        ],
+        'verifyphone' => [
+            'verifyphone_error' => '账号已存在',
+            'verifyphone_success' => '账号未注册'
+        ],
+        'verifycode' => [
+            'verifycode_error' =>'验证码输入错误',
+            'verifycode_success' =>'验证码输入正确'
+        ]
+    ]
+
 ];

@@ -1,6 +1,8 @@
 /**
- * Created by fire on 2017/12/4.
+ * Created by fire on 2017/12/26.
  */
+
+
 
 var app2 = new Vue({
     el: '#login',
@@ -16,7 +18,7 @@ var app2 = new Vue({
                 'uname':this.phone,
                 'pwd':this.pwd,
                 'code':this.code
-            }
+            } ;
             $.ajax({
                 url:logincode,
                 dateType:"json",
@@ -42,23 +44,13 @@ var app2 = new Vue({
             })
         },
 
+
+
         tell:function(){
             if(this.phone==''){
                 $('#telltps').css('color','red');
                 $('#telltps').css('font-size','20px');
                 $("#telltps").html("× 输入不能为空")
-            }else if(this.phone.length<11){
-                $('#telltps').css('color','red');
-                $('#telltps').css('font-size','20px');
-                $("#telltps").html("× 电话号码长度小于11位数")
-            }else if(this.phone.length>11){
-                $('#telltps').css('color','red');
-                $('#telltps').css('font-size','20px');
-                $("#telltps").html("× 电话号码长度大于11位数")
-            }else if(!checkMobile(this.phone)){
-                $('#telltps').css('color','red');
-                $('#telltps').css('font-size','20px');
-                $("#telltps").html("× 电话号码格式不正确")
             }else {
                 $('#telltps').css('color','green');
                 $('#telltps').css('font-size','20px');
@@ -99,18 +91,5 @@ var app2 = new Vue({
                 $("#codeon").html("√")
             }
         }
-    },
-
-
-})
-
-function checkMobile(s){
-    var regu =/^[1][3/5/8][0-9]{9}$/;
-    var re = new RegExp(regu);
-    if (re.test(s)) {
-        return true;
-    }else{
-        return false;
     }
-}
-
+})
