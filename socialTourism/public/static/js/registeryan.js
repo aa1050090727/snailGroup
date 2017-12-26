@@ -36,7 +36,22 @@ var vue = new Vue({
                     data:user,
                     type:"post",
                     success:function(res){
-                        console.log(res)
+                        if(res['code']==10000){
+                            alert(res['msg'])
+                            location.href=res['url']
+                        }else if(res['code']==10001){
+                            alert(res['msg'])
+                        }else if(res['code']==10002){
+                            alert(res['msg'])
+                        }else if(res['code']==10003){
+                            alert(res['msg'])
+                        }else if(res['code']==10004){
+                            alert(res['msg'])
+                        }else if(res['code']==10005){
+                            alert(res['msg'])
+                        }else if(res['code']==10006){
+                            alert(res['msg'])
+                        }
                     }
                 })
             }

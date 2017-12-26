@@ -22,14 +22,15 @@ var app2 = new Vue({
                 type:"post",
                 success:function(res){
                     console.log(res)
-                    if(res==0){
-                        alert('登录成功')
-                    }else if(res==-1){
-                        alert('密码错误')
-                    }else if(res==-2){
-                        alert('输入不能为空')
-                    }else if(res==-3){
-                        alert('账号错误')
+                    if(res['code']==10000){
+                        alert(res['msg'])
+                        location.href=res['url']
+                    }else if(res['code']==10001){
+                        alert(res['msg'])
+                    }else if(res['code']==10002){
+                        alert(res['msg'])
+                    }else if(res['code']==10003){
+                        alert(res['msg'])
                     }
                 }
             })

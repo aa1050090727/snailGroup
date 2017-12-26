@@ -52,12 +52,51 @@ class Login extends Controller
 
     //数据写入数据库
     public function setmy(){
+        $registermsg = config('msg')['register']; //调用配置文件
         if(input('?post.name') && input('?post.pwd') && input('?post.password') && input('?post.code')) {//判断是否有值
             $name = input('param.name');//接收
             $pwd = input('param.pwd');
             $password = input('param.password');
             $code = input('param.code');
-            echo strlen($name);
+            $name1 = addslashes($name);
+            $f_user_name = strip_tags($name1);
+            $pwd1 = addslashes($pwd);
+            $pwd2 = strip_tags($pwd1);
+            $password1 = addslashes($password);
+            $password2 = strip_tags($password1);
+            $code1 = addslashes($code);
+            $code2 = strip_tags($code1);
+            if(strlen($f_user_name)>8){
+                return json(['code'=>10001,'msg'=>$registermsg['register_error'],'data'=>[],'url' => []]);
+            }elseif(strlen($pwd2)<6){
+                return json(['code'=>10002,'msg'=>$registermsg['register_error1'],'data'=>[],'url' => []]);
+            }elseif(strlen($pwd2)>20){
+                return json(['code'=>10003,'msg'=>$registermsg['register_error2'],'data'=>[],'url' => []]);
+            }elseif($pwd2!=$password2){
+                return json(['code'=>10004,'msg'=>$registermsg['register_error3'],'data'=>[],'url' => []]);
+            }elseif(!captcha_check($code2)){
+                return json(['code'=>10005,'msg'=>$registermsg['register_error4'],'data'=>[],'url' => []]);
+            }else{
+                $phone = Session::get('phone');
+                $where = [
+                    'f_user_phone'=>'18050405081',
+                ];
+                $res = Db::table('f_user')->where($where)->find();
+                if(!empty($res)){
+                    $data = [
+                        'f_user_id'=>'',
+                        'f_user_phone'=>$phone,
+                        'f_user_pwd' =>md5($pwd2),
+                        'f_user_name'=>$f_user_name,
+                        'f_user_img'=>'__STATIC__/image/0.png',
+                        'f_user_money'=>50
+                    ];
+                    Db::table('f_user')->insert($data);
+                    return json(['code'=>10000,'msg'=>$registermsg['register_success'],'data'=>[],'url' => url('reception/Index/index')]);
+                }else{
+                    return json(['code'=>10007,'msg'=>$registermsg['register_error6'],'data'=>[],'url' => []]);
+                }
+            }
         }
     }
 
@@ -5445,6 +5484,7 @@ class Login extends Controller
 
     //账号登录方法
     public function logincode(){
+        $loginmsg = config('msg')['login']; //调用配置文件
         if(input('?post.uname')  && input('?post.pwd')){
             $uname=input('param.uname');
             $pwd=input('param.pwd');
@@ -5461,20 +5501,19 @@ class Login extends Controller
                 ];
 
                 $res  = Db::table('f_user')->where($phone)->find();
-
                 if(!empty($res)){
                     $result  = Db::table('f_user')->where($where)->find();
                     if(!empty($result)){
-                        echo 0;
+                        return json(['code'=>10000,'msg'=>$loginmsg['login_success'],'data'=>[],'url' =>  url('reception/Index/index')]);
                     }else{
-                        echo -1;
+                        return json(['code'=>10001,'msg'=>$loginmsg['login_error2'],'data'=>[],'url' => []]);
                     }
                 }else{
-                    echo -3;
+                    return json(['code'=>10002,'msg'=>$loginmsg['login_error1'],'data'=>[],'url' => []]);
                 }
 
             }else{
-                echo -2;
+                return json(['code'=>10003,'msg'=>$loginmsg['login_error'],'data'=>[],'url' => []]);
             }
 
 
