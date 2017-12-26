@@ -28,7 +28,8 @@ var vue = new Vue({
                     'name':this.name,
                     'pwd':this.pwd,
                     'password':this.password,
-                    'code':this.code
+                    'code':this.code,
+                    'cellcode':this.cellcode
                 };
                 $.ajax({
                     url:insterin,
@@ -36,6 +37,7 @@ var vue = new Vue({
                     data:user,
                     type:"post",
                     success:function(res){
+                        console.log(res)
                         if(res['code']==10000){
                             alert(res['msg'])
                             location.href=res['url']
@@ -56,6 +58,28 @@ var vue = new Vue({
                 })
             }
 
+        },
+
+        getnote:function(){
+            $APPID='C41326166'
+            $APPKEY  = '4fc2a6de51a7462b4121a0e1a5a1c0f9'
+            $.ajax({
+                url:getno ,
+                dateType:"json",
+                data:"",
+                type:"post",
+                success:function(res){
+                    $.ajax({
+                        url:"http://106.ihuyi.com/webservice/sms.php?method=Submit&account="+$APPID+"&password="+$APPKEY+"&mobile="+res["phone"]+"&content=您的验证码是："+res["code"]+"。请不要把验证码泄露给其他人。",
+                        dateType:"json",
+                        data:"",
+                        type:"get",
+                        success:function(res){
+                            console.log(res)
+                        }
+                    })
+                }
+            })
         }
     }
 })

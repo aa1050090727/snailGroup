@@ -28,7 +28,7 @@
                         <div class="input_code">
                             <input class="form-control"  type="text" placeholder="请输入验证码"v-model="code">
                         </div>
-                        <button class="get_code" type="button">免费获取验证码</button>
+                        <button class="get_code" type="button" v-on:click="getnote" >免费获取验证码</button>
                         <div class="input_code">
                             <input class="form-control"  type="text" placeholder="请输入验证码" v-model="cellcode">
                         </div>
@@ -43,6 +43,7 @@
 </body>
 <script>
     var insterin = "{:url('reception/Login/setmy')}";
+    var getno = "{:url('reception/Login/getno')}";
 </script>
 <script src="__STATIC__/js/registeryan.js" ></script>
 </html>

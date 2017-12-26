@@ -50,14 +50,47 @@ class Login extends Controller
     }
 
 
+
+    //random() 函数返回随机整数。
+    public function random($length = 6 , $numeric = 0) {
+        PHP_VERSION < '4.2.0' && mt_srand((double)microtime() * 1000000);
+        if($numeric) {
+            $hash = sprintf('%0'.$length.'d', mt_rand(0, pow(10, $length) - 1));
+        } else {
+            $hash = '';
+            $chars = '1234567890';
+            $max = strlen($chars) - 1;
+            for($i = 0; $i < $length; $i++) {
+                $hash .= $chars[mt_rand(0, $max)];
+            }
+        }
+        return $hash;
+    }
+
+
+
+
+
+    //获取短信验证码
+    public function getno(){
+        $phone = Session::get('phone');
+        $arr = $this->random(4,0);
+        Session::set('cellcode',$arr);
+        return json(['code'=>$arr,'phone'=>$phone]);
+    }
+
+
+
     //数据写入数据库
     public function setmy(){
         $registermsg = config('msg')['register']; //调用配置文件
-        if(input('?post.name') && input('?post.pwd') && input('?post.password') && input('?post.code')) {//判断是否有值
+        if(input('?post.name') && input('?post.pwd') && input('?post.password') && input('?post.code') && input('?post.cellcode')) {//判断是否有值
             $name = input('param.name');//接收
             $pwd = input('param.pwd');
             $password = input('param.password');
             $code = input('param.code');
+            $cellcode = input('param.cellcode');
+            $notecode = Session::get('cellcode');
             $name1 = addslashes($name);
             $f_user_name = strip_tags($name1);
             $pwd1 = addslashes($pwd);
@@ -66,7 +99,9 @@ class Login extends Controller
             $password2 = strip_tags($password1);
             $code1 = addslashes($code);
             $code2 = strip_tags($code1);
-            if(strlen($f_user_name)>8){
+            if($cellcode!=$notecode){
+                return json(['code'=>10006,'msg'=>$registermsg['register_error5'],'data'=>[],'url' => []]);
+            }elseif(strlen($f_user_name)>8){
                 return json(['code'=>10001,'msg'=>$registermsg['register_error'],'data'=>[],'url' => []]);
             }elseif(strlen($pwd2)<6){
                 return json(['code'=>10002,'msg'=>$registermsg['register_error1'],'data'=>[],'url' => []]);
@@ -79,7 +114,7 @@ class Login extends Controller
             }else{
                 $phone = Session::get('phone');
                 $where = [
-                    'f_user_phone'=>'18050405081',
+                    'f_user_phone'=>$phone,
                 ];
                 $res = Db::table('f_user')->where($where)->find();
                 if(!empty($res)){
@@ -99,9 +134,6 @@ class Login extends Controller
             }
         }
     }
-
-
-
 
 
 
@@ -5517,7 +5549,6 @@ class Login extends Controller
                 return json(['code'=>10004,'msg'=>$loginmsg['login_error2'],'data'=>[],'url' => []]);
             }
 
-
         }else{
             return json(['code'=>10003,'msg'=>$loginmsg['login_error'],'data'=>[],'url' => []]);
         }
@@ -5526,37 +5557,10 @@ class Login extends Controller
     }
 
 
-    //注册方法
 
 
 
-    public function mian(){
-//        $rawpostdata = file_get_contents('php://input');
-//        $post = json_decode($rawpostdata,true);
-        if(input('?post.uname')  && input('?post.pwd') && input('?post.code')){
-            $uname=input('param.uname');
-            $pwd=input('param.pwd');
-            $code=input('param.code');
 
-            $chak=captcha_check($code);
-            if($chak){
-                $where = [
-                    'uname' =>   $uname,
-                    'upwd' =>   $pwd
-                ];
-                $result  = Db::table('t_user')->where($where)->find();
-                if(!empty($result)){
-                    echo 0;
-                }else{
-                    echo -1;
-                }
-            }else{
-                echo -2;
-            }
-
-        }
-
-    }
 
     public function mydata(){
         if(input('?get.keyword')){
