@@ -1,0 +1,722 @@
+/*通用样式*/
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    text-decoration:none;
+}
+a:hover{
+    text-decoration:none;
+}
+/*解决模态框偏移问题*/
+body {
+    padding-right: 0px !important;
+}
+*.modal-open {
+    overflow-y: scroll;
+    padding-right: 0 !important;
+}
+
+.breadcrumb{
+    background-color: #fff;
+}
+
+/*大屏幕*/
+@media (min-width: 1200px){
+    /*酒店购买*/
+    #content .hotel_box h1{
+        font-size: 24px;
+        color: #333;
+        line-height: 30px;
+        margin-top: 10px;
+    }
+    #content .hotel_box h1 i{
+        width: 26px;
+        height: 26px;
+        display: inline-block;
+        background: url("../../image/hotel_lcon_1.jpg");
+        vertical-align: middle;
+        margin: 0 0 2px 10px;
+    }
+    #content .hotel_box>div{
+        height: 34px;
+        line-height: 34px;
+        font-size: 18px;
+        margin: 10px 0;
+        display: flex;
+    }
+    #content .hotel_box .hotel_price{
+        color: #ff8a00;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    #content .hotel_box .hotel_buy{
+        display: flex;
+        margin-right: 15px;
+    }
+    #content .hotel_box .hotel_buy_input{
+        width: 50px;
+        text-align: center;
+    }
+    #content .hotel_box .hotel_buy_but{
+        width: 100px;
+        background-color: #ff9300;
+        border-color: #ff9300;
+    }
+        /*日历*/
+    #now_date{
+        border-right-color: #ff9300;
+    }
+    .input-group-addon{
+        background-color: #ff9300;
+        border-color: #ff9300;
+    }
+    .input-group-addon .glyphicon{
+        color: #fff;
+    }
+
+    /*酒店详情*/
+    #content .details_box{
+        margin: 30px 0;
+    }
+    #content .details_box .details_title{
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    /*酒店点评和收藏*/
+    #content .details_box h1{
+        font-size: 26px;
+        padding: 0;
+        margin: 0;
+    }
+    #content .details_box .details_ds{
+        display: flex;
+        justify-content: flex-end;
+    }
+    #content .details_box .details_ds a{
+        display: flex;
+        margin-right: 30px;
+        color: #333;
+    }
+    #content .details_box .details_ds a:hover{
+        text-decoration: underline;
+    }
+    #content .details_box .details_ds i{
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+        align-self: center;
+    }
+    #content .details_box .details_ds span{
+        align-self: center;
+    }
+    #content .details_box .details_comment i{
+        background: url("../../image/hotel_lcon_2.jpg") no-repeat;
+    }
+    #content .details_box .details_collection i{
+        background: url("../../image/hotel_lcon_3.jpg") no-repeat;
+    }
+    #content .details_box>div{
+        display: flex;
+    }
+    #content .details_content>div{
+        border-bottom: 1px solid #ccc;
+    }
+    #content .details_content p{
+        text-indent: 50px;
+        font-size: 16px;
+        text-align: justify;
+    }
+
+    /*全部评论*/
+    #content .comment_list{
+        margin: 50px 0 20px 0;
+    }
+    #content .comment_list .comment_head{
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+    }
+    #content .comment_list .comment_head h1{
+        font-size: 26px;
+        margin: 0;
+    }
+    #content .comment_head .comment_add{
+        margin-right: 20px;
+        background-color: #ffb200;
+        border-color: #ffb200;
+        color: #fff;
+    }
+    #content .comment_head .comment_add:hover{
+        background-color: #ff9d00;
+        border-color: #ff9d00;
+    }
+    #content .comment_box>.row{
+        border-bottom: 1px dashed #dfdfdf;
+        margin-top: 30px;
+    }
+    #content .comment_user{
+        text-align: center;
+    }
+    #content .comment_user>img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    #content .comment_user>a{
+        color: #ff9300;
+        margin-top: 10px;
+    }
+    #content .comment_content>p{
+        text-align: justify;
+    }
+
+    /*评论底部*/
+    #content .comment_content .comment_footer{
+        display: flex;
+        justify-content: flex-start;
+        margin: 15px 0;
+    }
+    #content .comment_content .comment_stars{
+        width: 104px;
+        height: 20px;
+        background: url("../../image/comment_stars_1.jpg") no-repeat;
+        margin-right: 15px;
+    }
+    #content .comment_content .comment_zan{
+        width: 20px;
+        height: 20px;
+        background: url("../../image/comment_zan.jpg") no-repeat;
+        background-size: cover;
+        margin-left: 15px;
+        cursor: pointer;
+    }
+
+}
+/*中屏幕*/
+@media (min-width: 992px) and (max-width: 1199px){
+    /*酒店购买*/
+    #content .hotel_box h1{
+        font-size: 20px;
+        color: #000;
+        line-height: 30px;
+        margin: 0;
+    }
+    #content .hotel_box h1 i{
+        width: 26px;
+        height: 26px;
+        display: inline-block;
+        background: url("../../image/hotel_lcon_1.jpg");
+        vertical-align: middle;
+        margin: 0 0 2px 10px;
+    }
+    #content .hotel_box>div{
+        height: 34px;
+        line-height: 34px;
+        font-size: 16px;
+        margin: 5px 0;
+        display: flex;
+    }
+    #content .hotel_box .hotel_price{
+        color: #ff8a00;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    #content .hotel_box .hotel_buy{
+        display: flex;
+        margin-right: 15px;
+    }
+    #content .hotel_box .hotel_buy_input{
+        width: 50px;
+        text-align: center;
+    }
+    #content .hotel_box .hotel_buy_but{
+        width: 100px;
+        background-color: #ff9300;
+        border-color: #ff9300;
+    }
+    /*日历*/
+    #now_date{
+        border-right-color: #ff9300;
+    }
+    .input-group-addon{
+        background-color: #ff9300;
+        border-color: #ff9300;
+    }
+    .input-group-addon .glyphicon{
+        color: #fff;
+    }
+
+
+    /*酒店详情*/
+    #content .details_box{
+        margin: 30px 0;
+    }
+    #content .details_box .details_title{
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    /*酒店点评和收藏*/
+    #content .details_box h1{
+        font-size: 26px;
+        padding: 0;
+        margin: 0;
+    }
+    #content .details_box .details_ds{
+        display: flex;
+        justify-content: flex-end;
+    }
+    #content .details_box .details_ds a{
+        display: flex;
+        margin-right: 30px;
+        color: #333;
+    }
+    #content .details_box .details_ds a:hover{
+        text-decoration: underline;
+    }
+    #content .details_box .details_ds i{
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+        align-self: center;
+    }
+    #content .details_box .details_ds span{
+        align-self: center;
+    }
+    #content .details_box .details_comment i{
+        background: url("../../image/hotel_lcon_2.jpg") no-repeat;
+    }
+    #content .details_box .details_collection i{
+        background: url("../../image/hotel_lcon_3.jpg") no-repeat;
+    }
+    #content .details_box>div{
+        display: flex;
+    }
+    #content .details_content>div{
+        border-bottom: 1px solid #ccc;
+    }
+    #content .details_content p{
+        text-indent: 50px;
+        font-size: 16px;
+        text-align: justify;
+    }
+
+    /*全部评论*/
+    #content .comment_list{
+        margin: 50px 0 20px 0;
+    }
+    #content .comment_list .comment_head{
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+    }
+    #content .comment_list .comment_head h1{
+        font-size: 26px;
+        margin: 0;
+    }
+    #content .comment_head .comment_add{
+        margin-right: 20px;
+        background-color: #ffb200;
+        border-color: #ffb200;
+        color: #fff;
+    }
+    #content .comment_head .comment_add:hover{
+        background-color: #ff9d00;
+        border-color: #ff9d00;
+    }
+    #content .comment_box>.row{
+        border-bottom: 1px dashed #dfdfdf;
+        margin-top: 30px;
+    }
+    #content .comment_user{
+        text-align: center;
+    }
+    #content .comment_user>img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    #content .comment_user>a{
+        color: #ff9300;
+        margin-top: 10px;
+    }
+    #content .comment_content>p{
+        text-align: justify;
+    }
+
+    /*评论底部*/
+    #content .comment_content .comment_footer{
+        display: flex;
+        justify-content: flex-start;
+        margin: 15px 0;
+    }
+    #content .comment_content .comment_stars{
+        width: 104px;
+        height: 20px;
+        background: url("../../image/comment_stars_1.jpg") no-repeat;
+        margin-right: 15px;
+    }
+    #content .comment_content .comment_zan{
+        width: 20px;
+        height: 20px;
+        background: url("../../image/comment_zan.jpg") no-repeat;
+        background-size: cover;
+        margin-left: 15px;
+        cursor: pointer;
+    }
+
+}
+/*小屏幕*/
+@media (min-width: 768px) and (max-width: 991px){
+    /*酒店购买*/
+    #content .hotel_box h1{
+        font-size: 24px;
+        color: #333;
+        line-height: 30px;
+        margin-top: 10px;
+    }
+    #content .hotel_box h1 i{
+        width: 26px;
+        height: 26px;
+        display: inline-block;
+        background: url("../../image/hotel_lcon_1.jpg");
+        vertical-align: middle;
+        margin: 0 0 2px 10px;
+    }
+    #content .hotel_box>div{
+        height: 34px;
+        line-height: 34px;
+        font-size: 18px;
+        margin: 10px 0;
+        display: flex;
+    }
+    #content .hotel_box .hotel_price{
+        color: #ff8a00;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    #content .hotel_box .hotel_buy{
+        display: flex;
+        margin-right: 15px;
+    }
+    #content .hotel_box .hotel_buy_input{
+        width: 50px;
+        text-align: center;
+    }
+    #content .hotel_box .hotel_buy_but{
+        width: 100px;
+        background-color: #ff9300;
+        border-color: #ff9300;
+    }
+    /*日历*/
+    #now_date{
+        border-right-color: #ff9300;
+    }
+    .input-group-addon{
+        background-color: #ff9300;
+        border-color: #ff9300;
+    }
+    .input-group-addon .glyphicon{
+        color: #fff;
+    }
+
+
+    #content .details_box{
+        margin: 30px 0;
+    }
+    #content .details_box .details_title{
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    /*酒店点评和收藏*/
+    #content .details_box h1{
+        font-size: 26px;
+        padding: 0;
+        margin: 0;
+    }
+    #content .details_box .details_ds{
+        display: flex;
+        justify-content: flex-end;
+    }
+    #content .details_box .details_ds a{
+        display: flex;
+        margin-right: 30px;
+        color: #333;
+    }
+    #content .details_box .details_ds a:hover{
+        text-decoration: underline;
+    }
+    #content .details_box .details_ds i{
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+        align-self: center;
+    }
+    #content .details_box .details_ds span{
+        align-self: center;
+    }
+    #content .details_box .details_comment i{
+        background: url("../../image/hotel_lcon_2.jpg") no-repeat;
+    }
+    #content .details_box .details_collection i{
+        background: url("../../image/hotel_lcon_3.jpg") no-repeat;
+    }
+    #content .details_box>div{
+        display: flex;
+    }
+    #content .details_content>div{
+        border-bottom: 1px solid #ccc;
+    }
+    #content .details_content p{
+        text-indent: 50px;
+        font-size: 16px;
+        text-align: justify;
+    }
+
+    /*全部评论*/
+    #content .comment_list{
+        margin: 50px 0 20px 0;
+    }
+    #content .comment_list .comment_head{
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+    }
+    #content .comment_list .comment_head h1{
+        font-size: 26px;
+        margin: 0;
+    }
+    #content .comment_head .comment_add{
+        margin-right: 20px;
+        background-color: #ffb200;
+        border-color: #ffb200;
+        color: #fff;
+    }
+    #content .comment_head .comment_add:hover{
+        background-color: #ff9d00;
+        border-color: #ff9d00;
+    }
+    #content .comment_box>.row{
+        border-bottom: 1px dashed #dfdfdf;
+        margin-top: 30px;
+    }
+    #content .comment_user{
+        text-align: center;
+    }
+    #content .comment_user>img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    #content .comment_user>a{
+        color: #ff9300;
+        margin-top: 10px;
+    }
+    #content .comment_content>p{
+        text-align: justify;
+    }
+
+    /*评论底部*/
+    #content .comment_content .comment_footer{
+        display: flex;
+        justify-content: flex-start;
+        margin: 15px 0;
+    }
+    #content .comment_content .comment_stars{
+        width: 104px;
+        height: 20px;
+        background: url("../../image/comment_stars_1.jpg") no-repeat;
+        margin-right: 15px;
+    }
+    #content .comment_content .comment_zan{
+        width: 20px;
+        height: 20px;
+        background: url("../../image/comment_zan.jpg") no-repeat;
+        background-size: cover;
+        margin-left: 15px;
+        cursor: pointer;
+    }
+}
+/*超小屏幕*/
+@media (max-width: 767px){
+    /*酒店购买*/
+    #content .hotel_box h1{
+        font-size: 20px;
+        color: #333;
+        line-height: 30px;
+        margin-top: 10px;
+    }
+    #content .hotel_box h1 i{
+        width: 26px;
+        height: 26px;
+        display: inline-block;
+        background: url("../../image/hotel_lcon_1.jpg");
+        vertical-align: middle;
+        margin: 0 0 2px 10px;
+    }
+    #content .hotel_box>div{
+        height: 34px;
+        line-height: 34px;
+        font-size: 14px;
+        margin: 10px 0;
+        display: flex;
+    }
+    #content .hotel_box .hotel_price{
+        color: #ff8a00;
+        font-size: 20px;
+        font-weight: bold;
+    }
+    #content .hotel_box .hotel_buy{
+        display: flex;
+        margin-right: 15px;
+    }
+    #content .hotel_box .hotel_buy_input{
+        width: 50px;
+        text-align: center;
+    }
+    #content .hotel_box .hotel_buy_but{
+        width: 100px;
+        background-color: #ff9300;
+        border-color: #ff9300;
+    }
+    /*日历*/
+    #now_date{
+        border-right-color: #ff9300;
+    }
+    .input-group-addon{
+        background-color: #ff9300;
+        border-color: #ff9300;
+    }
+    .input-group-addon .glyphicon{
+        color: #fff;
+    }
+
+
+    /*酒店详情*/
+    #content .details_box{
+        margin: 30px 0;
+    }
+    #content .details_box .details_title{
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    /*酒店点评和收藏*/
+    #content .details_box h1{
+        font-size: 20px;
+        padding: 0;
+        margin: 0;
+    }
+    #content .details_box .details_ds{
+        display: flex;
+        justify-content: flex-end;
+    }
+    #content .details_box .details_ds a{
+        display: flex;
+        margin-right: 15px;
+        color: #333;
+    }
+    #content .details_box .details_ds a:hover{
+        text-decoration: underline;
+    }
+    #content .details_box .details_ds i{
+        width: 25px;
+        height: 25px;
+        margin-right: 5px;
+        align-self: center;
+    }
+    #content .details_box .details_ds span{
+        align-self: center;
+    }
+    #content .details_box .details_comment i{
+        background: url("../../image/hotel_lcon_2.jpg") no-repeat;
+    }
+    #content .details_box .details_collection i{
+        background: url("../../image/hotel_lcon_3.jpg") no-repeat;
+    }
+    #content .details_box>div{
+        display: flex;
+    }
+    #content .details_content>div{
+        border-bottom: 1px solid #ccc;
+    }
+    #content .details_content p{
+        text-indent: 50px;
+        font-size: 16px;
+        text-align: justify;
+    }
+
+    /*全部评论*/
+    #content .comment_list{
+        margin: 50px 0 20px 0;
+    }
+    #content .comment_list .comment_head{
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+    }
+    #content .comment_list .comment_head h1{
+        font-size: 20px;
+        margin: 0;
+    }
+    #content .comment_head .comment_add{
+        margin-right: 20px;
+        background-color: #ffb200;
+        border-color: #ffb200;
+        color: #fff;
+    }
+    #content .comment_head .comment_add:hover{
+        background-color: #ff9d00;
+        border-color: #ff9d00;
+    }
+    #content .comment_box>.row{
+        border-bottom: 1px dashed #dfdfdf;
+        margin-top: 30px;
+    }
+    #content .comment_user{
+        margin-bottom: 10px;
+    }
+    #content .comment_user>img{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+    #content .comment_user>a{
+        color: #ff9300;
+    }
+    #content .comment_content>p{
+        text-align: justify;
+    }
+
+    /*评论底部*/
+    #content .comment_content .comment_footer{
+        display: flex;
+        justify-content: flex-start;
+        margin: 15px 0;
+    }
+    #content .comment_content .comment_stars{
+        width: 104px;
+        height: 20px;
+        background: url("../../image/comment_stars_1.jpg") no-repeat;
+        margin-right: 15px;
+    }
+    #content .comment_content .comment_zan{
+        width: 20px;
+        height: 20px;
+        background: url("../../image/comment_zan.jpg") no-repeat;
+        background-size: cover;
+        margin-left: 15px;
+        cursor: pointer;
+    }
+}
