@@ -5,16 +5,6 @@
     font-family: Arial,"Lucida Grande","Microsoft Yahei","Hiragino Sans GB","Hiragino Sans GB W3",SimSun,"PingFang SC",STHeiti;
 }
 
-li{
-    list-style: none;
-}
-a{
-    text-decoration:none;
-}
-a:hover{
-    text-decoration:none;
-}
-
 /*大屏幕*/
 @media (min-width: 1200px){
     /*排行字体*/
