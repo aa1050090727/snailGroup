@@ -151,7 +151,9 @@ class Login extends Controller
                         'f_user_pwd' =>md5($pwd2),
                         'f_user_name'=>$f_user_name,
                         'f_user_img'=>'__STATIC__/image/0.png',
-                        'f_user_money'=>50
+                        'f_user_money'=>50,
+                        'f_user_sell' => '否',
+                        'f_user_states' => '使用'
                     ];
                     Db::table('f_user')->insert($data);
                     return json(['code'=>10000,'msg'=>$registermsg['register_success'],'data'=>[],'url' => url('reception/Index/index')]);
