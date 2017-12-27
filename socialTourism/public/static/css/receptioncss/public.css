@@ -100,7 +100,46 @@ a:hover{
         text-decoration: underline;
         color: #ff9d00;
     }
-
+    /*登录成功时样式*/
+    .nav_out .user_photo{
+        display: flex;
+        align-items: center;
+    }
+    .nav_out .user_photo img{
+        width: 32px;
+        height: 32px;
+        background-size: cover;
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+    .nav_out .dropdown-menu{
+        left: -108px;
+        top: 99%;
+        margin: 0;
+        padding: 0;
+    }
+    .nav_out .dropdown-menu .user_money{
+        height: 40px;
+        line-height: 40px;
+        justify-content: center;
+        color: #fff;
+        background-color: #ff9d00;
+    }
+    .nav_out .dropdown-menu .divider{
+        margin: 0;
+    }
+    .nav_out .dropdown-menu .show_center{
+        width: 158px;
+        height: 35px;
+        line-height: 35px;
+        margin-top: 5px;
+    }
+    .nav_out .dropdown-menu .user_out{
+        width: 158px;
+        height: 35px;
+        line-height: 35px;
+        margin-bottom: 5px;
+    }
     /*页脚*/
     #footer{
         width: 100%;
@@ -259,6 +298,47 @@ a:hover{
         color: #ff9d00;
     }
 
+    /*登录成功时样式*/
+    .nav_out .user_photo{
+        display: flex;
+        align-items: center;
+    }
+    .nav_out .user_photo img{
+        width: 32px;
+        height: 32px;
+        background-size: cover;
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+    .nav_out .dropdown-menu{
+        left: -108px;
+        top: 99%;
+        margin: 0;
+        padding: 0;
+    }
+    .nav_out .dropdown-menu .user_money{
+        height: 40px;
+        line-height: 40px;
+        justify-content: center;
+        color: #fff;
+        background-color: #ff9d00;
+    }
+    .nav_out .dropdown-menu .divider{
+        margin: 0;
+    }
+    .nav_out .dropdown-menu .show_center{
+        width: 158px;
+        height: 35px;
+        line-height: 35px;
+        margin-top: 5px;
+    }
+    .nav_out .dropdown-menu .user_out{
+        width: 158px;
+        height: 35px;
+        line-height: 35px;
+        margin-bottom: 5px;
+    }
+
     /*页脚*/
     #footer{
         width: 100%;
@@ -415,6 +495,46 @@ a:hover{
         color: #ff9d00;
     }
 
+    /*登录成功时样式*/
+    .nav_out .user_photo{
+        display: flex;
+        align-items: center;
+    }
+    .nav_out .user_photo img{
+        width: 32px;
+        height: 32px;
+        background-size: cover;
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+    .nav_out .dropdown-menu{
+        left: -108px;
+        top: 99%;
+        margin: 0;
+        padding: 0;
+    }
+    .nav_out .dropdown-menu .user_money{
+        height: 40px;
+        line-height: 40px;
+        justify-content: center;
+        color: #fff;
+        background-color: #ff9d00;
+    }
+    .nav_out .dropdown-menu .divider{
+        margin: 0;
+    }
+    .nav_out .dropdown-menu .show_center{
+        width: 158px;
+        height: 35px;
+        line-height: 35px;
+        margin-top: 5px;
+    }
+    .nav_out .dropdown-menu .user_out{
+        width: 158px;
+        height: 35px;
+        line-height: 35px;
+        margin-bottom: 5px;
+    }
     /*页脚*/
     #footer{
         width: 100%;
@@ -553,6 +673,47 @@ a:hover{
         text-decoration: underline;
         color: #ff9d00;
     }
+    /*登录成功时样式*/
+    .nav_out .user_photo{
+        display: flex;
+        align-items: center;
+    }
+    .nav_out .user_photo img{
+        width: 32px;
+        height: 32px;
+        background-size: cover;
+        border-radius: 50%;
+        margin-right: 5px;
+    }
+    .nav_out .dropdown-menu{
+        left: -108px;
+        top: 99%;
+        margin: 0;
+        padding: 0;
+    }
+    .nav_out .dropdown-menu .user_money{
+        height: 40px;
+        line-height: 40px;
+        justify-content: center;
+        color: #fff;
+        background-color: #ff9d00;
+    }
+    .nav_out .dropdown-menu .divider{
+        margin: 0;
+    }
+    .nav_out .dropdown-menu .show_center{
+        width: 158px;
+        height: 35px;
+        line-height: 35px;
+        margin-top: 5px;
+    }
+    .nav_out .dropdown-menu .user_out{
+        width: 158px;
+        height: 35px;
+        line-height: 35px;
+        margin-bottom: 5px;
+    }
+
     /*页脚*/
     #footer{
         width: 100%;
