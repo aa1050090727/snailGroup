@@ -1,0 +1,41 @@
+/*通用样式*/
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial,"Lucida Grande","Microsoft Yahei","Hiragino Sans GB","Hiragino Sans GB W3",SimSun,"PingFang SC",STHeiti;
+}
+/*大屏幕*/
+@media (min-width: 1200px){
+    /*发布人等字体*/
+    .rankSpan{
+        font-size: 18px;
+        font-weight: 500;
+    }
+}
+/*中屏幕*/
+@media (min-width: 992px) and (max-width: 1199px){
+    /*发布人等字体*/
+    .rankSpan{
+        font-size: 18px;
+        font-weight: 500;
+    }
+}
+/*小屏幕*/
+@media (min-width: 768px) and (max-width: 991px){
+
+    /*排行字体*/
+    .rankSpan{
+        font-size: 18px;
+        font-weight: 800;
+    }
+}
+/*超小屏幕*/
+@media (max-width: 767px){
+      /*排行字体*/
+    .rankSpan{
+
+        font-size: 18px;
+        font-weight: 800;
+    }
+
+}
