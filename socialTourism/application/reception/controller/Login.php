@@ -192,7 +192,7 @@ class Login extends Controller
                 if(!empty($res)){
                     $res  = Db::table('f_user')->where($my)->find();
                     if(!empty($res)){
-                        $result  = Db::table('b_user')->where($where)->find();
+                        $result  = Db::table('f_user')->where($where)->find();
                         if(!empty($result)){
                             return json(['code'=>10000,'msg'=>$loginmsg['login_success'],'data'=>[],'url' =>  url('backstage/Index/index')]);
                         }else{
