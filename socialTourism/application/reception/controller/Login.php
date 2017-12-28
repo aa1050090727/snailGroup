@@ -151,7 +151,9 @@ class Login extends Controller
                         'f_user_pwd' =>md5($pwd2),
                         'f_user_name'=>$f_user_name,
                         'f_user_img'=>'__STATIC__/image/0.png',
-                        'f_user_money'=>50
+                        'f_user_money'=>50,
+                        'f_user_sell' => '否',
+                        'f_user_states' => '使用'
                     ];
                     Db::table('f_user')->insert($data);
                     return json(['code'=>10000,'msg'=>$registermsg['register_success'],'data'=>[],'url' => url('reception/Index/index')]);
@@ -190,9 +192,9 @@ class Login extends Controller
                 if(!empty($res)){
                     $res  = Db::table('f_user')->where($my)->find();
                     if(!empty($res)){
-                        $result  = Db::table('b_user')->where($where)->find();
+                        $result  = Db::table('f_user')->where($where)->find();
                         if(!empty($result)){
-                            return json(['code'=>10000,'msg'=>$loginmsg['login_success'],'data'=>[],'url' =>  url('backstage/Index/index')]);
+                            return json(['code'=>10000,'msg'=>$loginmsg['login_success'],'data'=>[],'url' =>  url('reception/Index/index')]);
                         }else{
                             return json(['code'=>10001,'msg'=>$loginmsg['login_error2'],'data'=>[],'url' => []]);
                         }

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>角色管理</title>
+    <link rel="stylesheet" href="__STATIC__/kit_admin/plugins/layui/css/layui.css" media="all">
+</head>
+<body>
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+<table class="layui-table" lay-data="{height:315, url:'__STATIC__/kit_admin/table.json', page:true, id:'test',height: 'full-25'}" lay-filter="test" id="test">
+    <thead>
+    <tr>
+        <th lay-data="{field:'id', width:80, sort: true}">ID</th>
+        <th lay-data="{field:'username', width:80}">用户名</th>
+        <th lay-data="{field:'sex', width:80, sort: true}">性别</th>
+        <th lay-data="{field:'city', width:80}">城市</th>
+        <th lay-data="{field:'sign', width:177}">签名</th>
+        <th lay-data="{field:'experience', width:80, sort: true}">积分</th>
+        <th lay-data="{field:'score', width:80, sort: true}">评分</th>
+        <th lay-data="{field:'classify', width:80}">职业</th>
+        <th lay-data="{field:'wealth', width:135, sort: true}">财富</th>
+        <th lay-data="{fixed: 'right', width: 165, align:'center', toolbar: '#barDemo'}">操作</th>
+    </tr>
+    </thead>
+</table>
+
+</body>
+<script src="__STATIC__/kit_admin/plugins/layui/layui.js"></script>
+<script>
+    layui.use('table', function() {
+        var table = layui.table;
+        //监听工具条
+        table.on('tool(test)', function(obj){ //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+            var data = obj.data //获得当前行数据
+                    ,layEvent = obj.event; //获得 lay-event 对应的值
+            if(layEvent === 'detail'){
+                layer.msg('查看操作');
+                //console.log(data,layEvent);
+            } else if(layEvent === 'del'){
+                layer.confirm('真的删除行么', function(index){
+                    obj.del(); //删除对应行（tr）的DOM结构
+                    layer.close(index);
+                    //向服务端发送删除指令
+                });
+            } else if(layEvent === 'edit'){
+                layer.msg('编辑操作');
+            }
+        });
+
+    });
+</script>
+</html>
