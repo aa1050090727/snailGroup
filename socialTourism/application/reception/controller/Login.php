@@ -194,6 +194,7 @@ class Login extends Controller
                     if(!empty($res)){
                         $result  = Db::table('f_user')->where($where)->find();
                         if(!empty($result)){
+                            Session::set('nowlogin',$name);
                             return json(['code'=>10000,'msg'=>$loginmsg['login_success'],'data'=>[],'url' =>  url('reception/Index/index')]);
                         }else{
                             return json(['code'=>10001,'msg'=>$loginmsg['login_error2'],'data'=>[],'url' => []]);
@@ -214,6 +215,5 @@ class Login extends Controller
 
 
     }
-
 
 }
