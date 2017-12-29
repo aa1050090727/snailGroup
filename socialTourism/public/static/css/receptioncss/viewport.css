@@ -3,41 +3,6 @@
     padding:0;
     font-family: "微软雅黑";
 }
-.nav-margin{
-    margin-bottom: 0;
-}
-.navbar-default{
-    background-color: white;
-}
-.nav-li,.content-icon{
-    margin-top: 10px;
-}
-.btn,.btn-default:hover{
-    border: 1px solid #ff9300;
-}
-.nav-font{
-    font-size: 16px;
-    color: #ff9300;
-}
-.nav-btn,.btn-default:hover{
-    background-color: #ff9300;
-    color: #fff;
-    font-size: 16px;
-}
-.nav-vertical{
-    margin-top: 5px;
-}
-@media (min-width: 1200px){
-    .drop-menu{
-        width: 600px;
-        height: auto;
-    }
-    /*下拉菜单*/
-    .menu{
-        float: left;
-    }
-}
-
 /*****************************搜索*****************************/
 .search_bg{
     background:url("https://c4-q.mafengwo.net/s10/M00/C1/47/wKgBZ1oySXWAVU25AAzpd6bNfgE903.png") no-repeat center;
@@ -56,6 +21,9 @@
 .pos_style:hover{
     background-color: lightskyblue;
     cursor: pointer;
+}
+.pos_div_li:hover{
+    color: lightblue;
 }
 /***********************************当季景点推荐***********************************/
 .change_font{
@@ -105,9 +73,7 @@
     }
     .pos_style{
         display: inline-block;
-        padding: 0 15px 0 15px;
-        height: 35px;
-        line-height: 35px;
+        padding: 5px 15px 5px 15px;
         text-align: center;
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
@@ -116,6 +82,31 @@
         font-size: 16px;
         font-weight: bold;
         margin: 8px 5px;
+    }
+    .pos_media{
+        width: 18%;
+        !important;
+    }
+    .pos_div{
+        display: inline-block;
+        width: 650px;
+        margin-left: 10px;
+    }
+    .pos_div_ul{
+        display: inline-block;
+    }
+    .pos_div_li{
+        display: inline-block;
+        border-bottom: 1px solid black;
+        margin-left: 5px;
+        margin-top: 5px;
+    }
+    /***城市详情列表****/
+    .area_title{
+        font-size: 18px;
+        font-weight: bold;
+        color: grey;
+
     }
     /************************当季推荐************************/
     .nowaday_rec{
@@ -135,6 +126,13 @@
         color: grey;
         margin-left: 30px;
         text-align: right;
+    }
+    .content_p{
+        height: 150px;
+        overflow: hidden;
+    }
+    .thumbnail>img{
+        height: 200px;
     }
     /******页脚******/
 
@@ -187,6 +185,24 @@
         font-weight: bold;
         margin: 8px 5px;
     }
+    .pos_media{
+        width: 40%;
+    !important;
+    }
+    .pos_div{
+        display: inline-block;
+        width: 280px;
+        margin-left: 10px;
+    }
+    .pos_div ul{
+        display: inline-block;
+    }
+    .pos_div li{
+        display: inline-block;
+        border-bottom: 1px solid black;
+        margin-top: 5px;
+
+    }
     /**********当季景点推荐**********/
     .rec_price{
         display: inline-block;
@@ -201,6 +217,13 @@
         color: grey;
         margin-left: 25px;
         text-align: right;
+    }
+    .content_p{
+        height: 150px;
+        overflow: hidden;
+    }
+    .thumbnail>img{
+        height: 200px;
     }
     /******页脚******/
 
@@ -251,6 +274,24 @@
         font-weight: bold;
         margin: 8px 5px;
     }
+    .pos_media{
+        width: 30%;
+    !important;
+    }
+    .pos_div{
+        display: inline-block;
+        width: 450px;
+        margin-left: 10px;
+    }
+    .pos_div ul{
+        display: inline-block;
+    }
+    .pos_div li{
+        display: inline-block;
+        border-bottom: 1px solid black;
+        margin-top: 5px;
+
+    }
     /****************当季景点推荐****************/
     .rec_price{
         display: inline-block;
@@ -265,6 +306,13 @@
         color: grey;
         margin-left:5px;
         text-align: right;
+    }
+    .content_p{
+        height: 150px;
+        overflow: hidden;
+    }
+    .thumbnail>img{
+        height: 200px;
     }
     /****************页脚****************/
 }
@@ -308,9 +356,7 @@
     }
     .pos_style{
         display: inline-block;
-        padding: 0 15px 0 15px;
-        height: 35px;
-        line-height: 35px;
+        padding: 5px 15px 5px 15px;
         text-align: center;
         -webkit-border-radius: 5px;
         -moz-border-radius: 5px;
@@ -319,6 +365,19 @@
         font-size: 14px;
         font-weight: bold;
         margin: 8px 5px;
+    }
+    .pos_div{
+        display: inline-block;
+        margin-left: 10px;
+    }
+    .pos_div ul{
+        display: inline-block;
+    }
+    .pos_div li{
+        display: inline-block;
+        border-bottom: 1px solid black;
+        margin-top: 5px;
+
     }
     /****************当季景点推荐**********/
     .rec_price{
