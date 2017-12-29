@@ -7,71 +7,70 @@
     <title>目的地|旅游平台</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="__STATIC__/css/receptioncss/viewport.css" type="text/css">
+    <link rel="stylesheet" href="__STATIC__/css/receptioncss/public.css" type="text/css">
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue"></script>
 </head>
 <body>
-<!--nav-->
-<!--<nav class="navbar navbar-default nav-fixed-top nav-margin">-->
-    <!--<div class="container">-->
-        <!--<div class="navbar-header">-->
-            <!--&lt;!&ndash;折叠按钮&ndash;&gt;-->
-            <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">-->
-                <!--<span class="sr-only">Toggle navigation</span>-->
-                <!--&lt;!&ndash;短横杠图标&ndash;&gt;-->
-                <!--<span class="icon-bar"></span>-->
-                <!--<span class="icon-bar"></span>-->
-                <!--<span class="icon-bar"></span>-->
-            <!--</button>-->
-            <!--<a href="#" class="navbar-brand" style="display: inline-block;width: 130px;height: 66px;">-->
-                <!--<img src="https://www.wjx.cn/images/newimg/index/logonew.png" alt="" class="img-responsive">-->
-            <!--</a>-->
-        <!--</div>-->
-        <!--<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">-->
-            <!--<ul class="nav navbar-nav navbar-right">-->
-                <!--<li class="active nav-li"><a href="#">首页</a></li>-->
-                <!--<li class="nav-li dropdown">-->
-                    <!--<a href="#" class="dropdown-toggle" data-toggle="dropdown">应用展示 <span class="caret"></span></a>-->
-                    <!--&lt;!&ndash;下拉菜单&ndash;&gt;-->
-                    <!--<ul class="dropdown-menu pull-left drop-menu">-->
-                        <!--<li class="menu"><a href="#">-->
-                            <!--<img src="https://image.wjx.cn/images/newimg/index/survey_orange.png" alt="" class="img-responsive">-->
-                            <!--<span>问卷调查</span>-->
-                        <!--</a></li>-->
-                        <!--<li class="menu"><a href="#">-->
-                            <!--<img src="https://image.wjx.cn/images/newimg/index/test_orange.png" alt="" class="img-responsive">-->
-                            <!--<span>在线考试</span>-->
-                        <!--</a></li>-->
-                        <!--<li class="menu"><a href="#">-->
-                            <!--<img src="https://image.wjx.cn/images/newimg/index/360_orange.png" alt="" class="img-responsive">-->
-                            <!--<span>360度评估</span>-->
-                        <!--</a></li>-->
-                        <!--<li class="menu"><a href="#">-->
-                            <!--<img src="https://image.wjx.cn/images/newimg/index/form_orange.png" alt="" class="img-responsive">-->
-                            <!--<span>报名表单</span>-->
-                        <!--</a></li>-->
-                        <!--<li class="menu"><a href="#">-->
-                            <!--<img src="https://image.wjx.cn/images/newimg/index/evaluation_orange.png" alt="" class="img-responsive">-->
-                            <!--<span>在线测评</span>-->
-                        <!--</a></li>-->
-                        <!--<li class="menu"><a href="#">-->
-                            <!--<img src="https://image.wjx.cn/images/newimg/index/vote_orange.png" alt="" class="img-responsive">-->
-                            <!--<span>在线投票</span>-->
-                        <!--</a></li>-->
-                    <!--</ul>-->
-                <!--</li>-->
-                <!--<li class="nav-li"><a href="#">企业服务</a></li>-->
-                <!--<li class="nav-li"><a href="#">样式服务</a></li>-->
-                <!--<li class="nav-li"><a href="#">问卷调查</a></li>-->
-                <!--<li class="nav-li">-->
-                    <!--<button type="button" class="btn btn-default nav-font nav-vertical text-center" onclick="showLogin()">登录</button>-->
-                    <!--<button type="button" class="btn btn-default nav-font nav-vertical text-center" id="register">注册</button>-->
-                    <!--<button type="button" class="btn btn-default nav-btn nav-vertical text-center">QQ登录</button>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</nav>-->
+<!-------------------nav-------------------------->
+<div id="nav">
+    <div class="nav_box container">
+        <div class="row">
+            <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
+            <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
+                <li><a href="{:url('reception/index/index')}">首页</a></li>
+                <li><a class="nav_index" href="{:url('reception/viewport/viewport')}">目的地</a></li>
+                <li><a href="{:url('reception/travels/travels')}">旅游游记</a></li>
+                <li><a href="">商品活动</a></li>
+                <li><a href="">酒店</a></li>
+                <li><a href="{:url('reception/merchant/merchant')}">卖家入驻</a></li>
+            </ul>
+            <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8">
+                <li><a class="nav_qq" href=""></a></li>
+                <li><a class="nav_weixin" href=""></a></li>
+                <li><a class="nav_login" href="">登录</a></li>
+                <li>
+                    <span class="nav_division">|</span>
+                </li>
+                <li><a class="nav_register" href="">注册</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--小屏幕下的导航栏-->
+<div id="nav_small">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-4">
+                <i class="ns_index"></i>
+                <p><a href="{:url('reception/index/index')}">首页</a></p>
+            </div>
+            <div class="col-xs-4">
+                <i class="ns_place"></i>
+                <p><a href="{:url('reception/viewport/viewport')}">目的地</a></p>
+            </div>
+            <div class="col-xs-4">
+                <i class="ns_travels"></i>
+                <p>旅游游记</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <i class="ns_activity"></i>
+                <p>商品活动</p>
+            </div>
+            <div class="col-xs-4">
+                <i class="ns_hotel"></i>
+                <p>酒店</p>
+            </div>
+            <div class="col-xs-4">
+                <i class="ns_settled"></i>
+                <p>卖家入驻</p>
+            </div>
+        </div>
+    </div>
+</div>
 <!------------------search------------------------>
 <div class="search_bg">
     <div class="container">
@@ -86,7 +85,7 @@
                     <div class="input-group search_div">
                         <input type="text" class="form-control search_input" style="border-radius: 5px" id="inputPassword2" placeholder="您想去...">
                     </div>
-                    <button type="submit" class="btn btn-default search_btn"><span class="glyphicon glyphicon-search "></span></button>
+                    <button type="button" class="btn btn-default search_btn" id="go_search"><span class="glyphicon glyphicon-search "></span></button>
                 </form>
             </div>
         </div>
@@ -95,7 +94,7 @@
 </div>
 <!---------------------------地点（二级菜单）--------------------------------->
 <div class="">
-    <div class="container">
+    <div class="container" id="myPositionVue">
         <div class="row blank_height_pos"></div>
         <div class="row blank_height_pos text-center"><h2>目的地</h2></div>
         <div class="row blank_height_pos"></div>
@@ -110,25 +109,19 @@
                     <div class="">
                         <div class="col-lg-2 col-md-2 col-sm-2"></div>
                         <div class="col-lg-8 col-md-8 col-sm-8">
-                            <span class="pos_style" id="pos">北京</span>
-                            <span class="pos_style">乌鲁木齐</span>
-                            <span class="pos_style">广西壮族自治区</span>
-                            <span class="pos_style">北京</span>
-                            <span class="pos_style">广西壮族自治区</span>
-                            <span class="pos_style">广西壮族自治区</span>
-                            <span class="pos_style">北京</span>
-                            <span class="pos_style">广西壮族自治区</span>
-                            <span class="pos_style">广西壮族自治区</span>
-                            <span class="pos_style">广西壮族自治区</span>
-                            <span class="pos_style">乌鲁木齐</span>
-                            <span class="pos_style">广西壮族自治区</span>
-                            <span class="pos_style">北京</span>
-                            <span class="pos_style">广西壮族自治区</span>
-                            <span class="pos_style">广西壮族自治区</span>
-                            <span class="pos_style">广西壮族自治区</span>
-                            <span class="pos_style">广西壮族自治区</span>
-                            <span class="pos_style">乌鲁木齐</span>
-                            <span class="pos_style">广西壮族自治区</span>
+                            <pro-city url="{:url('reception/viewport/posData')}">
+                                <!--省市地点-->
+                            </pro-city>
+                            <!--分页-->
+                            <div class="blank_height_pos">
+                                <div class="col-lg-3 col-md-3 col-sm-3"></div>
+                                <div class="col-lg-6 col-md-6 col-sm-4">
+                                    <page>
+                                        <!--分页-->
+                                    </page>
+                                </div>
+                                <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -154,6 +147,7 @@
                         <h3>推荐景点门票名称</h3>
                         <p>推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介</p>
                         <p><span class="rec_price">￥2500</span> <span class="rec_sale">已售</span></p>
+                        <p class="text-right"><a href="{:url('reception/viewport/viewdetailed')}">查看详情</a></p>
                     </div>
                 </div>
             </div>
@@ -164,6 +158,7 @@
                         <h3>推荐景点门票名称</h3>
                         <p>推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介</p>
                         <p><span class="rec_price">￥2500</span> <span class="rec_sale">已售</span></p>
+                        <p class="text-right"><a href="{:url('reception/viewport/viewdetailed')}">查看详情</a></p>
                     </div>
                 </div>
             </div>
@@ -174,6 +169,7 @@
                         <h3>推荐景点门票名称</h3>
                         <p>推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介</p>
                         <p><span class="rec_price">￥2500</span> <span class="rec_sale">已售</span></p>
+                        <p class="text-right"><a href="{:url('reception/viewport/viewdetailed')}">查看详情</a></p>
                     </div>
                 </div>
             </div>
@@ -184,6 +180,7 @@
                         <h3>推荐景点门票名称</h3>
                         <p>推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介</p>
                         <p><span class="rec_price">￥2500</span> <span class="rec_sale">已售</span></p>
+                        <p class="text-right"><a href="{:url('reception/viewport/viewdetailed')}">查看详情</a></p>
                     </div>
                 </div>
             </div>
@@ -191,11 +188,11 @@
         <div class="row blank_height_pos"></div>
     </div>
 </div>
-<!--------------------------------------页脚-------------------------------------
+<!--页脚-->
 <div id="footer">
-    <div class="footer_box container-fluid">
+    <div class="footer_box container">
         <div class="foot_list row">
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 foot_hidden">
                 <ul>
                     <li class="foot_title">中国领先的自由行服务平台</li>
                     <li><a href="">覆盖全球200多个国家和地区</a></li>
@@ -206,7 +203,7 @@
                     <li><a href=""><span>中国旅游行业第一部“玩法”</span></a></li>
                 </ul>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                 <ul>
                     <li class="foot_title">关于我们</li>
                     <li><a href="">关于蚂蜂窝</a></li>
@@ -217,7 +214,7 @@
                     <li><a href=""><span>加入蚂蜂窝</span></a></li>
                 </ul>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
                 <ul>
                     <li class="foot_title">旅行服务</li>
                     <li><a href="">旅游攻略</a><a href="">酒店预订</a></li>
@@ -228,7 +225,7 @@
                     <li><a href=""><span>全球供应商入驻</span></a></li>
                 </ul>
             </div>
-            <div class="foot_qrcode foot_title col-lg-3 col-md-3 col-sm-12 col-xs-6">
+            <div class="foot_qrcode foot_title col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div>
                     <span class="foot_qrcode_weixin"></span>
                     <p>
@@ -254,10 +251,12 @@
             </p>
         </div>
     </div>
-</div>-->
+</div>
 </body>
 <script>
-    var viewport_url = "{:url('index/viewport/viewpos')}";
+    var viewport_url = "{:url('reception/viewport/viewpos')}";
+    var pos_data_url = "{:url('reception/viewport/posData')}";
+    var setCookie_url = "{:url('reception/viewport/set_cookie')}";
 </script>
-<script src="__STATIC__/js/viewport.js"></script>
+<script src="__STATIC__/js/receptionjs/viewport.js"></script>
 </html>
