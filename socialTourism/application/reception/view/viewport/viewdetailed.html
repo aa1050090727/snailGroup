@@ -2,28 +2,29 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>游记发布</title>
-    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE-edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <title>景点详情|旅游平台</title>
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="__STATIC__/css/receptioncss/viewdetailed.css" type="text/css">
     <link rel="stylesheet" href="__STATIC__/css/receptioncss/public.css" type="text/css">
-    <link rel="stylesheet" href="__STATIC__/css/receptioncss/travelPublic.css" type="text/css">
-    <script src="__STATIC__/utf8-php/ueditor.parse.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue"></script>
 </head>
 <body>
-<!--导航栏-->
+<!-------------------nav-------------------------->
 <div id="nav">
     <div class="nav_box container">
         <div class="row">
             <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
             <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
-                <li><a class="nav_index" href="{:url('reception/index/index')}">首页</a></li>
-                <li><a href="{:url('reception/viewport/viewport')}">目的地</a></li>
-                <li><a href="{:url('reception/travels/travels')}">旅游游记</a></li>
+                <li><a href="{:url('reception/index/index')}">首页</a></li>
+                <li><a class="nav_index" href="{:url('reception/viewport/viewport')}">目的地</a></li>
+                <li><a href="">旅游游记</a></li>
                 <li><a href="">商品活动</a></li>
-                <li><a href="{:url('reception/Hotel/hotel')}">酒店</a></li>
-                <li><a href="{:url('reception/merchant/merchant')}">卖家入驻</a></li>
+                <li><a href="">酒店</a></li>
+                <li><a href="">卖家入驻</a></li>
             </ul>
             <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8">
                 <li><a class="nav_qq" href=""></a></li>
@@ -43,11 +44,11 @@
         <div class="row">
             <div class="col-xs-4">
                 <i class="ns_index"></i>
-                <p>首页</p>
+                <p><a href="{:url('reception/index/index')}">首页</a></p>
             </div>
             <div class="col-xs-4">
                 <i class="ns_place"></i>
-                <p>目的地</p>
+                <p><a href="{:url('reception/viewport/viewport')}">目的地</a></p>
             </div>
             <div class="col-xs-4">
                 <i class="ns_travels"></i>
@@ -70,50 +71,77 @@
         </div>
     </div>
 </div>
-<!--发布内容-->
-<div class="container" style="margin-top: 20px">
+<!--content-->
+<div class="container" id="view_detail">
+    <div class="row detail_blank"></div>
     <div class="row">
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-            <div class="row"><span style="font-size: 25px;font-weight: 900">游记编辑</span></div>
-            <div class="row">
-                <p id="travelImg"><img class="img-responsive center-block" src="https://c2-q.mafengwo.net/s10/M00/23/05/wKgBZ1muOTyAK725AAP23AoU2fo78.jpeg" alt="图片预览"/></p>
-            </div>
-            <form role="form" style="margin-top: 10px">
-                <div class="form-group">
-                    <label for="name">标题</label>
-                    <input type="text" class="form-control" id="name" placeholder="请输入游记名称">
-                </div>
-                <div class="form-group">
-                    <label for="name">地点</label>
-                    <input type="text" class="form-control" id="place" placeholder="请输入游记地点">
-                </div>
-                <div class="form-group">
-                        <label for="inputimg">上传展示图片</label>
-                        <input type="file" id="inputimg">
-                </div>
-                <div class="form-group">
-                    <label for="name">简介：</label>
-                    <textarea class="form-control" rows="3"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="name">主要内容：</label>
-                    <form action="server.php" method="post">
-                        <!-- 加载编辑器的容器 -->
-                        <script id="container" name="content" type="text/plain">
-                        </script>
-                    </form>
-                </div>
-                <button type="submit" class="btn btn-default">提交</button>
-            </form>
+        <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+            <img class="img-responsive detail_img" style="margin-right: auto;margin-left: auto" :src="viewDetail.f_science_img"
+                 alt="">
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-            <div class="row"><span style="font-size: 25px;font-weight: 900">你的游记</span></div>
-            <div class="row" style="margin-top: 20px"> <span class="rankSpan">1.</span><span class="rankSpanl">鼓浪屿三日游</span></div>
-            <div class="row" style="margin-top: 20px"> <span class="rankSpan">2.</span><span class="rankSpanl">西藏七日游</span></div>
-            <div class="row" style="margin-top: 20px"> <span class="rankSpan">3.</span><span class="rankSpanl">大理三日游</span></div>
+        <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+            <div class="travels_content">
+                <div class="travels_title"><span class="detail_title">{{viewDetail.f_science_name}}</span></div>
+                <p class="detail_body">{{viewDetail.f_science_content}}</p>
+                <div class="travels_footer">
+                    <span class="rec_price col-lg-3 col-md-3">￥{{viewDetail.f_science_price}}</span>
+                    <div class="col-lg-5 col-md-5 text-right">
+                        <button class="btn btn-danger detail_btn" @click="putShopCar(viewDetail.f_science_id)">加入购物车</button>
+                        <button class="btn btn-danger detail_btn" @click="nowBuy(viewDetail.f_science_id)">立即购买</button>
+                    </div>
+                    <div class="col-lg-3 col-md-3 text-right"><span class="rec_sale">已售：11</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row detail_blank"></div>
+    <div class="row" id="comment">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li id="tab_home" role="presentation" class="active"><a class="tabs_code" href="#home" aria-controls="home" role="tab" data-toggle="tab">景点详情</a></li>
+            <li id="tab_profile" role="presentation"><a class="tabs_code" href="#profile" aria-controls="profile" role="tab" data-toggle="tab">景点评价</a></li>
+        </ul>
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <!--景点详情-->
+            <div role="tabpanel" class="tab-pane active" id="home">
+                <div class="col-xs-12 detail_blank"></div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <img class="img-responsive" style="margin-right: auto;margin-left: auto" :src="viewDetail.f_science_img" alt="">
+                </div>
+                <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                    <div class="text-center detail_content_title"><span class="detail_title">{{viewDetail.f_science_name}}</span></div>
+                    <p class="detail_body">{{viewDetail.f_science_content}}</p>
+                </div>
+            </div>
+            <!--景点评价-->
+            <div role="tabpanel" class="tab-pane" id="profile">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 sty-comment">
+                    <span class="sty-comment-num">累计评价:</span>
+                </div>
+                <div class="comment_box col-lg-12">
+                    {volist name="viewComment" id="comment"}
+                    <div class="row comment-part">
+                        <div class="comment_user col-lg-2 col-md-2 col-sm-3 col-xs-12">
+                            <img src="{$comment.f_user_img}" alt="">
+                            <a href="" class="col-lg-12 col-md-12 col-sm-12">{$comment.f_user_name}</a>
+                            <span class="comment_time col-lg-12 col-md-12 col-sm-12">{$comment.f_sc_time}</span>
+                        </div>
+                        <div class="comment_content col-lg-10 col-md-10 col-sm-9 col-xs-12">
+                            <p>
+                                {$comment.f_sc_content}
+                            </p>
+                        </div>
+                    </div>
+                    {/volist}
+                </div>
+                <div>{$viewComment->render()}</div>
+            </div>
         </div>
     </div>
 </div>
+<!--footer-->
 <!--页脚-->
 <div id="footer">
     <div class="footer_box container">
@@ -179,15 +207,11 @@
     </div>
 </div>
 </body>
-<script src="__STATIC__/js/jquery-1.12.3.min.js"></script>
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<!-- 配置文件 -->
-<script type="text/javascript" src="__STATIC__/utf8-php/ueditor.config.js"></script>
-<!-- 编辑器源码文件 -->
-<script type="text/javascript" src="__STATIC__/utf8-php/ueditor.all.js"></script>
-<!-- 实例化编辑器 -->
-<script type="text/javascript">
-    var editor = UE.getEditor('container');
+<script>
+    var getViewDetail = "{:url('reception/viewport/getViewDetail')}";
+    var error_url = "{:url('reception/viewport/goerror')}";
+    var nowBuy_url = "{:url('reception/viewport/nowBuy')}";
+    var putShopCar_url = "{:url('reception/viewport/putShopCar')}";
 </script>
+<script src="__STATIC__/js/receptionjs/viewdetail.js"></script>
 </html>

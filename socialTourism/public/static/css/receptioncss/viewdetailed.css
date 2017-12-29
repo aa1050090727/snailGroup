@@ -1,0 +1,367 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "微软雅黑";
+}
+/******超大屏幕******/
+/*****大屏幕*****/
+@media (min-width: 1200px){
+    .detail_blank{
+        height: 20px;
+    }
+    .detail_img{
+        width: 400px;
+        height: 380px;
+    }
+    .detail_title{
+        font-size: 32px;
+        font-weight: bold;
+    }
+    .detail_body{
+        padding: 25px;
+        font-size: 16px;
+        color: grey;
+    }
+    .rec_price{
+        display: inline-block;
+        font-size: 34px;
+        font-weight: bold;
+        color: orange;
+        text-align: left;
+    }
+    .rec_sale{
+        display: inline-block;
+        font-size: 16px;
+        line-height: 40px;
+        color: grey;
+    }
+    /*景点详情*/
+    .tabs_code{
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .detail_content_title{
+        padding-top: 20px;
+    }
+    /*评价*/
+    .sty-comment{
+        margin-top: 20px;
+        padding: 10px;
+        background-color: gainsboro;
+    }
+    .sty-comment-num{
+        font-size: 14px;
+        font-weight: 900;
+    }
+    /*全部评论*/
+    .comment-part{
+        margin: 10px;
+    }
+    .comment_head{
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+    }
+    .comment_head h1{
+        font-size: 26px;
+        margin: 0;
+    }
+    .comment_head .comment_add{
+        margin-right: 20px;
+        background-color: #ffb200;
+        border-color: #ffb200;
+        color: #fff;
+    }
+    .comment_head .comment_add:hover{
+        background-color: #ff9d00;
+        border-color: #ff9d00;
+    }
+    .comment_box>.row{
+        border-bottom: 1px dashed #dfdfdf;
+        margin-top: 30px;
+    }
+    .comment_user{
+        text-align: center;
+    }
+    .comment_user>img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    .comment_user>a{
+        color: #ff9300;
+        margin-top: 10px;
+    }
+    .comment_content>p{
+        text-align: justify;
+    }
+
+
+}
+/****中屏幕****/
+@media (min-width: 922px) and (max-width: 1200px){
+    .detail_blank{
+        height: 20px;
+    }
+    .detail_img{
+        width: 400px;
+        height: 300px;
+    }
+    .detail_title{
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .detail_body{
+        padding: 25px;
+        font-size: 14px;
+        color: grey;
+    }
+    .rec_price{
+        display: inline-block;
+        font-size: 30px;
+        font-weight: bold;
+        color: orange;
+        text-align: left;
+    }
+    .rec_sale{
+        display: inline-block;
+        font-size: 16px;
+        line-height: 40px;
+        color: grey;
+    }
+    /*景点详情*/
+    .tabs_code{
+        font-size: 18px;
+        font-weight: 900;
+    }
+    .detail_content_title{
+        padding-top: 20px;
+    }
+    /*评价*/
+    /*评价*/
+    .sty-comment{
+        margin: -10px 0 10px 0;
+        padding: 10px;
+        background-color: gainsboro;
+    }
+    .sty-comment-num{
+        font-size: 14px;
+        font-weight: 900;
+    }
+    /*全部评论*/
+    .comment-part{
+        margin: 10px;
+    }
+    .comment_head{
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+    }
+    .comment_head h1{
+        font-size: 26px;
+        margin: 0;
+    }
+    .comment_head .comment_add{
+        margin-right: 20px;
+        background-color: #ffb200;
+        border-color: #ffb200;
+        color: #fff;
+    }
+    .comment_head .comment_add:hover{
+        background-color: #ff9d00;
+        border-color: #ff9d00;
+    }
+    .comment_box>.row{
+        border-bottom: 1px dashed #dfdfdf;
+        margin-top: 30px;
+    }
+    .comment_user{
+        text-align: center;
+    }
+    .comment_user>img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    .comment_user>a{
+        color: #ff9300;
+        margin-top: 10px;
+    }
+    .comment_content>p{
+        text-align: justify;
+    }
+}
+/***小屏幕***/
+@media (min-width: 768px) and (max-width: 922px){
+    .detail_blank{
+        height: 20px;
+    }
+    .detail_title{
+        font-size: 28px;
+        font-weight: bold;
+    }
+    .detail_body{
+        /*padding: 25px;*/
+        font-size: 14px;
+        color: grey;
+    }
+    .rec_price{
+        display: inline-block;
+        font-size: 24px;
+        font-weight: bold;
+        color: orange;
+        text-align: left;
+    }
+    .rec_sale{
+        display: inline-block;
+        font-size: 12px;
+        line-height: 40px;
+        color: grey;
+    }
+    /*景点详情*/
+    .tabs_code{
+        font-size: 16px;
+        font-weight: 900;
+    }
+    .detail_content_title{
+        padding-top: 20px;
+    }
+    /*评价*/
+    .sty-comment{
+        margin: -10px 0 10px 0;
+        padding: 10px;
+        background-color: gainsboro;
+    }
+    .sty-comment-num{
+        font-size: 14px;
+        font-weight: 500;
+    }
+    /*全部评论*/
+    .comment-part{
+        margin: 10px;
+    }
+    .comment_head{
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+    }
+    .comment_head h1{
+        font-size: 26px;
+        margin: 0;
+    }
+    .comment_head .comment_add{
+        margin-right: 20px;
+        background-color: #ffb200;
+        border-color: #ffb200;
+        color: #fff;
+    }
+    #content .comment_head .comment_add:hover{
+        background-color: #ff9d00;
+        border-color: #ff9d00;
+    }
+    .comment_box>.row{
+        border-bottom: 1px dashed #dfdfdf;
+        margin-top: 30px;
+    }
+    .comment_user{
+        text-align: center;
+    }
+    .comment_user>img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    .comment_user>a{
+        color: #ff9300;
+        margin-top: 10px;
+    }
+    .comment_content>p{
+        text-align: justify;
+    }
+}
+/**超小屏幕**/
+@media (max-width: 768px) {
+    .detail_blank{
+        height: 10px;
+    }
+    .detail_title{
+        font-size: 22px;
+        font-weight: bold;
+    }
+    .detail_body{
+        padding: 15px;
+        font-size: 14px;
+        color: grey;
+    }
+    .rec_price{
+        display: inline-block;
+        font-size: 22px;
+        font-weight: bold;
+        color: orange;
+        text-align: left;
+    }
+    .rec_sale{
+        display: inline-block;
+        font-size: 12px;
+        color: grey;
+    }
+    /*景点详情*/
+    .tabs_code{
+        font-size: 16px;
+        font-weight: 900;
+    }
+    .detail_content_title{
+        padding-top: 20px;
+    }
+    /*评价*/
+    .sty-comment{
+        margin: -10px 0 10px 0;
+        padding: 10px;
+        background-color: gainsboro;
+    }
+    .sty-comment-num{
+        font-size: 14px;
+        font-weight: 500;
+    }
+    /*全部评论*/
+    .comment-part{
+        margin: 10px;
+    }
+    .comment_head{
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+    }
+    .comment_head h1{
+        font-size: 20px;
+        margin: 0;
+    }
+    .comment_head .comment_add{
+        margin-right: 20px;
+        background-color: #ffb200;
+        border-color: #ffb200;
+        color: #fff;
+    }
+    .comment_head .comment_add:hover{
+        background-color: #ff9d00;
+        border-color: #ff9d00;
+    }
+    .comment_box>.row{
+        border-bottom: 1px dashed #dfdfdf;
+        margin-top: 30px;
+    }
+    .comment_user{
+        margin-bottom: 10px;
+    }
+    .comment_user>img{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+    .comment_user>a{
+        color: #ff9300;
+    }
+    .comment_content>p{
+        text-align: justify;
+    }
+}
