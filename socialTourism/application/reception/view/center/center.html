@@ -8,6 +8,10 @@
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="__STATIC__/css/receptioncss/public.css" type="text/css">
+    <link rel="stylesheet" href="__STATIC__/css/receptioncss/center.css" type="text/css">
+    <script src="__STATIC__/js/jquery-1.12.3.min.js" type="text/javascript"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="__STATIC__/js/center.js" type="text/javascript"></script>
 </head>
 <body>
 <!--导航栏-->
@@ -69,13 +73,876 @@
     </div>
 </div>
 <!--主体-->
+<nav class="navbar navbar-default " >
+    <div class="container">
+        <div class="row">
+            <!--手机端显示-->
+            <div class="navbar-header">
+                <button type="button" class="btn-default navbar-toggle collapsed"
+                        data-toggle="collapse" data-target="#my">折叠</button>
+            </div>
+            <div class="collapse navbar-collapse text-center" id="my">
+                <div class="col-lg-2 col-sm-2 col-md-2"></div>
+                <div class="col-lg-2 col-sm-2 col-md-2 ">
+                    <div class="typeface">
+                        我的窝
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-2 col-md-2">
+                    <div  class="typeface">
+                        我的游记
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-2 col-md-2">
+                    <div class="typeface">
+                        我的订单
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-2 col-md-2">
+                    <div class="typeface">
+                        我的收藏
+                    </div>
+                </div>
+                <div class="col-lg-2 col-sm-2 col-md-2">
+                    <div class="typeface">
+                        我的点评
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
 <div class="container">
     <div class="row">
-
+        <div class="mynest ">
+            <div class="mynest_left">
+                <div class="headauto">
+                    <img  src="__STATIC__/image/0.jpg" alt="" class="img-circle head">
+                </div>
+                <div class="name">
+                    <span >蓝银草</span>
+                </div>
+                <div class="money">
+                    <span>金币：<span>50</span></span>
+                    <button style="float: right" type="button" class="btn btn-warning">充值</button>
+                </div>
+            </div>
+            <div class="mynest_right">
+                <div class="automy">
+                    <div class="mymessage">
+                        <span>账号：</span><span>18050000000</span>
+                    </div>
+                    <div class="mymessage">
+                        <span>昵称：</span><span>蓝银草</span>
+                    </div>
+                    <div class="mymessage">
+                        <span>性别：</span><span>男</span>
+                    </div>
+                    <div class="showbtn block-center">
+                        <button type="button" class="btn btn-warning">修改昵称</button>
+                    </div>
+                    <div  class="showbtn">
+                        <button type="button" class="btn btn-warning">修改头像</button>
+                    </div>
+                    <div  class="showbtn">
+                        <button type="button" class="btn btn-warning">修改密码</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" mynotes">
+            <div class="mynest_left">
+                <div class="headauto">
+                    <img  src="__STATIC__/image/0.jpg" alt="" class="img-circle head">
+                </div>
+                <div class="name">
+                    <span >蓝银草</span>
+                </div>
+                <div class="money">
+                    <span>金币：<span>50</span></span>
+                    <button style="float: right" type="button" class="btn btn-warning">充值</button>
+                </div>
+            </div>
+            <div class="mynest_right1">
+                <div class="automy1">
+                    <div class="myshow">
+                        <div class="setnote">
+                            <span>0</span><br>
+                            <span>游记</span>
+                        </div>
+                        <div class="setnote">
+                            <span>0</span><br>
+                            <span>回复</span>
+                        </div>
+                        <div class="setnote">
+                            <span>0</span><br>
+                            <span>阅读</span>
+                        </div>
+                        <div class="setnote1">
+                            <button style="margin-top: 25px" type="button" class="btn btn-warning">写游记</button>
+                        </div>
+                    </div>
+                    <img class="imgshow" src="http://css.mafengwo.net/images/home_new2015/noyj_v2.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="mynotes  ">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="tabbable tabs-left" id="tabs-845771">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#panel-365437" data-toggle="tab">全部</a>
+                                </li>
+                                <li>
+                                    <a href="#panel-930921" data-toggle="tab">待支付</a>
+                                </li>
+                                <li>
+                                    <a href="#panel-666666" data-toggle="tab">待出行</a>
+                                </li>
+                                <li>
+                                    <a href="#panel-123123" data-toggle="tab">待评价</a>
+                                </li>
+                                <li>
+                                    <a href="#panel-22211" data-toggle="tab">取消/退款</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="panel-365437">
+                                    <div class="container">
+                                        <div class="row" style="font-size: 20px;line-height: 40px;margin-top: 10px;background-color: #f5f5f5">
+                                            <div class="col-lg-2">
+                                                订单信息
+                                            </div>
+                                            <div class="col-lg-2"></div>
+                                            <div class="col-lg-1">
+                                                类型
+                                            </div>
+                                            <div class="col-lg-1"></div>
+                                            <div class="col-lg-2">
+                                                支付金额
+                                            </div>
+                                            <div class="col-lg-2">
+                                                订单状态
+                                            </div>
+                                            <div class="col-lg-2">
+                                                操作
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div >
+                                        <div>
+                                            <table class="table table-condensed text-center" style="margin-top: 20px;border: 1px solid">
+                                                <tr style="background-color: #f5f5f5">
+                                                    <td>
+                                                        <span>订单号：</span>
+                                                        <span>500355006</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>下单时间：</span>
+                                                        <span>2017-12-28 16:29</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>商家：</span>
+                                                        <span>蓝银草</span>
+                                                    </td>
+                                                    <td></td>
+                                                    <td>
+                                                        <span>联系电话：</span>
+                                                        <span>4006588799</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="line-height: 120px">
+                                                        <img style="width: 40px;height: 40px" src="__STATIC__/image/0.jpg" alt="">
+                                                        <span>福建土楼永定景区</span>
+                                                    </td>
+                                                    <td style="line-height: 120px">
+                                                        <span>景点</span>
+                                                    </td>
+                                                    <td style="line-height: 120px">
+                                                        ￥<span>90</span>
+                                                    </td>
+                                                    <td style="line-height: 120px">
+                                                        <span>待支付</span>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-warning">去支付</button><br>
+                                                        <button type="button" class="btn btn-warning">联系客服</button><br>
+                                                        <button type="button" class="btn btn-default">取消订单</button><br>
+                                                        <button type="button" class="btn btn-default">查看订单</button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <nav aria-label="Page navigation">
+                                        <ul class="pagination">
+                                            <li>
+                                                <a href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            <li><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li>
+                                                <a href="#" aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="tab-pane" id="panel-930921">
+                                    <div class="container">
+                                        <div class="row" style="font-size: 20px;line-height: 40px;margin-top: 10px;background-color: #f5f5f5">
+                                            <div class="col-lg-2">
+                                                订单信息
+                                            </div>
+                                            <div class="col-lg-2"></div>
+                                            <div class="col-lg-1">
+                                                类型
+                                            </div>
+                                            <div class="col-lg-1"></div>
+                                            <div class="col-lg-2">
+                                                支付金额
+                                            </div>
+                                            <div class="col-lg-2">
+                                                订单状态
+                                            </div>
+                                            <div class="col-lg-2">
+                                                操作
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div >
+                                        <div>
+                                            <table class="table table-condensed text-center" style="margin-top: 20px;border: 1px solid">
+                                                <tr style="background-color: #f5f5f5">
+                                                    <td>
+                                                        <span>订单号：</span>
+                                                        <span>500355006</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>下单时间：</span>
+                                                        <span>2017-12-28 16:29</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>商家：</span>
+                                                        <span>蓝银草</span>
+                                                    </td>
+                                                    <td></td>
+                                                    <td>
+                                                        <span>联系电话：</span>
+                                                        <span>4006588799</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="line-height: 120px">
+                                                        <img style="width: 40px;height: 40px" src="__STATIC__/image/0.jpg" alt="">
+                                                        <span>福建土楼永定景区</span>
+                                                    </td>
+                                                    <td style="line-height: 120px">
+                                                        <span>景点</span>
+                                                    </td>
+                                                    <td style="line-height: 120px">
+                                                        ￥<span>90</span>
+                                                    </td>
+                                                    <td style="line-height: 120px">
+                                                        <span>待支付</span>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-warning">去支付</button><br>
+                                                        <button type="button" class="btn btn-warning">联系客服</button><br>
+                                                        <button type="button" class="btn btn-default">取消订单</button><br>
+                                                        <button type="button" class="btn btn-default">查看订单</button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <nav aria-label="Page navigation">
+                                        <ul class="pagination">
+                                            <li>
+                                                <a href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            <li><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li>
+                                                <a href="#" aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="tab-pane" id="panel-123123">
+                                    <div class="container">
+                                        <div class="row" style="font-size: 20px;line-height: 40px;margin-top: 10px;background-color: #f5f5f5">
+                                            <div class="col-lg-2">
+                                                订单信息
+                                            </div>
+                                            <div class="col-lg-2"></div>
+                                            <div class="col-lg-1">
+                                                类型
+                                            </div>
+                                            <div class="col-lg-1"></div>
+                                            <div class="col-lg-2">
+                                                支付金额
+                                            </div>
+                                            <div class="col-lg-2">
+                                                订单状态
+                                            </div>
+                                            <div class="col-lg-2">
+                                                操作
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div >
+                                        <div>
+                                            <table class="table table-condensed text-center" style="margin-top: 20px;border: 1px solid">
+                                                <tr style="background-color: #f5f5f5">
+                                                    <td>
+                                                        <span>订单号：</span>
+                                                        <span>500355006</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>下单时间：</span>
+                                                        <span>2017-12-28 16:29</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>商家：</span>
+                                                        <span>蓝银草</span>
+                                                    </td>
+                                                    <td></td>
+                                                    <td>
+                                                        <span>联系电话：</span>
+                                                        <span>4006588799</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="line-height: 120px">
+                                                        <img style="width: 40px;height: 40px" src="__STATIC__/image/0.jpg" alt="">
+                                                        <span>福建土楼永定景区</span>
+                                                    </td>
+                                                    <td style="line-height: 120px">
+                                                        <span>景点</span>
+                                                    </td>
+                                                    <td style="line-height: 120px">
+                                                        ￥<span>90</span>
+                                                    </td>
+                                                    <td style="line-height: 120px">
+                                                        <span>待支付</span>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-warning">去支付</button><br>
+                                                        <button type="button" class="btn btn-warning">联系客服</button><br>
+                                                        <button type="button" class="btn btn-default">取消订单</button><br>
+                                                        <button type="button" class="btn btn-default">查看订单</button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <nav aria-label="Page navigation">
+                                        <ul class="pagination">
+                                            <li>
+                                                <a href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            <li><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li>
+                                                <a href="#" aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="tab-pane" id="panel-22211">
+                                    <div class="container">
+                                        <div class="row" style="font-size: 20px;line-height: 40px;margin-top: 10px;background-color: #f5f5f5">
+                                            <div class="col-lg-2">
+                                                订单信息
+                                            </div>
+                                            <div class="col-lg-2"></div>
+                                            <div class="col-lg-1">
+                                                类型
+                                            </div>
+                                            <div class="col-lg-1"></div>
+                                            <div class="col-lg-2">
+                                                支付金额
+                                            </div>
+                                            <div class="col-lg-2">
+                                                订单状态
+                                            </div>
+                                            <div class="col-lg-2">
+                                                操作
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div >
+                                        <div>
+                                            <table class="table table-condensed text-center" style="margin-top: 20px;border: 1px solid">
+                                                <tr style="background-color: #f5f5f5">
+                                                    <td>
+                                                        <span>订单号：</span>
+                                                        <span>500355006</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>下单时间：</span>
+                                                        <span>2017-12-28 16:29</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>商家：</span>
+                                                        <span>蓝银草</span>
+                                                    </td>
+                                                    <td></td>
+                                                    <td>
+                                                        <span>联系电话：</span>
+                                                        <span>4006588799</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="line-height: 120px">
+                                                        <img style="width: 40px;height: 40px" src="__STATIC__/image/0.jpg" alt="">
+                                                        <span>福建土楼永定景区</span>
+                                                    </td>
+                                                    <td style="line-height: 120px">
+                                                        <span>景点</span>
+                                                    </td>
+                                                    <td style="line-height: 120px">
+                                                        ￥<span>90</span>
+                                                    </td>
+                                                    <td style="line-height: 120px">
+                                                        <span>待支付</span>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-warning">去支付</button><br>
+                                                        <button type="button" class="btn btn-warning">联系客服</button><br>
+                                                        <button type="button" class="btn btn-default">取消订单</button><br>
+                                                        <button type="button" class="btn btn-default">查看订单</button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <nav aria-label="Page navigation">
+                                        <ul class="pagination">
+                                            <li>
+                                                <a href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            <li><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li>
+                                                <a href="#" aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="tab-pane" id="panel-666666">
+                                    <div class="container">
+                                        <div class="row" style="font-size: 20px;line-height: 40px;margin-top: 10px;background-color: #f5f5f5">
+                                            <div class="col-lg-2">
+                                                订单信息
+                                            </div>
+                                            <div class="col-lg-2"></div>
+                                            <div class="col-lg-1">
+                                                类型
+                                            </div>
+                                            <div class="col-lg-1"></div>
+                                            <div class="col-lg-2">
+                                                支付金额
+                                            </div>
+                                            <div class="col-lg-2">
+                                                订单状态
+                                            </div>
+                                            <div class="col-lg-2">
+                                                操作
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div >
+                                        <div>
+                                            <table class="table table-condensed text-center" style="margin-top: 20px;border: 1px solid">
+                                                <tr style="background-color: #f5f5f5">
+                                                    <td>
+                                                        <span>订单号：</span>
+                                                        <span>500355006</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>下单时间：</span>
+                                                        <span>2017-12-28 16:29</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>商家：</span>
+                                                        <span>蓝银草</span>
+                                                    </td>
+                                                    <td></td>
+                                                    <td>
+                                                        <span>联系电话：</span>
+                                                        <span>4006588799</span>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td style="line-height: 120px">
+                                                        <img style="width: 40px;height: 40px" src="__STATIC__/image/0.jpg" alt="">
+                                                        <span>福建土楼永定景区</span>
+                                                    </td>
+                                                    <td style="line-height: 120px">
+                                                        <span>景点</span>
+                                                    </td>
+                                                    <td style="line-height: 120px">
+                                                        ￥<span>90</span>
+                                                    </td>
+                                                    <td style="line-height: 120px">
+                                                        <span>待支付</span>
+                                                    </td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-warning">去支付</button><br>
+                                                        <button type="button" class="btn btn-warning">联系客服</button><br>
+                                                        <button type="button" class="btn btn-default">取消订单</button><br>
+                                                        <button type="button" class="btn btn-default">查看订单</button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <nav aria-label="Page navigation">
+                                        <ul class="pagination">
+                                            <li>
+                                                <a href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            <li><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li>
+                                                <a href="#" aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mynotes ">
+            <div class="container-fluid">
+                <div class="row-fluid">
+                    <div class="span12">
+                        <div class="tabbable" id="tabs-119850">
+                            <ul class="nav nav-tabs">
+                                <li class="active">
+                                    <a href="#panel-167525" data-toggle="tab">景点收藏</a>
+                                </li>
+                                <li>
+                                    <a href="#panel-187764" data-toggle="tab">酒店收藏</a>
+                                </li>
+                                <li>
+                                    <a href="#panel-187763" data-toggle="tab">游记收藏</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="panel-167525">
+                                    <div>
+                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
+                                            <div class="row-fluid">
+                                                <div class="span12">
+                                                    <div class="media">
+                                                        <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">
+                                                                嵌入媒体标题
+                                                            </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
+                                            <div class="row-fluid">
+                                                <div class="span12">
+                                                    <div class="media">
+                                                        <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">
+                                                                嵌入媒体标题
+                                                            </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
+                                            <div class="row-fluid">
+                                                <div class="span12">
+                                                    <div class="media">
+                                                        <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">
+                                                                嵌入媒体标题
+                                                            </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <nav aria-label="Page navigation">
+                                        <ul class="pagination">
+                                            <li>
+                                                <a href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            <li><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li>
+                                                <a href="#" aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="tab-pane" id="panel-187764">
+                                    <div>
+                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
+                                            <div class="row-fluid">
+                                                <div class="span12">
+                                                    <div class="media">
+                                                        <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">
+                                                                嵌入媒体标题
+                                                            </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
+                                            <div class="row-fluid">
+                                                <div class="span12">
+                                                    <div class="media">
+                                                        <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">
+                                                                嵌入媒体标题
+                                                            </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
+                                            <div class="row-fluid">
+                                                <div class="span12">
+                                                    <div class="media">
+                                                        <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">
+                                                                嵌入媒体标题
+                                                            </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <nav aria-label="Page navigation">
+                                        <ul class="pagination">
+                                            <li>
+                                                <a href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            <li><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li>
+                                                <a href="#" aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="tab-pane" id="panel-187763">
+                                    <div>
+                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
+                                            <div class="row-fluid">
+                                                <div class="span12">
+                                                    <div class="media">
+                                                        <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">
+                                                                嵌入媒体标题
+                                                            </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
+                                            <div class="row-fluid">
+                                                <div class="span12">
+                                                    <div class="media">
+                                                        <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">
+                                                                嵌入媒体标题
+                                                            </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
+                                            <div class="row-fluid">
+                                                <div class="span12">
+                                                    <div class="media">
+                                                        <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
+                                                        <div class="media-body">
+                                                            <h4 class="media-heading">
+                                                                嵌入媒体标题
+                                                            </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <nav aria-label="Page navigation">
+                                        <ul class="pagination">
+                                            <li>
+                                                <a href="#" aria-label="Previous">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            <li><a href="#">1</a></li>
+                                            <li><a href="#">2</a></li>
+                                            <li><a href="#">3</a></li>
+                                            <li><a href="#">4</a></li>
+                                            <li><a href="#">5</a></li>
+                                            <li>
+                                                <a href="#" aria-label="Next">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class=" mynotes">
+            <div>
+                <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="media">
+                                <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
+                                <div class="media-body">
+                                    <h4 class="media-heading">
+                                        嵌入媒体标题
+                                    </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="media">
+                                <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
+                                <div class="media-body">
+                                    <h4 class="media-heading">
+                                        嵌入媒体标题
+                                    </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
+                    <div class="row-fluid">
+                        <div class="span12">
+                            <div class="media">
+                                <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
+                                <div class="media-body">
+                                    <h4 class="media-heading">
+                                        嵌入媒体标题
+                                    </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li>
+                        <a href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li>
+                        <a href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
     </div>
+
 </div>
 <!--页脚-->
-<div id="footer">
+<div style="margin-top: 20px" id="footer">
     <div class="footer_box container">
         <div class="foot_list row">
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6 foot_hidden">
