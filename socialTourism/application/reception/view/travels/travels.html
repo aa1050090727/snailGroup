@@ -9,8 +9,10 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="__STATIC__/css/receptioncss/public.css" type="text/css">
     <link rel="stylesheet" href="__STATIC__/css/receptioncss/travels.css" type="text/css">
+
 </head>
 <body>
+<<<<<<< HEAD
 <!--导航栏-->
 <div id="nav">
     <div class="nav_box container">
@@ -51,227 +53,187 @@
             <div class="col-xs-4">
                 <i class="ns_travels"></i>
                 <p>旅游游记</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-4">
-                <i class="ns_activity"></i>
-                <p>商品活动</p>
-            </div>
-            <div class="col-xs-4">
-                <i class="ns_hotel"></i>
-                <p>酒店</p>
-            </div>
-            <div class="col-xs-4">
-                <i class="ns_settled"></i>
-                <p>卖家入驻</p>
-            </div>
-        </div>
-    </div>
-</div>
-<!--主题内容-->
-<div class="container" style="margin-top: 20px">
-    <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <ul class="nav nav-tabs nav-stacked">
-                    <li role="presentation" class=""><a href="#">海外冬季目的地精选</a></li>
-                    <li role="presentation" class=""><a href="#">国内冬季目的地精选</a></li>
-                    <li role="presentation" class=""><a href="#">奔向海岛</a></li>
-                    <li role="presentation" class=""><a href="#">主题推荐</a></li>
+=======
+<div id="app">
+    <!--导航栏-->
+    <div id="nav">
+        <div class="nav_box container">
+            <div class="row">
+                <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
+                <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
+                    <li><a href="{:url('reception/index/index')}">首页</a></li>
+                    <li><a href="{:url('reception/index/viewport')}">目的地</a></li>
+                    <li><a class="nav_index" href="{:url('reception/travels/travels')}">旅游游记</a></li>
+                    <li><a href="">商品活动</a></li>
+                    <li><a href="{:url('reception/Hotel/hotel')}">酒店</a></li>
+                    <li><a href="{:url('reception/merchant/merchant')}">卖家入驻</a></li>
                 </ul>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"style="margin-top: 10px">
-                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                    <img src="__STATIC__/image/logo_gonglve_v6.png"class="img-responsive">
-                </div>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" >
-                        <a style="color: orange;font-size: 16px;text-align: left">蚂蜂窝自由行APP下载</a>
-                </div>
-            </div>
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px">
-                <a>iphone版</a><span>|</span><a>Android版</a><span>|</span><a>iPad版</a>
+                <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8">
+                    <li><a class="nav_qq" href=""></a></li>
+                    <li><a class="nav_weixin" href=""></a></li>
+                    <li><a class="nav_login" href="">登录</a></li>
+                    <li>
+                        <span class="nav_division">|</span>
+                    </li>
+                    <li><a class="nav_register" href="">注册</a></li>
+                </ul>
+>>>>>>> aa379ccbc6fe13b61f47abbd51fc721332c2b745
             </div>
         </div>
-        <!--轮播图-->
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-            <div id="banner">
-                <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="4000">
-                    <!-- 轮播（Carousel）项目 -->
-                    <div class="carousel-inner "style="text-align: center">
-                        <div class="item active">
-                            <img src="https://p3-q.mafengwo.net/s1/M00/10/38/wKgIC1pA2Y-AeC97AAUO_G4zAN088.jpeg?imageMogr2%2Finterlace%2F1" alt="First slide" class="img-responsive">
-                        </div>
-                        <div class="item">
-                            <img src="https://p2-q.mafengwo.net/s1/M00/B9/6C/wKgIC1o-BzKAbftYAAGpi5kvqgY72.jpeg?imageMogr2%2Finterlace%2F1" class="img-responsive">
-                        </div>
-                        <div class="item">
-                            <img src="https://p3-q.mafengwo.net/s10/M00/33/64/wKgBZ1o489uAdu4IAAg_av9sd0o19.jpeg?imageMogr2%2Finterlace%2F1" alt="Third slide" class="img-responsive">
-                        </div>
-                    </div>
-                    <!-- 轮播（Carousel）指标 -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                        <li data-target="#myCarousel" data-slide-to="1"></li>
-                        <li data-target="#myCarousel" data-slide-to="2"></li>
-                    </ol>
+    </div>
+    <!--小屏幕下的导航栏-->
+    <div id="nav_small">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-4">
+                    <i class="ns_index"></i>
+                    <p>首页</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_place"></i>
+                    <p>目的地</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_travels"></i>
+                    <p>旅游游记</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-4">
+                    <i class="ns_activity"></i>
+                    <p>商品活动</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_hotel"></i>
+                    <p>酒店</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_settled"></i>
+                    <p>卖家入驻</p>
                 </div>
             </div>
         </div>
     </div>
-    <!--中间图片-->
-    <div class="row"style="margin-top: 20px">
-        <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
-        <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
-            <img src="__STATIC__/image/wKgBZ1o3pSWAAeupAABKsgZewII391.png" class="img-responsive">
-        </div>
-    </div>
-    <!--攻略搜索-->
-    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top: 20px">
-        <div class="row"><span style="font-size: 25px;font-weight: 900">热门攻略搜索</span></div>
-        <div class="row" style="margin-top: 10px">
-            <div class="input-group">
-                <input type="text" class="form-control" placeholder="请输入目的地">
-                <span class="input-group-addon">搜索</span>
-            </div>
-        </div>
-        <div class="row" style="margin-top: 10px"><span style="font-size: 25px;font-weight: 900 ;">热门攻略排行</span></div>
-        <div class="row" style="margin-top: 20px"> <span class="rankSpan">1.</span><span class="rankSpanl">上海迪士尼</span></div>
-        <div class="row" style="margin-top: 20px"> <span class="rankSpan">2.</span><span class="rankSpanl">故宫</span></div>
-        <div class="row" style="margin-top: 20px"> <span class="rankSpan">3.</span><span class="rankSpanl">长城</span></div>
-        <div class="row" style="margin-top: 20px"> <span class="rankSpan">4.</span><span class="rankSpanl">香港九龙</span></div>
-        <div class="row" style="margin-top: 20px"> <span class="rankSpan">5.</span><span class="rankSpanl">澳门</span></div>
-        <div class="row" style="margin-top: 20px"> <span class="rankSpan">6.</span><span class="rankSpanl">鼓浪屿</span></div>
-        <div class="row" style="margin-top: 20px"> <span class="rankSpan">7.</span><span class="rankSpanl">三坊七巷</span></div>
-        <div class="row" style="margin-top: 20px"> <span class="rankSpan">8.</span><span class="rankSpanl">湄洲岛</span></div>
-        <div class="row" style="margin-top: 20px"> <span class="rankSpan">9.</span><span class="rankSpanl">北海道</span></div>
-        <div class="row" style="margin-top: 20px"> <span class="rankSpan">10.</span><span class="rankSpanl">罗马斗兽场</span></div>
-    </div>
-    <!--攻略详情-->
-    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"style="margin-top: 20px">
-        <div class="row"><span style="font-size: 25px;font-weight: 900;">推荐攻略</span></div>
-        <!--热门游记-->
+    <!--主题内容-->
+    <div class="container" style="margin-top: 20px">
         <div class="row">
-            <div>
-                <div id="myTabContent" class="tab-content">
-                    <div class="tab-pane fade in active travels_box" id="newest">
-                        <div>
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <img class="img-responsive" style="margin-right: auto;margin-left: auto" src="https://p1-q.mafengwo.net/s5/M00/87/F0/wKgB3FB8Dr_o-wE5AARai09q-5Y38.jpeg?imageView2%2F2%2Fw%2F680%2Fq%2F90%7Cwatermark%2F1%2Fimage%2FaHR0cHM6Ly9iMS1xLm1hZmVuZ3dvLm5ldC9zMTAvTTAwLzk5LzYyL3dLZ0JaMWgwcVlxQUFCQWFBQUFYcTNjN3d5azY4OS5wbmc_aW1hZ2VNb2dyMiUyRnRodW1ibmFpbCUyRjE4MHglMkZxdWFsaXR5JTJGOTA%3D%2Fgravity%2FSouthEast%2Fdx%2F10%2Fdy%2F15%2Fdissolve%2F40"
-                                         alt="">
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                    <div class="travels_content">
-                                        <div class="travels_title"><span class="travelSpan">土耳其 | 星月环游记 | 这里有关于色彩的全部浪漫</span></div>
-                                        <p class="travels_body">“瞠目结舌的自然风光，波澜壮阔的传奇历史，热情洋溢的老百姓……这个横跨欧亚古老大陆的国家到处充满了惊喜” 蓝色清真寺，信徒们沐浴在夕阳中显得格外虔诚 普鲁士海峡乘坐游轮的当地游客 ...听说，你的男票拍照，总是巧妙的躲过你美丽的瞬间，没关系。
-                                            听说，你因为拍不好女票的美照，默默承受了不少吐槽，没关系。
-                                            这个圣诞节，跟着老夫的少女心，拍出属于你的圣诞美片  。
-
-                                            为了满足各位小主们的少女心，老夫跑断了双腿，收集了全深圳最美、最齐全的拍照打卡点。这些点如果你都去过，老夫跪服 ！</p>
-                                        <div class="travels_footer">
-                                            <span>德国</span>
-                                            <span>张三</span>
-                                            <span>1751/14</span>
-                                            <span>顶</span>
-                                        </div>
-                                    </div>
-                                </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                    <ul class="nav nav-tabs nav-stacked">
+                        <li role="presentation" class=""><a href="#">海外冬季目的地精选</a></li>
+                        <li role="presentation" class=""><a href="#">国内冬季目的地精选</a></li>
+                        <li role="presentation" class=""><a href="#">奔向海岛</a></li>
+                        <li role="presentation" class=""><a href="#">主题推荐</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12"style="margin-top: 10px">
+                    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                        <img src="__STATIC__/image/logo_gonglve_v6.png"class="img-responsive">
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12" >
+                            <a style="color: orange;font-size: 16px;text-align: left">蚂蜂窝自由行APP下载</a>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center" style="margin-top: 10px">
+                    <a>iphone版</a><span>|</span><a>Android版</a><span>|</span><a>iPad版</a>
+                </div>
+            </div>
+            <!--轮播图-->
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                <div id="banner">
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="4000">
+                        <!-- 轮播（Carousel）项目 -->
+                        <div class="carousel-inner "style="text-align: center">
+                            <div class="item active">
+                                <img src="https://p3-q.mafengwo.net/s1/M00/10/38/wKgIC1pA2Y-AeC97AAUO_G4zAN088.jpeg?imageMogr2%2Finterlace%2F1" alt="First slide" class="img-responsive">
                             </div>
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <img class="img-responsive" style="margin-right: auto;margin-left: auto" src="https://p1-q.mafengwo.net/s5/M00/87/F0/wKgB3FB8Dr_o-wE5AARai09q-5Y38.jpeg?imageView2%2F2%2Fw%2F680%2Fq%2F90%7Cwatermark%2F1%2Fimage%2FaHR0cHM6Ly9iMS1xLm1hZmVuZ3dvLm5ldC9zMTAvTTAwLzk5LzYyL3dLZ0JaMWgwcVlxQUFCQWFBQUFYcTNjN3d5azY4OS5wbmc_aW1hZ2VNb2dyMiUyRnRodW1ibmFpbCUyRjE4MHglMkZxdWFsaXR5JTJGOTA%3D%2Fgravity%2FSouthEast%2Fdx%2F10%2Fdy%2F15%2Fdissolve%2F40"
-                                         alt="">
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                    <div class="travels_content">
-                                        <div class="travels_title"><span class="travelSpan">土耳其 | 星月环游记 | 这里有关于色彩的全部浪漫</span></div>
-                                        <p class="travels_body">“瞠目结舌的自然风光，波澜壮阔的传奇历史，热情洋溢的老百姓……这个横跨欧亚古老大陆的国家到处充满了惊喜” 蓝色清真寺，信徒们沐浴在夕阳中显得格外虔诚 普鲁士海峡乘坐游轮的当地游客 ...听说，你的男票拍照，总是巧妙的躲过你美丽的瞬间，没关系。
-                                            听说，你因为拍不好女票的美照，默默承受了不少吐槽，没关系。
-                                            这个圣诞节，跟着老夫的少女心，拍出属于你的圣诞美片  。
-
-                                            为了满足各位小主们的少女心，老夫跑断了双腿，收集了全深圳最美、最齐全的拍照打卡点。这些点如果你都去过，老夫跪服 ！</p>
-                                        <div class="travels_footer">
-                                            <span>德国</span>
-                                            <span>张三</span>
-                                            <span>1751/14</span>
-                                            <span>顶</span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <img src="https://p2-q.mafengwo.net/s1/M00/B9/6C/wKgIC1o-BzKAbftYAAGpi5kvqgY72.jpeg?imageMogr2%2Finterlace%2F1" class="img-responsive">
                             </div>
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <img class="img-responsive" style="margin-right: auto;margin-left: auto" src="https://p1-q.mafengwo.net/s5/M00/87/F0/wKgB3FB8Dr_o-wE5AARai09q-5Y38.jpeg?imageView2%2F2%2Fw%2F680%2Fq%2F90%7Cwatermark%2F1%2Fimage%2FaHR0cHM6Ly9iMS1xLm1hZmVuZ3dvLm5ldC9zMTAvTTAwLzk5LzYyL3dLZ0JaMWgwcVlxQUFCQWFBQUFYcTNjN3d5azY4OS5wbmc_aW1hZ2VNb2dyMiUyRnRodW1ibmFpbCUyRjE4MHglMkZxdWFsaXR5JTJGOTA%3D%2Fgravity%2FSouthEast%2Fdx%2F10%2Fdy%2F15%2Fdissolve%2F40"
-                                         alt="">
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                    <div class="travels_content">
-                                        <div class="travels_title"><span class="travelSpan">土耳其 | 星月环游记 | 这里有关于色彩的全部浪漫</span></div>
-                                        <p class="travels_body">“瞠目结舌的自然风光，波澜壮阔的传奇历史，热情洋溢的老百姓……这个横跨欧亚古老大陆的国家到处充满了惊喜” 蓝色清真寺，信徒们沐浴在夕阳中显得格外虔诚 普鲁士海峡乘坐游轮的当地游客 ...听说，你的男票拍照，总是巧妙的躲过你美丽的瞬间，没关系。
-                                            听说，你因为拍不好女票的美照，默默承受了不少吐槽，没关系。
-                                            这个圣诞节，跟着老夫的少女心，拍出属于你的圣诞美片  。
-
-                                            为了满足各位小主们的少女心，老夫跑断了双腿，收集了全深圳最美、最齐全的拍照打卡点。这些点如果你都去过，老夫跪服 ！</p>
-                                        <div class="travels_footer">
-                                            <span>德国</span>
-                                            <span>张三</span>
-                                            <span>1751/14</span>
-                                            <span>顶</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                    <img class="img-responsive" style="margin-right: auto;margin-left: auto" src="https://p1-q.mafengwo.net/s5/M00/87/F0/wKgB3FB8Dr_o-wE5AARai09q-5Y38.jpeg?imageView2%2F2%2Fw%2F680%2Fq%2F90%7Cwatermark%2F1%2Fimage%2FaHR0cHM6Ly9iMS1xLm1hZmVuZ3dvLm5ldC9zMTAvTTAwLzk5LzYyL3dLZ0JaMWgwcVlxQUFCQWFBQUFYcTNjN3d5azY4OS5wbmc_aW1hZ2VNb2dyMiUyRnRodW1ibmFpbCUyRjE4MHglMkZxdWFsaXR5JTJGOTA%3D%2Fgravity%2FSouthEast%2Fdx%2F10%2Fdy%2F15%2Fdissolve%2F40"
-                                         alt="">
-                                </div>
-                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                    <div class="travels_content">
-                                        <div class="travels_title"><span class="travelSpan">土耳其 | 星月环游记 | 这里有关于色彩的全部浪漫</span></div>
-                                        <p class="travels_body">“瞠目结舌的自然风光，波澜壮阔的传奇历史，热情洋溢的老百姓……这个横跨欧亚古老大陆的国家到处充满了惊喜” 蓝色清真寺，信徒们沐浴在夕阳中显得格外虔诚 普鲁士海峡乘坐游轮的当地游客 ...听说，你的男票拍照，总是巧妙的躲过你美丽的瞬间，没关系。
-                                            听说，你因为拍不好女票的美照，默默承受了不少吐槽，没关系。
-                                            这个圣诞节，跟着老夫的少女心，拍出属于你的圣诞美片  。
-
-                                            为了满足各位小主们的少女心，老夫跑断了双腿，收集了全深圳最美、最齐全的拍照打卡点。这些点如果你都去过，老夫跪服 ！</p>
-                                        <div class="travels_footer">
-                                            <span>德国</span>
-                                            <span>张三</span>
-                                            <span>1751/14</span>
-                                            <span>顶</span>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="item">
+                                <img src="https://p3-q.mafengwo.net/s10/M00/33/64/wKgBZ1o489uAdu4IAAg_av9sd0o19.jpeg?imageMogr2%2Finterlace%2F1" alt="Third slide" class="img-responsive">
                             </div>
                         </div>
-                        <div>
-                            <nav aria-label="Page navigation" style="text-align: center">
-                                <ul class="pagination">
-                                    <li>
-                                        <a href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li>
-                                        <a href="#" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
+                        <!-- 轮播（Carousel）指标 -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--中间图片-->
+        <div class="row"style="margin-top: 20px">
+            <div class="col-lg-1 col-md-1 col-sm-1 col-xs-12"></div>
+            <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+                <img src="__STATIC__/image/wKgBZ1o3pSWAAeupAABKsgZewII391.png" class="img-responsive">
+            </div>
+        </div>
+        <!--攻略搜索-->
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" style="margin-top: 20px">
+            <div class="row"><span style="font-size: 25px;font-weight: 900">热门攻略搜索</span></div>
+            <div class="row" style="margin-top: 10px">
+                <div class="input-group" >
+                    <input type="text" class="form-control" placeholder="请输入目的地" id="place">
+                    <span  class="input-group-addon" v-on:click="search">搜索</span>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10px"><span style="font-size: 25px;font-weight: 900 ;" >热门攻略排行</span></div>
+            <div class="row" style="margin-top: 20px"> <span class="rankSpan">1.</span><span class="rankSpanl">上海迪士尼</span></div>
+            <div class="row" style="margin-top: 20px"> <span class="rankSpan">2.</span><span class="rankSpanl">故宫</span></div>
+            <div class="row" style="margin-top: 20px"> <span class="rankSpan">3.</span><span class="rankSpanl">长城</span></div>
+            <div class="row" style="margin-top: 20px"> <span class="rankSpan">4.</span><span class="rankSpanl">香港九龙</span></div>
+            <div class="row" style="margin-top: 20px"> <span class="rankSpan">5.</span><span class="rankSpanl">澳门</span></div>
+            <div class="row" style="margin-top: 20px"> <span class="rankSpan">6.</span><span class="rankSpanl">鼓浪屿</span></div>
+            <div class="row" style="margin-top: 20px"> <span class="rankSpan">7.</span><span class="rankSpanl">三坊七巷</span></div>
+            <div class="row" style="margin-top: 20px"> <span class="rankSpan">8.</span><span class="rankSpanl">湄洲岛</span></div>
+            <div class="row" style="margin-top: 20px"> <span class="rankSpan">9.</span><span class="rankSpanl">北海道</span></div>
+            <div class="row" style="margin-top: 20px"> <span class="rankSpan">10.</span><span class="rankSpanl">罗马斗兽场</span></div>
+        </div>
+        <!--攻略详情-->
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"style="margin-top: 20px">
+            <div class="row"><span style="font-size: 25px;font-weight: 900;">推荐攻略</span></div>
+            <!--热门游记-->
+            <div class="row" >
+                <div>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane fade in active travels_box" id="newest">
+                            <div>
+                                {foreach $list as $value}
+                                <div class="row" >
+                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                        <img class="img-responsive" style="margin-right: auto;margin-left: auto" src="{$value.f_travel_note_img}" alt="">
+                                    </div>
+                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                        <div class="travels_content">
+                                            <div class="travels_title"><span class="travelSpan">{$value.f_travel_note_head}</span></div>
+                                            <p class="travels_body">{$value.f_travel_note_intro}</p>
+                                            <div class="travels_footer row">
+                                                <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">地点：{$value.f_travel_note_place}</span>
+                                                <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">发布者：{$value.f_user_name}</span>
+                                                <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">时间：{$value.f_travel_note_time}</span>
+                                                <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">浏览量：{$value.f_travel_note_browse}</span>
+                                                <a  v-on:click="travelDetails" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right" travelID="{$value.f_travel_note_id}">阅读全文>></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/foreach}
+                            </div>
+                            <div>
+                                <nav aria-label="Page navigation" style="text-align: center">
+                                    <!--分页-->
+                                    {$list->render()}
+                                </nav>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
 </div>
 <!--页脚-->
 <div id="footer">
@@ -338,7 +300,17 @@
     </div>
 </div>
 </body>
+<!--引用vue.js-->
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+<!--引用jq文件-->
 <script src="__STATIC__/js/jquery-1.12.3.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!--文件路径-->
+<script>
+    var travelDetail="{:url('reception/Travels/travelDetails')}"
+    var travelSearch="{:url('reception/Travels/travelSearch')}"
+</script>
+<!--引用js文件-->
+<script src="__STATIC__/js/receptionjs/travels.js"></script>
 </html>

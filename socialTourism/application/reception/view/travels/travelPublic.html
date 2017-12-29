@@ -22,7 +22,7 @@
                 <li><a href="{:url('reception/viewport/viewport')}">目的地</a></li>
                 <li><a href="{:url('reception/travels/travels')}">旅游游记</a></li>
                 <li><a href="">商品活动</a></li>
-                <li><a href="">酒店</a></li>
+                <li><a href="{:url('reception/Hotel/hotel')}">酒店</a></li>
                 <li><a href="{:url('reception/merchant/merchant')}">卖家入驻</a></li>
             </ul>
             <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8">
@@ -88,10 +88,8 @@
                     <input type="text" class="form-control" id="place" placeholder="请输入游记地点">
                 </div>
                 <div class="form-group">
-                        <label for="inputimg">上传图片</label>
+                        <label for="inputimg">上传展示图片</label>
                         <input type="file" id="inputimg">
-                        <label for="inputmusic">背景音乐</label>
-                        <input type="file" id="inputmusic">
                 </div>
                 <div class="form-group">
                     <label for="name">简介：</label>
@@ -102,7 +100,6 @@
                     <form action="server.php" method="post">
                         <!-- 加载编辑器的容器 -->
                         <script id="container" name="content" type="text/plain">
-                            这里写你的初始化内容
                         </script>
                     </form>
                 </div>
