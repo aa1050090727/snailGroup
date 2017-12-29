@@ -9,26 +9,13 @@
     <link rel="stylesheet" href="__STATIC__/kit_admin/plugins/font-awesome/css/font-awesome.min.css" media="all" />
     <link rel="stylesheet" href="__STATIC__/kit_admin/src/css/app.css" media="all" />
     <link rel="stylesheet" href="__STATIC__/kit_admin/src/css/themes/default.css" media="all" id="skin" kit-skin />
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 
 <body class="kit-theme">
-<div class="layui-layout layui-layout-admin kit-layout-admin">
+<div class="layui-layout layui-layout-admin kit-layout-admin" id="menu">
     <div class="layui-header">
         <div class="layui-logo">KIT ADMIN</div>
-        <div class="layui-logo kit-logo-mobile">K</div>
-        <ul class="layui-nav layui-layout-left kit-nav">
-            <li class="layui-nav-item"><a href="javascript:;">控制台</a></li>
-            <li class="layui-nav-item"><a href="javascript:;">商品管理</a></li>
-            <li class="layui-nav-item"><a href="javascript:;" id="pay"><i class="fa fa-gratipay" aria-hidden="true"></i> 捐赠我</a></li>
-            <li class="layui-nav-item">
-                <a href="javascript:;">其它系统</a>
-                <dl class="layui-nav-child">
-                    <dd><a href="javascript:;">邮件管理</a></dd>
-                    <dd><a href="javascript:;">消息管理</a></dd>
-                    <dd><a href="javascript:;">授权管理</a></dd>
-                </dl>
-            </li>
-        </ul>
         <ul class="layui-nav layui-layout-right kit-nav">
             <li class="layui-nav-item">
                 <a href="javascript:;">
@@ -62,27 +49,79 @@
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree" lay-filter="kitNavbar" kit-navbar>
                 <li class="layui-nav-item layui-nav-itemed">
-                    <a class="" href="javascript:;"><i class="fa fa-plug" aria-hidden="true"></i><span> 系统管理</span></a>
-                    <dl class="layui-nav-child">
+                    <a class="" href="javascript:;"><i class="fa fa-plug" aria-hidden="true"></i><span >系统管理</span></a>
+                    <dl class="layui-nav-child" >
                         <dd>
-                            <a href="javascript:;" data-url="{:url('backstage/role/role')}"  data-title="角色管理" kit-target data-id='1'><span>角色管理</span></a>
+                            <a href="javascript:;" data-url="{:url('backstage/Role/role')}"  data-title="角色管理" kit-target data-id='1'><span>角色管理</span></a>
                         </dd>
                         <dd>
                             <a href="javascript:;" data-url="{:url('backstage/staff/staff')}"  data-title="员工管理" kit-target data-id='2'><span>员工管理</span></a>
                         </dd>
-                        <!--<dd>-->
-                            <!--<a href="javascript:;" data-url="nav.html" data-icon="&#xe628;" data-title="导航栏" kit-target data-id='3'><i class="layui-icon">&#xe628;</i><span> 导航栏</span></a>-->
-                        <!--</dd>-->
-                        <!--<dd>-->
-                            <!--<a href="javascript:;" data-url="list4.html" data-icon="&#xe614;" data-title="列表四" kit-target data-id='4'><i class="layui-icon">&#xe614;</i><span> 列表四</span></a>-->
-                        <!--</dd>-->
+                    </dl>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;"><i class="fa fa-plug" aria-hidden="true"></i><span>商品管理</span></a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;" data-url="{:url('backstage/user/user')}"  data-title="酒店管理" kit-target data-id='3'><span>酒店管理</span></a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" data-url="{:url('backstage/user/user')}"  data-title="景点管理" kit-target data-id='3'><span>景点管理</span></a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;"><i class="fa fa-plug" aria-hidden="true"></i><span>订单管理</span></a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;" data-url="{:url('backstage/user/user')}"  data-title="已付款订单" kit-target data-id='3'><span>已付款订单</span></a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" data-url="{:url('backstage/user/user')}"  data-title="未付款订单" kit-target data-id='3'><span>未付款订单</span></a>
+                        </dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item layui-nav-itemed">
                     <a href="javascript:;"><i class="fa fa-plug" aria-hidden="true"></i><span>用户管理</span></a>
                     <dl class="layui-nav-child">
                         <dd>
-                            <a href="javascript:;" data-url="{:url('backstage/user/user')}"  data-title="用户管理" kit-target data-id='3'><span>用户管理</span></a>
+                            <a href="javascript:;" data-url="{:url('backstage/user/user')}"  data-title="商家用户" kit-target data-id='3'><span>商家用户</span></a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" data-url="{:url('backstage/user/user')}"  data-title="普通用户" kit-target data-id='3'><span>普通用户</span></a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;"><i class="fa fa-plug" aria-hidden="true"></i><span>社区管理</span></a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;" data-url="{:url('backstage/user/user')}"  data-title="游记" kit-target data-id='3'><span>游记</span></a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" data-url="{:url('backstage/user/user')}"  data-title="广告" kit-target data-id='3'><span>广告</span></a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;"><i class="fa fa-plug" aria-hidden="true"></i><span>报表统计</span></a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;" data-url="{:url('backstage/user/user')}"  data-title="商家用户统计" kit-target data-id='3'><span>商家用户统计</span></a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" data-url="{:url('backstage/user/user')}"  data-title="普通用户统计" kit-target data-id='3'><span>普通用户统计</span></a>
+                        </dd>
+                        <dd>
+                            <a href="javascript:;" data-url="{:url('backstage/user/user')}"  data-title="营业统计" kit-target data-id='3'><span>营业统计</span></a>
+                        </dd>
+                    </dl>
+                </li>
+                <li class="layui-nav-item layui-nav-itemed">
+                    <a href="javascript:;"><i class="fa fa-plug" aria-hidden="true"></i><span>聊天管理</span></a>
+                    <dl class="layui-nav-child">
+                        <dd>
+                            <a href="javascript:;" data-url="{:url('backstage/user/user')}"  data-title="聊天窗口" kit-target data-id='3'><span>聊天窗口</span></a>
                         </dd>
                     </dl>
                 </li>
@@ -105,7 +144,10 @@
     document.write(unescape("%3Cspan id='cnzz_stat_icon_1264021086'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s22.cnzz.com/z_stat.php%3Fid%3D1264021086%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));
 </script> -->
 <script src="__STATIC__/kit_admin/plugins/layui/layui.js"></script>
+<script src="__STATIC__/js/jquery-1.12.3.min.js"></script>
+
 <script>
+    var getMenuArr = "{:url('backstage/Home/getthisuser')}";
     var message;
     layui.config({
         base: '__STATIC__/kit_admin/src/js/',
@@ -154,6 +196,8 @@
 //                }();
     });
 </script>
+
+<script src="__STATIC__/js/backstage/home.js"></script>
 </body>
 
 </html>
