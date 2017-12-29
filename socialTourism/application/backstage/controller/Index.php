@@ -10,6 +10,7 @@ namespace app\backstage\controller;
 
 use think\Controller;
 use \think\Db;
+use think\Session;
 
 class Index extends Controller
 {
@@ -50,7 +51,9 @@ class Index extends Controller
                     if(!empty($res)){
                         $result  = Db::table('b_user')->where($where)->find();
                         if(!empty($result)){
-                            return json(['code'=>10000,'msg'=>$loginmsg['login_success'],'data'=>[],'url' =>  url('backstage/Index/index')]);
+                            Session::set("backstageUser",$result);
+                            return json(['code'=>10000,'msg'=>$loginmsg['login_success'],'data'=>[],'url' =>  url('backstage/Home/home')]);
+
                         }else{
                             return json(['code'=>10001,'msg'=>$loginmsg['login_error2'],'data'=>[],'url' => []]);
                         }
