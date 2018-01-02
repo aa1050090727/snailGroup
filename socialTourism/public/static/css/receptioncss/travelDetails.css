@@ -4,12 +4,87 @@
     padding: 0;
     font-family: Arial,"Lucida Grande","Microsoft Yahei","Hiragino Sans GB","Hiragino Sans GB W3",SimSun,"PingFang SC",STHeiti;
 }
+/*解决模态框偏移问题*/
+body {
+    padding-right: 0px !important;
+}
+*.modal-open {
+    overflow-y: scroll;
+    padding-right: 0 !important;
+}
+
+.breadcrumb{
+    background-color: #fff;
+}
 /*大屏幕*/
 @media (min-width: 1200px){
     /*发布人等字体*/
     .rankSpan{
         font-size: 18px;
-        font-weight: 500;
+        font-weight: 900;
+    }
+    /*全部评论*/
+    #content .comment_list{
+        margin: 50px 0 20px 0;
+    }
+    #content .comment_list .comment_head{
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+    }
+    #content .comment_list .comment_head h1{
+        font-size: 26px;
+        margin: 0;
+    }
+    #content .comment_head .comment_add{
+        margin-right: 20px;
+        background-color: #ffb200;
+        border-color: #ffb200;
+        color: #fff;
+    }
+    #content .comment_head .comment_add:hover{
+        background-color: #ff9d00;
+        border-color: #ff9d00;
+    }
+    #content .comment_box>.row{
+        border-bottom: 1px dashed #dfdfdf;
+        margin-top: 30px;
+    }
+    #content .comment_user{
+        text-align: center;
+    }
+    #content .comment_user>img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    #content .comment_user>a{
+        color: #ff9300;
+        margin-top: 10px;
+    }
+    #content .comment_content>p{
+        text-align: justify;
+    }
+
+    /*评论底部*/
+    #content .comment_content .comment_footer{
+        display: flex;
+        justify-content: flex-start;
+        margin: 15px 0;
+    }
+    #content .comment_content .comment_stars{
+        width: 104px;
+        height: 20px;
+        background: url("../../image/comment_stars_1.jpg") no-repeat;
+        margin-right: 15px;
+    }
+    #content .comment_content .comment_zan{
+        width: 20px;
+        height: 20px;
+        background: url("../../image/comment_zan.jpg") no-repeat;
+        background-size: cover;
+        margin-left: 15px;
+        cursor: pointer;
     }
 }
 /*中屏幕*/
@@ -17,25 +92,211 @@
     /*发布人等字体*/
     .rankSpan{
         font-size: 18px;
-        font-weight: 500;
+        font-weight: 900;
+    }
+    /*全部评论*/
+    #content .comment_list{
+        margin: 50px 0 20px 0;
+    }
+    #content .comment_list .comment_head{
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+    }
+    #content .comment_list .comment_head h1{
+        font-size: 26px;
+        margin: 0;
+    }
+    #content .comment_head .comment_add{
+        margin-right: 20px;
+        background-color: #ffb200;
+        border-color: #ffb200;
+        color: #fff;
+    }
+    #content .comment_head .comment_add:hover{
+        background-color: #ff9d00;
+        border-color: #ff9d00;
+    }
+    #content .comment_box>.row{
+        border-bottom: 1px dashed #dfdfdf;
+        margin-top: 30px;
+    }
+    #content .comment_user{
+        text-align: center;
+    }
+    #content .comment_user>img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    #content .comment_user>a{
+        color: #ff9300;
+        margin-top: 10px;
+    }
+    #content .comment_content>p{
+        text-align: justify;
+    }
+
+    /*评论底部*/
+    #content .comment_content .comment_footer{
+        display: flex;
+        justify-content: flex-start;
+        margin: 15px 0;
+    }
+    #content .comment_content .comment_stars{
+        width: 104px;
+        height: 20px;
+        background: url("../../image/comment_stars_1.jpg") no-repeat;
+        margin-right: 15px;
+    }
+    #content .comment_content .comment_zan{
+        width: 20px;
+        height: 20px;
+        background: url("../../image/comment_zan.jpg") no-repeat;
+        background-size: cover;
+        margin-left: 15px;
+        cursor: pointer;
     }
 }
 /*小屏幕*/
 @media (min-width: 768px) and (max-width: 991px){
 
-    /*排行字体*/
+    /*发布人等字体*/
     .rankSpan{
         font-size: 18px;
         font-weight: 800;
+    }
+    /*全部评论*/
+    #content .comment_list{
+        margin: 50px 0 20px 0;
+    }
+    #content .comment_list .comment_head{
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+    }
+    #content .comment_list .comment_head h1{
+        font-size: 26px;
+        margin: 0;
+    }
+    #content .comment_head .comment_add{
+        margin-right: 20px;
+        background-color: #ffb200;
+        border-color: #ffb200;
+        color: #fff;
+    }
+    #content .comment_head .comment_add:hover{
+        background-color: #ff9d00;
+        border-color: #ff9d00;
+    }
+    #content .comment_box>.row{
+        border-bottom: 1px dashed #dfdfdf;
+        margin-top: 30px;
+    }
+    #content .comment_user{
+        text-align: center;
+    }
+    #content .comment_user>img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
+    #content .comment_user>a{
+        color: #ff9300;
+        margin-top: 10px;
+    }
+    #content .comment_content>p{
+        text-align: justify;
+    }
+
+    /*评论底部*/
+    #content .comment_content .comment_footer{
+        display: flex;
+        justify-content: flex-start;
+        margin: 15px 0;
+    }
+    #content .comment_content .comment_stars{
+        width: 104px;
+        height: 20px;
+        background: url("../../image/comment_stars_1.jpg") no-repeat;
+        margin-right: 15px;
+    }
+    #content .comment_content .comment_zan{
+        width: 20px;
+        height: 20px;
+        background: url("../../image/comment_zan.jpg") no-repeat;
+        background-size: cover;
+        margin-left: 15px;
+        cursor: pointer;
     }
 }
 /*超小屏幕*/
 @media (max-width: 767px){
-      /*排行字体*/
+    /*发布人等字体*/
     .rankSpan{
-
         font-size: 18px;
         font-weight: 800;
     }
+    /*全部评论*/
+    #content .comment_list{
+        margin: 50px 0 20px 0;
+    }
+    #content .comment_list .comment_head{
+        display: flex;
+        justify-content: space-between;
+        padding: 0;
+    }
+    #content .comment_list .comment_head h1{
+        font-size: 20px;
+        margin: 0;
+    }
+    #content .comment_head .comment_add{
+        margin-right: 20px;
+        background-color: #ffb200;
+        border-color: #ffb200;
+        color: #fff;
+    }
+    #content .comment_head .comment_add:hover{
+        background-color: #ff9d00;
+        border-color: #ff9d00;
+    }
+    #content .comment_box>.row{
+        border-bottom: 1px dashed #dfdfdf;
+        margin-top: 30px;
+    }
+    #content .comment_user{
+        margin-bottom: 10px;
+    }
+    #content .comment_user>img{
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+    }
+    #content .comment_user>a{
+        color: #ff9300;
+    }
+    #content .comment_content>p{
+        text-align: justify;
+    }
 
+    /*评论底部*/
+    #content .comment_content .comment_footer{
+        display: flex;
+        justify-content: flex-start;
+        margin: 15px 0;
+    }
+    #content .comment_content .comment_stars{
+        width: 104px;
+        height: 20px;
+        background: url("../../image/comment_stars_1.jpg") no-repeat;
+        margin-right: 15px;
+    }
+    #content .comment_content .comment_zan{
+        width: 20px;
+        height: 20px;
+        background: url("../../image/comment_zan.jpg") no-repeat;
+        background-size: cover;
+        margin-left: 15px;
+        cursor: pointer;
+    }
 }
