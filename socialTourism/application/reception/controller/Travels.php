@@ -62,6 +62,44 @@ class Travels extends Controller
         }else{
             echo "1";
         }
-    }
 
+    }
+    /*发布游记*/
+    public function notePublic(){
+        date_default_timezone_set("PRC");
+        $timept=date("Y-m-d",time());
+        $head=input('param.head');
+        $place=input('param.place');
+        $introduce=input('param.introduce');
+        $content=input('param.content');
+        // 获取表单上传文件
+        $file = request()->file('img');
+        // 移动到框架应用根目录/public/static/image/ 目录下
+         $info = $file->rule("uniqid")->move(ROOT_PATH . 'public' . DS . 'static/image');
+        /*上传成功*/
+        if($info)
+        {
+            $imgName=$info->getFilename();
+            $url="__STATIC__/image/".$imgName;
+            $data= [
+                "f_travel_note_id"=>null,
+                "f_travel_note_img"=>$url,
+                "f_travel_note_intro"=>$introduce,
+                "f_travel_note_head"=>$head,
+                "f_travel_note_content"=>$content,
+                "f_travel_note_time"=>$timept,
+                "f_travel_note_uid"=>1,
+                "f_travel_note_place"=>$place,
+                "f_travel_note_collect"=>0,
+                "f_travel_note_browse"=>0,
+                "f_travel_note_recommend"=>"是",
+                "f_travel_note_state"=>"锁定"
+            ];
+            $res=Db::name('f_travel_note')->insert($data);
+            echo 1;
+        }else{
+            echo 2;
+        }
+
+    }
 }

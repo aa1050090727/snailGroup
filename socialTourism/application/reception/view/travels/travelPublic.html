@@ -77,8 +77,8 @@
         <div class="row">
             <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                 <div class="row"><span style="font-size: 25px;font-weight: 900">游记编辑</span></div>
-                <div class="row">
-                    <p id="travelImg"><img class="img-responsive center-block" src="https://c2-q.mafengwo.net/s10/M00/23/05/wKgBZ1muOTyAK725AAP23AoU2fo78.jpeg" alt="图片预览"/></p>
+                <div class="row ">
+                    <p ><img id="img"class="img-responsive center-block" src="" alt="图片预览" style="font-size: 30px;text-align: center"/></p>
                 </div>
                 <form role="form" style="margin-top: 10px">
                     <div class="form-group">
@@ -91,23 +91,25 @@
                     </div>
                     <div class="form-group">
                         <label for="inputimg">上传展示图片</label>
-                        <input type="file" id="inputimg">
+                        <input type="file" id="inputImg" v-on:change="travelImg(event)" >
                     </div>
                     <div class="form-group">
                         <label for="name">简介：</label>
-                        <textarea class="form-control" rows="3"></textarea>
+                        <textarea class="form-control" rows="3" id="inputIntro"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="name">主要内容：</label>
-                        <form action="server.php" method="post">
+                        <form action="server.php" method="post" id="editor">
                             <!-- 加载编辑器的容器 -->
                             <script id="container" name="content" type="text/plain">
                             </script>
                         </form>
                     </div>
-                    <div class="row text-right" style="display: inline-block">
-                        <!--<div class="col-lg-10 col-md-10 col-sm-10 col-xs-12"></div>-->
-                        <button type="submit" class="btn btn-default ">提交</button>
+                    <div class="row " >
+                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12"></div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                            <button type="submit" class="btn btn-info " v-on:click="travelPublic">提交</button>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -198,6 +200,10 @@
 <!-- 实例化编辑器 -->
 <script type="text/javascript">
     var editor = UE.getEditor('container');
+</script>
+<!--路径引用-->
+<script>
+    var notePublic="{:url('reception/Travels/notePublic')}"
 </script>
 <!--引用自己的js-->
 <script src="__STATIC__/js/receptionjs/travelPublic.js"></script>
