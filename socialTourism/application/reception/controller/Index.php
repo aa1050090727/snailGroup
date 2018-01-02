@@ -10,10 +10,6 @@ class Index extends Controller
     public function index(){
         return $this->fetch();
     }
-    //跳转到目的地
-    public function viewport(){
-        return $this->fetch("viewport");
-    }
 
 }
 
