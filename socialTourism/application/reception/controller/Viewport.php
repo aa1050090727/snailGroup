@@ -164,10 +164,20 @@ class Viewport extends Controller
     public function nowBuy(){
         if(Session::has('nowlogin')){
             //生成订单--跳转页面
-            return json(["code"=>1]);
+//            $science_id = input('science_id');//商品id
+//            $userId = session("nowlogin");//用户id
+//            $data = [
+//                "b_order_details_id"=>null,
+//                "b_order_user"=>$userId,
+//                "f_shopping_cart_gid"=>$science_id,
+//                "f_shopping_cart_uid"=>$userId,
+//                "f_shopping_cart_uum"=>1
+//            ];
+//            $putShoppingCar = Db::table("b_order_details")->insert($data);
+            return json(["code"=>1,"tips"=>"添加成功"]);
         }
         else{
-
+            return json(["code"=>3,"tips"=>"您还没有登录"]);
         }
     }
     //加入购物车
@@ -176,22 +186,45 @@ class Viewport extends Controller
             //判断购物车是否已经有该商品，如果有的话，更新数量；如果没有的话新增意见数据
             $science_id = input('science_id');
             $userId = session("nowlogin");
-            //写入购物车--insert--提示加入成功
-            $data = [
-                "f_shopping_cart_id"=>null,
-                "f_shopping_cart_classid"=>1,
-                "f_shopping_cart_gid"=>$science_id,
-                "f_shopping_cart_uid"=>$userId
-            ];
-            $putShoppingCar = Db::table("f_shopping_cart")->insert($data);
-            //var_dump($putShoppingCar);exit;
-            if($putShoppingCar){
-                 return json(["code"=>1,"tips"=>"添加成功"]);
+            //该商品是否被该用户加入购物车过
+            $result = Db::table("f_shopping_cart")
+                ->where("f_shopping_cart_gid",$science_id)
+                ->where("f_shopping_cart_uid",$userId)
+                ->select();
+//            var_dump(empty($result));exit;
+            //用户没有添加过该商品
+            if(empty($result)){
+                //写入购物车--insert--提示加入成功
+                $data = [
+                    "f_shopping_cart_id"=>null,
+                    "f_shopping_cart_classid"=>1,
+                    "f_shopping_cart_gid"=>$science_id,
+                    "f_shopping_cart_uid"=>$userId,
+                    "f_shopping_cart_uum"=>1
+                ];
+                $putShoppingCar = Db::table("f_shopping_cart")->insert($data);
+                //var_dump($putShoppingCar);exit;
+                if($putShoppingCar){
+                    return json(["code"=>1,"tips"=>"添加成功"]);
+                }
+                else{
+                    return json(["code"=>2,"tips"=>"添加失败"]);
+                }
             }
             else{
-                return json(["code"=>2,"tips"=>"添加失败"]);
+                //用户已经添加过该商品
+                $updateShoppingCar = Db::table('f_shopping_cart')
+                ->where("f_shopping_cart_gid",$science_id)
+                ->where("f_shopping_cart_uid",$userId)
+                ->setInc('f_shopping_cart_uum');
+//                var_dump($updateShoppingCar);exit;
+                if($updateShoppingCar == 1){
+                    return json(["code"=>1,"tips"=>"添加成功"]);
+                }
+                else{
+                    return json(["code"=>2,"tips"=>"添加失败"]);
+                }
             }
-
         }
         else{
             return json(["code"=>3,"tips"=>"您还没有登录"]);
