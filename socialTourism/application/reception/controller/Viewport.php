@@ -215,17 +215,43 @@ class Viewport extends Controller
     public function nowBuy(){
         if(Session::has('nowlogin')){
             //生成订单--跳转页面
-//            $science_id = input('science_id');//商品id
-//            $userId = session("nowlogin");//用户id
-//            $data = [
-//                "b_order_details_id"=>null,
-//                "b_order_user"=>$userId,
-//                "f_shopping_cart_gid"=>$science_id,
-//                "f_shopping_cart_uid"=>$userId,
-//                "f_shopping_cart_uum"=>1
-//            ];
-//            $putShoppingCar = Db::table("b_order_details")->insert($data);
-            return json(["code"=>1,"tips"=>"添加成功"]);
+            $science_id = input('science_id');//商品id
+            $science_price = input('science_price');//商品id
+            $science_sid = input('science_sid');//商品id
+            $userId = session("nowlogin");//用户id
+            date_default_timezone_set("PRC");
+            $timept=date("Y-m-d",time());
+            //生成订单
+            $data = [
+                "b_order_id"=>null,
+                "b_order_user"=>$userId,
+                "b_order_total_price"=>$science_price,
+                "b_order_total_number"=>1,
+                "b_order_time"=>$timept,
+                "b_order_state"=>"未支付"
+            ];
+            $insertOrder = Db::table("b_order")->insert($data);
+            if($insertOrder){
+                $orderId = Db::table('b_order')->getLastInsID();
+//                var_dump($orderId);exit;
+                $data_details = [
+                    "b_order_details_id"=>null,
+                    "b_order_details_classid"=>1,
+                    "b_order_details_gid"=>$science_id,
+                    "b_order_details_num"=>1,
+                    "b_order_details_price"=>$science_price,
+                    "b_order_details_sid"=>$science_sid,
+                    "b_order_details_uid"=>$userId,
+                    "b_order_details_oid"=>$orderId,
+                ];
+                $insertOrder_details = Db::table("b_order_details")->insert($data_details);
+                if($insertOrder_details){
+                    return json(["code"=>1,"tips"=>"添加成功"]);
+                }
+                else{
+                    return json(["code"=>2,"tips"=>"添加失败"]);
+                }
+            }
         }
         else{
             return json(["code"=>3,"tips"=>"您还没有登录"]);
