@@ -8,7 +8,7 @@
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="__STATIC__/css/receptioncss/public.css" type="text/css">
-    <link rel="stylesheet" href="__STATIC__/css/receptioncss/travelDetails.css" type="text/css">
+    <link rel="stylesheet" href="__STATIC__/css/receptioncss/merchant.css" type="text/css">
 </head>
 <body>
 <!--导航栏-->
@@ -70,17 +70,25 @@
     </div>
 </div>
 <!--商家主要内容-->
-<div class="container" style="margin-top: 20px">
+<div class="container" style="margin-top: 20px;">
     <div class="row">
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-            <div class="row"><span>我要开店</span></div>
-            <div class="row"><span>订单管理</span></div>
-            <div class="row"><span>广告申请</span></div>
-            <div class="row"><span>发布商品</span></div>
-            <div class="row"><span>我要开店</span></div>
+        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" >
+            <!-- Nav tabs -->
+            <ul class="nav nav-pills nav-stacked text-center" role="tablist">
+                <li role="presentation" class="active "><a href="#home" aria-controls="home" role="tab" data-toggle="tab" >我要开店</a></li>
+                <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">订单管理</a></li>
+                <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">广告申请</a></li>
+                <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">发布商品</a></li>
+            </ul>
         </div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-            主题
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 content"style="border: 1px solid grey ">
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="home">1</div>
+                <div role="tabpanel" class="tab-pane" id="profile">2</div>
+                <div role="tabpanel" class="tab-pane" id="messages">3</div>
+                <div role="tabpanel" class="tab-pane" id="settings">4</div>
+            </div>
         </div>
     </div>
 </div>
@@ -149,4 +157,13 @@
     </div>
 </div>
 </body>
+<script src="__STATIC__/js/jquery-1.12.3.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script>
+    $('#myTab a').click(function (e) {
+        e.preventDefault()
+        $(this).tab('show')
+    })
+</script>
 </html>
