@@ -79,11 +79,11 @@
             <div class="col-lg-1 col-md-1 col-sm-1"></div>
             <div class="col-lg-5 col-md-5 col-sm-5 blank_height search_btn_bg">
                 <div class="row search_title_div">
-                    <h4 class="search_title">GO!</h4>
+                    <h4 class="search_title">GO！！故宫 三坊七巷 杭州西湖</h4>
                 </div>
                 <form class="form-inline">
                     <div class="input-group search_div">
-                        <input type="text" class="form-control search_input" style="border-radius: 5px" id="inputPassword2" placeholder="您想去...">
+                        <input type="text" class="form-control search_input" style="border-radius: 5px" id="inputLike" placeholder="您想去...">
                     </div>
                     <button type="button" class="btn btn-default search_btn" id="go_search"><span class="glyphicon glyphicon-search "></span></button>
                 </form>
@@ -135,52 +135,19 @@
     </div>
 </div>
 <!-------------------------当季推荐------------------------------------------->
-<div class=""  style="background-color: lavenderblush">
+<div class="" id="myRecommend"  style="background-color: lavenderblush">
     <div class="container">
-        <div class="row blank_height_pos text-center"><h2>当季景点推荐<span class="glyphicon glyphicon-refresh change_font">换一换</span></h2></div>
+        <div class="row blank_height_pos text-center"><h2>景点推荐<span class="glyphicon glyphicon-refresh change_font" @click="view_recommend">换一换</span></h2></div>
         <div class="row blank_height_pos"></div>
         <div class="row">
-            <div class="col-lg-3 col-md-3 col-sm-3 nowaday_rec">
+            <div class="col-lg-3 col-md-3 col-sm-3 nowaday_rec" v-for="recommendItem in recommendData">
                 <div class="thumbnail">
-                    <img src="http://b3-q.mafengwo.net/s6/M00/F4/5B/wKgB4lM3um2AL0PZAAnnUoYzZMA50.jpeg" alt="...">
+                    <img :src="recommendItem.f_science_img" alt="...">
                     <div class="caption">
-                        <h3>推荐景点门票名称</h3>
-                        <p>推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介</p>
-                        <p><span class="rec_price">￥2500</span> <span class="rec_sale">已售</span></p>
-                        <p class="text-right"><a href="{:url('reception/viewport/viewdetailed')}">查看详情</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 nowaday_rec">
-                <div class="thumbnail">
-                    <img src="http://b3-q.mafengwo.net/s6/M00/F4/5B/wKgB4lM3um2AL0PZAAnnUoYzZMA50.jpeg" alt="...">
-                    <div class="caption">
-                        <h3>推荐景点门票名称</h3>
-                        <p>推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介</p>
-                        <p><span class="rec_price">￥2500</span> <span class="rec_sale">已售</span></p>
-                        <p class="text-right"><a href="{:url('reception/viewport/viewdetailed')}">查看详情</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 nowaday_rec">
-                <div class="thumbnail">
-                    <img src="http://b3-q.mafengwo.net/s6/M00/F4/5B/wKgB4lM3um2AL0PZAAnnUoYzZMA50.jpeg" alt="...">
-                    <div class="caption">
-                        <h3>推荐景点门票名称</h3>
-                        <p>推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介</p>
-                        <p><span class="rec_price">￥2500</span> <span class="rec_sale">已售</span></p>
-                        <p class="text-right"><a href="{:url('reception/viewport/viewdetailed')}">查看详情</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 nowaday_rec">
-                <div class="thumbnail">
-                    <img src="http://b3-q.mafengwo.net/s6/M00/F4/5B/wKgB4lM3um2AL0PZAAnnUoYzZMA50.jpeg" alt="...">
-                    <div class="caption">
-                        <h3>推荐景点门票名称</h3>
-                        <p>推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介推荐简介</p>
-                        <p><span class="rec_price">￥2500</span> <span class="rec_sale">已售</span></p>
-                        <p class="text-right"><a href="{:url('reception/viewport/viewdetailed')}">查看详情</a></p>
+                        <h3>{{recommendItem.f_science_name}}</h3>
+                        <p class="content_p">{{recommendItem.f_science_content}}</p>
+                        <p><span class="rec_price">￥{{recommendItem.f_science_price}}</span> <span class="rec_sale">已售</span></p>
+                        <p class="text-right"><a href="javascript:void(0)" @click="goDetail(recommendItem)">查看详情</a></p>
                     </div>
                 </div>
             </div>
@@ -257,6 +224,10 @@
     var viewport_url = "{:url('reception/viewport/viewpos')}";
     var pos_data_url = "{:url('reception/viewport/posData')}";
     var setCookie_url = "{:url('reception/viewport/set_cookie')}";
+    var recommend_url = "{:url('reception/viewport/recommend_view')}";
+    var setViewId_url = "{:url('reception/viewport/setViewId')}";
+    var goViewdetailed_url = "{:url('reception/viewport/viewdetailed')}";
+    var search_url = "{:url('reception/viewport/search_like')}";
 </script>
 <script src="__STATIC__/js/receptionjs/viewport.js"></script>
 </html>

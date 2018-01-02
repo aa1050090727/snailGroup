@@ -34,6 +34,7 @@
 }
 .change_font:hover{
     color: blue;
+    cursor: pointer;
 }
 /***********************************页脚***********************************/
 
@@ -41,7 +42,7 @@
 @media (min-width: 1200px){
     /*空白高度*/
     .blank_height{
-        height: 120px;
+        height: 90px;
     }
     /*搜索框---目的地*/
     .search_div{

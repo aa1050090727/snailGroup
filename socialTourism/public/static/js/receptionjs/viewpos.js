@@ -29,7 +29,8 @@ $(function(){
                 district:{},
                 totalPage:1,//总页数
                 nowPage:1,//当前页
-                dataView:[]
+                dataView:[],
+                like:""
             }
         },
         //    发送ajax，向数据库请求数据
@@ -38,8 +39,25 @@ $(function(){
             bus.$on("p_c",function(pro,city,district){
                 _this.province = pro;
                 _this.city = city;
+                _this.district = district;
                 _this.getViewData(_this._props.url,_this.nowPage,_this.district,'');
             });
+            //点击区
+            bus.$on("district",function(pro,city,district){
+                _this.province = pro;
+                _this.city = city;
+                _this.district = district;
+                _this.getViewData(_this._props.url,_this.nowPage,_this.district,'');
+            });
+            //搜索
+            bus.$on("like",function(pro,city,district,like){
+                _this.province = pro;
+                _this.city = city;
+                _this.district = district;
+                _this.like = like
+                _this.getViewData(_this._props.url,_this.nowPage,_this.district,_this.like);
+            });
+            //上一页
             bus.$on("prevPage",function(){
                 // console.log("xiaoxi ");
                 console.log(_this.nowPage);
@@ -51,6 +69,7 @@ $(function(){
                     _this.getViewData(_this._props.url,_this.nowPage,"","");
                 }
             });
+            //下一页
             bus.$on("nextPage",function(){
                 console.log(_this.nowPage,_this.totalPage);
                 if(_this.nowPage >= _this.totalPage){
@@ -61,6 +80,7 @@ $(function(){
                     _this.getViewData(_this._props.url,_this.nowPage,"","");
                 }
             });
+            //点击页数
             bus.$on("changePage",function(index){
                 // console.log("xiaoxi ");
                 _this.nowPage = index;
@@ -171,45 +191,93 @@ $(function(){
             nowPage:0,
             districtData:[],
             district:{},
-            viewData:[]
+            viewData:[],
+            like:''
         },
         created:function(){
             var _this = this;
-            //二级菜单联动
             $.ajax({
                 type:"post",
                 dataType:"json",
-                url:getCookie_url,
-                success:function(resNowPos){
-                    _this.city = resNowPos.nowPos.city;
-                    _this.province = resNowPos.nowPos.province;
-                    bus.$emit("p_c",_this.province,_this.city,_this.district);
-                    //区数据请求
-                    $.ajax({
-                        type:"post",
-                        data:{"cityId":_this.city.f_city_id},
-                        dataType:"json",
-                        url:getDistrict_url,
-                        success:function(resDistrict){
-                           // console.log(resDistrict.district);
-                            _this.districtData = resDistrict.district;
-                           // console.log(_this.districtData);
-                        },
-                        error:function(resDistrict){
-                            console.log("error",resDistrict);
-                        }
-                    });
-                    //景点数据初始化
+                url:haslike_url,
+                success:function(reslike){
+                    console.log(reslike);
+                    if(reslike.code == 1){
+                        //cunzai
+                        $("#menu").css({
+                            display:"none"
+                        });
+                        $(".districtList").css({
+                            display:"none"
+                        });
+                        _this.like = reslike.like;
+                        bus.$emit("like",_this.province,_this.city,_this.district,_this.like);
+                    }
+                    else{
+                        //二级菜单联动
+                        $.ajax({
+                            type:"post",
+                            dataType:"json",
+                            url:getCookie_url,
+                            success:function(resNowPos){
+                                _this.city = resNowPos.nowPos.city;
+                                _this.province = resNowPos.nowPos.province;
+                                bus.$emit("p_c",_this.province,_this.city,_this.district);
+                                //区数据请求
+                                $.ajax({
+                                    type:"post",
+                                    data:{"cityId":_this.city.f_city_id},
+                                    dataType:"json",
+                                    url:getDistrict_url,
+                                    success:function(resDistrict){
+                                        // console.log(resDistrict.district);
+                                        _this.districtData = resDistrict.district;
+                                        // console.log(_this.districtData);
+                                    },
+                                    error:function(resDistrict){
+                                        console.log("error",resDistrict);
+                                    }
+                                });
+                                //景点数据初始化
+                            },
+                            error:function(resNowPos){
+                                console.log("error",resNowPos);
+                            }
+                        });
+                    }
+
                 },
-                error:function(resNowPos){
-                    console.log("error",resNowPos);
+                error:function(reslike){
+                    console.log("error",reslike);
                 }
             });
+
         },
         methods:{
             //当前地区下的景点
             searchView:function(disItem){
-                alert(1);
+                console.log(disItem);
+                console.log(this.province,this.city);
+                bus.$emit("district",this.province,this.city,disItem);
+            },
+            //删除like
+            unsetlike:function(){
+                $.ajax({
+                    type:"post",
+                    dataType:'json',
+                    url:unsetlike_url,
+                    success:function(res){
+                        if(res.code == 1){
+                            window.location.href = viewport_url;
+                        }
+                        else{
+                            window.location.href = viewport_url;
+                        }
+                    },
+                    error:function(res){
+
+                    }
+                });
             }
         }
     });
