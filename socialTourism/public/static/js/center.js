@@ -1,8 +1,71 @@
 /**
  * Created by fire on 2017/12/28.
  */
+Vue.component('mytravels',{
+    template : '<div>\
+                        <div v-for="item in wenjlist">\
+                            <div class="panel panel-default">\
+                                <div class="panel-body">\
+                                    {{item.ID}}\
+                                </div>\
+                                <div class="panel-footer">{{item.wname}}</div>\
+                            </div>\
+                        </div>\
+                        <nav>\
+                            <ul class="pager">\
+                                <li><a href="#" v-on:click="prev()">上一页</a></li>\
+                                <li><a href="#" @click="next()">下一页</a></li>\
+                            </ul>\
+                        </nav>\
+                    </div>',
+    data:function(){
+        return{
+            wenjlist:[
+                {'wname':'123','ID':"10056"},
+                {'wname':'1232','ID':"10057"},
+                {'wname':'1233','ID':"10058"},
+                {'wname':'1234','ID':"10059"},
+                {'wname':'1235','ID':"10060"}
+            ],
+            allpage:1,
+            nowpage:1
+        }
+    },
+    created:function(){
+        this.init(this.nowpage)
+    },
+    methods:{
+        init:function(page){
+            var _this = this;
+            $.ajax({
+                url:"index.php?c=mian&a=getwj&nowpage="+page,
+                dateType:"json",
+                data:"",
+                type:"get",
+                success:function(res){
+                    $arr = JSON.parse(res)
+                    _this.wenjlist = $arr[0]
+                    _this.allpage = $arr[1]['allPage']
+                    _this.nowpage = $arr[1]['nowPage']
+                }
+            })
+        },
+        //上一页
+        prev:function(){
+            var lastpage = parseInt(this.nowpage)-1 <= 0 ? 1 : parseInt(this.nowpage)-1;
+            this.init(lastpage)
 
-
+        },
+        //下一页
+        next: function () {
+            var nextpage = parseInt(this.nowpage)+1 > this.allpage ? this.allpage : parseInt(this.nowpage)+1;
+            this.init(nextpage)
+        }
+    }
+});
+new Vue({
+    el: '#showwj'
+})
 
 var myset = new Vue({
     el:"#myset",
@@ -102,5 +165,6 @@ var myset = new Vue({
     }
 
 })
+
 
 
