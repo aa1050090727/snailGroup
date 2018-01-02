@@ -14,6 +14,7 @@
         background-color: rgb(255, 255, 255);
         display: block;
         overflow: hidden;
+        margin-top: 20px;
     }
 
     .mynest_left{
@@ -52,7 +53,7 @@
 
     .mynest_right{
         width: 300px;
-        background-color: rgb(245, 220, 82);
+        background-color: rgb(255, 255, 255);
         margin: 0 auto;
         margin-top: 20px;
         margin-bottom: 20px;
@@ -99,6 +100,11 @@
         color: #0f0f0f;
         margin-bottom: 200px;
     }
+    .automy2{
+        width: 200px;
+        margin: 10px;
+        color: #0f0f0f;
+    }
 
     .myshow{
         height: 60px;
@@ -129,6 +135,10 @@
         height: 300px;
     }
 
+    .order_class{
+        padding-top: 80px;
+    }
+
 
 }
 @media (min-width:768px) and (max-width:991px) {
@@ -147,6 +157,7 @@
         background-color: rgb(255, 255, 255);
         display: block;
         overflow: hidden;
+        margin-top: 20px;
     }
 
     .mynest_left{
@@ -185,7 +196,7 @@
 
     .mynest_right{
         width: 500px;
-        background-color: rgb(245, 220, 82);
+        background-color: rgb(255, 255, 255);
         margin: 0 auto;
         margin-top: 20px;
         margin-bottom: 20px;
@@ -237,6 +248,11 @@
         color: #0f0f0f;
         margin-bottom: 200px;
     }
+    .automy2{
+        width: 200px;
+        margin: 10px;
+        color: #0f0f0f;
+    }
 
     .myshow{
         height: 60px;
@@ -266,6 +282,10 @@
         width: 450px;
         height: 400px;
     }
+
+    .order_class{
+        padding-top: 80px;
+    }
 }
 @media (min-width:992px) and (max-width:1199px) {
     .typeface{
@@ -283,6 +303,7 @@
         background-color: rgb(255, 255, 255);
         display: block;
         overflow: hidden;
+        margin-top: 20px;
     }
 
     .mynest_left{
@@ -322,7 +343,7 @@
 
     .mynest_right{
         width: 700px;
-        background-color: rgb(245, 220, 82);
+        background-color: rgb(255, 255, 255);
         margin: 0 auto;
         margin-top: 20px;
         margin-bottom: 20px;
@@ -374,6 +395,11 @@
         color: #0f0f0f;
         margin-bottom: 200px;
     }
+    .automy2{
+        width: 200px;
+        margin: 10px;
+        color: #0f0f0f;
+    }
 
     .myshow{
         height: 60px;
@@ -403,6 +429,10 @@
         width: 650px;
         height: 500px;
     }
+
+    .order_class{
+        padding-top: 80px;
+    }
 }
 @media (min-width:1200px) {
     .typeface{
@@ -421,6 +451,7 @@
         background-color: rgb(255, 255, 255);
         display: block;
         overflow: hidden;
+        margin-top: 20px;
     }
 
     .mynest_left{
@@ -460,7 +491,7 @@
 
     .mynest_right{
         width: 900px;
-        background-color: rgb(245, 220, 82);
+        background-color: rgb(255, 255, 255);
         margin: 0 auto;
         margin-top: 20px;
         margin-bottom: 20px;
@@ -514,6 +545,11 @@
         color: #0f0f0f;
         margin-bottom: 200px;
     }
+    .automy2{
+        width: 200px;
+        margin: 10px;
+        color: #0f0f0f;
+    }
 
     .myshow{
         height: 60px;
@@ -542,5 +578,9 @@
     .imgshow{
         width: 850px;
         height: 500px;
+    }
+
+    .order_class{
+        padding-top: 80px;
     }
 }

@@ -285,6 +285,14 @@ return [
         'verifycode' => [
             'verifycode_error' =>'验证码输入错误',
             'verifycode_success' =>'验证码输入正确'
+        ],
+        'uppwd' => [
+            'uppwd_error' => '密码长度不能小于六位数',
+            'uppwd_error1' => '密码长度不能大于二十位数',
+            'uppwd_error2' => '两次密码输入不一致',
+            'uppwd_error3' => '现用密码不正确',
+            'uppwd_error4' => '密码修改错误',
+            'uppwd_success' => '密码修改成功'
         ]
     ]
 
