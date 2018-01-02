@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>游记发布</title>
+    <title>活动|旅游平台</title>
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="__STATIC__/css/receptioncss/public.css" type="text/css">
-    <link rel="stylesheet" href="__STATIC__/css/receptioncss/travelPublic.css" type="text/css">
-    <script src="__STATIC__/utf8-php/ueditor.parse.js"></script>
-
+    <link rel="stylesheet" href="__STATIC__/css/receptioncss/goodsactive.css" type="text/css">
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue"></script>
 </head>
 <body>
 <!--导航栏-->
@@ -19,21 +20,46 @@
         <div class="row">
             <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
             <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
-                <li><a class="nav_index" href="{:url('reception/index/index')}">首页</a></li>
+                <li><a href="{:url('reception/index/index')}">首页</a></li>
                 <li><a href="{:url('reception/viewport/viewport')}">目的地</a></li>
                 <li><a href="{:url('reception/travels/travels')}">旅游游记</a></li>
-                <li><a href="">商品活动</a></li>
+                <li><a class="nav_index" href="{:url('reception/goodsactive/goodsactive')}">商品活动</a></li>
                 <li><a href="{:url('reception/Hotel/hotel')}">酒店</a></li>
                 <li><a href="{:url('reception/merchant/merchant')}">卖家入驻</a></li>
             </ul>
             <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8">
-                <li><a class="nav_qq" href=""></a></li>
-                <li><a class="nav_weixin" href=""></a></li>
-                <li><a class="nav_login" href="">登录</a></li>
-                <li>
-                    <span class="nav_division">|</span>
+                <!--<li><a class="nav_qq" href=""></a></li>-->
+                <!--<li><a class="nav_weixin" href=""></a></li>-->
+                <!--<li><a class="nav_login" href="{:url('reception/Login/login')}">登录</a></li>-->
+                <!--<li>-->
+                <!--<span class="nav_division">|</span>-->
+                <!--</li>-->
+                <!--<li><a class="nav_register" href="{:url('reception/Login/register')}">注册</a></li>   -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle user_photo" data-toggle="dropdown" href="#">
+                        <img src="http://c2-q.mafengwo.net/s10/M00/48/68/wKgBZ1kAeXeAUnIGAABhXP2UUcY94.jpeg?imageMogr2%2Fthumbnail%2F%2132x32r%2Fgravity%2FCenter%2Fcrop%2F%2132x32%2Fquality%2F90"
+                             alt="">
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li class="user_money">
+                            金币 <span>0</span>
+                        </li>
+                        <li>
+                            <a href="#" class="show_center ">
+                                <span class="glyphicon glyphicon-user"></span>
+                                个人中心
+                            </a>
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <a href="#" class="user_out">
+                                <span class="glyphicon glyphicon-off"></span>
+                                退出
+                            </a>
+                        </li>
+                    </ul>
                 </li>
-                <li><a class="nav_register" href="">注册</a></li>
             </ul>
         </div>
     </div>
@@ -44,85 +70,66 @@
         <div class="row">
             <div class="col-xs-4">
                 <i class="ns_index"></i>
-                <p>首页</p>
+                <p><a href="{:url('reception/index/index')}">首页</a></p>
             </div>
             <div class="col-xs-4">
                 <i class="ns_place"></i>
-                <p>目的地</p>
+                <p><a href="{:url('reception/viewport/viewport')}">目的地</a></p>
             </div>
             <div class="col-xs-4">
                 <i class="ns_travels"></i>
-                <p>旅游游记</p>
+                <p><a href="{:url('reception/travels/travels')}">旅游游记</a></p>
             </div>
         </div>
         <div class="row">
             <div class="col-xs-4">
                 <i class="ns_activity"></i>
-                <p>商品活动</p>
+                <p><a class="nav_index" href="{:url('reception/goodsactive/goodsactive')}">商品活动</a></p>
             </div>
             <div class="col-xs-4">
                 <i class="ns_hotel"></i>
-                <p>酒店</p>
+                <p><a href="{:url('reception/Hotel/hotel')}">酒店</a></p>
             </div>
             <div class="col-xs-4">
                 <i class="ns_settled"></i>
-                <p>卖家入驻</p>
+                <p><a href="{:url('reception/merchant/merchant')}">卖家入驻</a></p>
             </div>
         </div>
     </div>
 </div>
-<!--发布内容-->
-<div id="app">
-    <div class="container" style="margin-top: 20px">
-        <div class="row">
-            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                <div class="row"><span style="font-size: 25px;font-weight: 900">游记编辑</span></div>
-                <div class="row ">
-                    <p ><img id="img"class="img-responsive center-block" src="" alt="图片预览" style="font-size: 30px;text-align: center"/></p>
-                </div>
-                <form role="form" style="margin-top: 10px">
-                    <div class="form-group">
-                        <label for="name">标题</label>
-                        <input type="text" class="form-control" id="name" placeholder="请输入游记名称">
-                    </div>
-                    <div class="form-group">
-                        <label for="name">地点</label>
-                        <input type="text" class="form-control" id="place" placeholder="请输入游记地点">
-                    </div>
-                    <div class="form-group">
-                        <label for="inputimg">上传展示图片</label>
-                        <input type="file" id="inputImg" v-on:change="travelImg(event)" >
-                    </div>
-                    <div class="form-group">
-                        <label for="name">简介：</label>
-                        <textarea class="form-control" rows="3" id="inputIntro"></textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="name">主要内容：</label>
-                        <form action="server.php" method="post" id="editor">
-                            <!-- 加载编辑器的容器 -->
-                            <script id="container" name="content" type="text/plain">
-                            </script>
-                        </form>
-                    </div>
-                    <div class="row " >
-                        <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12"></div>
-                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                            <button type="submit" class="btn btn-info " v-on:click="travelPublic">提交</button>
+<!--主体部分-->
+<div class="content">
+    <div class="container">
+        <div class="row active_classify">
+            <label class="radio-inline padding-radio">
+                <input type="radio" name="a_classify" id="a_classify1" value="all" checked> 全部
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="a_classify" id="a_classify2" value="f_science"> 景点门票
+            </label>
+            <label class="radio-inline">
+                <input type="radio" name="a_classify" id="a_classify3" value="f_hotel"> 酒店
+            </label>
+        </div>
+        <div class="row hotel_list">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div>
+                    <img class="img-responsive" src="http://c3-q.mafengwo.net/s10/M00/4E/E7/wKgBZ1mMe8aAcQnpAAEi2-pPGaE05.jpeg?imageMogr2%2Fthumbnail%2F%21480x480r%2Fgravity%2FCenter%2Fcrop%2F%21480x480%2Fquality%2F90"
+                         alt="">
+                    <div class="activity_name">
+                        <p>曼谷维酒店（原曼谷胜利纪念碑全季酒店）</p>
+                        <div>
+                            <div class="hotel_score">评分:<strong>7.8</strong></div>
+                            <div class="hotel_price">￥<strong>2555</strong>起</div>
+                            <div class="original_price">￥2555</div>
                         </div>
                     </div>
-                </form>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div class="row"><span style="font-size: 25px;font-weight: 900">你的游记</span></div>
-                <div class="row" style="margin-top: 20px"> <span class="rankSpan">1.</span><span class="rankSpanl">鼓浪屿三日游</span></div>
-                <div class="row" style="margin-top: 20px"> <span class="rankSpan">2.</span><span class="rankSpanl">西藏七日游</span></div>
-                <div class="row" style="margin-top: 20px"> <span class="rankSpan">3.</span><span class="rankSpanl">大理三日游</span></div>
+                    <p class="goodsDetail" onclick="g_detail()">查看详情>></p>
+                </div>
             </div>
         </div>
     </div>
 </div>
-
 <!--页脚-->
 <div id="footer">
     <div class="footer_box container">
@@ -188,23 +195,8 @@
     </div>
 </div>
 </body>
-<!--引用vue.js-->
-<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
-<script src="__STATIC__/js/jquery-1.12.3.min.js"></script>
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<!-- 配置文件 -->
-<script type="text/javascript" src="__STATIC__/utf8-php/ueditor.config.js"></script>
-<!-- 编辑器源码文件 -->
-<script type="text/javascript" src="__STATIC__/utf8-php/ueditor.all.js"></script>
-<!-- 实例化编辑器 -->
-<script type="text/javascript">
-    var editor = UE.getEditor('container');
-</script>
-<!--路径引用-->
 <script>
-    var notePublic="{:url('reception/Travels/notePublic')}"
+
 </script>
-<!--引用自己的js-->
-<script src="__STATIC__/js/receptionjs/travelPublic.js"></script>
+<script src="__STATIC__/js/receptionjs/goodsActive.js"></script>
 </html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="__STATIC__/css/receptioncss/public.css" type="text/css">
+    <link rel="stylesheet" href="__STATIC__/css/receptioncss/travels.css" type="text/css">
+</head>
+<body>
+<div class="container-fluid" style="margin-top: 20px">
+    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12"style="margin-top: 20px">
+        <div class="row" >
+            <div>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in active travels_box" id="newest">
+                        <div>
+                            {foreach $list as $value}
+                            <div class="row" >
+                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                    <img class="img-responsive" style="margin-right: auto;margin-left: auto" src="{$value.f_travel_note_img}" alt="">
+                                </div>
+                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                    <div class="travels_content">
+                                        <div class="travels_title"><span class="travelSpan">{$value.f_travel_note_head}</span></div>
+                                        <p class="travels_body">{$value.f_travel_note_intro}</p>
+                                        <div class="travels_footer row">
+                                            <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">地点：{$value.f_travel_note_place}</span>
+                                            <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">发布者：{$value.f_user_name}</span>
+                                            <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">时间：{$value.f_travel_note_time}</span>
+                                            <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">浏览量：{$value.f_travel_note_browse}</span>
+                                            <a  v-on:click="travelDetails" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right" travelID="{$value.f_travel_note_id}">阅读全文>></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {/foreach}
+                        </div>
+                        <div>
+                            <nav aria-label="Page navigation" style="text-align: center">
+                                <!--分页-->
+                                {$list->render()}
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<!--引用vue.js-->
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
+<!--引用jq文件-->
+<script src="__STATIC__/js/jquery-1.12.3.min.js"></script>
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!--文件路径-->
+<script>
+    var travelDetail="{:url('reception/Travels/travelDetails')}"
+    var travelSearch="{:url('reception/Travels/travelSearch')}"
+</script>
+<!--引用js文件-->
+<script src="__STATIC__/js/receptionjs/travels.js"></script>
+</html>

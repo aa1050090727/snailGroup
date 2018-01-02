@@ -175,8 +175,9 @@ class Login extends Controller
             $name = addslashes($phone1);
             $psw = strip_tags($pwd);
             $password = addslashes($psw);
-
             if(!captcha_check($code)){
+                return json(['code'=>10004,'msg'=>$loginmsg['login_error4'],'data'=>[],'url' => []]);
+            }else{
                 $phone = [
                     'f_user_phone' =>   $name
                 ];
@@ -194,7 +195,7 @@ class Login extends Controller
                     if(!empty($res)){
                         $result  = Db::table('f_user')->where($where)->find();
                         if(!empty($result)){
-                            Session::set('nowlogin',$name);
+                            Session::set('nowlogin',$result['f_user_id']);
                             return json(['code'=>10000,'msg'=>$loginmsg['login_success'],'data'=>[],'url' =>  url('reception/Index/index')]);
                         }else{
                             return json(['code'=>10001,'msg'=>$loginmsg['login_error2'],'data'=>[],'url' => []]);
@@ -205,8 +206,6 @@ class Login extends Controller
                 }else{
                     return json(['code'=>10002,'msg'=>$loginmsg['login_error1'],'data'=>[],'url' => []]);
                 }
-            }else{
-                return json(['code'=>10004,'msg'=>$loginmsg['login_error4'],'data'=>[],'url' => []]);
             }
 
         }else{

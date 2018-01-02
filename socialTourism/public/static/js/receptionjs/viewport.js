@@ -5,34 +5,34 @@ $(function(){
     $("#pos").on("click",function(){
         window.location.href = viewport_url;
     });
+    //点击搜索
     $("#go_search").on("click",function(){
-        window.location.href = viewport_url;
+        console.log($("#inputLike").val());
+        if($("#inputLike").val() == ""){
+            alert("您想去哪~");
+        }
+        else{
+            $.ajax({
+                type:"post",
+                dataType:"json",
+                data:{"like":$("#inputLike").val()},
+                url:search_url,
+                success:function(res){
+                    console.log(res);
+                    if(res.code == 1){
+                        window.location.href = viewport_url;
+                    }
+                    else{
+                        location.reload();
+                    }
+                },
+                error:function(res){
+                    console.log("error",res);
+                }
+            });
+        }
     });
     //vue
-/*    var pos_p_c_d = new Vue({
-        el:"#pos_p_c_d",
-        //data:{
-        //    province:""
-        //},
-        //created:function(){
-        //    var _this = this;
-        //    //获取省市名称
-        //    $.ajax({
-        //        type:"get",
-        //        url:pos_data_url,
-        //        dataType:"json",
-        //        success:function(res_pos_data){
-        //           // console.log(res_pos_data);
-        //           // console.log(res_pos_data.data);
-        //            _this.province = JSON.parse(res_pos_data.data);
-        //        },
-        //        error:function(res_pos_data){
-        //            console.log("error",res_pos_data);
-        //        }
-        //    });
-        //}
-
-    });*/
     //非父子组件通信直通车
     var bus = new Vue();
     //省市组件
@@ -180,5 +180,54 @@ $(function(){
     });
     var myPositionVue = new Vue({
         el:"#myPositionVue"
+    });
+    var myRecommend = new Vue({
+        el:"#myRecommend",
+        data:{
+            recommendData:[]
+        },
+        created:function(){
+            this.view_recommend();
+        },
+        methods: {
+            //景点推荐
+            view_recommend: function () {
+                var _this = this;
+                $.ajax({
+                    type: "post",
+                    dataType: "json",
+                    url: recommend_url,
+                    success: function (resRec) {
+                        console.log(resRec);
+                        _this.recommendData = resRec.data_recommend;
+                    },
+                    error: function (resRec) {
+                        console.log("error", resRec);
+                    }
+                });
+            },
+            //页面跳转
+            goDetail:function(view){
+                //console.log(view);
+                $.ajax({
+                    type:"post",
+                    data:{"f_science_id":view.f_science_id},
+                    dataType:"json",
+                    url:setViewId_url,
+                    success:function(res){
+                        console.log(res.result);
+                        if(res.result == true) {
+                            window.location.href = goViewdetailed_url;
+                        }
+                        else{
+                            window.location.href = error_url;
+                        }
+                    },
+                    error:function(res){
+                        console.log("error",res);
+                    }
+                });
+            }
+        }
     });
 });

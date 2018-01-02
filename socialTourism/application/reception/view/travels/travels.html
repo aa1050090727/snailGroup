@@ -12,48 +12,6 @@
 
 </head>
 <body>
-<<<<<<< HEAD
-<!--导航栏-->
-<div id="nav">
-    <div class="nav_box container">
-        <div class="row">
-            <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
-            <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
-                <li><a class="nav_index" href="{:url('reception/index/index')}">首页</a></li>
-                <li><a href="{:url('reception/viewport/viewport')}">目的地</a></li>
-                <li><a href="{:url('reception/travels/travels')}">旅游游记</a></li>
-                <li><a href="">商品活动</a></li>
-                <li><a href="">酒店</a></li>
-                <li><a href="{:url('reception/merchant/merchant')}">卖家入驻</a></li>
-            </ul>
-            <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8">
-                <li><a class="nav_qq" href=""></a></li>
-                <li><a class="nav_weixin" href=""></a></li>
-                <li><a class="nav_login" href="">登录</a></li>
-                <li>
-                    <span class="nav_division">|</span>
-                </li>
-                <li><a class="nav_register" href="">注册</a></li>
-            </ul>
-        </div>
-    </div>
-</div>
-<!--小屏幕下的导航栏-->
-<div id="nav_small">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-4">
-                <i class="ns_index"></i>
-                <p>首页</p>
-            </div>
-            <div class="col-xs-4">
-                <i class="ns_place"></i>
-                <p>目的地</p>
-            </div>
-            <div class="col-xs-4">
-                <i class="ns_travels"></i>
-                <p>旅游游记</p>
-=======
 <div id="app">
     <!--导航栏-->
     <div id="nav">
@@ -62,7 +20,7 @@
                 <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
                 <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
                     <li><a href="{:url('reception/index/index')}">首页</a></li>
-                    <li><a href="{:url('reception/index/viewport')}">目的地</a></li>
+                    <li><a href="{:url('reception/viewport/viewport')}">目的地</a></li>
                     <li><a class="nav_index" href="{:url('reception/travels/travels')}">旅游游记</a></li>
                     <li><a href="">商品活动</a></li>
                     <li><a href="{:url('reception/Hotel/hotel')}">酒店</a></li>
@@ -77,7 +35,6 @@
                     </li>
                     <li><a class="nav_register" href="">注册</a></li>
                 </ul>
->>>>>>> aa379ccbc6fe13b61f47abbd51fc721332c2b745
             </div>
         </div>
     </div>
@@ -308,8 +265,9 @@
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <!--文件路径-->
 <script>
-    var travelDetail="{:url('reception/Travels/travelDetails')}"
-    var travelSearch="{:url('reception/Travels/travelSearch')}"
+    var travelDetail="{:url('reception/Travels/travelDetails')}";
+    var travelSearch="{:url('reception/Travels/travelSearch')}";
+    var travelAdd="{:url('reception/Travels/travelAdd')}";
 </script>
 <!--引用js文件-->
 <script src="__STATIC__/js/receptionjs/travels.js"></script>
