@@ -21,7 +21,7 @@
                 <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
                 <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
                     <li><a href="{:url('reception/index/index')}">首页</a></li>
-                    <li><a class="nav_index" href="{:url('reception/viewport/viewport')}">目的地</a></li>
+                    <li><a class="nav_index" href="javascript:void(0)" @click="unsetlike">目的地</a></li>
                     <li><a href="{:url('reception/travels/travels')}">旅游游记</a></li>
                     <li><a href="">商品活动</a></li>
                     <li><a href="">酒店</a></li>
@@ -73,7 +73,7 @@
         </div>
     </div>
     <!--二级菜单联动-->
-    <div>
+    <div id="menu">
         <div class="container">
             <ol class="breadcrumb">
                 <li><a href="{:url('reception/viewport/viewport')}">目的地</a></li>
@@ -83,9 +83,9 @@
         </div>
     </div>
     <div class="container">
-        <p class="area_title">区域列表>></p>
+        <p class="area_title districtList">区域列表>></p>
         <!--区列表-->
-        <div>
+        <div class="districtList">
             <span v-for="disItem in districtData" class="pos_style" @click="searchView(disItem)">{{disItem.f_district_name}}</span>
         </div>
         <!--对应区域景点列表-->
@@ -179,6 +179,8 @@
     var setViewId_url = "{:url('reception/viewport/setViewId')}";
     var goViewdetailed_url = "{:url('reception/viewport/viewdetailed')}";
     var error_url = "{:url('reception/viewport/goerror')}";
+    var haslike_url = "{:url('reception/viewport/haslike')}";
+    var unsetlike_url = "{:url('reception/viewport/unsetlike')}";
 </script>
 <script src="__STATIC__/js/receptionjs/viewpos.js"></script>
 </html>
