@@ -23,6 +23,7 @@ class Viewport extends Controller
         return $this->fetch("viewpos");
     }
     public function viewdetailed(){
+        session("nowlogin",1);
 //        $f_science_id = isset($_GET["science_id"])?$_GET["science_id"]:'';
         $f_science_id = Cookie::get("science_id");
         $viewComment = Db::table("f_science_comment")
@@ -113,15 +114,16 @@ class Viewport extends Controller
         $startIndex = ($nowPage - 1)*$offset;//开始下标
         //$data_view = Db::table('f_science')->fetchSql(true)->limit($startIndex,$offset)->select();//省份
         $data_view = Db::table('f_science')
-                ->where("f_science_pid='{$provinceId}' or 1=1")
-                ->where("f_science_cid= '{$cityId}' or 1=1")
+                ->where("f_science_pid='{$provinceId}'")
+                ->where("f_science_cid= '{$cityId}'")
                 ->where("f_science_did='{$district}' or 1=1")
                 ->where('f_science_name','like',"%{$like}%")
                 ->where('f_science_state',1)
                 ->limit($startIndex,$offset)
                 ->select();
 //        var_dump($data_view);exit;
-        $view_total = Db::table("f_science")->count();
+        $view_total = count($data_view);
+//        var_dump($view_total);exit;
         $totalPage = ceil($view_total/$offset);
         //var_dump($totalPage);exit;
         if(empty($data_view)){
@@ -170,12 +172,34 @@ class Viewport extends Controller
     }
     //加入购物车
     public function putShopCar(){
-        if(Session::has('nowlogin')){
+        if(session('?nowlogin')){
+            //判断购物车是否已经有该商品，如果有的话，更新数量；如果没有的话新增意见数据
+            $science_id = input('science_id');
+            $userId = session("nowlogin");
             //写入购物车--insert--提示加入成功
-            return json(["code"=>1]);
+            $data = [
+                "f_shopping_cart_id"=>null,
+                "f_shopping_cart_classid"=>1,
+                "f_shopping_cart_gid"=>$science_id,
+                "f_shopping_cart_uid"=>$userId
+            ];
+            $putShoppingCar = Db::table("f_shopping_cart")->insert($data);
+            //var_dump($putShoppingCar);exit;
+            if($putShoppingCar){
+                 return json(["code"=>1,"tips"=>"添加成功"]);
+            }
+            else{
+                return json(["code"=>2,"tips"=>"添加失败"]);
+            }
+
         }
         else{
-            return json(["code"=>0]);
+            return json(["code"=>3,"tips"=>"您还没有登录"]);
         }
+    }
+    /***********************景点推荐*****************/
+    public function recommend_view(){
+        $data_recommend = Db::table("f_science")->order('rand()')->limit(4)->select();
+        return json(['data_recommend'=>$data_recommend]);
     }
 }

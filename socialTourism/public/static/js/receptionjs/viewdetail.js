@@ -52,14 +52,23 @@ $(function(){
                     }
                 });
             },
-            putShopCar:function(){
+            putShopCar:function(id){
                 $.ajax({
                     type:"post",
-                    url:nowBuy_url,
+                    url:putShopCar_url,
                     dataType:"json",
                     data:{"science_id":id},
                     success:function(result){
-                        console.log(result);
+                        console.log("购物车",result);
+                        if(result["code"]==1){
+                            alert("添加成功");
+                        }
+                        else if(result["code"]==2){
+                            alert("添加失败");
+                        }
+                        else{
+                            alert("您还没有登录哦~");
+                        }
                     },
                     error:function(result){
                         console.log("error",result);
