@@ -5,8 +5,32 @@ $(function(){
     $("#pos").on("click",function(){
         window.location.href = viewport_url;
     });
+    //点击搜索
     $("#go_search").on("click",function(){
-        window.location.href = viewport_url;
+        console.log($("#inputLike").val());
+        if($("#inputLike").val() == ""){
+            alert("您想去哪~");
+        }
+        else{
+            $.ajax({
+                type:"post",
+                dataType:"json",
+                data:{"like":$("#inputLike").val()},
+                url:search_url,
+                success:function(res){
+                    console.log(res);
+                    if(res.code == 1){
+                        window.location.href = viewport_url;
+                    }
+                    else{
+                        location.reload();
+                    }
+                },
+                error:function(res){
+                    console.log("error",res);
+                }
+            });
+        }
     });
     //vue
     //非父子组件通信直通车

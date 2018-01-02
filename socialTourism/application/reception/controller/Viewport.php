@@ -83,7 +83,38 @@ class Viewport extends Controller
         $nowPos = Cookie::get('nowPos');
         return json(["code"=>1,"nowPos"=>$nowPos]);
     }
+    //搜索存省市区
+    public function search_like(){
+        $like = isset($_POST["like"])?$_POST["like"]:"";
+        session("like",$like);
+        if(session("?like")){
+            return json(["code"=>1]);
+        }
+        else{
+            return json(["code"=>2]);
+        }
+    }
     /**********************景点列表页面*******************/
+    //判断是否有搜索字眼的存在
+    public function haslike(){
+        if(session("?like")){
+            return json(["code"=>1,"like"=>session("like")]);
+        }
+        else{
+            return json(["code"=>2,"like"=>""]);
+        }
+    }
+    //删除搜索
+    public function unsetlike(){
+        if(session("?like")){
+            session('like', null);
+            return json(["code"=>1]);
+        }
+        else{
+            return json(["code"=>2]);
+        }
+
+    }
     //获取区、景点数据（初始化）
     public function getDistrict(){
         $city_id = isset($_POST["cityId"])?$_POST["cityId"]:"";
@@ -113,12 +144,32 @@ class Viewport extends Controller
         $offset = 6;//显示条数
         $startIndex = ($nowPage - 1)*$offset;//开始下标
         //$data_view = Db::table('f_science')->fetchSql(true)->limit($startIndex,$offset)->select();//省份
+        if($like == ""){
+            if($district==""){
+                $data = [
+                    "f_science_pid"=>$provinceId,
+                    "f_science_cid"=> $cityId
+                ];
+            }
+            else{
+                $data = [
+                    "f_science_pid"=>$provinceId,
+                    "f_science_cid"=> $cityId,
+                    "f_science_did"=>$district
+                ];
+            }
+        }
+        else{
+            $data = [
+                "f_science_name"=>["like","%{$like}%"]
+            ];
+        }
         $data_view = Db::table('f_science')
-                ->where("f_science_pid='{$provinceId}'")
-                ->where("f_science_cid= '{$cityId}'")
-                ->where("f_science_did='{$district}' or 1=1")
-                ->where('f_science_name','like',"%{$like}%")
-                ->where('f_science_state',1)
+            ->where($data)
+//                ->where("f_science_pid='{$provinceId}'")
+//                ->where("f_science_cid= '{$cityId}'")
+//                ->where("f_science_did='{$district}' or 1=1")
+//                ->where('f_science_state',1)
                 ->limit($startIndex,$offset)
                 ->select();
 //        var_dump($data_view);exit;
