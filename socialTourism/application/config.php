@@ -293,6 +293,15 @@ return [
             'uppwd_error3' => '现用密码不正确',
             'uppwd_error4' => '密码修改错误',
             'uppwd_success' => '密码修改成功'
+        ],
+        'delmsg' => [
+            'del_success' => '删除成功',
+            'del_fail' => '删除失败'
+        ],
+        'upmsg' => [
+            'up_success' => '修改成功',
+            'up_fail' => '修改失败',
+            'up_error' => '对不起你不能修改自己'
         ]
     ]
 
