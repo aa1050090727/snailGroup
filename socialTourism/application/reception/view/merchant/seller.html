@@ -2,14 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>首页</title>
+    <title>商家中心</title>
     <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="__STATIC__/css/receptioncss/public.css" type="text/css">
-    <link rel="stylesheet" href="__STATIC__/css/receptioncss/hotel.css" type="text/css">
-    <link rel="stylesheet" href="__STATIC__/css/bootstrap/bootstrap-datetimepicker.min.css">
+    <link rel="stylesheet" href="__STATIC__/css/receptioncss/merchant.css" type="text/css">
 </head>
 <body>
 <!--导航栏-->
@@ -18,12 +17,12 @@
         <div class="row">
             <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
             <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
-                <li><a href="{:url('reception/Index/index')}">首页</a></li>
+                <li><a href="{:url('reception/index/index')}">首页</a></li>
                 <li><a href="{:url('reception/viewport/viewport')}">目的地</a></li>
                 <li><a href="{:url('reception/travels/travels')}">旅游游记</a></li>
-                <li><a href="{:url('reception/goodsactive/goodsactive')}">商品活动</a></li>
-                <li><a class="nav_index" href="">酒店</a></li>
-                <li><a href="{:url('reception/merchant/merchant')}">卖家入驻</a></li>
+                <li><a href="">商品活动</a></li>
+                <li><a href="{:url('reception/Hotel/hotel')}">酒店</a></li>
+                <li><a class="nav_index"href="{:url('reception/merchant/merchant')}">卖家入驻</a></li>
             </ul>
             <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8">
                 <li><a class="nav_qq" href=""></a></li>
@@ -70,61 +69,10 @@
         </div>
     </div>
 </div>
-<!--页面主体-->
-<div id="content">
-    <div class="container">
-        <!-- 搜索框 -->
-        <div class="row hotel_search">
-        <div class="col-lg-3 col-md-3 col-sm-2"></div>
-        <!--日期-->
-        <!--<div class="hotel_search_box col-lg-3 col-md-3 col-sm-4 col-xs-12">-->
-            <!--<a class='input-group date start_time' id='start_time'>-->
-                <!--<input type='text' class="form-control" id='now_date' />-->
-                    <!--<span class="input-group-addon" style="width: 42px;">-->
-                        <!--<span class="glyphicon glyphicon-calendar"></span>-->
-                    <!--</span>-->
-            <!--</a>-->
-        <!--</div>-->
-        <!--搜索输入框-->
-        <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
-            <div class="input-group">
-                <input type="text" class="form-control search_input" placeholder="请输入酒店所在地点">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default search_btn" type="button">
-                            <span class="glyphicon glyphicon-search "></span>
-                        </button>
-                    </span>
-            </div>
-        </div>
-        <div class="col-lg-2 col-md-2 col-sm-1"></div>
-    </div>
-        <!-- 热门酒店 -->
-        <div class="row" id="hotel">
-            <div class="hotel-title col-lg-12">酒店列表</div>
-        </div>
-        <div class="row hotel_list">
-            {volist name="hotel" id="hotel_detail"}
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div onclick="showDetails('{$hotel_detail.f_hotel_id}')">
-                    <img class="img-height" src="{$hotel_detail.f_hotel_img}"
-                         alt="">
-                    <div class="activity_name">
-                        <p>{$hotel_detail.f_hotel_name}</p>
-                        <div>
-                            <!--<div class="hotel_score">评分:<strong>7.8</strong></div>-->
-                            {if condition="$hotel_detail.f_hotel_states eq '1'"}
-                            <div class="hotel_price">￥<strong>{$hotel_detail.f_hotel_price}</strong>起</div>
-                            {else /}
-                            <div class="hotel_price">￥<strong>{$hotel_detail.f_hotel_aprice}</strong>起</div>
-                            <div class="hotel_aprice">￥<strong>{$hotel_detail.f_hotel_price}</strong>起</div>
-                            {/if}
-                        </div>
-                    </div>
-                </div>
-            </div>
-            {/volist}
-        </div>
-        <div>{$hotel->render()}</div>
+<!--商家主要内容-->
+<div class="container" style="margin-top: 20px;">
+    <div class="row"style="display: block">
+        <div></div>
     </div>
 </div>
 <!--页脚-->
@@ -195,12 +143,5 @@
 <script src="__STATIC__/js/jquery-1.12.3.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="__STATIC__/js/datetime/moment-with-locales.js"></script>
-<script src="__STATIC__/js/datetime/bootstrap-datetimepicker.min.js"></script>
-<script src="__STATIC__/js/datetime/bootstrap-datetimepicker.zh-CN.js"></script>
-<script>
-    var hoteDetailsUrl = "{:url('reception/Hoteldetails/hotelDetails')}";
-    var hotel_setCookie_Url = "{:url('reception/Hotel/hotel_setCookie')}";
-</script>
-<script src="__STATIC__/js/receptionjs/hotel.js"></script>
+<script src="__STATIC__/js/receptionjs/merchant.js"></script>
 </html>

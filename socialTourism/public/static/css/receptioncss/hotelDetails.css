@@ -54,6 +54,11 @@ body {
         font-size: 20px;
         font-weight: bold;
     }
+    #content .hotel_box .hotel_aprice{
+        color: grey;
+        font-size: 14px;
+        text-decoration: line-through;
+    }
     #content .hotel_box .hotel_buy{
         display: flex;
         margin-right: 15px;
@@ -66,6 +71,7 @@ body {
         width: 100px;
         background-color: #ff9300;
         border-color: #ff9300;
+        margin: 0 10px;
     }
         /*日历*/
     #now_date{
@@ -228,6 +234,11 @@ body {
         font-size: 20px;
         font-weight: bold;
     }
+    #content .hotel_box .hotel_aprice{
+        color: grey;
+        font-size: 14px;
+        text-decoration: line-through;
+    }
     #content .hotel_box .hotel_buy{
         display: flex;
         margin-right: 15px;
@@ -240,6 +251,7 @@ body {
         width: 100px;
         background-color: #ff9300;
         border-color: #ff9300;
+        margin: 0 5px;
     }
     /*日历*/
     #now_date{
@@ -403,6 +415,11 @@ body {
         font-size: 20px;
         font-weight: bold;
     }
+    #content .hotel_box .hotel_aprice{
+        color: grey;
+        font-size: 14px;
+        text-decoration: line-through;
+    }
     #content .hotel_box .hotel_buy{
         display: flex;
         margin-right: 15px;
@@ -415,6 +432,7 @@ body {
         width: 100px;
         background-color: #ff9300;
         border-color: #ff9300;
+        margin: 0 2px;
     }
     /*日历*/
     #now_date{
@@ -576,6 +594,11 @@ body {
         font-size: 20px;
         font-weight: bold;
     }
+    #content .hotel_box .hotel_aprice{
+        color: grey;
+        font-size: 14px;
+        text-decoration: line-through;
+    }
     #content .hotel_box .hotel_buy{
         display: flex;
         margin-right: 15px;
@@ -588,6 +611,7 @@ body {
         width: 100px;
         background-color: #ff9300;
         border-color: #ff9300;
+        margin: 0 2px;
     }
     /*日历*/
     #now_date{

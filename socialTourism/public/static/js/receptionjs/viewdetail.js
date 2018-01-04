@@ -37,17 +37,25 @@ $(function(){
         },
         methods:{
             //点击立即购买
-            nowBuy:function(id){
+            nowBuy:function(viewDetail){
                 //alert(id);
                 $.ajax({
                     type:"post",
                     url:nowBuy_url,
                     dataType:"json",
-                    data:{"science_id":id},
+                    data:{
+                        "science_id":viewDetail.f_science_id,
+                        "science_price":viewDetail.f_science_price,
+                        "science_sid":viewDetail.f_science_sid
+                    },
                     success:function(result){
                         console.log(result);
                         if(result["code"]==1){
-                            alert("添加成功");
+                            if(confirm("立即支付")){
+                                //跳转至支付页面
+                                window.location.href = center_url;
+                            }
+
                         }
                         else if(result["code"]==2){
                             alert("添加失败");
