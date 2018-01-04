@@ -13,6 +13,16 @@ a{
 a:hover{
     text-decoration:none;
 }
+.change_font{
+    display: inline-block;
+    margin-left: 15px;
+    font-size: 14px;
+    color: lightskyblue;
+}
+.change_font:hover{
+    color: blue;
+    cursor: pointer;
+}
 
 /*大屏幕*/
 @media (min-width: 1200px){
@@ -91,6 +101,10 @@ a:hover{
     }
     #content .activity_name .hotel_score{
         color: #000;
+    }
+    .img-height{
+        height: 150px;
+        width: 100%;
     }
 }
 

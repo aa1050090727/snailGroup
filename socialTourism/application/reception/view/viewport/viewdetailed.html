@@ -107,12 +107,9 @@
             <div role="tabpanel" class="tab-pane active" id="home">
                 <div class="col-xs-12 detail_blank"></div>
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                    <img class="img-responsive" style="margin-right: auto;margin-left: auto" :src="viewDetail.f_science_img" alt="">
-                </div>
-                <div class="col-lg-2 col-md-2 col-sm-2"></div>
-                <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-                    <div class="text-center detail_content_title"><span class="detail_title">{{viewDetail.f_science_name}}</span></div>
-                    <p class="detail_body">{{viewDetail.f_science_content}}</p>
+                    {volist name="viewDetail" id="viewDetail"}
+                        {$viewDetail.f_science_detall}
+                    {/volist}
                 </div>
             </div>
             <!--景点评价-->
