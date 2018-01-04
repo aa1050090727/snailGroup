@@ -26,6 +26,11 @@ class Role extends Controller
         $resCount = Db::table("b_role")->count();
          //var_dump($resArr);
         $resArrJson = '{"code": 0,"msg": "","count": '.$resCount.',"data": '.json_encode($resArr,JSON_UNESCAPED_UNICODE).'}';
+//        foreach($resArrJson as $key=>$value){
+//            if($value['statu'] == 1){
+//                $value['statu'] = '使用';
+//            }
+//        }
         return json_decode($resArrJson);
     }
 
