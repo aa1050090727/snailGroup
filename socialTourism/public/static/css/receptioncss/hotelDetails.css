@@ -54,6 +54,11 @@ body {
         font-size: 20px;
         font-weight: bold;
     }
+    #content .hotel_box .hotel_aprice{
+        color: grey;
+        font-size: 14px;
+        text-decoration: line-through;
+    }
     #content .hotel_box .hotel_buy{
         display: flex;
         margin-right: 15px;
@@ -228,6 +233,11 @@ body {
         color: #ff8a00;
         font-size: 20px;
         font-weight: bold;
+    }
+    #content .hotel_box .hotel_aprice{
+        color: grey;
+        font-size: 14px;
+        text-decoration: line-through;
     }
     #content .hotel_box .hotel_buy{
         display: flex;
@@ -405,6 +415,11 @@ body {
         font-size: 20px;
         font-weight: bold;
     }
+    #content .hotel_box .hotel_aprice{
+        color: grey;
+        font-size: 14px;
+        text-decoration: line-through;
+    }
     #content .hotel_box .hotel_buy{
         display: flex;
         margin-right: 15px;
@@ -578,6 +593,11 @@ body {
         color: #ff8a00;
         font-size: 20px;
         font-weight: bold;
+    }
+    #content .hotel_box .hotel_aprice{
+        color: grey;
+        font-size: 14px;
+        text-decoration: line-through;
     }
     #content .hotel_box .hotel_buy{
         display: flex;
