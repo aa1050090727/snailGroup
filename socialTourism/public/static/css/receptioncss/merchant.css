@@ -4,6 +4,13 @@
     padding: 0;
     font-family: Arial,"Lucida Grande","Microsoft Yahei","Hiragino Sans GB","Hiragino Sans GB W3",SimSun,"PingFang SC",STHeiti;
 }
+/*右屏高度*/
+.content-right{
+    height: 500px;
+    border: 1px solid grey;
+    margin-bottom: 20px;
+    overflow-y: scroll;
+}
 /*大屏幕*/
 @media (min-width: 1200px){
 
@@ -20,3 +27,4 @@
 @media (max-width: 767px){
 
 }
+

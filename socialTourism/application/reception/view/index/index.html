@@ -12,18 +12,19 @@
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 </head>
 <body>
+<div id="sell">
     <!--导航栏-->
     <div id="nav">
         <div class="nav_box container">
             <div class="row">
                 <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
                 <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
-                    <li><a class="nav_index" href="">首页</a></li>
+                    <li><a class="nav_index"href="{:url('reception/index/index')}">首页</a></li>
                     <li><a href="{:url('reception/viewport/viewport')}">目的地</a></li>
-                    <li><a href="{:url('reception/travels/travels')}">旅游游记</a></li>
-                    <li><a href="{:url('reception/goodsactive/goodsactive')}">商品活动</a></li>
+                    <li><a  href="{:url('reception/travels/travels')}">旅游游记</a></li>
+                    <li><a href="">商品活动</a></li>
                     <li><a href="{:url('reception/Hotel/hotel')}">酒店</a></li>
-                    <li><a href="{:url('reception/merchant/merchant')}">卖家入驻</a></li>
+                    <li><a href="#"  v-on:click="seller">卖家入驻</a></li>
                 </ul>
                 <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8">
                     <li><a class="nav_qq" href=""></a></li>
@@ -62,8 +63,11 @@
                     <!--</li>-->
                 <!--</ul>-->
                 </div>
+>>>>>>> 4b3e4b5a186aa6897d32efe2cb985a03a67e1fa5
             </div>
         </div>
+    </div>
+</div>
     <!--轮播图-->
     <div id="banner">
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="4000">
@@ -557,9 +561,20 @@
         </div>
     </div>
 </body>
+<!--引用vue.js-->
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
 <script src="__STATIC__/js/jquery-1.12.3.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<<<<<<< HEAD
+<!--文件路径-->
+<script>
+    var sell="{:url('reception/Publics/seller')}";
+</script>
+<!--引用js文件-->
+<script src="__STATIC__/js/receptionjs/public.js"></script>
+=======
 <script src="__STATIC__/js/index.js"></script>
 
+>>>>>>> 4b3e4b5a186aa6897d32efe2cb985a03a67e1fa5
 </html>
