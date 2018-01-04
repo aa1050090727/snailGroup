@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="__STATIC__/css/receptioncss/public.css" type="text/css">
     <link rel="stylesheet" href="__STATIC__/css/receptioncss/merchant.css" type="text/css">
+    <script src="__STATIC__/utf8-php/ueditor.parse.js"></script>
 </head>
 <body>
 <!--导航栏-->
@@ -71,23 +72,146 @@
 </div>
 <!--商家主要内容-->
 <div class="container" style="margin-top: 20px;">
-    <div class="row">
+    <div class="row" >
         <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12" >
             <!-- Nav tabs -->
             <ul class="nav nav-pills nav-stacked text-center" role="tablist">
-                <li role="presentation" class="active "><a href="#home" aria-controls="home" role="tab" data-toggle="tab" >我要开店</a></li>
+                <li role="presentation" class="active "><a href="#home" aria-controls="home" role="tab" data-toggle="tab" >我的信息</a></li>
                 <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">订单管理</a></li>
                 <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">广告申请</a></li>
                 <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">发布商品</a></li>
             </ul>
         </div>
-        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 content"style="border: 1px solid grey ">
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 content-right">
             <!-- Tab panes -->
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="home">1</div>
-                <div role="tabpanel" class="tab-pane" id="profile">2</div>
-                <div role="tabpanel" class="tab-pane" id="messages">3</div>
-                <div role="tabpanel" class="tab-pane" id="settings">4</div>
+                <!--卖家信息-->
+                {volist name="sellinfo" id="sellinfo"}
+                <div role="tabpanel" class="tab-pane active" id="home">
+                    <div class="row" style="margin-top: 20px">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <span>商家名称：</span> {$sellinfo.name}
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+                    </div>
+                  <div class="row"style="margin-top: 20px">
+                      <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                          <span>详细地址：</span>{$sellinfo.place}
+                      </div>
+                      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+                  </div>
+                    <div class="row" style="margin-top: 20px">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <span>身份号码：</span>{$sellinfo.number}
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+                    </div>
+                </div>
+                {/volist}
+                <!--订单管理-->
+                <div role="tabpanel" class="tab-pane" id="profile">
+
+                </div>
+                <!--广告申请-->  
+                <div role="tabpanel" class="tab-pane" id="messages">
+
+                </div>
+                <!--发布商品-->
+                <div role="tabpanel" class="tab-pane" id="settings">
+                    <div id="app">
+                        <div class="row ">
+                            <p ><img id="img"class="img-responsive center-block" src="" alt="图片预览" style="font-size: 30px;text-align: center"/></p>
+                        </div>
+                        <form role="form" style="margin-top: 10px">
+                            <div class="form-group">
+                                <label for="name">商品名称：</label>
+                                <input type="text" class="form-control" id="name" placeholder="请输入商品名称">
+                            </div>
+                            <div class="form-group">
+                                <label for="inputimg">上传展示图片</label>
+                                <input type="file" id="inputImg" v-on:change="goodsImg(event)" >
+                            </div>
+                            <div class="form-group">
+                                <label for="name">推广方式：</label>
+                                <select class="goodsRelease" v-on:change="goodsRelease" >
+                                    <option value="1">普通商品</option>
+                                    <option value="2">活动商品</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>商品分类：</label>
+                                <select class="goodsClass" v-on:change="goodsClass">
+                                    <option value="10">-- 选择分类 --</option>
+                                    <option value="1">景点</option>
+                                    <option value="2">酒店</option>
+                                </select>
+                            </div>
+                            <div class="form-group" >
+                                <label>地区：</label>
+                                <select class="province" v-on:change="changeProvince" >
+                                    <option value="0">-- 选择省份 --</option>
+                                    <option v-for="place in province" v-bind:value="place.f_province_id"  >
+                                        {{place.f_province_name}}
+                                    </option>
+                                </select>
+                                <select class="city" v-on:change="changeCity">
+                                    <option value="0">-- 选择城市 --</option>
+                                    <option v-for="place in city" v-bind:value="place.f_city_id"  >
+                                        {{place.f_city_name}}
+                                    </option>
+                                </select>
+                                <select class="district" >
+                                    <option value="0">-- 选择地区 --</option>
+                                    <option v-for="place in district" v-bind:value="place.f_district_id"  >
+                                        {{place.f_district_name}}
+                                    </option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>价格：</label>
+                                <input class="goodsPrice" type="number">
+                            </div>
+                            <div class="form-group">
+                                <label>活动价格：</label>
+                                <input class="goodsPrices" type="number" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>库存：</label>
+                                <input class="goodsNumber" type="number" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>活动开始时间：</label>
+                                <input class="startTime" type="datetime-local" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>活动结束时间：</label>
+                                <input class="endTime" type="datetime-local" disabled>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">简介：</label>
+                                <textarea class="form-control" rows="3" id="inputIntro"></textarea>
+                            </div>
+                            <div class="form-group row">
+                                <label for="name">主要内容：</label>
+                                <form action="server.php" method="post" id="editor">
+                                    <!-- 加载编辑器的容器 -->
+                                    <script id="container" name="content" type="text/plain">
+                                    </script>
+                                </form>
+                            </div>
+                            <div class="row " >
+                                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12"></div>
+                                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                                    <button type="submit" class="btn btn-info " v-on:click="travelPublic">提交</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -157,13 +281,25 @@
     </div>
 </div>
 </body>
+<!--引用vue.js-->
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
 <script src="__STATIC__/js/jquery-1.12.3.min.js"></script>
+<!-- 配置文件 -->
+<script type="text/javascript" src="__STATIC__/utf8-php/ueditor.config.js"></script>
+<!-- 编辑器源码文件 -->
+<script type="text/javascript" src="__STATIC__/utf8-php/ueditor.all.js"></script>
+<!-- 实例化编辑器 -->
+<script type="text/javascript">
+    var editor = UE.getEditor('container');
+</script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!--url地址-->
 <script>
-    $('#myTab a').click(function (e) {
-        e.preventDefault()
-        $(this).tab('show')
-    })
+    var provinceUrl="{:url('reception/Merchant/province')}";
+    var cityUrl="{:url('reception/Merchant/city')}";
+    var districe="{:url('reception/Merchant/district')}";
+    var goodPublic="{:url('reception/Merchant/goodPublic')}";
 </script>
+<script src="__STATIC__/js/receptionjs/merchant.js"></script>
 </html>

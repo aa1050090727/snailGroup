@@ -11,56 +11,33 @@
     <link rel="stylesheet" href="__STATIC__/css/receptioncss/index.css" type="text/css">
 </head>
 <body>
+<div id="sell">
     <!--导航栏-->
     <div id="nav">
         <div class="nav_box container">
             <div class="row">
                 <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
                 <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
-                    <li><a class="nav_index" href="">首页</a></li>
+                    <li><a class="nav_index"href="{:url('reception/index/index')}">首页</a></li>
                     <li><a href="{:url('reception/viewport/viewport')}">目的地</a></li>
-                    <li><a href="{:url('reception/travels/travels')}">旅游游记</a></li>
-                    <li><a href="{:url('reception/goodsactive/goodsactive')}">商品活动</a></li>
+                    <li><a  href="{:url('reception/travels/travels')}">旅游游记</a></li>
+                    <li><a href="">商品活动</a></li>
                     <li><a href="{:url('reception/Hotel/hotel')}">酒店</a></li>
-                    <li><a href="{:url('reception/merchant/merchant')}">卖家入驻</a></li>
+                    <li><a href="#"  v-on:click="seller">卖家入驻</a></li>
                 </ul>
                 <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8">
-                    <!--<li><a class="nav_qq" href=""></a></li>-->
-                    <!--<li><a class="nav_weixin" href=""></a></li>-->
-                    <!--<li><a class="nav_login" href="{:url('reception/Login/login')}">登录</a></li>-->
-                    <!--<li>-->
-                        <!--<span class="nav_division">|</span>-->
-                    <!--</li>-->
-                    <!--<li><a class="nav_register" href="{:url('reception/Login/register')}">注册</a></li>   -->
-                    <li class="dropdown">
-                        <a class="dropdown-toggle user_photo" data-toggle="dropdown" href="#">
-                            <img src="http://c2-q.mafengwo.net/s10/M00/48/68/wKgBZ1kAeXeAUnIGAABhXP2UUcY94.jpeg?imageMogr2%2Fthumbnail%2F%2132x32r%2Fgravity%2FCenter%2Fcrop%2F%2132x32%2Fquality%2F90"
-                                 alt="">
-                            <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li class="user_money">
-                                金币 <span>0</span>
-                            </li>
-                            <li>
-                                <a href="#" class="show_center ">
-                                    <span class="glyphicon glyphicon-user"></span>
-                                    个人中心
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#" class="user_out">
-                                    <span class="glyphicon glyphicon-off"></span>
-                                    退出
-                                </a>
-                            </li>
-                        </ul>
+                    <li><a class="nav_qq" href=""></a></li>
+                    <li><a class="nav_weixin" href=""></a></li>
+                    <li><a class="nav_login" href="">登录</a></li>
+                    <li>
+                        <span class="nav_division">|</span>
                     </li>
+                    <li><a class="nav_register" href="">注册</a></li>
                 </ul>
-                </div>
             </div>
         </div>
+    </div>
+</div>
     <!--轮播图-->
     <div id="banner">
         <div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="4000">
@@ -554,7 +531,15 @@
         </div>
     </div>
 </body>
+<!--引用vue.js-->
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
 <script src="__STATIC__/js/jquery-1.12.3.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!--文件路径-->
+<script>
+    var sell="{:url('reception/Publics/seller')}";
+</script>
+<!--引用js文件-->
+<script src="__STATIC__/js/receptionjs/public.js"></script>
 </html>

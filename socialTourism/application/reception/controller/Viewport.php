@@ -34,6 +34,10 @@ class Viewport extends Controller
             ->paginate(3,false,[
                 'fragment'=>'comment'
             ]);
+        $viewDetail=Db::table("f_science")
+            ->where("f_science_id",$f_science_id)
+            ->select();
+            $this->assign('viewDetail',$viewDetail);
             $this->assign('viewComment', $viewComment);
         //var_dump($viewComment);
         // var_dump($viewComment);exit;
