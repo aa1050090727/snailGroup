@@ -15,7 +15,10 @@ $(function(){
                                 <div class="caption">\
                                     <h3>{{viewItem.f_science_name}}</h3>\
                                     <p class="content_p">{{viewItem.f_science_content}}</p>\
-                                    <p><span class="rec_price">￥{{viewItem.f_science_price}}</span> <span class="rec_sale">已售</span></p>\
+                                    <p>\
+                                        <span class="rec_price" v-if="viewItem.f_science_states==2">￥{{viewItem.f_science_aprice}}</span>\
+                                        <span v-if="viewItem.f_science_states==2" class="rec_aprice">￥{{viewItem.f_science_price}}</span>\
+                                        <span v-else="viewItem.f_science_states==1" class="rec_price">￥{{viewItem.f_science_price}}</span></p>\
                                     <p class="text-right"><a href="javascript:void(0)" v-on:click="goDetail(viewItem)">查看详情</a></p>\
                                 </div>\
                            </div>\
@@ -103,7 +106,6 @@ $(function(){
                     dataType:"json",
                     url:url,
                     success:function(resView){
-                       // console.log(resView.total_Page);
                         _this.dataView = resView.data_view;
                         _this.totalPage = resView.total_Page;
                         bus.$emit("page",_this.totalPage);

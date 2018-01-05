@@ -293,6 +293,37 @@ return [
             'uppwd_error3' => '现用密码不正确',
             'uppwd_error4' => '密码修改错误',
             'uppwd_success' => '密码修改成功'
+        ],
+        'alterorder' => [
+            'alterorder_error' => '未登录不能修改订单状态',
+            'alterorder_error1' => '取消订单失败',
+            'alterorder_success' => '取消订单成功'
+        ],
+
+        'paybalance' => [
+            'paybalance_error' => '余额不足，请前往充值',
+            'paybalance_error1' => '支付失败',
+            'paybalance_error2' => '未登录不支付',
+            'paybalance_error3' => '该订单不是未支付订单',
+            'paybalance_error4' => '密码不能为空',
+            'paybalance_error5' => '密码不正确',
+            'paybalance_success' =>'支付成功，前往个人中心查看'
+        ],
+        'addmon' => [
+            'addmon_error' => '输入金额不能为空'  ,
+            'addmon_error1' => '输入金额不能小于等于0或者带e的数字串'  ,
+            'addmon_error2' => '输入金额只能是整数不能是小数'  ,
+            'addmon_error3' => '充值失败'  ,
+            'addmon_success' => '充值成功'  ,
+        ],
+        'delmsg' => [
+            'del_success' => '删除成功',
+            'del_fail' => '删除失败'
+        ],
+        'upmsg' => [
+            'up_success' => '修改成功',
+            'up_fail' => '修改失败',
+            'up_error' => '对不起你不能修改自己'
         ]
     ]
 

@@ -77,18 +77,18 @@
         <div class="row hotel_search">
         <div class="col-lg-3 col-md-3 col-sm-2"></div>
         <!--日期-->
-        <div class="hotel_search_box col-lg-3 col-md-3 col-sm-4 col-xs-12">
-            <a class='input-group date start_time' id='start_time'>
-                <input type='text' class="form-control" id='now_date' />
-                    <span class="input-group-addon" style="width: 42px;">
-                        <span class="glyphicon glyphicon-calendar"></span>
-                    </span>
-            </a>
-        </div>
+        <!--<div class="hotel_search_box col-lg-3 col-md-3 col-sm-4 col-xs-12">-->
+            <!--<a class='input-group date start_time' id='start_time'>-->
+                <!--<input type='text' class="form-control" id='now_date' />-->
+                    <!--<span class="input-group-addon" style="width: 42px;">-->
+                        <!--<span class="glyphicon glyphicon-calendar"></span>-->
+                    <!--</span>-->
+            <!--</a>-->
+        <!--</div>-->
         <!--搜索输入框-->
         <div class="col-lg-4 col-md-4 col-sm-5 col-xs-12">
             <div class="input-group">
-                <input type="text" class="form-control search_input" placeholder="搜目的地/酒店/商品活动">
+                <input type="text" class="form-control search_input" placeholder="请输入酒店所在地点">
                     <span class="input-group-btn">
                         <button class="btn btn-default search_btn" type="button">
                             <span class="glyphicon glyphicon-search "></span>
@@ -99,117 +99,32 @@
         <div class="col-lg-2 col-md-2 col-sm-1"></div>
     </div>
         <!-- 热门酒店 -->
-        <div class="row">
-            <div class="hotel-title col-lg-12">热门酒店</div>
+        <div class="row" id="hotel">
+            <div class="hotel-title col-lg-12">酒店列表</div>
         </div>
         <div class="row hotel_list">
+            {volist name="hotel" id="hotel_detail"}
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div onclick="showDetails()">
-                    <img class="img-responsive" src="http://c3-q.mafengwo.net/s10/M00/4E/E7/wKgBZ1mMe8aAcQnpAAEi2-pPGaE05.jpeg?imageMogr2%2Fthumbnail%2F%21480x480r%2Fgravity%2FCenter%2Fcrop%2F%21480x480%2Fquality%2F90"
+                <div onclick="showDetails('{$hotel_detail.f_hotel_id}')">
+                    <img class="img-height" src="{$hotel_detail.f_hotel_img}"
                          alt="">
                     <div class="activity_name">
-                        <p>曼谷维酒店（原曼谷胜利纪念碑全季酒店）</p>
+                        <p>{$hotel_detail.f_hotel_name}</p>
                         <div>
-                            <div class="hotel_score">评分:<strong>7.8</strong></div>
-                            <div class="hotel_price">￥<strong>2555</strong>起</div>
+                            <!--<div class="hotel_score">评分:<strong>7.8</strong></div>-->
+                            {if condition="$hotel_detail.f_hotel_states eq '1'"}
+                            <div class="hotel_price">￥<strong>{$hotel_detail.f_hotel_price}</strong>起</div>
+                            {else /}
+                            <div class="hotel_price">￥<strong>{$hotel_detail.f_hotel_aprice}</strong>起</div>
+                            <div class="hotel_aprice">￥<strong>{$hotel_detail.f_hotel_price}</strong>起</div>
+                            {/if}
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div>
-                    <img class="img-responsive" src="http://c3-q.mafengwo.net/s10/M00/4E/E7/wKgBZ1mMe8aAcQnpAAEi2-pPGaE05.jpeg?imageMogr2%2Fthumbnail%2F%21480x480r%2Fgravity%2FCenter%2Fcrop%2F%21480x480%2Fquality%2F90"
-                         alt="">
-                    <div class="activity_name">
-                        <p>曼谷维酒店（原曼谷胜利纪念碑全季酒店）</p>
-                        <div>
-                            <div class="hotel_score">评分:<strong>7.8</strong></div>
-                            <div class="hotel_price">￥<strong>2555</strong>起</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div>
-                    <img class="img-responsive" src="http://c3-q.mafengwo.net/s10/M00/4E/E7/wKgBZ1mMe8aAcQnpAAEi2-pPGaE05.jpeg?imageMogr2%2Fthumbnail%2F%21480x480r%2Fgravity%2FCenter%2Fcrop%2F%21480x480%2Fquality%2F90"
-                         alt="">
-                    <div class="activity_name">
-                        <p>曼谷维酒店（原曼谷胜利纪念碑全季酒店）</p>
-                        <div>
-                            <div class="hotel_score">评分:<strong>7.8</strong></div>
-                            <div class="hotel_price">￥<strong>2555</strong>起</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div>
-                    <img class="img-responsive" src="http://c3-q.mafengwo.net/s10/M00/4E/E7/wKgBZ1mMe8aAcQnpAAEi2-pPGaE05.jpeg?imageMogr2%2Fthumbnail%2F%21480x480r%2Fgravity%2FCenter%2Fcrop%2F%21480x480%2Fquality%2F90"
-                         alt="">
-                    <div class="activity_name">
-                        <p>曼谷维酒店（原曼谷胜利纪念碑全季酒店）</p>
-                        <div>
-                            <div class="hotel_score">评分:<strong>7.8</strong></div>
-                            <div class="hotel_price">￥<strong>2555</strong>起</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {/volist}
         </div>
-        <div class="row hotel_list">
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div>
-                    <img class="img-responsive" src="http://c3-q.mafengwo.net/s10/M00/4E/E7/wKgBZ1mMe8aAcQnpAAEi2-pPGaE05.jpeg?imageMogr2%2Fthumbnail%2F%21480x480r%2Fgravity%2FCenter%2Fcrop%2F%21480x480%2Fquality%2F90"
-                         alt="">
-                    <div class="activity_name">
-                        <p>曼谷维酒店（原曼谷胜利纪念碑全季酒店）</p>
-                        <div>
-                            <div class="hotel_score">评分:<strong>7.8</strong></div>
-                            <div class="hotel_price">￥<strong>2555</strong>起</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div>
-                    <img class="img-responsive" src="http://c3-q.mafengwo.net/s10/M00/4E/E7/wKgBZ1mMe8aAcQnpAAEi2-pPGaE05.jpeg?imageMogr2%2Fthumbnail%2F%21480x480r%2Fgravity%2FCenter%2Fcrop%2F%21480x480%2Fquality%2F90"
-                         alt="">
-                    <div class="activity_name">
-                        <p>曼谷维酒店（原曼谷胜利纪念碑全季酒店）</p>
-                        <div>
-                            <div class="hotel_score">评分:<strong>7.8</strong></div>
-                            <div class="hotel_price">￥<strong>2555</strong>起</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div>
-                    <img class="img-responsive" src="http://c3-q.mafengwo.net/s10/M00/4E/E7/wKgBZ1mMe8aAcQnpAAEi2-pPGaE05.jpeg?imageMogr2%2Fthumbnail%2F%21480x480r%2Fgravity%2FCenter%2Fcrop%2F%21480x480%2Fquality%2F90"
-                         alt="">
-                    <div class="activity_name">
-                        <p>曼谷维酒店（原曼谷胜利纪念碑全季酒店）</p>
-                        <div>
-                            <div class="hotel_score">评分:<strong>7.8</strong></div>
-                            <div class="hotel_price">￥<strong>2555</strong>起</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                <div>
-                    <img class="img-responsive" src="http://c3-q.mafengwo.net/s10/M00/4E/E7/wKgBZ1mMe8aAcQnpAAEi2-pPGaE05.jpeg?imageMogr2%2Fthumbnail%2F%21480x480r%2Fgravity%2FCenter%2Fcrop%2F%21480x480%2Fquality%2F90"
-                         alt="">
-                    <div class="activity_name">
-                        <p>曼谷维酒店（原曼谷胜利纪念碑全季酒店）</p>
-                        <div>
-                            <div class="hotel_score">评分:<strong>7.8</strong></div>
-                            <div class="hotel_price">￥<strong>2555</strong>起</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <div>{$hotel->render()}</div>
     </div>
 </div>
 <!--页脚-->
@@ -285,6 +200,7 @@
 <script src="__STATIC__/js/datetime/bootstrap-datetimepicker.zh-CN.js"></script>
 <script>
     var hoteDetailsUrl = "{:url('reception/Hoteldetails/hotelDetails')}";
+    var hotel_setCookie_Url = "{:url('reception/Hotel/hotel_setCookie')}";
 </script>
 <script src="__STATIC__/js/receptionjs/hotel.js"></script>
 </html>

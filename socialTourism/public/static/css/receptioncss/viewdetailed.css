@@ -29,6 +29,14 @@
         color: orange;
         text-align: left;
     }
+    .rec_aprice{
+        display: inline-block;
+        font-size: 16px;
+        color: grey;
+        text-decoration: line-through;
+        text-align: left;
+        margin-top: 25px;
+    }
     .rec_sale{
         display: inline-block;
         font-size: 16px;
@@ -123,6 +131,14 @@
         color: orange;
         text-align: left;
     }
+    .rec_aprice{
+        display: inline-block;
+        font-size: 16px;
+        margin-top: 5px;
+        color: grey;
+        text-decoration: line-through;
+        text-align: left;
+    }
     .rec_sale{
         display: inline-block;
         font-size: 16px;
@@ -212,6 +228,13 @@
         color: orange;
         text-align: left;
     }
+    .rec_aprice{
+        display: inline-block;
+        font-size: 12px;
+        color: grey;
+        text-decoration: line-through;
+        text-align: left;
+    }
     .rec_sale{
         display: inline-block;
         font-size: 12px;
@@ -298,6 +321,13 @@
         font-size: 22px;
         font-weight: bold;
         color: orange;
+        text-align: left;
+    }
+    .rec_aprice{
+        display: inline-block;
+        font-size: 12px;
+        color: grey;
+        text-decoration: line-through;
         text-align: left;
     }
     .rec_sale{

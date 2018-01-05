@@ -22,8 +22,8 @@
                 <li><a href="{:url('reception/index/index')}">首页</a></li>
                 <li><a class="nav_index" href="{:url('reception/viewport/viewport')}">目的地</a></li>
                 <li><a href="{:url('reception/travels/travels')}">旅游游记</a></li>
-                <li><a href="">商品活动</a></li>
-                <li><a href="">酒店</a></li>
+                <li><a href="{:url('reception/goodsactive/goodsactive')}">商品活动</a></li>
+                <li><a href="{:url('reception/Hotel/hotel')}">酒店</a></li>
                 <li><a href="{:url('reception/merchant/merchant')}">卖家入驻</a></li>
             </ul>
             <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8">
@@ -146,7 +146,7 @@
                     <div class="caption">
                         <h3>{{recommendItem.f_science_name}}</h3>
                         <p class="content_p">{{recommendItem.f_science_content}}</p>
-                        <p><span class="rec_price">￥{{recommendItem.f_science_price}}</span> <span class="rec_sale">已售</span></p>
+                        <p><span class="rec_price">￥{{recommendItem.f_science_price}}</span></p>
                         <p class="text-right"><a href="javascript:void(0)" @click="goDetail(recommendItem)">查看详情</a></p>
                     </div>
                 </div>

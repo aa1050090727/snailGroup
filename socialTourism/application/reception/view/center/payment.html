@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="__STATIC__/css/receptioncss/public.css" type="text/css">
+    <link rel="stylesheet" href="__STATIC__/css/receptioncss/payment.css" type="text/css">
+    <script src="__STATIC__/js/jquery-1.12.3.min.js" type="text/javascript"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-fluid" style="background-color: #ebebeb">
+        <div class="row">
+            <div class="container">
+                <div class="row">
+                    <div style="float: right" >
+                        <button type="button" onclick="mycenter()">我的个人中心</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--订单内容-->
+    {volist name="content" id="detail"}
+    <div class="container">
+        <div class="row">
+            <div  style="padding: 0 10px;margin-bottom: 35px;">
+                <div style="font-size: 22px;font-weight: bold;line-height: 40px">收银台</div>
+            </div>
+        </div>
+        <div class="row">
+            订单号：
+            <span style="font-size: 16px;line-height: 40px;padding-left: 50px" id="orderid">{$detail.b_order_id}</span>
+        </div>
+        <div class="row">
+            <span style="font-size: 16px;line-height: 40px;padding-left: 50px">
+                应付金额：￥
+                <span style="font-size: 32px;font-weight: bold;color: #ff9d00;vertical-align: top;" id="allprice">{$detail.b_order_total_price}</span>
+            </span>
+        </div>
+        <div class="row ">
+            <span style="font-size: 18px;padding: 0 10px;margin-bottom: 10px;line-height: 26px;font-weight: bold;">
+                支付方式
+            </span>
+            <div class="border" style="border: 1px solid">
+                <div class="height">
+                    <div  class="pay" >
+                        <input type="radio" placeholder="" name="only" value="1" checked>
+                        <div class="wet"></div>
+                    </div>
+                    <div class="pay">
+                        <input type="radio" placeholder="" name="only" value="2">
+                        <div class="zfb"></div>
+                    </div>
+                    <div class="pay">
+                        <input type="radio" placeholder="" name="only" value="3">
+                        <span >余额</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="text-center" style="margin-top: 50px">
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#myModal">
+                    立即支付
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">请输入支付密码</h4>
+                            </div>
+                            <div class="modal-body">
+                                请输入支付密码：<input type="password" placeholder="" id="pwd">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                                <button type="button" class="btn btn-primary"  onclick="buygood()">立即支付</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {/volist}
+</body>
+<script>
+    var center ='{:url("reception/Center/center")}'
+    var pay ='{:url("reception/Center/pay")}'
+
+</script>
+<script src="__STATIC__/js/receptionjs/payment.js"></script>
+</html>

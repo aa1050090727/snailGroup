@@ -23,7 +23,7 @@ class Viewport extends Controller
         return $this->fetch("viewpos");
     }
     public function viewdetailed(){
-        session("nowlogin",1);
+//        session("nowlogin",1);
 //        $f_science_id = isset($_GET["science_id"])?$_GET["science_id"]:'';
         $f_science_id = Cookie::get("science_id");
         $viewComment = Db::table("f_science_comment")
@@ -34,7 +34,11 @@ class Viewport extends Controller
             ->paginate(3,false,[
                 'fragment'=>'comment'
             ]);
-            $this->assign('viewComment', $viewComment);
+        $viewDetail=Db::table("f_science")
+            ->where("f_science_id",$f_science_id)
+            ->select();
+        $this->assign('viewDetail',$viewDetail);
+        $this->assign('viewComment', $viewComment);
         //var_dump($viewComment);
         // var_dump($viewComment);exit;
         return $this->fetch("viewdetailed");
@@ -115,7 +119,7 @@ class Viewport extends Controller
         }
 
     }
-    //获取区、景点数据（初始化）
+    //获取区数据（初始化）
     public function getDistrict(){
         $city_id = isset($_POST["cityId"])?$_POST["cityId"]:"";
         if($city_id!=""){
@@ -148,32 +152,34 @@ class Viewport extends Controller
             if($district==""){
                 $data = [
                     "f_science_pid"=>$provinceId,
-                    "f_science_cid"=> $cityId
+                    "f_science_cid"=> $cityId,
+                    'f_science_state'=>1
                 ];
             }
             else{
                 $data = [
                     "f_science_pid"=>$provinceId,
                     "f_science_cid"=> $cityId,
-                    "f_science_did"=>$district
+                    "f_science_did"=>$district,
+                    'f_science_state'=>1
                 ];
             }
         }
         else{
             $data = [
-                "f_science_name"=>["like","%{$like}%"]
+                "f_science_name"=>["like","%{$like}%"],
+                'f_science_state'=>1
             ];
         }
         $data_view = Db::table('f_science')
             ->where($data)
-//                ->where("f_science_pid='{$provinceId}'")
-//                ->where("f_science_cid= '{$cityId}'")
-//                ->where("f_science_did='{$district}' or 1=1")
-//                ->where('f_science_state',1)
                 ->limit($startIndex,$offset)
                 ->select();
 //        var_dump($data_view);exit;
-        $view_total = count($data_view);
+//        $view_total = count($data_view);
+        $view_total =  Db::table('f_science')
+                    ->where($data)
+                    ->count();
 //        var_dump($view_total);exit;
         $totalPage = ceil($view_total/$offset);
         //var_dump($totalPage);exit;
@@ -215,17 +221,45 @@ class Viewport extends Controller
     public function nowBuy(){
         if(Session::has('nowlogin')){
             //生成订单--跳转页面
-//            $science_id = input('science_id');//商品id
-//            $userId = session("nowlogin");//用户id
-//            $data = [
-//                "b_order_details_id"=>null,
-//                "b_order_user"=>$userId,
-//                "f_shopping_cart_gid"=>$science_id,
-//                "f_shopping_cart_uid"=>$userId,
-//                "f_shopping_cart_uum"=>1
-//            ];
-//            $putShoppingCar = Db::table("b_order_details")->insert($data);
-            return json(["code"=>1,"tips"=>"添加成功"]);
+            $science_id = input('science_id');//商品id
+            $science_price = input('science_price');//商品id
+            $science_sid = input('science_sid');//商品id
+            $userId = session("nowlogin");//用户id
+            date_default_timezone_set("PRC");
+            $timept=date("Y-m-d",time());
+            //生成订单
+            $data = [
+                "b_order_id"=>null,
+                "b_order_user"=>$userId,
+                "b_order_total_price"=>$science_price,
+                "b_order_total_number"=>1,
+                "b_order_time"=>$timept,
+                "b_order_state"=>"未支付"
+            ];
+            $insertOrder = Db::table("b_order")->insert($data);
+            if($insertOrder){
+                $orderId = Db::table('b_order')->getLastInsID();
+//                var_dump($orderId);exit;
+                $data_details = [
+                    "b_order_details_id"=>null,
+                    "b_order_details_classid"=>1,
+                    "b_order_details_gid"=>$science_id,
+                    "b_order_details_num"=>1,
+                    "b_order_details_price"=>$science_price,
+                    "b_order_details_sid"=>$science_sid,
+                    "b_order_details_uid"=>$userId,
+                    "b_order_details_oid"=>$orderId,
+                    "b_order_details_entering"=>null,
+                    "b_order_details_leave"=>null
+                ];
+                $insertOrder_details = Db::table("b_order_details")->insert($data_details);
+                if($insertOrder_details){
+                    return json(["code"=>1,"tips"=>"添加成功"]);
+                }
+                else{
+                    return json(["code"=>2,"tips"=>"添加失败"]);
+                }
+            }
         }
         else{
             return json(["code"=>3,"tips"=>"您还没有登录"]);
@@ -241,6 +275,7 @@ class Viewport extends Controller
             $result = Db::table("f_shopping_cart")
                 ->where("f_shopping_cart_gid",$science_id)
                 ->where("f_shopping_cart_uid",$userId)
+                ->where("f_shopping_cart_classid",1)
                 ->select();
 //            var_dump(empty($result));exit;
             //用户没有添加过该商品
@@ -251,7 +286,9 @@ class Viewport extends Controller
                     "f_shopping_cart_classid"=>1,
                     "f_shopping_cart_gid"=>$science_id,
                     "f_shopping_cart_uid"=>$userId,
-                    "f_shopping_cart_uum"=>1
+                    "f_shopping_cart_uum"=>1,
+                    "f_shopping_cart_entering"=>null,
+                    "f_shopping_cart_leave"=>null
                 ];
                 $putShoppingCar = Db::table("f_shopping_cart")->insert($data);
                 //var_dump($putShoppingCar);exit;
@@ -267,6 +304,7 @@ class Viewport extends Controller
                 $updateShoppingCar = Db::table('f_shopping_cart')
                 ->where("f_shopping_cart_gid",$science_id)
                 ->where("f_shopping_cart_uid",$userId)
+                ->where("f_shopping_cart_classid",1)
                 ->setInc('f_shopping_cart_uum');
 //                var_dump($updateShoppingCar);exit;
                 if($updateShoppingCar == 1){
