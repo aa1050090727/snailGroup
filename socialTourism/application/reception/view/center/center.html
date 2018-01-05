@@ -98,17 +98,40 @@
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="panel-1">
+                        <!--个人信息-->
                         <div class="mynest " id="myset">
                             <div class="mynest_left">
                                 <div class="headauto">
-                                    <img  src="__STATIC__/image/0.jpg" alt="" class="img-circle head">
+                                    <img  v-bind:src="myimg" alt="" class="img-circle head">
                                 </div>
                                 <div class="name">
                                     <span >{{mynoname}}</span>
                                 </div>
                                 <div class="money">
                                     <span>金币：<span>{{mymon}}</span></span>
-                                    <button style="float: right" type="button" class="btn btn-warning">充值</button>
+                                    <!-- Button trigger modal -->
+                                    <button style="float: right" type="button" class="btn btn-warning" data-toggle="modal" data-target="#uprecharge">
+                                        充值
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="uprecharge" tabindex="-1" role="dialog" aria-labelledby="myuprechargel">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                    <h4 class="modal-title" id="myuprechargel">充值</h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    请输入充值金额：<input type="number" placeholder="" id="upmon"><br>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal" v-on:click="addmon">充值</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="mynest_right">
@@ -147,31 +170,6 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <!--<div  class="showbtn">-->
-                                        <!--&lt;!&ndash; Button trigger modal &ndash;&gt;-->
-                                        <!--<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">-->
-                                            <!--修改头像-->
-                                        <!--</button>-->
-
-                                        <!--&lt;!&ndash; Modal &ndash;&gt;-->
-                                        <!--<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">-->
-                                            <!--<div class="modal-dialog" role="document">-->
-                                                <!--<div class="modal-content">-->
-                                                    <!--<div class="modal-header">-->
-                                                        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>-->
-                                                        <!--<h4 class="modal-title" id="myModalLabel1">修改昵称</h4>-->
-                                                    <!--</div>-->
-                                                    <!--<div class="modal-body">-->
-                                                        <!--<input type="text" placeholder="" v-model="myname">-->
-                                                    <!--</div>-->
-                                                    <!--<div class="modal-footer">-->
-                                                        <!--<button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>-->
-                                                        <!--<button type="button" class="btn btn-primary" v-on:click="updatamyname">确定修改</button>-->
-                                                    <!--</div>-->
-                                                <!--</div>-->
-                                            <!--</div>-->
-                                        <!--</div>-->
-                                    <!--</div>-->
                                     <div  class="showbtn">
                                         <!-- Button trigger modal -->
                                         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal12">
@@ -204,17 +202,17 @@
                         </div>
                     </div>
                     <div class="tab-pane" id="panel-18">
-                        <div class=" mynest">
+                        <!--游记消息-->
+                        <div class=" mynest"  id="showwj">
                             <div class="mynest_left">
                                 <div class="headauto">
-                                    <img  src="__STATIC__/image/0.jpg" alt="" class="img-circle head">
+                                    <img  v-bind:src="myimg" alt="" class="img-circle head">
                                 </div>
                                 <div class="name">
-                                    <span >蓝银草</span>
+                                    <span >{{mynoname}}</span>
                                 </div>
                                 <div class="money">
-                                    <span>金币：<span>50</span></span>
-                                    <button style="float: right" type="button" class="btn btn-warning">充值</button>
+                                    <span>金币：<span>{{mymon}}</span></span>
                                 </div>
                             </div>
                             <div class="mynest_right1">
@@ -236,19 +234,48 @@
                                             <button style="margin-top: 25px" type="button" class="btn btn-warning">写游记</button>
                                         </div>
                                     </div>
-                                    <div style="width: 800px;height: 800px" id="showwj">
-                                        <mytravels></mytravels>
+                                    <div style="" >
+                                        <div>
+                                            <div style="margin-top: 40px;margin-bottom: 40px" class="container-fluid" v-for="todo in todos">
+                                                <div class="row-fluid">
+                                                    <div class="span12">
+                                                        <div class="media">
+                                                            <a href="#" class="pull-left"><img width="250" height="200" v-bind:src="todo.f_travel_note_img" class="media-object" alt='' /></a>
+                                                            <div class="media-body">
+                                                                <h4 class="media-heading">{{todo.f_travel_note_head}}</h4>
+                                                                {{todo.f_travel_note_intro}}
+                                                            </div>
+                                                            <div class="travels_footer row">
+                                                                <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">地点：{{todo.f_travel_note_place}}</span>
+                                                                <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">发布者：{{todo.f_user_name}}</span>
+                                                                <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">时间：{{todo.f_travel_note_time}}</span>
+                                                                <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">浏览量：{{todo.f_travel_note_browse}}</span>
+                                                                <a  v-on:click="travelDetails" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right" v-bind:travelID="todo.f_travel_note_id">阅读全文>></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <nav>
+                                                <ul class="pager">
+                                                    <li><a href="#" v-on:click="mysetprev">上一页</a></li>
+                                                    <li><a href="#" v-on:click="mysetnext">下一页</a></li>
+                                                </ul>
+                                            </nav>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="tab-pane" id="panel-13" >
+                        <!--我的购物车-->
                         <div class=" mynest">
 
                         </div>
                     </div>
                     <div class="tab-pane" id="panel-181">
+                        <!--我的订单-->
                         <div class="mynest  ">
                             <div class="container-fluid">
                                 <div class="row-fluid">
@@ -273,268 +300,146 @@
                                             </ul>
                                             <div class="tab-content">
                                                 <div class="tab-pane active" id="panel-365437">
-                                                    <div class="container">
-                                                        <div class="row" style="font-size: 20px;line-height: 40px;margin-top: 10px;background-color: #f5f5f5">
-                                                            <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2">
-                                                                订单信息
-                                                            </div>
-                                                            <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2"></div>
-                                                            <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1">
-                                                                类型
-                                                            </div>
-                                                            <div class="col-lg-1 col-sm-1 col-md-1 col-xs-1"></div>
-                                                            <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2">
-                                                                支付金额
-                                                            </div>
-                                                            <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2">
-                                                                订单状态
-                                                            </div>
-                                                            <div class="col-lg-2 col-sm-2 col-md-2 col-xs-2">
-                                                                操作
+                                                    <table class="table table-condensed" style="margin-top: 20px;font-size: 20px;line-height: 40px;background-color: #f5f5f5">
+                                                        <tr>
+                                                            <td>
+                                                                <span>订单号</span>
+                                                            </td>
+                                                            <td>
+                                                                <span>下单时间</span>
+                                                            </td>
+                                                            <td>
+                                                                <span>支付金额</span>
+                                                            </td>
+                                                            <td>
+                                                                <span>订单状态</span>
+                                                            </td>
+                                                            <td>
+                                                                <span> 操作</span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <div id="allorder">
+                                                        <div v-for="order in orders" >
+                                                            <div>
+                                                                <table class="table table-condensed" style="margin-top: 20px;border: 1px solid">
+                                                                    <tr>
+                                                                        <td style="padding-top: 60px;padding-bottom: 40px">
+                                                                            <span>{{order.b_order_id}}</span>
+                                                                        </td>
+                                                                        <td style="padding-top: 60px;padding-bottom: 40px">
+                                                                            <span>{{order.b_order_time}}</span>
+                                                                        </td>
+                                                                        <td style="padding-top: 60px;padding-bottom: 40px">
+                                                                            ￥<span>{{order.b_order_total_price}}</span>
+                                                                        </td>
+                                                                        <td style="padding-top: 60px;padding-bottom: 40px">
+                                                                            <span>{{order.b_order_state}}</span>
+                                                                        </td>
+                                                                        <td v-if="order.b_order_state==='未支付'">
+                                                                            <button v-bind:id="order.b_order_id" type="button" class="btn btn-warning" v-on:click="gopay">去支付</button><br>
+                                                                            <button v-bind:id="order.b_order_id" type="button" class="btn btn-default" v-on:click="alterorder">取消订单</button><br>
+                                                                            <!-- Button trigger modal -->
+                                                                            <button v-bind:id="order.b_order_id" v-on:click="" type="button" class="btn btn-default" data-toggle="modal" data-target="#detailsallorder">
+                                                                                查看订单
+                                                                            </button>
+                                                                            <!-- Modal -->
+                                                                            <div class="modal fade" id="detailsallorder" tabindex="-1" role="dialog" aria-labelledby="mydetailsallorder">
+                                                                                <div class="width modal-dialog" role="document">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                                            <h4 class="modal-title" id="mydetailsallorder">订单详情</h4>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <div>
+                                                                                                <div>
+                                                                                                    产品信息
+                                                                                                </div>
+                                                                                                <div>
+
+                                                                                                </div>
+                                                                                            </div>
+
+                                                                                        </div>
+                                                                                        <div class="modal-footer">
+                                                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                        <td v-else>
+                                                                            <button style="margin-top: 50px" v-bind:id="order.b_order_id" type="button" class="btn btn-default">查看订单</button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
                                                             </div>
                                                         </div>
+                                                        <nav>
+                                                            <ul class="pager">
+                                                                <li><a href="#" v-on:click="allorderprev">上一页</a></li>
+                                                                <li><a href="#" v-on:click="allordernext">下一页</a></li>
+                                                            </ul>
+                                                        </nav>
                                                     </div>
-                                                    <div >
-                                                        <div>
-                                                            <table class="table table-condensed text-center" style="margin-top: 20px;border: 1px solid">
-                                                                <tr style="background-color: #f5f5f5">
-                                                                    <td>
-                                                                        <span>订单号：</span>
-                                                                        <span>500355006</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span>下单时间：</span>
-                                                                        <span>2017-12-28 16:29</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span>商家：</span>
-                                                                        <span>蓝银草</span>
-                                                                    </td>
-                                                                    <td></td>
-                                                                    <td>
-                                                                        <span>联系电话：</span>
-                                                                        <span>4006588799</span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="padding-top: 60px">
-                                                                        <img style="width: 40px;height: 40px" src="__STATIC__/image/0.jpg" alt="">
-                                                                        <span>福建土楼永定景区</span>
-                                                                    </td>
-                                                                    <td style="padding-top: 60px">
-                                                                        <span>景点</span>
-                                                                    </td>
-                                                                    <td style="padding-top: 60px">
-                                                                        ￥<span>90</span>
-                                                                    </td>
-                                                                    <td style="padding-top: 60px">
-                                                                        <span>待支付</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <button type="button" class="btn btn-warning">去支付</button><br>
-                                                                        <button type="button" class="btn btn-warning">联系客服</button><br>
-                                                                        <button type="button" class="btn btn-default">取消订单</button><br>
-                                                                        <button type="button" class="btn btn-default">查看订单</button>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <nav aria-label="Page navigation">
-                                                        <ul class="pagination">
-                                                            <li>
-                                                                <a href="#" aria-label="Previous">
-                                                                    <span aria-hidden="true">&laquo;</span>
-                                                                </a>
-                                                            </li>
-                                                            <li><a href="#">1</a></li>
-                                                            <li><a href="#">2</a></li>
-                                                            <li><a href="#">3</a></li>
-                                                            <li><a href="#">4</a></li>
-                                                            <li><a href="#">5</a></li>
-                                                            <li>
-                                                                <a href="#" aria-label="Next">
-                                                                    <span aria-hidden="true">&raquo;</span>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </nav>
                                                 </div>
                                                 <div class="tab-pane" id="panel-930921">
-                                                    <div class="container">
-                                                        <div class="row" style="font-size: 20px;line-height: 40px;margin-top: 10px;background-color: #f5f5f5">
-                                                            <div class="col-lg-2">
-                                                                订单信息
-                                                            </div>
-                                                            <div class="col-lg-2"></div>
-                                                            <div class="col-lg-1">
-                                                                类型
-                                                            </div>
-                                                            <div class="col-lg-1"></div>
-                                                            <div class="col-lg-2">
-                                                                支付金额
-                                                            </div>
-                                                            <div class="col-lg-2">
-                                                                订单状态
-                                                            </div>
-                                                            <div class="col-lg-2">
-                                                                操作
+                                                    <table class="table table-condensed" style="margin-top: 20px;font-size: 20px;line-height: 40px;background-color: #f5f5f5">
+                                                        <tr>
+                                                            <td>
+                                                                <span>订单号</span>
+                                                            </td>
+                                                            <td>
+                                                                <span>下单时间</span>
+                                                            </td>
+                                                            <td>
+                                                                <span>支付金额</span>
+                                                            </td>
+                                                            <td>
+                                                                <span>订单状态</span>
+                                                            </td>
+                                                            <td>
+                                                                <span> 操作</span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <div id="unpaidorder">
+                                                        <div v-for="order in orders" >
+                                                            <div>
+                                                                <table class="table table-condensed" style="margin-top: 20px;border: 1px solid">
+                                                                    <tr>
+                                                                        <td style="padding-top: 60px;">
+                                                                            <span>{{order.b_order_id}}</span>
+                                                                        </td>
+                                                                        <td style="padding-top: 60px;">
+                                                                            <span>{{order.b_order_time}}</span>
+                                                                        </td>
+                                                                        <td style="padding-top: 60px">
+                                                                            ￥<span>{{order.b_order_total_price}}</span>
+                                                                        </td>
+                                                                        <td style="padding-top: 60px">
+                                                                            <span>{{order.b_order_state}}</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button v-bind:id="order.b_order_id" type="button" class="btn btn-warning" v-on:click="gopay">去支付</button><br>
+                                                                            <button v-bind:id="order.b_order_id" type="button" class="btn btn-default" v-on:click="alterorder">取消订单</button><br>
+                                                                            <button v-bind:id="order.b_order_id" type="button" class="btn btn-default">查看订单</button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
                                                             </div>
                                                         </div>
+                                                        <nav>
+                                                            <ul class="pager">
+                                                                <li><a href="#" v-on:click="unpaidprev">上一页</a></li>
+                                                                <li><a href="#" v-on:click="unpaidnext">下一页</a></li>
+                                                            </ul>
+                                                        </nav>
                                                     </div>
-                                                    <div >
-                                                        <div>
-                                                            <table class="table table-condensed text-center" style="margin-top: 20px;border: 1px solid">
-                                                                <tr style="background-color: #f5f5f5">
-                                                                    <td>
-                                                                        <span>订单号：</span>
-                                                                        <span>500355006</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span>下单时间：</span>
-                                                                        <span>2017-12-28 16:29</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span>商家：</span>
-                                                                        <span>蓝银草</span>
-                                                                    </td>
-                                                                    <td></td>
-                                                                    <td>
-                                                                        <span>联系电话：</span>
-                                                                        <span>4006588799</span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="line-height: 120px">
-                                                                        <img style="width: 40px;height: 40px" src="__STATIC__/image/0.jpg" alt="">
-                                                                        <span>福建土楼永定景区</span>
-                                                                    </td>
-                                                                    <td style="line-height: 120px">
-                                                                        <span>景点</span>
-                                                                    </td>
-                                                                    <td style="line-height: 120px">
-                                                                        ￥<span>90</span>
-                                                                    </td>
-                                                                    <td style="line-height: 120px">
-                                                                        <span>待支付</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <button type="button" class="btn btn-warning">去支付</button><br>
-                                                                        <button type="button" class="btn btn-warning">联系客服</button><br>
-                                                                        <button type="button" class="btn btn-default">取消订单</button><br>
-                                                                        <button type="button" class="btn btn-default">查看订单</button>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <nav aria-label="Page navigation">
-                                                        <ul class="pagination">
-                                                            <li>
-                                                                <a href="#" aria-label="Previous">
-                                                                    <span aria-hidden="true">&laquo;</span>
-                                                                </a>
-                                                            </li>
-                                                            <li><a href="#">1</a></li>
-                                                            <li><a href="#">2</a></li>
-                                                            <li><a href="#">3</a></li>
-                                                            <li><a href="#">4</a></li>
-                                                            <li><a href="#">5</a></li>
-                                                            <li>
-                                                                <a href="#" aria-label="Next">
-                                                                    <span aria-hidden="true">&raquo;</span>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </nav>
                                                 </div>
                                                 <div class="tab-pane" id="panel-123123">
-                                                    <div class="container">
-                                                        <div class="row" style="font-size: 20px;line-height: 40px;margin-top: 10px;background-color: #f5f5f5">
-                                                            <div class="col-lg-2">
-                                                                订单信息
-                                                            </div>
-                                                            <div class="col-lg-2"></div>
-                                                            <div class="col-lg-1">
-                                                                类型
-                                                            </div>
-                                                            <div class="col-lg-1"></div>
-                                                            <div class="col-lg-2">
-                                                                支付金额
-                                                            </div>
-                                                            <div class="col-lg-2">
-                                                                订单状态
-                                                            </div>
-                                                            <div class="col-lg-2">
-                                                                操作
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div >
-                                                        <div>
-                                                            <table class="table table-condensed text-center" style="margin-top: 20px;border: 1px solid">
-                                                                <tr style="background-color: #f5f5f5">
-                                                                    <td>
-                                                                        <span>订单号：</span>
-                                                                        <span>500355006</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span>下单时间：</span>
-                                                                        <span>2017-12-28 16:29</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span>商家：</span>
-                                                                        <span>蓝银草</span>
-                                                                    </td>
-                                                                    <td></td>
-                                                                    <td>
-                                                                        <span>联系电话：</span>
-                                                                        <span>4006588799</span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="line-height: 120px">
-                                                                        <img style="width: 40px;height: 40px" src="__STATIC__/image/0.jpg" alt="">
-                                                                        <span>福建土楼永定景区</span>
-                                                                    </td>
-                                                                    <td style="line-height: 120px">
-                                                                        <span>景点</span>
-                                                                    </td>
-                                                                    <td style="line-height: 120px">
-                                                                        ￥<span>90</span>
-                                                                    </td>
-                                                                    <td style="line-height: 120px">
-                                                                        <span>待支付</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <button type="button" class="btn btn-warning">去支付</button><br>
-                                                                        <button type="button" class="btn btn-warning">联系客服</button><br>
-                                                                        <button type="button" class="btn btn-default">取消订单</button><br>
-                                                                        <button type="button" class="btn btn-default">查看订单</button>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <nav aria-label="Page navigation">
-                                                        <ul class="pagination">
-                                                            <li>
-                                                                <a href="#" aria-label="Previous">
-                                                                    <span aria-hidden="true">&laquo;</span>
-                                                                </a>
-                                                            </li>
-                                                            <li><a href="#">1</a></li>
-                                                            <li><a href="#">2</a></li>
-                                                            <li><a href="#">3</a></li>
-                                                            <li><a href="#">4</a></li>
-                                                            <li><a href="#">5</a></li>
-                                                            <li>
-                                                                <a href="#" aria-label="Next">
-                                                                    <span aria-hidden="true">&raquo;</span>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </nav>
+
                                                 </div>
                                                 <div class="tab-pane" id="panel-22211">
                                                     <div class="container">
@@ -625,92 +530,56 @@
                                                     </nav>
                                                 </div>
                                                 <div class="tab-pane" id="panel-666666">
-                                                    <div class="container">
-                                                        <div class="row" style="font-size: 20px;line-height: 40px;margin-top: 10px;background-color: #f5f5f5">
-                                                            <div class="col-lg-2">
-                                                                订单信息
-                                                            </div>
-                                                            <div class="col-lg-2"></div>
-                                                            <div class="col-lg-1">
-                                                                类型
-                                                            </div>
-                                                            <div class="col-lg-1"></div>
-                                                            <div class="col-lg-2">
-                                                                支付金额
-                                                            </div>
-                                                            <div class="col-lg-2">
-                                                                订单状态
-                                                            </div>
-                                                            <div class="col-lg-2">
-                                                                操作
+                                                    <table class="table table-condensed" style="margin-top: 20px;font-size: 20px;line-height: 40px;background-color: #f5f5f5">
+                                                        <tr>
+                                                            <td>
+                                                                <span>订单号</span>
+                                                            </td>
+                                                            <td>
+                                                                <span>下单时间</span>
+                                                            </td>
+                                                            <td>
+                                                                <span>支付金额</span>
+                                                            </td>
+                                                            <td>
+                                                                <span>订单状态</span>
+                                                            </td>
+                                                            <td>
+                                                                <span> 操作</span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <div id="paidorder">
+                                                        <div v-for="order in orders" >
+                                                            <div>
+                                                                <table class="table table-condensed" style="margin-top: 20px;border: 1px solid">
+                                                                    <tr>
+                                                                        <td style="padding-top: 60px;">
+                                                                            <span>{{order.b_order_id}}</span>
+                                                                        </td>
+                                                                        <td style="padding-top: 60px;">
+                                                                            <span>{{order.b_order_time}}</span>
+                                                                        </td>
+                                                                        <td style="padding-top: 60px">
+                                                                            ￥<span>{{order.b_order_total_price}}</span>
+                                                                        </td>
+                                                                        <td style="padding-top: 60px">
+                                                                            <span>{{order.b_order_state}}</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <button v-bind:id="order.b_order_id" type="button" class="btn btn-default">查看订单</button>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
                                                             </div>
                                                         </div>
+                                                        <nav>
+                                                            <ul class="pager">
+                                                                <li><a href="#" v-on:click="paidorderprev">上一页</a></li>
+                                                                <li><a href="#" v-on:click="paidordernext">下一页</a></li>
+                                                            </ul>
+                                                        </nav>
                                                     </div>
-                                                    <div >
-                                                        <div>
-                                                            <table class="table table-condensed text-center" style="margin-top: 20px;border: 1px solid">
-                                                                <tr style="background-color: #f5f5f5">
-                                                                    <td>
-                                                                        <span>订单号：</span>
-                                                                        <span>500355006</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span>下单时间：</span>
-                                                                        <span>2017-12-28 16:29</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span>商家：</span>
-                                                                        <span>蓝银草</span>
-                                                                    </td>
-                                                                    <td></td>
-                                                                    <td>
-                                                                        <span>联系电话：</span>
-                                                                        <span>4006588799</span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="line-height: 120px">
-                                                                        <img style="width: 40px;height: 40px" src="__STATIC__/image/0.jpg" alt="">
-                                                                        <span>福建土楼永定景区</span>
-                                                                    </td>
-                                                                    <td style="line-height: 120px">
-                                                                        <span>景点</span>
-                                                                    </td>
-                                                                    <td style="line-height: 120px">
-                                                                        ￥<span>90</span>
-                                                                    </td>
-                                                                    <td style="line-height: 120px">
-                                                                        <span>待支付</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <button type="button" class="btn btn-warning">去支付</button><br>
-                                                                        <button type="button" class="btn btn-warning">联系客服</button><br>
-                                                                        <button type="button" class="btn btn-default">取消订单</button><br>
-                                                                        <button type="button" class="btn btn-default">查看订单</button>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <nav aria-label="Page navigation">
-                                                        <ul class="pagination">
-                                                            <li>
-                                                                <a href="#" aria-label="Previous">
-                                                                    <span aria-hidden="true">&laquo;</span>
-                                                                </a>
-                                                            </li>
-                                                            <li><a href="#">1</a></li>
-                                                            <li><a href="#">2</a></li>
-                                                            <li><a href="#">3</a></li>
-                                                            <li><a href="#">4</a></li>
-                                                            <li><a href="#">5</a></li>
-                                                            <li>
-                                                                <a href="#" aria-label="Next">
-                                                                    <span aria-hidden="true">&raquo;</span>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </nav>
                                                 </div>
                                             </div>
                                         </div>
@@ -720,6 +589,7 @@
                         </div>
                     </div>
                     <div class="tab-pane" id="panel-1811">
+                        <!--我的收藏-->
                         <div class="mynest ">
                             <div class="container-fluid">
                                 <div class="row-fluid">
@@ -940,6 +810,7 @@
                         </div>
                     </div>
                     <div class="tab-pane" id="panel-18111">
+                        <!--我的点评-->
                         <div class=" mynest">
                             <div>
                                 <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
@@ -1088,6 +959,16 @@
     var updatamyname = '{:url("reception/Center/updatamyname")}'
     var updatamypaw = '{:url("reception/Center/updatamypaw")}'
     var getmysql = '{:url("reception/Center/getmysql")}'
+    var getnote = '{:url("reception/Center/getnote")}'
+    var travelAdd="{:url('reception/Travels/travelAdd')}";
+    var travelDetail="{:url('reception/Travels/myTravelDetails')}";
+    var travelSearch="{:url('reception/Travels/travelSearch')}";
+    var getallorder="{:url('reception/Center/getallorder')}";
+    var gopay="{:url('reception/Center/payment')}";
+    var alterorder="{:url('reception/Center/alterorder')}";
+    var unpaidorderel="{:url('reception/Center/unpaidorder')}";
+    var paidorders="{:url('reception/Center/paidorders')}";
+    var newmon ='{:url("reception/Center/newmon")}'
 </script>
 <script src="__STATIC__/js/center.js" type="text/javascript"></script>
 </html>

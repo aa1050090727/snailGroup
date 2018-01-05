@@ -33,5 +33,8 @@ class Role extends Controller
 //        }
         return json_decode($resArrJson);
     }
-
+    public function getRoleName(){
+        $resArr = Db::table("b_role")->field("b_role_id,b_role_name")->select();
+        return $resArr;
+    }
 }
