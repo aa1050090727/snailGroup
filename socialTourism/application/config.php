@@ -294,6 +294,7 @@ return [
             'uppwd_error4' => '密码修改错误',
             'uppwd_success' => '密码修改成功'
         ],
+
         'alterorder' => [
             'alterorder_error' => '未登录不能修改订单状态',
             'alterorder_error1' => '取消订单失败',
@@ -316,6 +317,7 @@ return [
             'addmon_error3' => '充值失败'  ,
             'addmon_success' => '充值成功'  ,
         ],
+
         'delmsg' => [
             'del_success' => '删除成功',
             'del_fail' => '删除失败'
