@@ -99,12 +99,14 @@
 </div>
 <!--主体部分-->
 <div class="content">
-    <div class="container">
+    <div class="container" id="goodsActive">
+        <!--<div class="panel panel-default panel-border">-->
+            <!--<div class="panel-body panel-font">-->
+                <!--准点抢 ：   <span class="panel-span-font">每天22:00准时开抢</span>-->
+            <!--</div>-->
+        <!--</div>-->
         <div class="row active_classify">
             <label class="radio-inline padding-radio">
-                <input type="radio" name="a_classify" id="a_classify1" value="all" checked> 全部
-            </label>
-            <label class="radio-inline">
                 <input type="radio" name="a_classify" id="a_classify2" value="f_science"> 景点门票
             </label>
             <label class="radio-inline">
@@ -112,21 +114,41 @@
             </label>
         </div>
         <div class="row hotel_list">
+            {volist name="active" id="activeData"}
+            {if condition="$activeData.f_science_classify eq 1"}
             <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                 <div>
-                    <img class="img-responsive" src="http://c3-q.mafengwo.net/s10/M00/4E/E7/wKgBZ1mMe8aAcQnpAAEi2-pPGaE05.jpeg?imageMogr2%2Fthumbnail%2F%21480x480r%2Fgravity%2FCenter%2Fcrop%2F%21480x480%2Fquality%2F90"
-                         alt="">
+                    <img class="img-responsive img-border" src="{$activeData.f_science_img}" alt="">
                     <div class="activity_name">
-                        <p>曼谷维酒店（原曼谷胜利纪念碑全季酒店）</p>
+                        <p class="p_name">{$activeData.f_science_name}</p>
                         <div>
-                            <div class="hotel_score">评分:<strong>7.8</strong></div>
-                            <div class="hotel_price">￥<strong>2555</strong>起</div>
-                            <div class="original_price">￥2555</div>
+                            <div class="hotel_price">￥<strong>{$activeData.f_science_aprice}</strong>起</div>
+                            <div class="original_price">￥{$activeData.f_science_price}</div>
                         </div>
                     </div>
-                    <p class="goodsDetail" onclick="g_detail()">查看详情>></p>
+                    <p class="goodsDetail" onclick="g_detail('{$activeData.f_science_classify}','{$activeData.f_science_id}')">查看详情>></p>
                 </div>
             </div>
+            {else /}
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <div>
+                    <img class="img-responsive img-border" src="{$activeData.f_hotel_img}" alt="">
+                    <div class="activity_name">
+                        <p class="p_name">{$activeData.f_hotel_name}</p>
+                        <div>
+                            <div class="hotel_price">￥<strong>{$activeData.f_hotel_aprice}</strong>起</div>
+                            <div class="original_price">￥{$activeData.f_hotel_price}</div>
+                        </div>
+                    </div>
+                    <p class="goodsDetail" onclick="g_detail('{$activeData.f_science_classify}','{$activeData.f_hotel_id}')">查看详情>></p>
+                </div>
+            </div>
+            {/if}
+            {/volist}
+        </div>
+        <!--分页-->
+        <div class="row">
+            {$active->render()}
         </div>
     </div>
 </div>
@@ -196,7 +218,12 @@
 </div>
 </body>
 <script>
-
+    var f_science_url = "{:url('reception/Goodsactive/goodsActive')}";
+    var f_hotel_url = "{:url('reception/Goodsactive/goodsActive_hotel')}";
+    var science_detail_url = "{:url('reception/Viewport/viewdetailed')}";
+    var setViewCookie_url = "{:url('reception/Goodsactive/setViewId')}";
+    var hotel_setCookie_Url = "{:url('reception/Goodsactive/hotel_setCookie')}";
+    var hoteDetailsUrl = "{:url('reception/Hoteldetails/hotelDetails')}";
 </script>
 <script src="__STATIC__/js/receptionjs/goodsActive.js"></script>
 </html>

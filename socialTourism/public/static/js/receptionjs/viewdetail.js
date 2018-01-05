@@ -53,7 +53,7 @@ $(function(){
                         if(result["code"]==1){
                             if(confirm("立即支付")){
                                 //跳转至支付页面
-                                window.location.href = center_url;
+                                window.location.href=center_url+"?orderID="+result.orderId;
                             }
 
                         }
