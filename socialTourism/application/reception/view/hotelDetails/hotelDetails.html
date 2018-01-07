@@ -110,7 +110,12 @@
                 <h1>{$hotelDetails.f_hotel_name}<i></i></h1>
                 <!--<div><strong>地址：</strong><span>忠孝西路一段38号</span></div>-->
                 <!--<div><strong>房型：</strong>标准房</div>-->
-                <div><strong>价格：</strong><span class="hotel_price">￥{$hotelDetails.f_hotel_price}</span></div>
+                {if condition="$hotelDetails.f_hotel_states eq 1"}
+                    <div><strong>价格：</strong><span class="hotel_price">￥{$hotelDetails.f_hotel_price}</span></div>
+                {else /}
+                    <div><strong>折扣价：</strong><span class="hotel_price">￥{$hotelDetails.f_hotel_aprice}</span></div>
+                    <div><strong>原价：</strong><span class="hotel_aprice">￥{$hotelDetails.f_hotel_price}</span></div>
+                {/if}
                 <div>
                     <strong>入住时间：</strong>
                     <a class='input-group date start_time' id='start_time'>

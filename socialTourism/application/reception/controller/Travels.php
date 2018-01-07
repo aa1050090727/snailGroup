@@ -33,6 +33,13 @@ class Travels extends Controller
         $this->assign("content",$travles);
         return $this->fetch();
     }
+
+    public function myTravelDetails(){
+        $travelid=input("param.travelID");
+        $travles=Db::table('f_travel_note')->alias('a')->join('f_user b','a.f_travel_note_uid = b.f_user_id')->where('f_travel_note_id',$travelid)->select();
+        $this->assign("content",$travles);
+        return $this->fetch('travelDetails');
+    }
     /*游记搜索*/
     public function travelSearch(){
         $searchplace=input("param.place");

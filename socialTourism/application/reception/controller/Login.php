@@ -66,17 +66,17 @@ class Login extends Controller
 
     //验证验证码输入是否正确
     public function verifycode(){
-        $verifymsg = config('msg')['verifycode']; //调用配置文件
-        if(input('?post.code')){//判断是否有值
-            $cellphone=input('param.code');//接收
-            $phone1 = strip_tags($cellphone);
-            $name = addslashes($phone1);
-            if(!captcha_check($name)){
-                return json(['code'=>10000,'msg'=>$verifymsg['verifycode_success'],'data'=>[],'url' => []]);
-            }else{
-                return json(['code'=>10001,'msg'=>$verifymsg['verifycode_error'],'data'=>[],'url' => []]);
-            }
-        }
+//        $verifymsg = config('msg')['verifycode']; //调用配置文件
+//        if(input('?post.code')){//判断是否有值
+//            $cellphone=input('param.code');//接收
+//            $phone1 = strip_tags($cellphone);
+//            $name = addslashes($phone1);
+//            if(!captcha_check($name)){
+//                return json(['code'=>10000,'msg'=>$verifymsg['verifycode_success'],'data'=>[],'url' => []]);
+//            }else{
+//                return json(['code'=>10001,'msg'=>$verifymsg['verifycode_error'],'data'=>[],'url' => []]);
+//            }
+//        }
     }
 
     //填写信息页面
@@ -136,7 +136,7 @@ class Login extends Controller
                 return json(['code'=>10003,'msg'=>$registermsg['register_error2'],'data'=>[],'url' => []]);
             }elseif($pwd2!=$password2){
                 return json(['code'=>10004,'msg'=>$registermsg['register_error3'],'data'=>[],'url' => []]);
-            }elseif(!captcha_check($code2)){
+            }elseif(!captcha_check($code)){
                 return json(['code'=>10005,'msg'=>$registermsg['register_error4'],'data'=>[],'url' => []]);
             }else{
                 $phone = Session::get('phone');
@@ -145,6 +145,8 @@ class Login extends Controller
                 ];
                 $res = Db::table('f_user')->where($where)->find();
                 if(!empty($res)){
+                    return json(['code'=>10007,'msg'=>$registermsg['register_error6'],'data'=>[],'url' => []]);
+                }else{
                     $data = [
                         'f_user_id'=>'',
                         'f_user_phone'=>$phone,
@@ -152,13 +154,11 @@ class Login extends Controller
                         'f_user_name'=>$f_user_name,
                         'f_user_img'=>'__STATIC__/image/0.png',
                         'f_user_money'=>50,
-                        'f_user_sell' => '否',
+                        'f_user_sell' => 1,
                         'f_user_states' => '使用'
                     ];
                     Db::table('f_user')->insert($data);
                     return json(['code'=>10000,'msg'=>$registermsg['register_success'],'data'=>[],'url' => url('reception/Index/index')]);
-                }else{
-                    return json(['code'=>10007,'msg'=>$registermsg['register_error6'],'data'=>[],'url' => []]);
                 }
             }
         }
@@ -207,7 +207,6 @@ class Login extends Controller
                     return json(['code'=>10002,'msg'=>$loginmsg['login_error1'],'data'=>[],'url' => []]);
                 }
             }
-
         }else{
             return json(['code'=>10003,'msg'=>$loginmsg['login_error'],'data'=>[],'url' => []]);
         }

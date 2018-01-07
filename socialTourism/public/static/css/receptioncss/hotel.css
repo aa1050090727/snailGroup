@@ -102,6 +102,11 @@ a:hover{
     #content .activity_name .hotel_score{
         color: #000;
     }
+    #content .activity_name .hotel_aprice{
+        color: grey;
+        font-size: 14px;
+        text-decoration: line-through;
+    }
     .img-height{
         height: 150px;
         width: 100%;
@@ -185,6 +190,15 @@ a:hover{
     #content .activity_name .hotel_score{
         color: #000;
     }
+    #content .activity_name .hotel_aprice{
+        color: grey;
+        font-size: 14px;
+        text-decoration: line-through;
+    }
+    .img-height{
+        height: 150px;
+        width: 100%;
+    }
 
 }
 /*小屏幕*/
@@ -264,6 +278,15 @@ a:hover{
     #content .activity_name .hotel_score{
         color: #000;
     }
+    #content .activity_name .hotel_aprice{
+        color: grey;
+        font-size: 14px;
+        text-decoration: line-through;
+    }
+    .img-height{
+        height: 150px;
+        width: 100%;
+    }
 }
 /*超小屏幕*/
 @media (max-width: 767px){
@@ -340,6 +363,11 @@ a:hover{
     #content .activity_name .hotel_score{
         color: #000;
     }
+    #content .activity_name .hotel_aprice{
+        color: grey;
+        font-size: 14px;
+        text-decoration: line-through;
+    }
     #start_time{
         margin-bottom: 20px;
         margin-right: auto;
@@ -348,5 +376,9 @@ a:hover{
     #content .hotel_list img{
         margin-left: auto;
         margin-right: auto;
+    }
+    .img-height{
+        height: 200px;
+        width: 100%;
     }
 }

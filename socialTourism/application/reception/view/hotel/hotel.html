@@ -112,7 +112,12 @@
                         <p>{$hotel_detail.f_hotel_name}</p>
                         <div>
                             <!--<div class="hotel_score">评分:<strong>7.8</strong></div>-->
+                            {if condition="$hotel_detail.f_hotel_states eq '1'"}
                             <div class="hotel_price">￥<strong>{$hotel_detail.f_hotel_price}</strong>起</div>
+                            {else /}
+                            <div class="hotel_price">￥<strong>{$hotel_detail.f_hotel_aprice}</strong>起</div>
+                            <div class="hotel_aprice">￥<strong>{$hotel_detail.f_hotel_price}</strong>起</div>
+                            {/if}
                         </div>
                     </div>
                 </div>
