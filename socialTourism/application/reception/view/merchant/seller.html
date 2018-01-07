@@ -70,11 +70,75 @@
     </div>
 </div>
 <!--商家主要内容-->
-<div class="container" style="margin-top: 20px;">
-    <div class="row"style="display: block">
-        <div></div>
+<div id="app">
+    <div class="container" style="margin-top: 20px;">
+        <div class="row"style="height: 500px;border: 1px solid grey"v-if="sellerState===1">
+            <form role="form" style="margin-top: 10px">
+                <div class="form-group">
+                    <label >身份证</label>
+                    <input type="number" class="form-control" id="idNumber" placeholder="请输入身份证" v-on:blur="idNumber">
+                    <div style="color: red">{{number}}</div>
+                </div>
+                <div class="form-group">
+                    <label >商家分类：</label>
+                    <select class="goodsClass">
+                        <option value="0">-- 选择分类 --</option>
+                        <option value="1">景点</option>
+                        <option value="2">酒店</option>
+                    </select>
+                </div>
+                <div class="form-group" >
+                    <label>地区：</label>
+                    <select class="province" v-on:change="changeProvince" >
+                        <option value="0">-- 选择省份 --</option>
+                        <option v-for="place in province" v-bind:value="place.f_province_id"  >
+                            {{place.f_province_name}}
+                        </option>
+                    </select>
+                    <select class="city" v-on:change="changeCity">
+                        <option value="0">-- 选择城市 --</option>
+                        <option v-for="place in city" v-bind:value="place.f_city_id"  >
+                            {{place.f_city_name}}
+                        </option>
+                    </select>
+                    <select class="district" >
+                        <option value="0">-- 选择地区 --</option>
+                        <option v-for="place in district" v-bind:value="place.f_district_id"  >
+                            {{place.f_district_name}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">地址：</label>
+                    <textarea class="form-control" rows="3" id="inputIntro" v-on:blur="sellPlace"></textarea>
+                    <div style="color: red">{{place}}</div>
+                </div>
+            </form>
+            <div class="row " >
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12"></div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <button type="submit" class="btn btn-info "v-on:click="sellsubmit" >提交</button>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center"style="height: 500px;border: 1px solid grey"v-else-if="sellerState===2">
+            <h1 style="margin-top: 200px">商家信息待审核中...</h1>
+        </div>
+        <div class="row text-center"style="height: 500px;border: 1px solid grey"v-else-if="sellerState===3">
+            <h1 style="margin-top: 200px">商家信息审核未通过！</h1>
+            <div class="row " >
+                <div >
+                    <button type="submit" class="btn btn-info " v-on:click="reup">重新申请</button>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center"style="height: 500px;border: 1px solid grey"v-else-if="sellerState===4">
+            <h1 style="margin-top: 200px">商家已被锁定！</h1>
+        </div>
+
     </div>
 </div>
+
 <!--页脚-->
 <div id="footer">
     <div class="footer_box container">
@@ -140,8 +204,19 @@
     </div>
 </div>
 </body>
+<!--引用vue.js-->
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
 <script src="__STATIC__/js/jquery-1.12.3.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="__STATIC__/js/receptionjs/merchant.js"></script>
+<!--路径-->
+<script>
+    var sellState="{:url('reception/Merchant/sellState')}";
+    var provinceUrl="{:url('reception/Merchant/province')}";
+    var cityUrl="{:url('reception/Merchant/city')}";
+    var districe="{:url('reception/Merchant/district')}";
+    var sellsubmit="{:url('reception/Merchant/sellsubmit')}";
+    var sellrReup="{:url('reception/Merchant/sellrReup')}";
+</script>
+<script src="__STATIC__/js/receptionjs/seller.js"></script>
 </html>

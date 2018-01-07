@@ -55,24 +55,94 @@ $(function(){
                     data.append("startTime",startTime);
                     data.append("endTime",endTime);
                     data.append("inputIntro",inputIntro);
-                    data.append("content",content);
-                    $.ajax({
-                        type:"post",
-                        url:goodPublic,
-                        data:data,
-                        cache:false,
-                        contentType:false,
-                        processData:false,
-                        dataType:"text",
-                        success:function(res) {
-                            if (res==1)
-                            {
-                                alert("提交成功，等待审核");
-                            }else if(res==0){
-                                alert("提交失败");
+                    data.append("content",inputIntro);
+                    /*判断是否有没填写的*/
+                    if (goodsName==''|| img==undefined || goodsClass==0|| province==0|| city==0|| district==0 || Price==''|| inputIntro==''|| inputIntro==''){
+                        alert('请正确填写信息！');
+                    }else {
+                        /*是普通发布*/
+                        if(goodsRelease==1)
+                        {
+                            /*景点发布*/
+                            if(goodsClass==1){
+                                $.ajax({
+                                    type:"post",
+                                    url:goodPublic,
+                                    data:data,
+                                    cache:false,
+                                    contentType:false,
+                                    processData:false,
+                                    dataType:"text",
+                                    success:function(res) {
+                                        if (res==1)
+                                        {
+                                            alert("提交成功，等待审核");
+                                        }else if(res==0){
+                                            alert("提交失败");
+                                        }else if (res==2)
+                                        {
+                                            alert('请发布对应类型商品！');
+                                        }
+                                    }
+                                })
+                            }else {
+                                if (goodsNumber=='')
+                                {
+                                    alert('请填写库存！')
+                                }else {
+                                    $.ajax({
+                                        type:"post",
+                                        url:goodPublic,
+                                        data:data,
+                                        cache:false,
+                                        contentType:false,
+                                        processData:false,
+                                        dataType:"text",
+                                        success:function(res) {
+                                            if (res==1)
+                                            {
+                                                alert("提交成功，等待审核");
+                                            }else if(res==0){
+                                                alert("提交失败");
+                                            }else if (res==2)
+                                            {
+                                                alert('请发布对应类型商品！');
+                                            }
+                                        }
+                                    })
+                                }
                             }
                         }
-                    })
+                        /*活动发布*/
+                        else
+                        {
+                            if(goodsPrice==''|| startTime==''|| endTime==''||goodsNumber=='')
+                            {
+                                alert('请正确填写活动信息！');
+                            }else {
+                                $.ajax({
+                                    type:"post",
+                                    url:goodPublic,
+                                    data:data,
+                                    cache:false,
+                                    contentType:false,
+                                    processData:false,
+                                    dataType:"text",
+                                    success:function(res) {
+                                        if (res==1)
+                                        {
+                                            alert("提交成功，等待审核");
+                                        }else if(res==0){
+                                            alert("提交失败");
+                                        }else if (res==2)
+                                        {
+                                            alert('请发布对应类型商品！');
+                                        }
+                                    }
+                                });
+                            }
+                        }
+                    }
                 }
 
             },
@@ -102,19 +172,23 @@ $(function(){
                     $(".startTime").attr("disabled","disabled");
                     $(".endTime").attr("disabled","disabled");
                     $(".goodsPrices").attr("disabled","disabled");
+                    $(".goodsNumber").attr("disabled","disabled")
                 }else{
                     $(".startTime").removeAttr("disabled");
                     $(".endTime").removeAttr("disabled");
                     $(".goodsPrices").removeAttr("disabled");
+                    $(".goodsNumber").removeAttr("disabled");
                 }
             },
             /*酒店还是景点*/
             goodsClass:function(){
+                var goodsRelease = $(".goodsRelease").val();
                 var goodsClass=$(".goodsClass").val();
-                if (goodsClass==1){
+                if (goodsClass==1 && goodsRelease==1){
                     $('.goodsNumber').attr('disabled','disabled')
                 }else {
                     $('.goodsNumber').removeAttr('disabled');
+
                 }
             },
             /*根据省份选城市*/

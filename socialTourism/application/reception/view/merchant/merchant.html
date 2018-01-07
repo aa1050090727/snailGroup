@@ -80,6 +80,7 @@
                 <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">订单管理</a></li>
                 <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">广告申请</a></li>
                 <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab">发布商品</a></li>
+                <li role="presentation"><a href="#goods" aria-controls="goods" role="tab" data-toggle="tab">商品信息</a></li>
             </ul>
         </div>
         <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12 content-right">
@@ -92,6 +93,13 @@
                         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                             <span>商家名称：</span> {$sellinfo.name}
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
+                    </div>
+                    <div class="row" style="margin-top: 20px">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"></div>
+                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                            <span>商家类型：</span> {$sellinfo.state}
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12"></div>
                     </div>
@@ -113,7 +121,13 @@
                 {/volist}
                 <!--订单管理-->
                 <div role="tabpanel" class="tab-pane" id="profile">
-
+                    <div class="row text-center">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">订单id</div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">订单数量</div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">订单价格</div>
+                        <div class="col-lg-2 col-md-3 col-sm-2 col-xs-12">订单状态</div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">操作</div>
+                    </div>
                 </div>
                 <!--广告申请-->  
                 <div role="tabpanel" class="tab-pane" id="messages">
@@ -144,7 +158,7 @@
                             <div class="form-group">
                                 <label>商品分类：</label>
                                 <select class="goodsClass" v-on:change="goodsClass">
-                                    <option value="10">-- 选择分类 --</option>
+                                    <option value="0">-- 选择分类 --</option>
                                     <option value="1">景点</option>
                                     <option value="2">酒店</option>
                                 </select>
@@ -210,6 +224,15 @@
                                 </div>
                             </div>
                         </form>
+                    </div>
+                </div>
+                <!--商品信息-->
+                <div role="tabpanel" class="tab-pane" id="goods">
+                    <div class="row text-center">
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">订单id</div>
+                        <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">订单数量</div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">订单价格</div>
+                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">买家姓名</div>
                     </div>
                 </div>
             </div>
