@@ -144,8 +144,13 @@
                      <!--剩余房间数：<span>132</span> 间-->
                 </div>
                 <div>
+                    {if condition="$hotelDetails.f_hotel_states eq 1"}
                     <button type="button" class="btn btn-danger hotel_buy_but" onclick="putShoppingCar('{$hotelDetails.f_hotel_id}')">加入购物车</button>
                     <button type="button" class="btn btn-danger hotel_buy_but" onclick="rightnowBuy('{$hotelDetails.f_hotel_id}','{$hotelDetails.f_hotel_price}','{$hotelDetails.f_hotel_sid}')">立即购买</button>
+                    {else /}
+                    <p><strong>剩余房间数：</strong><span class="hotel_price">{$hotelDetails.f_hotel_num}</span></p>
+                    <button type="button" class="btn btn-danger hotel_buy_but" onclick="panicBuying('{$hotelDetails.f_hotel_id}')">立即抢购</button>
+                    {/if}
                 </div>
             </div>
         </div>

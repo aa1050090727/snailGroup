@@ -124,3 +124,7 @@ $(function(){
    //    }
    //});
 });
+//秒杀立即抢购
+function panicBuying(){
+    alert("立即抢购")
+}

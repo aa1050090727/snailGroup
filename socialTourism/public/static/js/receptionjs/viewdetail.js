@@ -91,6 +91,9 @@ $(function(){
                         console.log("error",result);
                     }
                 });
+            },
+            panicBuying:function(viewDetail){
+                alert(1)
             }
         }
     });
