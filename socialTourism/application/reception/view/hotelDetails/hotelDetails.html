@@ -173,8 +173,13 @@
                      <!--剩余房间数：<span>132</span> 间-->
                 </div>
                 <div>
+                    {if condition="$hotelDetails.f_hotel_states eq 1"}
                     <button type="button" class="btn btn-danger hotel_buy_but" onclick="putShoppingCar('{$hotelDetails.f_hotel_id}')">加入购物车</button>
                     <button type="button" class="btn btn-danger hotel_buy_but" onclick="rightnowBuy('{$hotelDetails.f_hotel_id}','{$hotelDetails.f_hotel_price}','{$hotelDetails.f_hotel_sid}')">立即购买</button>
+                    {else /}
+                    <p><strong>剩余房间数：</strong><span class="hotel_price">{$hotelDetails.f_hotel_num}</span></p>
+                    <button type="button" class="btn btn-danger hotel_buy_but" onclick="panicBuying('{$hotelDetails.f_hotel_id}')">立即抢购</button>
+                    {/if}
                 </div>
             </div>
         </div>
@@ -374,6 +379,7 @@
 
     var putShoppingCar_url = "{:url('reception/Hoteldetails/putShoppingCar')}";
     var rightnowBuy_url = "{:url('reception/Hoteldetails/rightnowBuy')}";
+<<<<<<< HEAD
     var center_url = "{:url('reception/center/center')}";
     var sell="{:url('reception/Publics/seller')}";
     var loginUrl="{:url('reception/Publics/login')}";
@@ -383,6 +389,9 @@
     var travelsUrl="{:url('reception/travels/travels')}";
     var activityUrl="{:url('reception/Goodsactive/goodsActive')}";
     var hotelUrl="{:url('reception/Hotel/hotel')}";
+=======
+    var center_url = "{:url('reception/Center/payment')}";
+>>>>>>> 614c87f48fe9744fa26e215df32bd21493786efc
 </script>
 <script src="__STATIC__/js/receptionjs/public.js"></script>
 <script src="__STATIC__/js/receptionjs/hoteldetails.js"></script>

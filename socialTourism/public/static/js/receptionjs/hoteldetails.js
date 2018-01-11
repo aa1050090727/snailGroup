@@ -70,7 +70,7 @@ function rightnowBuy(hotel_id,hotel_price,hotel_sid){
                 if(res["code"]==1){
                     if(confirm("立即支付")){
                         //跳转至支付页面
-                        window.location.href = center_url;
+                        window.location.href=center_url+"?orderID="+result.orderId;
                     }
 
                 }
@@ -124,3 +124,7 @@ $(function(){
    //    }
    //});
 });
+//秒杀立即抢购
+function panicBuying(){
+    alert("立即抢购")
+}
