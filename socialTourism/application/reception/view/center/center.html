@@ -13,7 +13,7 @@
     <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
-<!--导航栏-->
+<!--导航栏-->,,
 <div id="nav">
     <div class="nav_box container">
         <div class="row">
@@ -340,7 +340,7 @@
                                                                             <button v-bind:id="order.b_order_id" type="button" class="btn btn-warning" v-on:click="gopay">去支付</button><br>
                                                                             <button v-bind:id="order.b_order_id" type="button" class="btn btn-default" v-on:click="alterorder">取消订单</button><br>
                                                                             <!-- Button trigger modal -->
-                                                                            <button v-bind:id="order.b_order_id" v-on:click="" type="button" class="btn btn-default" data-toggle="modal" data-target="#detailsallorder">
+                                                                            <button v-bind:id="order.b_order_id" v-on:click="getdetails" type="button" class="btn btn-default" data-toggle="modal" data-target="#detailsallorder">
                                                                                 查看订单
                                                                             </button>
                                                                             <!-- Modal -->
@@ -352,15 +352,30 @@
                                                                                             <h4 class="modal-title" id="mydetailsallorder">订单详情</h4>
                                                                                         </div>
                                                                                         <div class="modal-body">
-                                                                                            <div>
-                                                                                                <div>
-                                                                                                    产品信息
-                                                                                                </div>
-                                                                                                <div>
-
+                                                                                            <div v-for="detail in sciencedetails">
+                                                                                                <div style="margin-top: 20px">
+                                                                                                    <div>
+                                                                                                        产品信息
+                                                                                                    </div>
+                                                                                                    <div>
+                                                                                                        商品名称：<span v-bind:id="detail.f_science_id" v-on:click="goDetail" style="color: #23527c">{{detail.f_science_name}}</span><br>
+                                                                                                        购买数量：{{detail.b_order_details_num}}<br>
+                                                                                                        价格：{{detail.b_order_details_price}}
+                                                                                                    </div>
                                                                                                 </div>
                                                                                             </div>
-
+                                                                                            <div v-for="detail in hoteldetails">
+                                                                                                <div style="margin-top: 20px">
+                                                                                                    <div>
+                                                                                                        产品信息
+                                                                                                    </div>
+                                                                                                    <div>
+                                                                                                        商品名称：<span v-bind:id="detail.f_hotel_id" v-on:click="showDetails" style="color: #23527c">{{detail.f_hotel_name}}</span><br>
+                                                                                                        出行日期：{{detail.b_order_details_num}}<br>
+                                                                                                        价格：{{detail.b_order_details_price}}
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
                                                                                         </div>
                                                                                         <div class="modal-footer">
                                                                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -370,7 +385,49 @@
                                                                             </div>
                                                                         </td>
                                                                         <td v-else>
-                                                                            <button style="margin-top: 50px" v-bind:id="order.b_order_id" type="button" class="btn btn-default">查看订单</button>
+                                                                            <button v-bind:id="order.b_order_id" v-on:click="getdetails" type="button" class="btn btn-default" data-toggle="modal" data-target="#detailsallorder1">
+                                                                                查看订单
+                                                                            </button>
+                                                                            <!-- Modal -->
+                                                                            <div class="modal fade" id="detailsallorder1" tabindex="-1" role="dialog" aria-labelledby="mydetailsallorder1">
+                                                                                <div class="width modal-dialog" role="document">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                                            <h4 class="modal-title" id="mydetailsallorder1">订单详情</h4>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <div v-for="detail in sciencedetails">
+                                                                                                <div style="margin-top: 20px">
+                                                                                                    <div>
+                                                                                                        产品信息
+                                                                                                    </div>
+                                                                                                    <div>
+                                                                                                        商品名称：<span v-bind:id="detail.f_science_id" v-on:click="goDetail" style="color: #23527c">{{detail.f_science_name}}</span><br>
+                                                                                                        购买数量：{{detail.b_order_details_num}}<br>
+                                                                                                        价格：{{detail.b_order_details_price}}
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div v-for="detail in hoteldetails">
+                                                                                                <div style="margin-top: 20px">
+                                                                                                    <div>
+                                                                                                        产品信息
+                                                                                                    </div>
+                                                                                                    <div>
+                                                                                                        商品名称：<span v-bind:id="detail.f_hotel_id" v-on:click="showDetails" style="color: #23527c">{{detail.f_hotel_name}}</span><br>
+                                                                                                        出行日期：{{detail.b_order_details_num}}<br>
+                                                                                                        价格：{{detail.b_order_details_price}}
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="modal-footer">
+                                                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
                                                                         </td>
                                                                     </tr>
                                                                 </table>
@@ -882,11 +939,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
 <!--页脚-->
 <div style="margin-top: 20px" id="footer">
     <div class="footer_box container">
@@ -969,6 +1021,12 @@
     var unpaidorderel="{:url('reception/Center/unpaidorder')}";
     var paidorders="{:url('reception/Center/paidorders')}";
     var newmon ='{:url("reception/Center/newmon")}'
+    var getthisorder ='{:url("reception/Center/getthisorder")}'
+    var setViewId_url = "{:url('reception/viewport/setViewId')}";
+    var goViewdetailed_url = "{:url('reception/viewport/viewdetailed')}";
+    var search_url = "{:url('reception/viewport/search_like')}";
+    var hotel_setCookie_Url = "{:url('reception/Hotel/hotel_setCookie')}";
+    var hoteDetailsUrl = "{:url('reception/Hoteldetails/hotelDetails')}";
 </script>
 <script src="__STATIC__/js/center.js" type="text/javascript"></script>
 </html>

@@ -23,9 +23,7 @@ class Center extends Controller
         }else{
             return $this->fetch();
         }
-
     }
-
     //获取个人信息
     public function getmy(){
         $nowlogin = Session::get('nowlogin');
@@ -104,7 +102,6 @@ class Center extends Controller
                     return json(['code'=>10004,'msg'=>$uppwdmsg['uppwd_error3'],'data'=>[],'url' => []]);
                 }
             }
-
         }
     }
     //获取我的游记
@@ -124,7 +121,6 @@ class Center extends Controller
                 if($checkHttp === false){//如果不存在就替换字符串路径
                     $value['f_travel_note_img'] = str_replace("__STATIC__",$request->root()."/static/",$value['f_travel_note_img']);//字符串替换
                 }
-
             }
         }
         $arr = [
@@ -134,7 +130,6 @@ class Center extends Controller
         ];
         return $arr;
     }
-
     //支付页面
     public function payment(){
         $orderID=input("param.orderID");//接收订单id
@@ -146,8 +141,6 @@ class Center extends Controller
         $this->assign("content",$orders1);//赋值
         return $this->fetch();
     }
-
-
     //余额支付
     public function pay(){
         $paybalance = config('msg')['paybalance']; //调用配置文件
@@ -206,11 +199,6 @@ class Center extends Controller
             return json(['code'=>10005,'msg'=>$paybalance['paybalance_error4'],'data'=>[],'url' =>'']);
         }
     }
-
-
-
-
-
     //余额充值
     public function newmon(){
         $addmon = config('msg')['addmon']; //调用配置文件
@@ -247,10 +235,6 @@ class Center extends Controller
             return json(['code'=>10001,'msg'=>$addmon['addmon_error'],'data'=>[],'url' =>'']);
         }
     }
-
-
-
-
     //获取我的所有订单
     public function getallorder(){
         $nowlogin = Session::get('nowlogin');
@@ -266,7 +250,6 @@ class Center extends Controller
         ];
         return $arr;
     }
-
     //取消订单
     public function alterorder(){
         $uppwdmsg = config('msg')['alterorder']; //调用配置文件
@@ -287,7 +270,6 @@ class Center extends Controller
             return json(['code'=>10002,'msg'=>$uppwdmsg['alterorder_error'],'data'=>[],'url' => '']);
         }
     }
-
     //获取待支付的订单
     public function unpaidorder(){
         $nowlogin = Session::get('nowlogin');
@@ -303,8 +285,6 @@ class Center extends Controller
         ];
         return $arr;
     }
-
-
     //获取待出行订单
     public function paidorders(){
         $nowlogin = Session::get('nowlogin');
@@ -320,5 +300,20 @@ class Center extends Controller
         ];
         return $arr;
     }
+    //获取该订单详情
+    public function getthisorder(){
+        if(input('?post.orderID')){
+            $orderID = input('param.orderID');
+            $sciencearr = Db::query("select a.b_order_details_num, a.b_order_details_price , b.f_science_name , b.f_science_id from b_order_details a,f_science b WHERE a.b_order_details_classid=1 AND a.b_order_details_gid=b.f_science_id AND a.b_order_details_oid= {$orderID}");
+            $hotelarr = Db::query("select a.b_order_details_num, a.b_order_details_price , b.f_hotel_name , b.f_hotel_id from b_order_details a,f_hotel b WHERE a.b_order_details_classid=2 AND a.b_order_details_gid=b.f_hotel_id AND a.b_order_details_oid= {$orderID}");
+            $resarr = [
+                '0'=>$sciencearr,
+                '1'=>$hotelarr
+            ];
+            return $resarr;
+        }
+    }
+
+
 
 }
