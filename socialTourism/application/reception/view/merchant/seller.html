@@ -12,67 +12,159 @@
 </head>
 <body>
 <!--导航栏-->
-<div id="nav">
-    <div class="nav_box container">
-        <div class="row">
-            <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
-            <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
-                <li><a href="{:url('reception/index/index')}">首页</a></li>
-                <li><a href="{:url('reception/viewport/viewport')}">目的地</a></li>
-                <li><a href="{:url('reception/travels/travels')}">旅游游记</a></li>
-                <li><a href="">商品活动</a></li>
-                <li><a href="{:url('reception/Hotel/hotel')}">酒店</a></li>
-                <li><a class="nav_index"href="{:url('reception/merchant/merchant')}">卖家入驻</a></li>
-            </ul>
-            <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8">
-                <li><a class="nav_qq" href=""></a></li>
-                <li><a class="nav_weixin" href=""></a></li>
-                <li><a class="nav_login" href="">登录</a></li>
-                <li>
-                    <span class="nav_division">|</span>
-                </li>
-                <li><a class="nav_register" href="">注册</a></li>
-            </ul>
+<div id="sell">
+    <div id="nav">
+        <div class="nav_box container">
+            <div class="row">
+                <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
+                <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
+                    <li><a class="nav_index"href="{:url('reception/index/index')}">首页</a></li>
+                    <li><a href="{:url('reception/viewport/viewport')}">目的地</a></li>
+                    <li><a  href="{:url('reception/travels/travels')}">旅游游记</a></li>
+                    <li><a href="{:url('reception/Goodsactive/goodsActive')}">商品活动</a></li>
+                    <li><a href="{:url('reception/Hotel/hotel')}">酒店</a></li>
+                    <li><a href="#"  v-on:click="seller">卖家入驻</a></li>
+                </ul>
+                <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8" v-if="loginState==0">
+                    <li><a class="nav_login" href="{:url('reception/Login/login')}">登录</a></li>
+                    <li>
+                        <span class="nav_division">|</span>
+                    </li>
+                    <li><a class="nav_register" href="{:url('reception/Login/register')}">注册</a></li>
+                </ul>
+                <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8" v-else-if="loginState==1">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle user_photo" data-toggle="dropdown" href="#">
+                            <img v-bind:src="nowlogin[0]['f_user_img']" alt="">
+                            <span>{{nowlogin[0]['f_user_name']}}</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="user_money">
+                                金币 <span>0</span>
+                            </li>
+                            <li>
+                                <a href="{:url('reception/Center/center')}" class="show_center ">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    个人中心
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#" class="user_out" v-on:click="loginout">
+                                    <span class="glyphicon glyphicon-off"></span>
+                                    退出
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
 <!--小屏幕下的导航栏-->
-<div id="nav_small">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-4">
-                <i class="ns_index"></i>
-                <p>首页</p>
+<div id="screen">
+    <div id="nav_small">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-4">
+                    <i class="ns_index" v-on:click="index"></i>
+                    <p>首页</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_place"v-on:click="place"></i>
+                    <p>目的地</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_travels"v-on:click="travels"></i>
+                    <p>旅游游记</p>
+                </div>
             </div>
-            <div class="col-xs-4">
-                <i class="ns_place"></i>
-                <p>目的地</p>
-            </div>
-            <div class="col-xs-4">
-                <i class="ns_travels"></i>
-                <p>旅游游记</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-4">
-                <i class="ns_activity"></i>
-                <p>商品活动</p>
-            </div>
-            <div class="col-xs-4">
-                <i class="ns_hotel"></i>
-                <p>酒店</p>
-            </div>
-            <div class="col-xs-4">
-                <i class="ns_settled"></i>
-                <p>卖家入驻</p>
+            <div class="row">
+                <div class="col-xs-4">
+                    <i class="ns_activity"v-on:click="activity"></i>
+                    <p>商品活动</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_hotel"v-on:click="hotel"></i>
+                    <p>酒店</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_settled"v-on:click="settled"></i>
+                    <p>卖家入驻</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <!--商家主要内容-->
-<div class="container" style="margin-top: 20px;">
-    <div class="row"style="display: block">
-        <div></div>
+<div id="app">
+    <div class="container" style="margin-top: 20px;">
+        <div class="row"style="height: 500px;border: 1px solid grey"v-if="sellerState===1">
+            <form role="form" style="margin-top: 10px">
+                <div class="form-group">
+                    <label >身份证</label>
+                    <input type="number" class="form-control" id="idNumber" placeholder="请输入身份证" v-on:blur="idNumber">
+                    <div style="color: red">{{number}}</div>
+                </div>
+                <div class="form-group">
+                    <label >商家分类：</label>
+                    <select class="goodsClass">
+                        <option value="0">-- 选择分类 --</option>
+                        <option value="1">景点</option>
+                        <option value="2">酒店</option>
+                    </select>
+                </div>
+                <div class="form-group" >
+                    <label>地区：</label>
+                    <select class="province" v-on:change="changeProvince" >
+                        <option value="0">-- 选择省份 --</option>
+                        <option v-for="place in province" v-bind:value="place.f_province_id"  >
+                            {{place.f_province_name}}
+                        </option>
+                    </select>
+                    <select class="city" v-on:change="changeCity">
+                        <option value="0">-- 选择城市 --</option>
+                        <option v-for="place in city" v-bind:value="place.f_city_id"  >
+                            {{place.f_city_name}}
+                        </option>
+                    </select>
+                    <select class="district" >
+                        <option value="0">-- 选择地区 --</option>
+                        <option v-for="place in district" v-bind:value="place.f_district_id"  >
+                            {{place.f_district_name}}
+                        </option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">地址：</label>
+                    <textarea class="form-control" rows="3" id="inputIntro" v-on:blur="sellPlace"></textarea>
+                    <div style="color: red">{{place}}</div>
+                </div>
+            </form>
+            <div class="row " >
+                <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12"></div>
+                <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                    <button type="submit" class="btn btn-info "v-on:click="sellsubmit" >提交</button>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center"style="height: 500px;border: 1px solid grey"v-else-if="sellerState===2">
+            <h1 style="margin-top: 200px">商家信息待审核中...</h1>
+        </div>
+        <div class="row text-center"style="height: 500px;border: 1px solid grey"v-else-if="sellerState===3">
+            <h1 style="margin-top: 200px">商家信息审核未通过！</h1>
+            <div class="row " >
+                <div >
+                    <button type="submit" class="btn btn-info " v-on:click="reup">重新申请</button>
+                </div>
+            </div>
+        </div>
+        <div class="row text-center"style="height: 500px;border: 1px solid grey"v-else-if="sellerState===4">
+            <h1 style="margin-top: 200px">商家已被锁定！</h1>
+        </div>
+
     </div>
 </div>
 <!--页脚-->
@@ -140,8 +232,28 @@
     </div>
 </div>
 </body>
+<!--引用vue.js-->
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
 <script src="__STATIC__/js/jquery-1.12.3.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-<script src="__STATIC__/js/receptionjs/merchant.js"></script>
+<!--路径-->
+<script>
+    var sellState="{:url('reception/Merchant/sellState')}";
+    var provinceUrl="{:url('reception/Merchant/province')}";
+    var cityUrl="{:url('reception/Merchant/city')}";
+    var districe="{:url('reception/Merchant/district')}";
+    var sellsubmit="{:url('reception/Merchant/sellsubmit')}";
+    var sellrReup="{:url('reception/Merchant/sellrReup')}";
+    var sell="{:url('reception/Publics/seller')}";
+    var loginUrl="{:url('reception/Publics/login')}";
+    var loginOutUrl="{:url('reception/Publics/loginOut')}";
+    var indexUrl="{:url('reception/index/index')}";
+    var placeUrl="{:url('reception/viewport/viewport')}";
+    var travelsUrl="{:url('reception/travels/travels')}";
+    var activityUrl="{:url('reception/Goodsactive/goodsActive')}";
+    var hotelUrl="{:url('reception/Hotel/hotel')}";
+</script>
+<script src="__STATIC__/js/receptionjs/public.js"></script>
+<script src="__STATIC__/js/receptionjs/seller.js"></script>
 </html>

@@ -254,15 +254,15 @@ class Viewport extends Controller
                 ];
                 $insertOrder_details = Db::table("b_order_details")->insert($data_details);
                 if($insertOrder_details){
-                    return json(["code"=>1,"tips"=>"添加成功"]);
+                    return json(["code"=>1,"tips"=>"添加成功","orderId"=>$orderId]);
                 }
                 else{
-                    return json(["code"=>2,"tips"=>"添加失败"]);
+                    return json(["code"=>2,"tips"=>"添加失败","orderId"=>'']);
                 }
             }
         }
         else{
-            return json(["code"=>3,"tips"=>"您还没有登录"]);
+            return json(["code"=>3,"tips"=>"您还没有登录","orderId"=>'']);
         }
     }
     //加入购物车
