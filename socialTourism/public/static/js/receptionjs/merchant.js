@@ -7,7 +7,14 @@ $(function(){
         data: {
             province:{},
             city:{},
-            district:{}
+            district:{},
+            order:[],
+            allpage:[],
+            orderNowpage:1,
+            goods:[],
+            goodsallpage:[],
+            goodsNowpage:1,
+            goodsclass:1,
         },
         created:function(){
             var _this=this;
@@ -21,7 +28,9 @@ $(function(){
                 },
                 error:function(res){
                 }
-            })
+            });
+            this.orderShow(1);
+            this.goodShow(1);
         },
         methods:{
             /*提交内容*/
@@ -220,7 +229,164 @@ $(function(){
 
                     }
                 })
-            }
+            },
+            /*订单分页显示*/
+            orderShow:function(page){
+                var _this=this;
+                $.ajax({
+                    type:'get',
+                    dataType:"json",
+                    data:{'page':page},
+                    url:orderUrl,
+                    success:function(res){
+                        _this.order=res.order;
+                        _this.allpage=res.allpage;
+                        _this.orderNowpage=res.nowpage
+                    }
+                })
+            },
+            /*订单第几页*/
+            ordernowpage:function(){
+                var _this=this;
+                var nowpage=$(event.target).html();
+                _this.orderShow(nowpage)
+            },
+            /*订单下一页*/
+            orderNext: function () {
+                var _this=this;
+                if(parseInt(_this.orderNowpage)+1 > this.allpage){
+                    alert("已经是最后一页了");
+                }else {
+                    var page=parseInt(this.orderNowpage)+1
+                    _this.orderShow(page);
+                }
+
+            },
+            /*订单上一页*/
+            orderLast: function () {
+                var _this=this;
+                if(parseInt(_this.orderNowpage)-1 <= 0){
+                    alert("已经是最前页了");
+                }else {
+                    var page=parseInt(this.orderNowpage)-1
+                    _this.orderShow(page);
+                }
+
+            },
+            /*订单出单*/
+            orderIssu:function(){
+                var _this=this;
+                var orderId=$(event.target).parent().attr('orderid');
+                if (confirm("确定出单？"))
+                {
+                    $.ajax({
+                        data:{'orderId':orderId},
+                        type:'post',
+                        dataType:'json',
+                        url:orderIssuUrl,
+                        success:function(res){
+                            if(res.code==1)
+                            {
+                                alert('出单成功')
+                                _this.orderShow(_this.orderNowpage);
+                            }else{
+                                alert('出单失败！')
+                            }
+                        }
+                    })
+                }
+
+            },
+            /*商品分页显示*/
+            goodShow:function(page){
+                var _this=this;
+                $.ajax({
+                    type:'get',
+                    dataType:"json",
+                    data:{'page':page},
+                    url:goodsUrl,
+                    success:function(res){
+                        _this.goods=res.order;
+                        _this.goodsallpage=res.allpage;
+                        _this.goodsNowpage=res.nowpage;
+                        _this.goodsclass=res.class
+                    }
+                })
+            },
+            /*商品第几页*/
+            goodsnowpage:function(){
+                var _this=this;
+                var nowpage=$(event.target).html();
+                _this.goodShow(nowpage)
+            },
+            /*商品下一页*/
+            goodsNext: function () {
+                var _this=this;
+                if(parseInt(_this.goodsNowpage)+1 > this.goodsallpage){
+                    alert("已经是最后一页了");
+                }else {
+                    var page=parseInt(this.goodsNowpage)+1
+                    _this.goodShow(page);
+                }
+
+            },
+            /*商品上一页*/
+            goodsLast: function () {
+                var _this=this;
+                if(parseInt(_this.goodsNowpage)-1 <= 0){
+                    alert("已经是最前页了");
+                }else {
+                    var page=parseInt(this.goodsNowpage)-1
+                    _this.goodShow(page);
+                }
+
+            },
+            /*商品下架*/
+            goodsDown:function(){
+                var _this=this;
+                if(confirm("确定下架？"))
+                {
+                    var goodsid=$(event.target).parent().attr('goodsid');
+                    $.ajax({
+                        data:{'goodsid':goodsid},
+                        type:'post',
+                        dataType:'json',
+                        url:goodsDownUrl,
+                        success:function(res){
+                            if(res.code==1)
+                            {
+                                alert('下架成功')
+                                _this.goodShow(_this.goodsNowpage);
+                            }else{
+                                alert('下架失败！')
+                            }
+                        }
+                    })
+                }
+            },
+            /*商品上架*/
+            goodsUp:function(){
+                var _this=this;
+                if(confirm("确定上架？"))
+                {
+                    var goodsid=$(event.target).parent().attr('goodsid');
+                    $.ajax({
+                        data:{'goodsid':goodsid},
+                        type:'post',
+                        dataType:'json',
+                        url:goodsUpUrl,
+                        success:function(res){
+                            if(res.code==1)
+                            {
+                                alert('上架成功')
+                                _this.goodShow(_this.goodsNowpage);
+                            }else{
+                                alert('上架失败！')
+                            }
+                        }
+                    })
+                }
+            },
         }
     })
 });

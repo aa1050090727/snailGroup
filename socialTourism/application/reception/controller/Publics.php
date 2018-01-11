@@ -10,8 +10,8 @@ use think\Session;
 /*引用请求类*/
 use \think\Request;
 class Publics extends Controller{
+    /*商家入驻*/
     public function seller(){
-        //Session::set("nowlogin",'');
         $nowlogin=Session::get("nowlogin");
         if(empty($nowlogin))
         {
@@ -26,5 +26,22 @@ class Publics extends Controller{
             }
         }
 
+    }
+    /*登录显示*/
+    public function login(){
+        $nowlogin=Session::get('nowlogin');
+        if($nowlogin){
+            $res=Db::table('f_user')->where('f_user_id',$nowlogin)->select();
+            $request = Request::instance();
+            $res[0]['f_user_img']=str_replace("__STATIC__",$request->root()."/static",$res[0]['f_user_img']);//字符串替换
+            return json(['loginState'=>1,'nowlogin'=>$res]);
+        }else{
+            return json(['loginState'=>0,'nowlogin'=>'']);
+        }
+    }
+    /*退出登录*/
+    public function loginOut(){
+        Session::set("nowlogin",'');
+        return json(['loginState'=>0,'nowlogin'=>'']);
     }
 }

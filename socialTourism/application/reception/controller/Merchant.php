@@ -108,7 +108,7 @@ class merchant extends Controller
                 $data=[
                     "f_science_id"=>null,
                     "f_science_name"=>$goodsName,
-                    "f_science_state"=>1,/*景点状态（审核）*/
+                    "f_science_state"=>2,/*景点状态（审核）*/
                     "f_science_states"=>$goodsRelease,/*活动、普通*/
                     "f_science_classify"=>$goodsClass,/*景点、酒店*/
                     "f_science_img"=>$url,
@@ -133,7 +133,7 @@ class merchant extends Controller
                 $data=[
                     "f_hotel_id"=>null,
                     "f_hotel_name"=>$goodsName,
-                    "f_hotel_state"=>1,/*酒店状态（审核）*/
+                    "f_hotel_state"=>2,/*酒店状态（审核）*/
                     "f_hotel_states"=>$goodsRelease,/*活动、普通*/
                     "f_science_classify"=>$goodsClass,/*景点、酒店*/
                     "f_hotel_img"=>$url,
@@ -206,5 +206,83 @@ class merchant extends Controller
         }else{
             return json(["code"=>2,"msg"=>"申请失败！"]);
         }
+    }
+    /*订单显示*/
+    public function order(){
+        $seller=Session::get('seller');
+        $sellerClass=Db::table('f_seller')->where("f_seller_id",$seller)->select();
+        $class=$sellerClass[0]['f_seller_stats'];
+        $page=input('param.page');
+        /*辨别是什么类型的商品*/
+        if($class==1){
+            $order=Db::table('b_order_details')->alias('a')->join('b_order b','a.b_order_details_oid=b.b_order_id')->join('f_user c','a.b_order_details_uid=c.f_user_id')->join('f_science d','a.b_order_details_gid=d.f_science_id')->where("b_order_details_sid",$seller)->page($page,3)->select();
+            $orderpage=Db::table('b_order_details')->alias('a')->join('b_order b','a.b_order_details_oid=b.b_order_id')->join('f_user c','a.b_order_details_uid=c.f_user_id')->join('f_science d','a.b_order_details_gid=d.f_science_id')->where("b_order_details_sid",$seller)->count();
+        }else{
+            $order=Db::table('b_order_details')->alias('a')->join('b_order b','a.b_order_details_oid=b.b_order_id')->join('f_user c','a.b_order_details_uid=c.f_user_id')->join('f_hotel d','a.b_order_details_gid=d.f_hotel_id')->where("b_order_details_sid",$seller)->page($page,3)->select();
+            $orderpage=Db::table('b_order_details')->alias('a')->join('b_order b','a.b_order_details_oid=b.b_order_id')->join('f_user c','a.b_order_details_uid=c.f_user_id')->join('f_hotel d','a.b_order_details_gid=d.f_hotel_id')->where("b_order_details_sid",$seller)->count();
+        }
+        $allpage=ceil($orderpage/3);
+        return json(['order'=>$order,'allpage'=>$allpage,"nowpage"=>$page]);
+    }
+    /*订单出单*/
+    public function orderIssu(){
+        $orderId=input('param.orderId');
+        $res=Db::table('b_order')->where('b_order_id',$orderId)->update(['b_order_state'=>"交易成功"]);
+        return json(['code'=>$res]);
+    }
+    /*商品显示*/
+    public  function goods(){
+        $seller=Session::get('seller');
+        $sellerClass=Db::table('f_seller')->where("f_seller_id",$seller)->select();
+        $class=$sellerClass[0]['f_seller_stats'];
+        $page=input('param.page');
+        /*辨别是什么类型的商品*/
+        if($class==1){
+            $order=Db::table('f_science')->where("f_science_sid",$seller)->page($page,3)->select();
+            $orderpage=Db::table('f_science')->where("f_science_sid",$seller)->count();
+        }else{
+            $order=Db::table('f_hotel')->where("f_hotel_sid",$seller)->page($page,3)->select();
+            $orderpage=Db::table('f_hotel')->where("f_hotel_sid",$seller)->count();
+        }
+        $allpage=ceil($orderpage/3);
+        return json(['order'=>$order,'allpage'=>$allpage,"nowpage"=>$page,'class'=>$class]);
+    }
+    /*商品下架*/
+    public function goodsDown(){
+        $goodsid=input('param.goodsid');
+        $seller=Session::get('seller');
+        $sellerClass=Db::table('f_seller')->where("f_seller_id",$seller)->select();
+        $class=$sellerClass[0]['f_seller_stats'];
+        /*辨别是什么类型的商品*/
+        if($class==1){
+            $res=Db::table('f_science')->where('f_science_id',$goodsid)->update(['f_science_state'=>4]);
+        }else{
+            $res=Db::table('f_hotel')->where('f_hotel_id',$goodsid)->update(['f_hotel_state'=>4]);
+        }
+        if($res){
+            return json(['code'=>1]);
+        }else{
+            return json(['code'=>2]);
+        }
+
+    }
+    /*商品上架*/
+    public function goodsUp(){
+        $goodsid=input('param.goodsid');
+        $seller=Session::get('seller');
+        $sellerClass=Db::table('f_seller')->where("f_seller_id",$seller)->select();
+        $class=$sellerClass[0]['f_seller_stats'];
+        /*辨别是什么类型的商品*/
+        if($class==1){
+            $res=Db::table('f_science')->where('f_science_id',$goodsid)->update(['f_science_state'=>1]);
+        }else{
+            $res=Db::table('f_hotel')->where('f_hotel_id',$goodsid)->update(['f_hotel_state'=>1]);
+        }
+        if($res){
+            return json(['code'=>1]);
+        }else{
+            return json(['code'=>2]);
+        }
+
     }
 }

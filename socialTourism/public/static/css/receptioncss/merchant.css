@@ -11,6 +11,11 @@
     margin-bottom: 20px;
     overflow-y: scroll;
 }
+/*表格居中*/
+#tdClass .tdClass{
+    height: 100px;
+    line-height: 100px;
+}
 /*大屏幕*/
 @media (min-width: 1200px){
 
