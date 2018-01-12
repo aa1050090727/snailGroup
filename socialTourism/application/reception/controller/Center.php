@@ -313,7 +313,20 @@ class Center extends Controller
             return $resarr;
         }
     }
-
-
+    //获取已收藏的景点
+    public function Scenic_collectionUrl(){
+        $nowlogin = Session::get('nowlogin');
+        $count = Db::query("select count(*) count  from f_enshrine WHERE f_enshrine_uid={$nowlogin} and f_enshrine_cid = 2") ;//获取总条数
+        $allpage = ceil($count[0]['count']/3);
+        $nowpage = input('param.nowpage');
+        $start = ($nowpage-1)*3;
+        $res = Db::query("select a.f_enshrine_sid,b.f_science_img,b.f_science_content,b.f_science_name from f_enshrine a,f_science b where a.f_enshrine_uid={$nowlogin} and a.f_enshrine_cid = 2 and a.f_enshrine_sid=b.f_science_id limit {$start},3");//获取当前页的数据
+        $arr = [
+            'nowpage'=>$nowpage,
+            'allpage'=>$allpage,
+            'data'=>$res
+        ];
+        return $arr;
+    }
 
 }

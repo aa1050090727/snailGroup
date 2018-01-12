@@ -502,3 +502,77 @@ var paidorder = new Vue({
 
 
 
+var Scenic_collection111 = new Vue({
+    el:'#Scenic_collection',
+    data:{
+        scenicdatas : [
+
+        ],
+        allpage:1,
+        nowpage:1
+    },
+    created:function(){
+        this.get_Scenic_collection(1)
+    },
+    methods:{
+        //获取自己收藏的景点
+        get_Scenic_collection:function(page){
+            var _this = this;
+            $.ajax({
+                url:Scenic_collectionUrl,
+                dateType:"json",
+                data:'nowpage='+page,
+                type:"post",
+                success:function(res){
+                    console.log(res)
+                    _this.scenicdatas=res['data'];
+                    _this.allpage = res['allpage']
+                    _this.nowpage = res['nowpage']
+                    console.log(_this.scenicdatas)
+                }
+            })
+        },
+
+        //上一页
+        Scenicprev:function(){
+            if(parseInt(this.nowpage)-1 <= 0){
+                alert('当前是第一页')
+            }else {
+                var lastpage =parseInt(this.nowpage)-1;
+                this.get_Scenic_collection(lastpage)
+            }
+        },
+        //下一页
+        Scenicnext:function(){
+            if(parseInt(this.nowpage)+1 > this.allpage){
+                alert('当前是最后一页')
+            }else {
+                var nextpage =parseInt(this.nowpage)+1;
+                this.get_Scenic_collection(nextpage)
+            }
+        },
+        //页面跳转
+        goDetail:function() {
+            var f_science_id = $(event.target).attr("id");
+            console.log(f_science_id)
+            $.ajax({
+                type: "post",
+                data: {"f_science_id": f_science_id},
+                dataType: "json",
+                url: setViewId_url,
+                success: function (res) {
+                    console.log(res.result);
+                    if (res.result == true) {
+                        window.location.href = goViewdetailed_url;
+                    }
+                    else {
+                        window.location.href = error_url;
+                    }
+                },
+                error: function (res) {
+                    console.log("error", res);
+                }
+            });
+        },
+    }
+})
