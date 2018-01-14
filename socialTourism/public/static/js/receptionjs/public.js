@@ -56,6 +56,7 @@ var app=new Vue({
                       alert('退出成功！');
                       _this.loginState=res.loginState;
                       _this.nowlogin=res.nowlogin;
+                      window.location.reload()
                   }
               })
           }
