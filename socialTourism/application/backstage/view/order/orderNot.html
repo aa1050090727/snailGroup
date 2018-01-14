@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>未支付订单</title>
+    <link rel="stylesheet" href="__STATIC__/kit_admin/plugins/layui/css/layui.css" media="all">
+</head>
+<body>
+<div class="site-text layui-elem-quote" style="display: flex">
+    <input id="orderSearch" type="text" name="text" placeholder="请输入关键字" class="layui-input" style="width: 200px">
+    <button class="layui-btn" id="searchBut">搜索</button>
+</div>
+<table class="layui-table" lay-data="{ url:'{:url('backstage/Order/getNotPay')}?keyword', page:true, id:'orderData'}" lay-filter="test" id="test">
+    <thead>
+    <tr>
+        <th lay-data="{field:'b_order_id', width:80, sort: true}">ID</th>
+        <th lay-data="{field:'f_user_phone', width:120}">订单用户</th>
+        <th lay-data="{field:'b_order_total_number', width:120}">购买数量</th>
+        <th lay-data="{field:'b_order_total_price', width:120}">订单总价</th>
+        <th lay-data="{field:'b_order_time', width:200}">订单时间</th>
+        <th lay-data="{field:'b_order_state', width:120,sort: true}">订单状态</th>
+        <th lay-data="{fixed: 'right', width: 100, align:'center', toolbar: '#barDemo'}">操作</th>
+    </tr>
+    </thead>
+</table>
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="check">查看</a>
+</script>
+</body>
+<script src="__STATIC__/kit_admin/plugins/layui/layui.js"></script>
+<script src="__STATIC__/js/jquery-1.12.3.min.js"></script>
+<script>
+    var getNotPay = "{:url('backstage/Order/getNotPay')}";
+    var getIdPay = "{:url('backstage/Order/getIdPay')}";
+
+</script>
+<script src="__STATIC__/js/backstage/orderNot.js"></script>
+</html>
