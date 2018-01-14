@@ -19,23 +19,28 @@ var app=new Vue({
                 data.append("introduce",introduce);
                 data.append("content",content);
                 data.append("img",img);
-                $.ajax({
-                    type:"post",
-                    url:notePublic,
-                    data:data,
-                    cache:false,
-                    contentType:false,
-                    processData:false,
-                    dataType:"text",
-                    success:function(res) {
-                        if (res==1)
-                        {
-                            alert("提交成功，等待审核");
-                        }else if(res==0){
-                            alert("提交失败");
+                if(head==''||place==""||introduce==""||content==""||img==undefined){
+                    alert("请正确填写游记信息！")
+                }else {
+                    $.ajax({
+                        type:"post",
+                        url:notePublic,
+                        data:data,
+                        cache:false,
+                        contentType:false,
+                        processData:false,
+                        dataType:"text",
+                        success:function(res) {
+                            if (res==1)
+                            {
+                                alert("提交成功，等待审核");
+                            }else if(res==0){
+                                alert("提交失败");
+                            }
                         }
-                    }
-                })
+                    })
+                }
+
             }
 
         },

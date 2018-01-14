@@ -29,20 +29,6 @@ var app=new Vue({
        /*搜索游记*/
        search:function(){
            var place=$("#place").val();
-            /*$.ajax({
-            type:"post",
-            url:travelSearch,
-            data:{"search":place},
-            dataType:"text",
-            success:function(res){
-            if (res==0){
-
-            }
-            else if(res==1){
-
-            }
-            }
-            })*/
            window.location.href=travelSearch+"?place="+place;
        }
    }

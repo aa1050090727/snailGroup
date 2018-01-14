@@ -1,4 +1,4 @@
-@media (max-width:767px) {
+@media (max-width:768px) {
     .typeface{
         height: 48px;
         line-height: 38px;
@@ -101,7 +101,7 @@
         margin-bottom: 200px;
     }
     .automy2{
-        width: 200px;
+
         margin: 10px;
         color: #0f0f0f;
     }
@@ -137,6 +137,10 @@
 
     .order_class{
         padding-top: 80px;
+    }
+    .modal-dialog{
+        width: 800px;
+        margin: 30px auto;
     }
 
 
@@ -249,7 +253,7 @@
         margin-bottom: 200px;
     }
     .automy2{
-        width: 200px;
+
         margin: 10px;
         color: #0f0f0f;
     }
@@ -285,6 +289,10 @@
 
     .order_class{
         padding-top: 80px;
+    }
+    .modal-dialog{
+        width: 800px;
+        margin: 30px auto;
     }
 }
 @media (min-width:992px) and (max-width:1199px) {
@@ -396,7 +404,7 @@
         margin-bottom: 200px;
     }
     .automy2{
-        width: 200px;
+
         margin: 10px;
         color: #0f0f0f;
     }
@@ -432,6 +440,10 @@
 
     .order_class{
         padding-top: 80px;
+    }
+    .modal-dialog{
+        width: 800px;
+        margin: 30px auto;
     }
 }
 @media (min-width:1200px) {
@@ -546,7 +558,7 @@
         margin-bottom: 200px;
     }
     .automy2{
-        width: 200px;
+
         margin: 10px;
         color: #0f0f0f;
     }
@@ -582,5 +594,10 @@
 
     .order_class{
         padding-top: 80px;
+    }
+
+    .modal-dialog{
+        width: 800px;
+        margin: 30px auto;
     }
 }

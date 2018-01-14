@@ -1,0 +1,74 @@
+.wet{
+    width: 106px;
+    height: 30px;
+    display: inline-block;
+    background: url(../../image/cashier-bg4.png) 0 -40px no-repeat;
+    background-size: auto;
+    vertical-align: middle;
+}
+
+
+.zfb{
+    width: 80px;
+    height: 28px;
+    display: inline-block;
+    background: url(../../image/cashier-bg4.png) 0 -75px no-repeat;
+    background-size: auto;
+    vertical-align: middle;
+}
+
+
+@media (max-width:767px) {
+    .pay{
+
+        margin: 50px 50px;
+    }
+
+    .border{
+
+        height: 300px;
+        border: 1px solid;
+    }
+}
+@media (min-width:768px) and (max-width:991px) {
+    .pay{
+        float: left;
+        margin: 0 50px;
+    }
+    .border{
+
+        border: 1px solid;
+    }
+    .height{
+        height: 60px;
+        line-height: 60px
+    }
+}
+@media (min-width:992px) and (max-width:1199px) {
+    .pay{
+        float: left;
+        margin: 0 50px;
+    }
+    .border{
+
+        border: 1px solid;
+    }
+    .height{
+        height: 60px;
+        line-height: 60px
+    }
+}
+@media (min-width:1200px) {
+     .pay{
+         float: left;
+         margin: 0 50px;
+     }
+    .border{
+
+        border: 1px solid;
+    }
+    .height{
+        height: 60px;
+        line-height: 60px
+    }
+}

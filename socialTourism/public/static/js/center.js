@@ -1,72 +1,8 @@
 /**
  * Created by fire on 2017/12/28.
  */
-Vue.component('mytravels',{
-    template : '<div>\
-                        <div v-for="item in wenjlist">\
-                            <div class="panel panel-default">\
-                                <div class="panel-body">\
-                                    {{item.ID}}\
-                                </div>\
-                                <div class="panel-footer">{{item.wname}}</div>\
-                            </div>\
-                        </div>\
-                        <nav>\
-                            <ul class="pager">\
-                                <li><a href="#" v-on:click="prev()">上一页</a></li>\
-                                <li><a href="#" @click="next()">下一页</a></li>\
-                            </ul>\
-                        </nav>\
-                    </div>',
-    data:function(){
-        return{
-            wenjlist:[
-                {'wname':'123','ID':"10056"},
-                {'wname':'1232','ID':"10057"},
-                {'wname':'1233','ID':"10058"},
-                {'wname':'1234','ID':"10059"},
-                {'wname':'1235','ID':"10060"}
-            ],
-            allpage:1,
-            nowpage:1
-        }
-    },
-    created:function(){
-        this.init(this.nowpage)
-    },
-    methods:{
-        init:function(page){
-            var _this = this;
-            $.ajax({
-                url:"index.php?c=mian&a=getwj&nowpage="+page,
-                dateType:"json",
-                data:"",
-                type:"get",
-                success:function(res){
-                    $arr = JSON.parse(res)
-                    _this.wenjlist = $arr[0]
-                    _this.allpage = $arr[1]['allPage']
-                    _this.nowpage = $arr[1]['nowPage']
-                }
-            })
-        },
-        //上一页
-        prev:function(){
-            var lastpage = parseInt(this.nowpage)-1 <= 0 ? 1 : parseInt(this.nowpage)-1;
-            this.init(lastpage)
 
-        },
-        //下一页
-        next: function () {
-            var nextpage = parseInt(this.nowpage)+1 > this.allpage ? this.allpage : parseInt(this.nowpage)+1;
-            this.init(nextpage)
-        }
-    }
-});
-new Vue({
-    el: '#showwj'
-})
-
+//获取个人信息
 var myset = new Vue({
     el:"#myset",
     data:{
@@ -77,12 +13,43 @@ var myset = new Vue({
         mysex:"",
         paw:"",
         pwd:"",
-        pass:""
+        pass:"",
+        myimg:''
     },
     created:function(){
        this.init()
     },
     methods:{
+
+        addmon:function(){
+            var _this = this;
+            if(confirm('确定充值吗？')){
+                $upmon = $("#upmon").val()
+                $.ajax({
+                    url:newmon,
+                    dateType:"json",
+                    data:'upmon='+$upmon,
+                    type:"post",
+                    success:function(res){
+                        if(res['code']==10000){
+                            alert(res['msg'])
+                            _this.init()
+                            $("#upmon").val('')
+                        }else if(res['code']==10001){
+                            alert(res['msg'])
+                        }else if(res['code']==10002){
+                            alert(res['msg'])
+                        }else if(res['code']==10003){
+                            alert(res['msg'])
+                        }else if(res['code']==10004){
+                            alert(res['msg'])
+                        }
+                    }
+                })
+            }
+
+        },
+
         init:function(){
             var _this = this;
             $.ajax({
@@ -96,6 +63,7 @@ var myset = new Vue({
                     _this.mymon=res['f_user_money']
                     _this.myphone=res['f_user_phone']
                     _this.mysex=res['f_user_sex']
+                    _this.myimg=res['f_user_img']
                 }
             })
         },
@@ -160,11 +128,451 @@ var myset = new Vue({
                     }
                 })
             }
-        }
+        },
+
+
 
     }
 
 })
 
+//获取游记
+var showwj = new Vue({
+    el:"#showwj",
+    data:{
+        todos : [
+
+        ],
+        allpage:1,
+        nowpage:1,
+        mynoname:'',
+        mymon:'',
+        myimg:''
+    },
+    created:function(){
+        this.getnote(1);
+        this.init();
+    },
+    methods:{
+        getnote: function (page) {
+            var _this = this;
+            $.ajax({
+                url:getnote,
+                dateType:"json",
+                data:'nowpage='+page,
+                type:"post",
+                success:function(res){
+                    _this.todos=res['data'];
+                    _this.allpage = res['allpage']
+                    _this.nowpage = res['nowpage']
+                }
+            })
+        },
+
+        init:function(){
+            var _this = this;
+            $.ajax({
+                url:getmy,
+                dateType:"json",
+                data:'',
+                type:"post",
+                success:function(res){
+                    _this.mynoname=res['f_user_name']
+                    _this.mymon=res['f_user_money']
+                    _this.myimg=res['f_user_img']
+                }
+            })
+        },
+
+        mysetprev:function(){
+            if(parseInt(this.nowpage)-1 <= 0){
+                alert('当前是第一页')
+            }else {
+                var lastpage =parseInt(this.nowpage)-1;
+                this.getnote(lastpage)
+            }
 
 
+        },
+        mysetnext:function(){
+            if(parseInt(this.nowpage)+1 > this.allpage){
+                alert('当前是最后一页')
+            }else {
+                var nextpage =parseInt(this.nowpage)+1;
+                this.getnote(nextpage)
+            }
+
+
+        },
+
+        /*阅读全文*/
+        travelDetails:function(){
+            var travelID=$(event.target).attr("travelID");
+            window.location.href=travelDetail+"?travelID="+travelID;
+        },
+    }
+})
+
+//获取所有订单
+var allorder = new Vue({
+    el:"#allorder",
+    data:{
+        orders : [
+
+        ],
+        allpage:1,
+        nowpage:1,
+        sciencedetails : [],
+        hoteldetails: []
+    },
+    created:function(){
+        this.getallorder(1)
+    },
+    methods:{
+
+        //获取该订单的详情
+        getdetails:function(){
+            var _this = this;
+            var orderID=$(event.target).attr("id");
+            $.ajax({
+                url:getthisorder,
+                dateType:"json",
+                data:'orderID='+orderID,
+                type:"post",
+                success:function(res){
+                    _this.sciencedetails  = res[0]
+                    _this.hoteldetails  = res[1]
+                }
+            })
+        },
+
+        //页面跳转
+        goDetail:function() {
+            var f_science_id = $(event.target).attr("id");
+            $.ajax({
+                type: "post",
+                data: {"f_science_id": f_science_id},
+                dataType: "json",
+                url: setViewId_url,
+                success: function (res) {
+                    console.log(res.result);
+                    if (res.result == true) {
+                        window.location.href = goViewdetailed_url;
+                    }
+                    else {
+                        window.location.href = error_url;
+                    }
+                },
+                error: function (res) {
+                    console.log("error", res);
+                }
+            });
+        },
+
+        showDetails:function() {
+            //发送ajax，将当前地点存起来
+            var id = $(event.target).attr("id");
+            $.ajax({
+                type: "post",
+                url: hotel_setCookie_Url,
+                data: {"f_hotel_id": id},
+                dataType: "json",
+                success: function (res) {
+                    console.log(res);
+                    if (res.code == 1) {
+                        location.href = hoteDetailsUrl;
+                    }
+                    else {
+                        location.reload();
+                    }
+                },
+                error: function (res) {
+                    console.log("error", res);
+                }
+            })
+        },
+
+        //获取数据
+        getallorder:function(page){
+            var _this = this;
+            $.ajax({
+                url:getallorder,
+                dateType:"json",
+                data:'nowpage='+page,
+                type:"post",
+                success:function(res){
+                    console.log(res)
+                    _this.orders=res['data'];
+                    _this.allpage = res['allpage']
+                    _this.nowpage = res['nowpage']
+                }
+            })
+        },
+        //上一页
+        allorderprev:function(){
+            if(parseInt(this.nowpage)-1 <= 0){
+                alert('当前是第一页')
+            }else {
+                var lastpage =parseInt(this.nowpage)-1;
+                this.getallorder(lastpage)
+            }
+
+
+        },
+        //下一页
+        allordernext:function(){
+            if(parseInt(this.nowpage)+1 > this.allpage){
+                alert('当前是最后一页')
+            }else {
+                var nextpage =parseInt(this.nowpage)+1;
+                this.getallorder(nextpage)
+            }
+        },
+
+        //去支付
+        gopay:function(){
+            var orderID=$(event.target).attr("id");
+            window.location.href=gopay+"?orderID="+orderID;
+        },
+
+
+        //取消订单
+        alterorder:function(){
+            var _this = this;
+            if(confirm('确定要取消订单吗？')){
+                var orderID=$(event.target).attr("id");
+                $.ajax({
+                    url:alterorder,
+                    dateType:"json",
+                    data:'orderID='+orderID,
+                    type:"post",
+                    success:function(res){
+                        if(res['code']==10000){
+                            alert(res['msg'])
+                            _this.getallorder(1)
+                        }else if(res['code']==10001){
+                            alert(res['msg'])
+                        }else if(res['code']==10002){
+                            alert(res['msg'])
+                        }
+                    }
+                })
+            }
+
+        }
+    }
+})
+
+//获取待支付订单
+var unpaidorder = new Vue({
+    el:"#unpaidorder",
+    data:{
+        orders : [
+
+        ],
+        allpage:1,
+        nowpage:1
+    },
+    created:function(){
+        this.unpaidorder(1)
+    },
+    methods:{
+        //获取数据
+        unpaidorder:function(page){
+            var _this = this;
+            $.ajax({
+                url:unpaidorderel,
+                dateType:"json",
+                data:'nowpage='+page,
+                type:"post",
+                success:function(res){
+                    console.log(res)
+                    _this.orders=res['data'];
+                    _this.allpage = res['allpage']
+                    _this.nowpage = res['nowpage']
+                }
+            })
+        },
+
+        //上一页
+        unpaidprev:function(){
+            if(parseInt(this.nowpage)-1 <= 0){
+                alert('当前是第一页')
+            }else {
+                var lastpage =parseInt(this.nowpage)-1;
+                this.unpaidorder(lastpage)
+            }
+        },
+        //下一页
+        unpaidnext:function(){
+            if(parseInt(this.nowpage)+1 > this.allpage){
+                alert('当前是最后一页')
+            }else {
+                var nextpage =parseInt(this.nowpage)+1;
+                this.unpaidorder(nextpage)
+            }
+        },
+
+        //去支付
+        gopay:function(){
+            var orderID=$(event.target).attr("id");
+            window.location.href=gopay+"?orderID="+orderID;
+        },
+
+
+        //取消订单
+        alterorder:function(){
+            var _this = this;
+            if(confirm('确定要取消订单吗？')){
+                var orderID=$(event.target).attr("id");
+                $.ajax({
+                    url:alterorder,
+                    dateType:"json",
+                    data:'orderID='+orderID,
+                    type:"post",
+                    success:function(res){
+                        if(res['code']==10000){
+                            alert(res['msg'])
+                            _this.unpaidorder(1)
+                        }else if(res['code']==10001){
+                            alert(res['msg'])
+                        }else if(res['code']==10002){
+                            alert(res['msg'])
+                        }
+                    }
+                })
+            }
+
+        }
+    }
+
+})
+
+//获取已支付订单
+var paidorder = new Vue({
+    el:"#paidorder",
+    data:{
+        orders : [
+
+        ],
+        allpage:1,
+        nowpage:1
+    },
+    created:function(){
+        this.paidordere(1)
+    },
+    methods:{
+        //获取数据
+        paidordere:function(page){
+            var _this = this;
+            $.ajax({
+                url:paidorders,
+                dateType:"json",
+                data:'nowpage='+page,
+                type:"post",
+                success:function(res){
+                    console.log(res)
+                    _this.orders=res['data'];
+                    _this.allpage = res['allpage']
+                    _this.nowpage = res['nowpage']
+                }
+            })
+        },
+
+        //上一页
+        paidorderprev:function(){
+            if(parseInt(this.nowpage)-1 <= 0){
+                alert('当前是第一页')
+            }else {
+                var lastpage =parseInt(this.nowpage)-1;
+                this.paidordere(lastpage)
+            }
+        },
+        //下一页
+        paidordernext:function(){
+            if(parseInt(this.nowpage)+1 > this.allpage){
+                alert('当前是最后一页')
+            }else {
+                var nextpage =parseInt(this.nowpage)+1;
+                this.paidordere(nextpage)
+            }
+        },
+    }
+})
+
+
+
+var Scenic_collection111 = new Vue({
+    el:'#Scenic_collection',
+    data:{
+        scenicdatas : [
+
+        ],
+        allpage:1,
+        nowpage:1
+    },
+    created:function(){
+        this.get_Scenic_collection(1)
+    },
+    methods:{
+        //获取自己收藏的景点
+        get_Scenic_collection:function(page){
+            var _this = this;
+            $.ajax({
+                url:Scenic_collectionUrl,
+                dateType:"json",
+                data:'nowpage='+page,
+                type:"post",
+                success:function(res){
+                    console.log(res)
+                    _this.scenicdatas=res['data'];
+                    _this.allpage = res['allpage']
+                    _this.nowpage = res['nowpage']
+                    console.log(_this.scenicdatas)
+                }
+            })
+        },
+
+        //上一页
+        Scenicprev:function(){
+            if(parseInt(this.nowpage)-1 <= 0){
+                alert('当前是第一页')
+            }else {
+                var lastpage =parseInt(this.nowpage)-1;
+                this.get_Scenic_collection(lastpage)
+            }
+        },
+        //下一页
+        Scenicnext:function(){
+            if(parseInt(this.nowpage)+1 > this.allpage){
+                alert('当前是最后一页')
+            }else {
+                var nextpage =parseInt(this.nowpage)+1;
+                this.get_Scenic_collection(nextpage)
+            }
+        },
+        //页面跳转
+        goDetail:function() {
+            var f_science_id = $(event.target).attr("id");
+            console.log(f_science_id)
+            $.ajax({
+                type: "post",
+                data: {"f_science_id": f_science_id},
+                dataType: "json",
+                url: setViewId_url,
+                success: function (res) {
+                    console.log(res.result);
+                    if (res.result == true) {
+                        window.location.href = goViewdetailed_url;
+                    }
+                    else {
+                        window.location.href = error_url;
+                    }
+                },
+                error: function (res) {
+                    console.log("error", res);
+                }
+            });
+        },
+    }
+})
