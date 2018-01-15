@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>酒店管理</title>
+    <link rel="stylesheet" href="__STATIC__/kit_admin/plugins/layui/css/layui.css" media="all">
+    <link rel="stylesheet" href="__STATIC__/css/bootstrap/bootstrap.css">
+</head>
+<body>
+
+<div class="site-text layui-elem-quote" style="display: flex">
+    <input id="hotelSearch" type="text" name="text"  placeholder="请输入关键字" class="layui-input" style="width: 200px">
+    <button class="layui-btn" id="searchBut">搜索</button>
+</div>
+<table class="layui-table" lay-data="{ url:'{:url('backstage/Hotel/getHotel')}?keyword', page:true, id:'hotelData'}" lay-filter="test" id="test">
+    <thead>
+    <tr>
+        <th lay-data="{field:'f_hotel_id', width:80, sort: true}">ID</th>
+        <th lay-data="{field:'f_hotel_name', width:200}">酒店名称</th>
+        <th lay-data="{field:'f_hotel_state', width:100,sort: true}">酒店状态</th>
+        <th lay-data="{field:'f_hotel_states', width:100,sort: true}">发布类型</th>
+        <th lay-data="{field:'f_hotel_price', width:100,sort: true}">酒店价格</th>
+        <th lay-data="{field:'f_hotel_num', width:100,sort: true}">客房数量</th>
+        <th lay-data="{field:'f_user_phone', width:120}">发布商家</th>
+        <th lay-data="{field:'f_hotel_time', width:170,sort: true}">酒店时间</th>
+        <th lay-data="{fixed: 'right', width: 165, align:'center', toolbar: '#barDemo'}">操作</th>
+    </tr>
+    </thead>
+</table>
+<script type="text/html" id="barDemo">
+    <!--<a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="preview">预览</a>-->
+    <a class="layui-btn layui-btn-xs" lay-event="preview">预览</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">下架</a>
+</script>
+</body>
+<script src="__STATIC__/kit_admin/plugins/layui/layui.js"></script>
+<script src="__STATIC__/js/jquery-1.12.3.min.js"></script>
+<script>
+    var getHotel= "{:url('backstage/Hotel/getHotel')}";
+    var previewHotel= "{:url('backstage/Hotel/previewHotel')}";
+    var examineHotel= "{:url('backstage/Hotel/examineHotel')}";
+</script>
+<script src="__STATIC__/js/backstage/hotel.js"></script>
+</html>

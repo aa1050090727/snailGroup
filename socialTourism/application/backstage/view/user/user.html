@@ -2,9 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>用户管理</title>
+    <title>普通用户</title>
+    <link rel="stylesheet" href="__STATIC__/kit_admin/plugins/layui/css/layui.css" media="all">
 </head>
 <body>
-<h1>用户管理</h1>
+<div class="site-text layui-elem-quote" style="display: flex">
+    <input id="userSearch" type="text" name="text" placeholder="请输入关键字" class="layui-input" style="width: 200px">
+    <button class="layui-btn" id="searchBut">搜索</button>
+</div>
+<table class="layui-table" lay-data="{ url:'{:url('backstage/User/getUser')}?keyword', page:true, id:'userData'}" lay-filter="test" id="test">
+    <thead>
+    <tr>
+        <th lay-data="{field:'f_user_id', width:80, sort: true}">ID</th>
+        <th lay-data="{field:'f_user_phone', width:120}">用户手机</th>
+        <th lay-data="{field:'f_user_name', width:150}">用户昵称</th>
+        <th lay-data="{field:'f_user_sex', width:100,sort: true}">用户性别</th>
+        <th lay-data="{field:'f_user_money', width:120,sort: true}">用户金币</th>
+        <th lay-data="{field:'f_user_sell', width:120,sort: true}">是否为卖家</th>
+        <th lay-data="{field:'f_user_states', width:100,sort: true}">用户状态</th>
+        <th lay-data="{fixed: 'right', width: 200, align:'center', toolbar: '#barDemo'}">操作</th>
+    </tr>
+    </thead>
+</table>
+<script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="state">锁定/使用</a>
+    <a class="layui-btn layui-btn-xs" lay-event="reset">重置密码</a>
+    <!--<a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>-->
+</script>
 </body>
+
+<script src="__STATIC__/kit_admin/plugins/layui/layui.js"></script>
+<script src="__STATIC__/js/jquery-1.12.3.min.js"></script>
+<script>
+    var getUser = "{:url('backstage/User/getUser')}";
+    var resetPsw = "{:url('backstage/User/resetPsw')}";
+    var upUserState = "{:url('backstage/User/upUserState')}";
+</script>
+<script src="__STATIC__/js/backstage/user.js"></script>
 </html>
