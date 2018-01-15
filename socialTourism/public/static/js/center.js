@@ -500,8 +500,7 @@ var paidorder = new Vue({
     }
 })
 
-
-
+//获取景点收藏
 var Scenic_collection111 = new Vue({
     el:'#Scenic_collection',
     data:{
@@ -576,3 +575,6 @@ var Scenic_collection111 = new Vue({
         },
     }
 })
+
+
+//获取购物车
