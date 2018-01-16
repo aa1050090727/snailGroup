@@ -14,59 +14,88 @@
 </head>
 <body>
 <!--导航栏-->
-<div id="nav">
-    <div class="nav_box container">
-        <div class="row">
-            <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
-            <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
-                <li><a class="nav_index" href="">首页</a></li>
-                <li><a href="{:url('reception/viewport/viewport')}">目的地</a></li>
-                <li><a href="">旅游游记</a></li>
-                <li><a href="">商品活动</a></li>
-                <li><a href="{:url('reception/Hotel/hotel')}">酒店</a></li>
-                <li><a href="">卖家入驻</a></li>
-            </ul>
-            <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8">
-                <li><a class="nav_qq" href=""></a></li>
-                <li><a class="nav_weixin" href=""></a></li>
-                <li><a class="nav_login" href="{:url('reception/Login/login')}">登录</a></li>
-                <li>
-                    <span class="nav_division">|</span>
-                </li>
-                <li><a class="nav_register" href="{:url('reception/Login/register')}">注册</a></li>
-            </ul>
+<div id="sell">
+    <div id="nav">
+        <div class="nav_box container">
+            <div class="row">
+                <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
+                <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
+                    <li><a class="nav_index"href="{:url('reception/index/index')}">首页</a></li>
+                    <li><a href="{:url('reception/viewport/viewport')}">目的地</a></li>
+                    <li><a  href="{:url('reception/travels/travels')}">旅游游记</a></li>
+                    <li><a href="{:url('reception/Goodsactive/goodsActive')}">商品活动</a></li>
+                    <li><a href="{:url('reception/Hotel/hotel')}">酒店</a></li>
+                    <li><a href="#"  v-on:click="seller">卖家入驻</a></li>
+                </ul>
+                <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8" v-if="loginState==0">
+                    <li><a class="nav_login" href="{:url('reception/Login/login')}">登录</a></li>
+                    <li>
+                        <span class="nav_division">|</span>
+                    </li>
+                    <li><a class="nav_register" href="{:url('reception/Login/register')}">注册</a></li>
+                </ul>
+                <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8" v-else-if="loginState==1">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle user_photo" data-toggle="dropdown" href="#">
+                            <img v-bind:src="nowlogin[0]['f_user_img']" alt="">
+                            <span>{{nowlogin[0]['f_user_name']}}</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="user_money">
+                                金币 <span>0</span>
+                            </li>
+                            <li>
+                                <a href="{:url('reception/Center/center')}" class="show_center ">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    个人中心
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#" class="user_out" v-on:click="loginout">
+                                    <span class="glyphicon glyphicon-off"></span>
+                                    退出
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
 <!--小屏幕下的导航栏-->
-<div id="nav_small">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-4">
-                <i class="ns_index"></i>
-                <p>首页</p>
+<div id="screen">
+    <div id="nav_small">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-4">
+                    <i class="ns_index" v-on:click="index"></i>
+                    <p>首页</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_place"v-on:click="place"></i>
+                    <p>目的地</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_travels"v-on:click="travels"></i>
+                    <p>旅游游记</p>
+                </div>
             </div>
-            <div class="col-xs-4">
-                <i class="ns_place"></i>
-                <p>目的地</p>
-            </div>
-            <div class="col-xs-4">
-                <i class="ns_travels"></i>
-                <p>旅游游记</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-4">
-                <i class="ns_activity"></i>
-                <p>商品活动</p>
-            </div>
-            <div class="col-xs-4">
-                <i class="ns_hotel"></i>
-                <p>酒店</p>
-            </div>
-            <div class="col-xs-4">
-                <i class="ns_settled"></i>
-                <p>卖家入驻</p>
+            <div class="row">
+                <div class="col-xs-4">
+                    <i class="ns_activity"v-on:click="activity"></i>
+                    <p>商品活动</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_hotel"v-on:click="hotel"></i>
+                    <p>酒店</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_settled"v-on:click="settled"></i>
+                    <p>卖家入驻</p>
+                </div>
             </div>
         </div>
     </div>
@@ -113,7 +142,6 @@
                                     <button style="float: right" type="button" class="btn btn-warning" data-toggle="modal" data-target="#uprecharge">
                                         充值
                                     </button>
-
                                     <!-- Modal -->
                                     <div class="modal fade" id="uprecharge" tabindex="-1" role="dialog" aria-labelledby="myuprechargel">
                                         <div class="modal-dialog" role="document">
@@ -150,7 +178,6 @@
                                         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
                                             修改昵称
                                         </button>
-
                                         <!-- Modal -->
                                         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                             <div class="modal-dialog" role="document">
@@ -340,7 +367,7 @@
                                                                             <button v-bind:id="order.b_order_id" type="button" class="btn btn-warning" v-on:click="gopay">去支付</button><br>
                                                                             <button v-bind:id="order.b_order_id" type="button" class="btn btn-default" v-on:click="alterorder">取消订单</button><br>
                                                                             <!-- Button trigger modal -->
-                                                                            <button v-bind:id="order.b_order_id" v-on:click="" type="button" class="btn btn-default" data-toggle="modal" data-target="#detailsallorder">
+                                                                            <button v-bind:id="order.b_order_id" v-on:click="getdetails" type="button" class="btn btn-default" data-toggle="modal" data-target="#detailsallorder">
                                                                                 查看订单
                                                                             </button>
                                                                             <!-- Modal -->
@@ -352,15 +379,30 @@
                                                                                             <h4 class="modal-title" id="mydetailsallorder">订单详情</h4>
                                                                                         </div>
                                                                                         <div class="modal-body">
-                                                                                            <div>
-                                                                                                <div>
-                                                                                                    产品信息
-                                                                                                </div>
-                                                                                                <div>
-
+                                                                                            <div v-for="detail in sciencedetails">
+                                                                                                <div style="margin-top: 20px">
+                                                                                                    <div>
+                                                                                                        产品信息
+                                                                                                    </div>
+                                                                                                    <div>
+                                                                                                        商品名称：<span v-bind:id="detail.f_science_id" v-on:click="goDetail" style="color: #23527c">{{detail.f_science_name}}</span><br>
+                                                                                                        购买数量：{{detail.b_order_details_num}}<br>
+                                                                                                        价格：{{detail.b_order_details_price}}
+                                                                                                    </div>
                                                                                                 </div>
                                                                                             </div>
-
+                                                                                            <div v-for="detail in hoteldetails">
+                                                                                                <div style="margin-top: 20px">
+                                                                                                    <div>
+                                                                                                        产品信息
+                                                                                                    </div>
+                                                                                                    <div>
+                                                                                                        商品名称：<span v-bind:id="detail.f_hotel_id" v-on:click="showDetails" style="color: #23527c">{{detail.f_hotel_name}}</span><br>
+                                                                                                        出行日期：{{detail.b_order_details_num}}<br>
+                                                                                                        价格：{{detail.b_order_details_price}}
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
                                                                                         </div>
                                                                                         <div class="modal-footer">
                                                                                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -370,7 +412,49 @@
                                                                             </div>
                                                                         </td>
                                                                         <td v-else>
-                                                                            <button style="margin-top: 50px" v-bind:id="order.b_order_id" type="button" class="btn btn-default">查看订单</button>
+                                                                            <button v-bind:id="order.b_order_id" v-on:click="getdetails" type="button" class="btn btn-default" data-toggle="modal" data-target="#detailsallorder1">
+                                                                                查看订单
+                                                                            </button>
+                                                                            <!-- Modal -->
+                                                                            <div class="modal fade" id="detailsallorder1" tabindex="-1" role="dialog" aria-labelledby="mydetailsallorder1">
+                                                                                <div class="width modal-dialog" role="document">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                                            <h4 class="modal-title" id="mydetailsallorder1">订单详情</h4>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <div v-for="detail in sciencedetails">
+                                                                                                <div style="margin-top: 20px">
+                                                                                                    <div>
+                                                                                                        产品信息
+                                                                                                    </div>
+                                                                                                    <div>
+                                                                                                        商品名称：<span v-bind:id="detail.f_science_id" v-on:click="goDetail" style="color: #23527c">{{detail.f_science_name}}</span><br>
+                                                                                                        购买数量：{{detail.b_order_details_num}}<br>
+                                                                                                        价格：{{detail.b_order_details_price}}
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div v-for="detail in hoteldetails">
+                                                                                                <div style="margin-top: 20px">
+                                                                                                    <div>
+                                                                                                        产品信息
+                                                                                                    </div>
+                                                                                                    <div>
+                                                                                                        商品名称：<span v-bind:id="detail.f_hotel_id" v-on:click="showDetails" style="color: #23527c">{{detail.f_hotel_name}}</span><br>
+                                                                                                        出行日期：{{detail.b_order_details_num}}<br>
+                                                                                                        价格：{{detail.b_order_details_price}}
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="modal-footer">
+                                                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
                                                                         </td>
                                                                     </tr>
                                                                 </table>
@@ -520,7 +604,7 @@
                                                             <li><a href="#">2</a></li>
                                                             <li><a href="#">3</a></li>
                                                             <li><a href="#">4</a></li>
-                                                            <li><a href="#">5</a></li>
+                                                             <li><a href="#">5</a></li>
                                                             <li>
                                                                 <a href="#" aria-label="Next">
                                                                     <span aria-hidden="true">&raquo;</span>
@@ -608,69 +692,28 @@
                                             </ul>
                                             <div class="tab-content">
                                                 <div class="tab-pane active" id="panel-167525">
-                                                    <div>
-                                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
+                                                    <div  id="Scenic_collection" >
+                                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid" v-for="scenicdata in scenicdatas">
                                                             <div class="row-fluid">
                                                                 <div class="span12">
                                                                     <div class="media">
-                                                                        <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
+                                                                        <a href="#" class="pull-left"><img width="100" height="100" v-bind:src="scenicdata.f_science_img" class="media-object" alt='' /></a>
                                                                         <div class="media-body">
-                                                                            <h4 class="media-heading">
-                                                                                嵌入媒体标题
-                                                                            </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
+                                                                            <h4 class="media-heading" v-bind:id="scenicdata.f_enshrine_sid" v-on:click="goDetail">
+                                                                                {{scenicdata.f_science_name}}
+                                                                            </h4> {{scenicdata.f_science_content}}
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
-                                                            <div class="row-fluid">
-                                                                <div class="span12">
-                                                                    <div class="media">
-                                                                        <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
-                                                                        <div class="media-body">
-                                                                            <h4 class="media-heading">
-                                                                                嵌入媒体标题
-                                                                            </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
-                                                            <div class="row-fluid">
-                                                                <div class="span12">
-                                                                    <div class="media">
-                                                                        <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
-                                                                        <div class="media-body">
-                                                                            <h4 class="media-heading">
-                                                                                嵌入媒体标题
-                                                                            </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        <nav>
+                                                            <ul class="pager">
+                                                                <li><a href="#" v-on:click="Scenicprev">上一页</a></li>
+                                                                <li><a href="#" v-on:click="Scenicnext">下一页</a></li>
+                                                            </ul>
+                                                        </nav>
                                                     </div>
-                                                    <nav aria-label="Page navigation">
-                                                        <ul class="pagination">
-                                                            <li>
-                                                                <a href="#" aria-label="Previous">
-                                                                    <span aria-hidden="true">&laquo;</span>
-                                                                </a>
-                                                            </li>
-                                                            <li><a href="#">1</a></li>
-                                                            <li><a href="#">2</a></li>
-                                                            <li><a href="#">3</a></li>
-                                                            <li><a href="#">4</a></li>
-                                                            <li><a href="#">5</a></li>
-                                                            <li>
-                                                                <a href="#" aria-label="Next">
-                                                                    <span aria-hidden="true">&raquo;</span>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </nav>
                                                 </div>
                                                 <div class="tab-pane" id="panel-187764">
                                                     <div>
@@ -882,11 +925,6 @@
         </div>
     </div>
 </div>
-
-
-
-
-
 <!--页脚-->
 <div style="margin-top: 20px" id="footer">
     <div class="footer_box container">
@@ -969,6 +1007,22 @@
     var unpaidorderel="{:url('reception/Center/unpaidorder')}";
     var paidorders="{:url('reception/Center/paidorders')}";
     var newmon ='{:url("reception/Center/newmon")}'
+    var getthisorder ='{:url("reception/Center/getthisorder")}'
+    var setViewId_url = "{:url('reception/viewport/setViewId')}";
+    var goViewdetailed_url = "{:url('reception/viewport/viewdetailed')}";
+    var search_url = "{:url('reception/viewport/search_like')}";
+    var hotel_setCookie_Url = "{:url('reception/Hotel/hotel_setCookie')}";
+    var hoteDetailsUrl = "{:url('reception/Hoteldetails/hotelDetails')}";
+    var sell="{:url('reception/Publics/seller')}";
+    var loginUrl="{:url('reception/Publics/login')}";
+    var loginOutUrl="{:url('reception/Publics/loginOut')}";
+    var indexUrl="{:url('reception/index/index')}";
+    var placeUrl="{:url('reception/viewport/viewport')}";
+    var travelsUrl="{:url('reception/travels/travels')}";
+    var activityUrl="{:url('reception/Goodsactive/goodsActive')}";
+    var hotelUrl="{:url('reception/Hotel/hotel')}";
+    var Scenic_collectionUrl = "{:url('reception/Center/Scenic_collectionUrl')}"
 </script>
+<script src="__STATIC__/js/receptionjs/public.js"></script>
 <script src="__STATIC__/js/center.js" type="text/javascript"></script>
 </html>

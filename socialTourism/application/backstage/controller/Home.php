@@ -22,7 +22,7 @@ class Home extends Controller
     public function main(){
         return $this->fetch();
     }
-    public function getthisuser(){
+    public function getThisUser(){
         $backstageUser = Session::get("backstageUser");
         if(!empty($backstageUser)){
             $retArr = Db::table('b_rm')->alias('a')->join('b_menu b','a.b_rm_menu_id=b.b_menu_id')->where("a.b_rm_role_id",$backstageUser["b_user_role_id"])->select();

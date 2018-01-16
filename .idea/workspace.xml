@@ -25,8 +25,13 @@
       <file leaf-file-name="Goodsactive.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/socialTourism/application/reception/controller/Goodsactive.php">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
             <state vertical-scroll-proportion="-42.307693">
               <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+=======
+            <state vertical-scroll-proportion="-9.730769">
+              <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+>>>>>>> db1569739341b8dc87192e217106f233c0c25a84
               <folding>
                 <element signature="e#134#155#0#PHP" expanded="true" />
               </folding>
@@ -34,11 +39,106 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="goodsActive.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/socialTourism/application/reception/view/goodsactive/goodsActive.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.12975779">
               <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+=======
+      <file leaf-file-name="hoteldetails.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/socialTourism/application/reception/view/hoteldetails/hoteldetails.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.43771628">
+              <caret line="146" column="19" selection-start-line="146" selection-start-column="19" selection-end-line="146" selection-end-column="19" />
+>>>>>>> db1569739341b8dc87192e217106f233c0c25a84
+              <folding>
+                <element signature="n#style#0;n#span#0;n#a#0;n#div#4;n#div#1;n#div#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
+      <file leaf-file-name="goodsActive.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/goodsActive.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
+=======
+      <file leaf-file-name="hoteldetails.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/hoteldetails.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="129" column="1" selection-start-line="129" selection-start-column="1" selection-end-line="129" selection-end-column="1" />
+              <folding>
+                <element signature="n#!!doc;n#putShoppingCar#0" expanded="false" />
+                <element signature="n#!!block;n#putShoppingCar#0" expanded="false" />
+                <element signature="n#!!block;n#rightnowBuy#0" expanded="false" />
+                <element signature="e#3003#3795#0" expanded="false" />
+                <element signature="e#3080#3225#0" expanded="false" />
+                <element signature="e#3278#3345#0" expanded="false" />
+                <element signature="e#3351#3372#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hotelDetails.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/socialTourism/public/static/css/receptioncss/hotelDetails.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.538462">
+              <caret line="501" column="5" selection-start-line="501" selection-start-column="5" selection-end-line="501" selection-end-column="5" />
+>>>>>>> db1569739341b8dc87192e217106f233c0c25a84
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
+=======
+      <file leaf-file-name="viewdetail.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/viewdetail.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="96" column="13" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
+              <folding>
+                <element signature="e#1228#2410#0" expanded="false" />
+                <element signature="e#2447#3240#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewdetailed.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/socialTourism/application/reception/view/viewport/viewdetailed.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-9.769231">
+              <caret line="88" column="82" selection-start-line="88" selection-start-column="73" selection-end-line="88" selection-end-column="82" />
+              <folding>
+                <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="viewdetailed.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/socialTourism/public/static/css/receptioncss/viewdetailed.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.5714285">
+              <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="goodsactive.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/socialTourism/application/reception/view/goodsactive/goodsactive.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-6.730769">
+              <caret line="107" column="41" selection-start-line="107" selection-start-column="41" selection-end-line="107" selection-end-column="41" />
               <folding>
                 <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -52,12 +152,15 @@
         <entry file="file://$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/goodsActive.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
-              <folding />
+              <caret line="65" column="1" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
+              <folding>
+                <element signature="n#!!block;n#g_detail#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
+>>>>>>> db1569739341b8dc87192e217106f233c0c25a84
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -75,8 +178,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/socialTourism/application/reception/controller/Travels.php" />
-        <option value="$PROJECT_DIR$/socialTourism/public/static/css/receptioncss/register.css" />
         <option value="$PROJECT_DIR$/socialTourism/application/database.php" />
         <option value="$PROJECT_DIR$/socialTourism/application/reception/view/login/login.html" />
         <option value="$PROJECT_DIR$/socialTourism/public/static/css/receptioncss/login.css" />
@@ -111,21 +212,34 @@
         <option value="$PROJECT_DIR$/socialTourism/application/reception/view/index/index.html" />
         <option value="$PROJECT_DIR$/socialTourism/public/static/css/receptioncss/viewport.css" />
         <option value="$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/viewpos.js" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/socialTourism/public/static/css/receptioncss/viewdetailed.css" />
+=======
+>>>>>>> db1569739341b8dc87192e217106f233c0c25a84
         <option value="$PROJECT_DIR$/socialTourism/public/static/css/receptioncss/hotel.css" />
         <option value="$PROJECT_DIR$/socialTourism/public/static/css/receptioncss/hotelDetails.css" />
         <option value="$PROJECT_DIR$/socialTourism/public/static/css/receptioncss/goodsactive.css" />
-        <option value="$PROJECT_DIR$/socialTourism/application/reception/view/viewport/viewdetailed.html" />
         <option value="$PROJECT_DIR$/socialTourism/application/reception/controller/Viewport.php" />
         <option value="$PROJECT_DIR$/socialTourism/application/reception/controller/Hoteldetails.php" />
         <option value="$PROJECT_DIR$/socialTourism/application/reception/view/hotelDetails/hotelDetails.html" />
-        <option value="$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/viewdetail.js" />
-        <option value="$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/hoteldetails.js" />
         <option value="$PROJECT_DIR$/socialTourism/application/reception/view/viewport/viewport.html" />
+<<<<<<< HEAD
         <option value="$PROJECT_DIR$/socialTourism/application/reception/controller/Goodsactive.php" />
         <option value="$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/goodsActive.js" />
         <option value="$PROJECT_DIR$/socialTourism/application/reception/view/hotel/hotel.html" />
         <option value="$PROJECT_DIR$/socialTourism/application/reception/view/goodsactive/goodsActive.html" />
+=======
+        <option value="$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/goodsActive.js" />
+        <option value="$PROJECT_DIR$/socialTourism/application/reception/view/hotel/hotel.html" />
+        <option value="$PROJECT_DIR$/socialTourism/application/reception/view/goodsactive/goodsActive.html" />
+        <option value="$PROJECT_DIR$/socialTourism/application/reception/controller/Goodsactive.php" />
+        <option value="$PROJECT_DIR$/socialTourism/application/reception/view/goodsactive/goodsactive.html" />
+        <option value="$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/hoteldetails.js" />
+        <option value="$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/viewdetail.js" />
+        <option value="$PROJECT_DIR$/socialTourism/application/reception/view/viewport/viewdetailed.html" />
+        <option value="$PROJECT_DIR$/socialTourism/public/static/css/receptioncss/viewdetailed.css" />
+        <option value="$PROJECT_DIR$/socialTourism/application/reception/view/hoteldetails/hoteldetails.html" />
+>>>>>>> db1569739341b8dc87192e217106f233c0c25a84
       </list>
     </option>
   </component>
@@ -540,7 +654,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="hotelDetails" />
+              <option name="myItemId" value="hoteldetails" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -665,17 +779,17 @@
     <property name="list.type.of.created.stylesheet" value="CSS" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\AppServ\www\p4_tr\snailGroup\socialTourism\public\static\js\receptionjs" />
-      <recent name="E:\AppServ\www\thinkphp\snailGroup\socialTourism\application\reception\view\travels" />
-      <recent name="E:\AppServ\www\thinkphp\snailGroup\socialTourism\application\reception\view" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\AppServ\www\P4\snailGroup\socialTourism\public\static" />
       <recent name="E:\AppServ\www\P4\snailGroup\socialTourism\public\static\image" />
       <recent name="E:\AppServ\www\P4\snailGroup\socialTourism\application\reception\controller" />
       <recent name="E:\AppServ\www\P4\snailGroup\socialTourism\public\static\js" />
       <recent name="E:\AppServ\www\P4\snailGroup\socialTourism\public\static\css\receptioncss" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\AppServ\www\p4_tr\snailGroup\socialTourism\public\static\js\receptionjs" />
+      <recent name="E:\AppServ\www\thinkphp\snailGroup\socialTourism\application\reception\view\travels" />
+      <recent name="E:\AppServ\www\thinkphp\snailGroup\socialTourism\application\reception\view" />
     </key>
   </component>
   <component name="RunManager">
@@ -733,6 +847,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="找到" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.328594" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="调试" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -778,7 +893,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="4" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1000,13 +1115,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/socialTourism/public/static/css/receptioncss/hotelDetails.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="57.625">
-          <caret line="600" column="5" selection-start-line="600" selection-start-column="5" selection-end-line="600" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/socialTourism/public/static/css/receptioncss/index.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1032,6 +1140,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.892858">
           <caret line="233" column="5" selection-start-line="233" selection-start-column="5" selection-end-line="233" selection-end-column="5" />
+<<<<<<< HEAD
         </state>
       </provider>
     </entry>
@@ -1046,6 +1155,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.61072665">
           <caret line="347" column="33" selection-start-line="347" selection-start-column="33" selection-end-line="347" selection-end-column="33" />
+=======
+>>>>>>> db1569739341b8dc87192e217106f233c0c25a84
         </state>
       </provider>
     </entry>
@@ -1053,6 +1164,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43252596">
           <caret line="140" column="66" selection-start-line="140" selection-start-column="59" selection-end-line="140" selection-end-column="66" />
+<<<<<<< HEAD
         </state>
       </provider>
     </entry>
@@ -1074,6 +1186,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2963576">
           <caret line="68" column="33" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
+=======
+>>>>>>> db1569739341b8dc87192e217106f233c0c25a84
         </state>
       </provider>
     </entry>
@@ -1102,6 +1216,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4689781">
           <caret line="196" column="33" selection-start-line="196" selection-start-column="33" selection-end-line="196" selection-end-column="33" />
+<<<<<<< HEAD
+=======
+          <folding>
+            <element signature="e#134#155#0#PHP" expanded="false" />
+          </folding>
+>>>>>>> db1569739341b8dc87192e217106f233c0c25a84
         </state>
       </provider>
     </entry>
@@ -1109,6 +1229,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+<<<<<<< HEAD
         </state>
       </provider>
     </entry>
@@ -1119,6 +1240,8 @@
           <folding>
             <element signature="e#134#155#0#PHP" expanded="true" />
           </folding>
+=======
+>>>>>>> db1569739341b8dc87192e217106f233c0c25a84
         </state>
       </provider>
     </entry>
@@ -1136,16 +1259,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/goodsActive.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.0">
           <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
           <folding />
+=======
+        <state vertical-scroll-proportion="-9.730769">
+          <caret line="45" column="13" selection-start-line="45" selection-start-column="13" selection-end-line="45" selection-end-column="13" />
+          <folding>
+            <element signature="e#134#155#0#PHP" expanded="true" />
+          </folding>
+>>>>>>> db1569739341b8dc87192e217106f233c0c25a84
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/socialTourism/application/reception/view/goodsactive/goodsActive.html">
+    <entry file="file://$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/goodsActive.js">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.12975779">
           <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+=======
+        <state vertical-scroll-proportion="0.0">
+          <caret line="65" column="1" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!block;n#g_detail#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/viewdetail.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="96" column="13" selection-start-line="96" selection-start-column="13" selection-end-line="96" selection-end-column="13" />
+          <folding>
+            <element signature="e#1228#2410#0" expanded="false" />
+            <element signature="e#2447#3240#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socialTourism/application/reception/view/goodsactive/goodsactive.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-6.730769">
+          <caret line="107" column="41" selection-start-line="107" selection-start-column="41" selection-end-line="107" selection-end-column="41" />
+>>>>>>> db1569739341b8dc87192e217106f233c0c25a84
           <folding>
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -1154,5 +1311,62 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+=======
+    <entry file="file://$PROJECT_DIR$/socialTourism/application/reception/view/viewport/viewdetailed.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-9.769231">
+          <caret line="88" column="82" selection-start-line="88" selection-start-column="73" selection-end-line="88" selection-end-column="82" />
+          <folding>
+            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socialTourism/public/static/css/receptioncss/viewdetailed.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.5714285">
+          <caret line="8" column="26" selection-start-line="8" selection-start-column="26" selection-end-line="8" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socialTourism/public/static/css/receptioncss/hotelDetails.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.538462">
+          <caret line="501" column="5" selection-start-line="501" selection-start-column="5" selection-end-line="501" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/hoteldetails.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="129" column="1" selection-start-line="129" selection-start-column="1" selection-end-line="129" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!doc;n#putShoppingCar#0" expanded="false" />
+            <element signature="n#!!block;n#putShoppingCar#0" expanded="false" />
+            <element signature="n#!!block;n#rightnowBuy#0" expanded="false" />
+            <element signature="e#3003#3795#0" expanded="false" />
+            <element signature="e#3080#3225#0" expanded="false" />
+            <element signature="e#3278#3345#0" expanded="false" />
+            <element signature="e#3351#3372#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socialTourism/application/reception/view/hoteldetails/hoteldetails.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43771628">
+          <caret line="146" column="19" selection-start-line="146" selection-start-column="19" selection-end-line="146" selection-end-column="19" />
+          <folding>
+            <element signature="n#style#0;n#span#0;n#a#0;n#div#4;n#div#1;n#div#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+>>>>>>> db1569739341b8dc87192e217106f233c0c25a84
   </component>
 </project>

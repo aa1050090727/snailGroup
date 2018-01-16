@@ -1,21 +1,18 @@
 /**
  * Created by 陈凌峰 on 2018/1/3.
  */
-var layuiTable = '';
 layui.use(['table','form'], function() {
     var table = layui.table;
     var form = layui.form;
-    layuiTable = table;
+    //layuiTable = table;
     //监听工具条
     table.on('tool(test)', function(obj){ //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
         var data = obj.data; //获得当前行数据
         var layEvent = obj.event; //获得 lay-event 对应的值
         console.log(data,layEvent);
-        if(layEvent === 'detail'){
-            layer.msg('查看操作');
-            //console.log(data,layEvent);
-        } else if(layEvent === 'del'){
-            layer.confirm('真的删除行么', function(index){
+
+        if(layEvent === 'del'){
+            layer.confirm('真的删除该员工吗？', function(index){
                 if(data["b_user_role_id"] === 1){
                     layer.alert("对不起超级管理员不能删除！");
                     layer.close(index);
@@ -41,7 +38,9 @@ layui.use(['table','form'], function() {
                     });
                 }
             });
-        } else if(layEvent === 'edit'){
+        }
+
+        else if(layEvent === 'edit'){
             $.ajax({
                 type:"get",
                 url:getRoleName,
@@ -182,13 +181,116 @@ layui.use(['table','form'], function() {
         }
     });
 
+    //添加员工
+    $("#addStaff").click(function () {
+        $.ajax({
+            type:"get",
+            url:getRoleName,
+            data:'',
+            dataType:"json",
+            success: function ($res) {
+                console.log($res);
+                var html ='<select name="role" lay-verify="required"> <option value=""></option>';
+                for(var i = 0;i<$res.length;i++){
+                    if($res[i]["b_role_name"] !== "超级管理员"){
+                        html +='<option value="'+$res[i]["b_role_id"]+'">'+$res[i]["b_role_name"]+'</option>';
+                    }
+                }
+                html +=' </select>';
+                layer.open({
+                    title: '添加员工',
+                    content: '<form class="layui-form" action=""> <div class="layui-form-item"> <label class="layui-form-label">员工账号：</label> <div class="layui-input-block"> <input type="text" name="staffAccount" required  lay-verify="required|staffAccount" placeholder="请输入6位的字符" autocomplete="off" class="layui-input"> </div> </div>' +
+                    '<div class="layui-form-item"> <label class="layui-form-label">员工姓名：</label> <div class="layui-input-block"> <input type="text" name="staffName" required  lay-verify="required|staffName" placeholder="请输入2到6位字符" autocomplete="off" class="layui-input"> </div> </div>' +
+                    '<div class="layui-form-item"> <label class="layui-form-label">员工职位：</label> <div class="layui-input-block"> '+html+'</div> </div><div class="layui-form-item"> <div class="layui-input-block"> <button class="layui-btn" lay-submit lay-filter="go">立即添加</button> </div> </div></form>',
+                    btn: ['关闭'],
+                    area: ['500px',"450px"],
+                    yes: function(index, layero){
+                        layer.close(index);
+                    }
+                });
+                form.render();
+                //layer.tips('只想提示地精准些', '#id');
+                form.verify({
+                    staffName: function(value, item){ //value：表单的值、item：表单的DOM对象
+                        console.log(value.length);
+                        if(!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)){
+                            return '姓名不能有特殊字符';
+                        }
+                        if(/(^\_)|(\__)|(\_+$)/.test(value)){
+                            return '姓名首尾不能出现下划线\'_\'';
+                        }
+                        if(/^\d+\d+\d$/.test(value)){
+                            return '姓名不能全为数字';
+                        }
+                        if(value.length < 2 || value.length > 6){
+                            return '姓名只能为2到6位的字符';
+                        }
+                    },
+                    staffAccount: function(value, item){ //value：表单的值、item：表单的DOM对象
+                        if(!new RegExp("^[a-zA-Z0-9_\u4e00-\u9fa5\\s·]+$").test(value)){
+                            return '账号不能有特殊字符';
+                        }
+                        if(/(^\_)|(\__)|(\_+$)/.test(value)){
+                            return '账号首尾不能出现下划线\'_\'';
+                        }
+                        if(/^\d+\d+\d$/.test(value)){
+                            return '账号不能全为数字';
+                        }
+                        if(/[\u4e00-\u9fa5]/.test(value)){
+                            return '账号不能包含汉字';
+                        }
+                        if(value.length != 6){
+                            return '账号只能为6位';
+                        }
+                    }
+
+                });
+
+                form.on('submit(go)', function(data){
+                    var staffArr = data.field;
+                    console.log(staffArr); //当前容器的全部表单字段，名值对形式：{name: value}
+                    layer.confirm('你确定添加吗？', function(index){
+                        $.ajax({
+                            type:"get",
+                            url:addStaff,
+                            data:{staffArr:staffArr},
+                            dataType:"json",
+                            success: function ($res) {
+                                if($res["code"] === 10000){
+                                    table.reload('staffData',{
+                                        url : getStaff+'?keyword='
+                                    });
+                                    layer.alert($res["msg"]);
+                                }else{
+                                    layer.alert($res["msg"]);
+                                }
+                                layer.close(index);
+                            },
+                            error: function ($res) {
+                                console.log($res);
+                            }
+                        });
+
+                    });
+
+                    return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+
+                });
+
+            },
+            error: function ($res) {
+                console.log($res);
+            }
+        });
+    });
+
+    //员工模糊查询
+    $("#searchBut").click(function () {
+        var searchKeyword = $("#staffSearch").val();
+        table.reload('staffData',{
+            url : getStaff+'?keyword='+searchKeyword
+        })
+    });
 });
 
 
-$("#searchBut").click(function () {
-    console.log(layuiTable);
-    var searchKeyword = $("#staffSearch").val();
-    layuiTable.reload('staffData',{
-        url : getStaff+'?keyword='+searchKeyword
-    })
-});

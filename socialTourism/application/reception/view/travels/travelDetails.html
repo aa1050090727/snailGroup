@@ -14,170 +14,201 @@
 </head>
 <body>
 <!--导航栏-->
-<div id="nav">
-    <div class="nav_box container">
-        <div class="row">
-            <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
-            <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
-                <li><a  href="{:url('reception/index/index')}">首页</a></li>
-                <li><a href="{:url('reception/index/viewport')}">目的地</a></li>
-                <li><a class="nav_index"href="{:url('reception/travels/travels')}">旅游游记</a></li>
-                <li><a href="">商品活动</a></li>
-                <li><a href="{:url('reception/Hotel/hotel')}">酒店</a></li>
-                <li><a href="{:url('reception/merchant/merchant')}">卖家入驻</a></li>
-            </ul>
-            <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8">
-                <li><a class="nav_qq" href=""></a></li>
-                <li><a class="nav_weixin" href=""></a></li>
-                <li><a class="nav_login" href="">登录</a></li>
-                <li>
-                    <span class="nav_division">|</span>
-                </li>
-                <li><a class="nav_register" href="">注册</a></li>
-            </ul>
+<div id="sell">
+    <div id="nav">
+        <div class="nav_box container">
+            <div class="row">
+                <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
+                <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
+                    <li><a class="nav_index"href="{:url('reception/index/index')}">首页</a></li>
+                    <li><a href="{:url('reception/viewport/viewport')}">目的地</a></li>
+                    <li><a  href="{:url('reception/travels/travels')}">旅游游记</a></li>
+                    <li><a href="{:url('reception/Goodsactive/goodsActive')}">商品活动</a></li>
+                    <li><a href="{:url('reception/Hotel/hotel')}">酒店</a></li>
+                    <li><a href="#"  v-on:click="seller">卖家入驻</a></li>
+                </ul>
+                <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8" v-if="loginState==0">
+                    <li><a class="nav_login" href="{:url('reception/Login/login')}">登录</a></li>
+                    <li>
+                        <span class="nav_division">|</span>
+                    </li>
+                    <li><a class="nav_register" href="{:url('reception/Login/register')}">注册</a></li>
+                </ul>
+                <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8" v-else-if="loginState==1">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle user_photo" data-toggle="dropdown" href="#">
+                            <img v-bind:src="nowlogin[0]['f_user_img']" alt="">
+                            <span>{{nowlogin[0]['f_user_name']}}</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="user_money">
+                                金币 <span>0</span>
+                            </li>
+                            <li>
+                                <a href="{:url('reception/Center/center')}" class="show_center ">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    个人中心
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#" class="user_out" v-on:click="loginout">
+                                    <span class="glyphicon glyphicon-off"></span>
+                                    退出
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
 <!--小屏幕下的导航栏-->
-<div id="nav_small">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-4">
-                <i class="ns_index"></i>
-                <p>首页</p>
+<div id="screen">
+    <div id="nav_small">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-4">
+                    <i class="ns_index" v-on:click="index"></i>
+                    <p>首页</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_place"v-on:click="place"></i>
+                    <p>目的地</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_travels"v-on:click="travels"></i>
+                    <p>旅游游记</p>
+                </div>
             </div>
-            <div class="col-xs-4">
-                <i class="ns_place"></i>
-                <p>目的地</p>
-            </div>
-            <div class="col-xs-4">
-                <i class="ns_travels"></i>
-                <p>旅游游记</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-4">
-                <i class="ns_activity"></i>
-                <p>商品活动</p>
-            </div>
-            <div class="col-xs-4">
-                <i class="ns_hotel"></i>
-                <p>酒店</p>
-            </div>
-            <div class="col-xs-4">
-                <i class="ns_settled"></i>
-                <p>卖家入驻</p>
+            <div class="row">
+                <div class="col-xs-4">
+                    <i class="ns_activity"v-on:click="activity"></i>
+                    <p>商品活动</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_hotel"v-on:click="hotel"></i>
+                    <p>酒店</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_settled"v-on:click="settled"></i>
+                    <p>卖家入驻</p>
+                </div>
             </div>
         </div>
     </div>
 </div>
 <!--游记内容-->
 {volist name="content" id="detail"}
-<!--背景图片-->
-
-<div class="container" style="margin-top: 20px">
-    <div class="row"style="margin-top: 20px">
-        <img src="{$detail.f_travel_note_img}" class=" centent-block" style="height: 400px;width: 100%">
-    </div>
-    <div class="row" style="margin-top: 10px" >
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-            <span class="rankSpan">发布人：</span><span>{$detail.f_user_name}</span>
+<div id="app">
+    <!--游记详情-->
+    <div class="container" style="margin-top: 20px">
+        <div class="row"style="margin-top: 20px">
+            <img src="{$detail.f_travel_note_img}" class=" centent-block" style="height: 400px;width: 100%">
         </div>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-            <span class="rankSpan">发布时间：</span><span>{$detail.f_travel_note_time}</span>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-            <span class="rankSpan">流浪量：</span><span>{$detail.f_travel_note_browse}</span>
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-            <span class="rankSpan">收藏量：</span><span>{$detail.f_travel_note_collect}</span>
-        </div>
-    </div>
-    <div class="row text-center" style="margin-top: 10px">
-        <h1>{$detail.f_travel_note_head}</h1>
-    </div>
-    <div class="row text-center" style="margin-top: 10px">
-        <span class="rankSpan">简介:</span><span>{$detail.f_travel_note_intro}</span>
-    </div>
-    <div class="row text-center" style="margin-top: 10px">
-            {$detail.f_travel_note_content}
-    </div>
-    {/volist}
-</div>
-<!--评论-->
-<div class="container" id="content">
-    <div class="row comment_list">
-        <!--评论标题-->
-        <div class="comment_head col-lg-12">
-            <h1>全部评论</h1>
-            <div>
-                <button class="comment_add btn btn-default" type="submit" data-toggle="modal" data-target="#myModal">+写点评</button>
+        <div class="row" style="margin-top: 10px" >
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <span class="rankSpan">发布人：</span><span>{$detail.f_user_name}</span>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                <span class="rankSpan">发布时间：</span><span>{$detail.f_travel_note_time}</span>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                <span class="rankSpan">浏览量：</span><span>{$detail.f_travel_note_browse}</span>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                <span class="rankSpan" >收藏量：</span><span>{{collectNumber}}</span>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"v-if="collectState==0">
+                <img src="__STATIC__/image/course_heart.png"alt="正在加载中">
+                <span class="rankSpan" v-on:click="collect">收藏</span>
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12"v-if="collectState==1">
+                <img src="__STATIC__/image/img_heartred.png"alt="正在加载中">
+                <span class="rankSpan" v-on:click="collectCancle">已收藏</span>
             </div>
         </div>
-        <!--评论内容-->
-        <div class="comment_box col-lg-12">
-            <div class="row">
-                <div class="comment_user col-lg-2 col-md-2 col-sm-2 col-xs-12">
-                    <img src="http://c2-q.mafengwo.net/s10/M00/F8/44/wKgBZ1mcXyaAayBZAABp6f_-fQQ74.jpeg?imageMogr2%2Fthumbnail%2F%2196x96r%2Fgravity%2FCenter%2Fcrop%2F%2196x96%2Fquality%2F90" alt="">
-                    <a href="" class="col-lg-12 col-md-12 col-sm-12">蚂蜂窝用户</a>
+        <div class="row text-center" style="margin-top: 10px">
+            <h1>{$detail.f_travel_note_head}</h1>
+        </div>
+        <div class="row text-center" style="margin-top: 10px">
+            <span class="rankSpan">简介:</span><span>{$detail.f_travel_note_intro}</span>
+        </div>
+        <div class="row text-center" style="margin-top: 10px">
+                {$detail.f_travel_note_content}
+        </div>
+        {/volist}
+    </div>
+    <!--评论-->
+    <div class="container" id="content">
+        <div class="row comment_list">
+            <!--评论标题-->
+            <div class="comment_head col-lg-12">
+                <h1>全部评论</h1>
+                <div>
+                    <button class="comment_add btn btn-default" type="submit" v-on:click="writeRemark">+写点评</button>
                 </div>
-                <div class="comment_content col-lg-10 col-md-10 col-sm-10 col-xs-12">
-                    <p>
-                        位置真的超级好找！ 而且在步行街晚上到黄兴路，坡子街，太平老街什么的都特别方便！ 地铁公交都特别近，100米内就能到，公交站就在门口特别便利！ 然而，它身处步行街，晚上确实吵闹了点，而且一大早的就被洒水车的音乐吵醒了确实有点难受… 但是酒店硬件设施还是不错的，服务也很好。位置真的超级好找！ 而且在步行街晚上到黄兴路，坡子街，太平老街什么的都特别方便！ 地铁公交都特别近，100米内就能到，公交站就在门口特别便利！ 然而，它身处步行街，晚上确实吵闹了点，而且一大早的就被洒水车的音乐吵醒了确实有点难受… 但是酒店硬件设施还是不错的，服务也很好。
-                    </p>
-                    <div class="comment_footer">
-                        <div class="comment_stars"></div>
-                        <span class="comment_time">2017-11-01</span>
-                        <i class="comment_zan"></i>
-                        <span class="comment_count">122</span>
+            </div>
+            <!--评论内容-->
+            <div class="comment_box col-lg-12"v-for="content in comment">
+                <div class="row">
+                    <div class="comment_user col-lg-2 col-md-2 col-sm-2 col-xs-12">
+                        <img v-bind:src="content.f_user_img" alt="">
+                        <a href="" class="col-lg-12 col-md-12 col-sm-12">{{content.f_user_name}}</a>
+                    </div>
+                    <div class="comment_content col-lg-10 col-md-10 col-sm-10 col-xs-12">
+                        <p v-html="content.f_tn_comment_content"></p>
+                        <div class="comment_footer">
+                            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12"></div>
+                            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                <span class="comment_time">发布时间:2017-11-01</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-        </div>
-        <!--分页-->
-        <div class="col-lg-12">
-            <nav aria-label="Page navigation" style="text-align: center">
-                <ul class="pagination">
-                    <li>
-                        <a href="#" aria-label="Previous">
-                            <span aria-hidden="true">«</span>
-                        </a>
-                    </li>
-                    <li><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li>
-                        <a href="#" aria-label="Next">
-                            <span aria-hidden="true">»</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+            </div>
+            <!--分页-->
+            <div class="col-lg-12">
+                <nav aria-label="Page navigation" style="text-align: center">
+                    <ul class="pagination">
+                        <li>
+                            <a  aria-label="Previous" v-on:click="lastPage">
+                                <span aria-hidden="true" >«</span>
+                            </a>
+                        </li>
+                        <li v-for="page in allpage" v-on:click="nowPage"><a >{{page}}</a></li>
+                        <li>
+                            <a  aria-label="Next">
+                                <span aria-hidden="true" v-on:click="nextPage">»</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
     </div>
-</div>
-
-<!-- 点评模态框（Modal） -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <!--<h4 class="modal-title" id="myModalLabel"></h4>-->
-            </div>
-            <div class="modal-body">
-                <form action="server.php" method="post">
-                    <!-- 加载编辑器的容器 -->
-                    <script id="container" name="content" type="text/plain">
-                    </script>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary">确定</button>
+    <!-- 点评模态框（Modal） -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <!--<h4 class="modal-title" id="myModalLabel"></h4>-->
+                </div>
+                <div class="modal-body">
+                    <form action="server.php" method="post">
+                        <!-- 加载编辑器的容器 -->
+                        <script id="container" name="content" type="text/plain">
+                        </script>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" v-on:click="writeSure">确定</button>
+                </div>
             </div>
         </div>
     </div>
@@ -247,10 +278,8 @@
     </div>
 </div>
 </body>
-<script src="__STATIC__/js/jquery-1.12.3.min.js"></script>
-<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+<!--引用vue.js-->
+<script src="https://cdn.bootcss.com/vue/2.2.2/vue.min.js"></script>
 <script src="__STATIC__/js/jquery-1.12.3.min.js"></script>
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
@@ -265,4 +294,22 @@
 <script type="text/javascript">
     var editor = UE.getEditor('container');
 </script>
+<script>
+    var writecommond="{:url('reception/Travels/writecommond')}";
+    var writeSure="{:url('reception/Travels/writeSure')}";
+    var conmmentUrl="{:url('reception/Travels/conmmentUrl')}";
+    var collectUrl="{:url('reception/Travels/collectUrl')}";
+    var collectShowUrl="{:url('reception/Travels/collectShow')}";
+    var collectCancleUrl="{:url('reception/Travels/collectCancle')}";
+    var sell="{:url('reception/Publics/seller')}";
+    var loginUrl="{:url('reception/Publics/login')}";
+    var loginOutUrl="{:url('reception/Publics/loginOut')}";
+    var indexUrl="{:url('reception/index/index')}";
+    var placeUrl="{:url('reception/viewport/viewport')}";
+    var travelsUrl="{:url('reception/travels/travels')}";
+    var activityUrl="{:url('reception/Goodsactive/goodsActive')}";
+    var hotelUrl="{:url('reception/Hotel/hotel')}";
+</script>
+<script src="__STATIC__/js/receptionjs/public.js"></script>
+<script src="__STATIC__/js/receptionjs/travelDetails.js"></script>
 </html>

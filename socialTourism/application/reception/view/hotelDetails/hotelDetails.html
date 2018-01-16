@@ -13,59 +13,88 @@
 </head>
 <body>
 <!--导航栏-->
-<div id="nav">
-    <div class="nav_box container">
-        <div class="row">
-            <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
-            <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
-                <li><a href="{:url('reception/Index/index')}">首页</a></li>
-                <li><a href="{:url('reception/viewport/viewport')}">目的地</a></li>
-                <li><a href="">旅游游记</a></li>
-                <li><a href="">商品活动</a></li>
-                <li><a class="nav_index" href="">酒店</a></li>
-                <li><a href="">卖家入驻</a></li>
-            </ul>
-            <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8">
-                <li><a class="nav_qq" href=""></a></li>
-                <li><a class="nav_weixin" href=""></a></li>
-                <li><a class="nav_login" href="">登录</a></li>
-                <li>
-                    <span class="nav_division">|</span>
-                </li>
-                <li><a class="nav_register" href="">注册</a></li>
-            </ul>
+<div id="sell">
+    <div id="nav">
+        <div class="nav_box container">
+            <div class="row">
+                <a class="nav_logo col-lg-2 col-md-2 col-sm-2 col-xs-4" href="#"></a>
+                <ul class="nav_list col-lg-8 col-md-8 col-sm-7">
+                    <li><a class="nav_index"href="{:url('reception/index/index')}">首页</a></li>
+                    <li><a href="{:url('reception/viewport/viewport')}">目的地</a></li>
+                    <li><a  href="{:url('reception/travels/travels')}">旅游游记</a></li>
+                    <li><a href="{:url('reception/Goodsactive/goodsActive')}">商品活动</a></li>
+                    <li><a href="{:url('reception/Hotel/hotel')}">酒店</a></li>
+                    <li><a href="#"  v-on:click="seller">卖家入驻</a></li>
+                </ul>
+                <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8" v-if="loginState==0">
+                    <li><a class="nav_login" href="{:url('reception/Login/login')}">登录</a></li>
+                    <li>
+                        <span class="nav_division">|</span>
+                    </li>
+                    <li><a class="nav_register" href="{:url('reception/Login/register')}">注册</a></li>
+                </ul>
+                <ul class="nav_out col-lg-2 col-md-2 col-sm-3 col-xs-8" v-else-if="loginState==1">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle user_photo" data-toggle="dropdown" href="#">
+                            <img v-bind:src="nowlogin[0]['f_user_img']" alt="">
+                            <span>{{nowlogin[0]['f_user_name']}}</span>
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="user_money">
+                                金币 <span>0</span>
+                            </li>
+                            <li>
+                                <a href="{:url('reception/Center/center')}" class="show_center ">
+                                    <span class="glyphicon glyphicon-user"></span>
+                                    个人中心
+                                </a>
+                            </li>
+                            <li class="divider"></li>
+                            <li>
+                                <a href="#" class="user_out" v-on:click="loginout">
+                                    <span class="glyphicon glyphicon-off"></span>
+                                    退出
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
         </div>
     </div>
 </div>
 <!--小屏幕下的导航栏-->
-<div id="nav_small">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-4">
-                <i class="ns_index"></i>
-                <p>首页</p>
+<div id="screen">
+    <div id="nav_small">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-4">
+                    <i class="ns_index" v-on:click="index"></i>
+                    <p>首页</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_place"v-on:click="place"></i>
+                    <p>目的地</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_travels"v-on:click="travels"></i>
+                    <p>旅游游记</p>
+                </div>
             </div>
-            <div class="col-xs-4">
-                <i class="ns_place"></i>
-                <p>目的地</p>
-            </div>
-            <div class="col-xs-4">
-                <i class="ns_travels"></i>
-                <p>旅游游记</p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-4">
-                <i class="ns_activity"></i>
-                <p>商品活动</p>
-            </div>
-            <div class="col-xs-4">
-                <i class="ns_hotel"></i>
-                <p>酒店</p>
-            </div>
-            <div class="col-xs-4">
-                <i class="ns_settled"></i>
-                <p>卖家入驻</p>
+            <div class="row">
+                <div class="col-xs-4">
+                    <i class="ns_activity"v-on:click="activity"></i>
+                    <p>商品活动</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_hotel"v-on:click="hotel"></i>
+                    <p>酒店</p>
+                </div>
+                <div class="col-xs-4">
+                    <i class="ns_settled"v-on:click="settled"></i>
+                    <p>卖家入驻</p>
+                </div>
             </div>
         </div>
     </div>
@@ -144,8 +173,13 @@
                      <!--剩余房间数：<span>132</span> 间-->
                 </div>
                 <div>
+                    {if condition="$hotelDetails.f_hotel_states eq 1"}
                     <button type="button" class="btn btn-danger hotel_buy_but" onclick="putShoppingCar('{$hotelDetails.f_hotel_id}')">加入购物车</button>
                     <button type="button" class="btn btn-danger hotel_buy_but" onclick="rightnowBuy('{$hotelDetails.f_hotel_id}','{$hotelDetails.f_hotel_price}','{$hotelDetails.f_hotel_sid}')">立即购买</button>
+                    {else /}
+                    <p><strong>剩余房间数：</strong><span class="hotel_price">{$hotelDetails.f_hotel_num}</span></p>
+                    <button type="button" class="btn btn-danger hotel_buy_but" onclick="panicBuying('{$hotelDetails.f_hotel_id}')">立即抢购</button>
+                    {/if}
                 </div>
             </div>
         </div>
@@ -345,7 +379,20 @@
 
     var putShoppingCar_url = "{:url('reception/Hoteldetails/putShoppingCar')}";
     var rightnowBuy_url = "{:url('reception/Hoteldetails/rightnowBuy')}";
+<<<<<<< HEAD
+    var center_url = "{:url('reception/center/center')}";
+    var sell="{:url('reception/Publics/seller')}";
+    var loginUrl="{:url('reception/Publics/login')}";
+    var loginOutUrl="{:url('reception/Publics/loginOut')}";
+    var indexUrl="{:url('reception/index/index')}";
+    var placeUrl="{:url('reception/viewport/viewport')}";
+    var travelsUrl="{:url('reception/travels/travels')}";
+    var activityUrl="{:url('reception/Goodsactive/goodsActive')}";
+    var hotelUrl="{:url('reception/Hotel/hotel')}";
+=======
     var center_url = "{:url('reception/Center/payment')}";
+>>>>>>> 614c87f48fe9744fa26e215df32bd21493786efc
 </script>
+<script src="__STATIC__/js/receptionjs/public.js"></script>
 <script src="__STATIC__/js/receptionjs/hoteldetails.js"></script>
 </html>

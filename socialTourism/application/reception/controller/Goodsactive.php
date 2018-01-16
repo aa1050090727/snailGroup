@@ -21,7 +21,7 @@ class GoodsActive extends Controller
             ->where("f_science_states",2)
             ->where("f_science_state",1)
             ->where('f_science_aendtime','>= time','now')
-            ->paginate(2);
+            ->paginate(4);
         $this->assign("active",$viewData);
         return $this->fetch();
     }
@@ -32,7 +32,7 @@ class GoodsActive extends Controller
             ->where("f_hotel_states",2)
             ->where("f_hotel_state",1)
             ->where('f_hotel_aendtime','>= time','now')
-            ->paginate(2);
+            ->paginate(4);
         $this->assign("active",$hotelData);
         return $this->fetch("goodsActive");
     }

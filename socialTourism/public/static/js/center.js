@@ -1,6 +1,7 @@
 /**
  * Created by fire on 2017/12/28.
  */
+
 //获取个人信息
 var myset = new Vue({
     el:"#myset",
@@ -220,12 +221,76 @@ var allorder = new Vue({
 
         ],
         allpage:1,
-        nowpage:1
+        nowpage:1,
+        sciencedetails : [],
+        hoteldetails: []
     },
     created:function(){
         this.getallorder(1)
     },
     methods:{
+
+        //获取该订单的详情
+        getdetails:function(){
+            var _this = this;
+            var orderID=$(event.target).attr("id");
+            $.ajax({
+                url:getthisorder,
+                dateType:"json",
+                data:'orderID='+orderID,
+                type:"post",
+                success:function(res){
+                    _this.sciencedetails  = res[0]
+                    _this.hoteldetails  = res[1]
+                }
+            })
+        },
+
+        //页面跳转
+        goDetail:function() {
+            var f_science_id = $(event.target).attr("id");
+            $.ajax({
+                type: "post",
+                data: {"f_science_id": f_science_id},
+                dataType: "json",
+                url: setViewId_url,
+                success: function (res) {
+                    console.log(res.result);
+                    if (res.result == true) {
+                        window.location.href = goViewdetailed_url;
+                    }
+                    else {
+                        window.location.href = error_url;
+                    }
+                },
+                error: function (res) {
+                    console.log("error", res);
+                }
+            });
+        },
+
+        showDetails:function() {
+            //发送ajax，将当前地点存起来
+            var id = $(event.target).attr("id");
+            $.ajax({
+                type: "post",
+                url: hotel_setCookie_Url,
+                data: {"f_hotel_id": id},
+                dataType: "json",
+                success: function (res) {
+                    console.log(res);
+                    if (res.code == 1) {
+                        location.href = hoteDetailsUrl;
+                    }
+                    else {
+                        location.reload();
+                    }
+                },
+                error: function (res) {
+                    console.log("error", res);
+                }
+            })
+        },
 
         //获取数据
         getallorder:function(page){
@@ -383,7 +448,6 @@ var unpaidorder = new Vue({
 
 })
 
-
 //获取已支付订单
 var paidorder = new Vue({
     el:"#paidorder",
@@ -435,3 +499,82 @@ var paidorder = new Vue({
         },
     }
 })
+
+//获取景点收藏
+var Scenic_collection111 = new Vue({
+    el:'#Scenic_collection',
+    data:{
+        scenicdatas : [
+
+        ],
+        allpage:1,
+        nowpage:1
+    },
+    created:function(){
+        this.get_Scenic_collection(1)
+    },
+    methods:{
+        //获取自己收藏的景点
+        get_Scenic_collection:function(page){
+            var _this = this;
+            $.ajax({
+                url:Scenic_collectionUrl,
+                dateType:"json",
+                data:'nowpage='+page,
+                type:"post",
+                success:function(res){
+                    console.log(res)
+                    _this.scenicdatas=res['data'];
+                    _this.allpage = res['allpage']
+                    _this.nowpage = res['nowpage']
+                    console.log(_this.scenicdatas)
+                }
+            })
+        },
+
+        //上一页
+        Scenicprev:function(){
+            if(parseInt(this.nowpage)-1 <= 0){
+                alert('当前是第一页')
+            }else {
+                var lastpage =parseInt(this.nowpage)-1;
+                this.get_Scenic_collection(lastpage)
+            }
+        },
+        //下一页
+        Scenicnext:function(){
+            if(parseInt(this.nowpage)+1 > this.allpage){
+                alert('当前是最后一页')
+            }else {
+                var nextpage =parseInt(this.nowpage)+1;
+                this.get_Scenic_collection(nextpage)
+            }
+        },
+        //页面跳转
+        goDetail:function() {
+            var f_science_id = $(event.target).attr("id");
+            console.log(f_science_id)
+            $.ajax({
+                type: "post",
+                data: {"f_science_id": f_science_id},
+                dataType: "json",
+                url: setViewId_url,
+                success: function (res) {
+                    console.log(res.result);
+                    if (res.result == true) {
+                        window.location.href = goViewdetailed_url;
+                    }
+                    else {
+                        window.location.href = error_url;
+                    }
+                },
+                error: function (res) {
+                    console.log("error", res);
+                }
+            });
+        },
+    }
+})
+
+
+//获取购物车
