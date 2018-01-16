@@ -21,11 +21,11 @@
     <favorites_list name="snailGroup" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file leaf-file-name="Goodsactive.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/socialTourism/application/reception/controller/Goodsactive.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.692307">
+            <state vertical-scroll-proportion="-42.307693">
               <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
               <folding>
                 <element signature="e#134#155#0#PHP" expanded="true" />
@@ -34,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="goodsActive.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="goodsActive.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/socialTourism/application/reception/view/goodsactive/goodsActive.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.576923">
-              <caret line="128" column="97" selection-start-line="128" selection-start-column="97" selection-end-line="128" selection-end-column="97" />
+            <state vertical-scroll-proportion="0.12975779">
+              <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
               <folding>
                 <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -48,26 +48,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="goodsActive.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="goodsActive.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/goodsActive.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8758278">
-              <caret line="53" column="34" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="hotel.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/socialTourism/application/reception/view/hotel/hotel.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-13.615385">
-              <caret line="201" column="4" selection-start-line="201" selection-start-column="4" selection-end-line="201" selection-end-column="73" />
-              <folding>
-                <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -126,7 +112,6 @@
         <option value="$PROJECT_DIR$/socialTourism/public/static/css/receptioncss/viewport.css" />
         <option value="$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/viewpos.js" />
         <option value="$PROJECT_DIR$/socialTourism/public/static/css/receptioncss/viewdetailed.css" />
-        <option value="$PROJECT_DIR$/socialTourism/application/reception/view/hotel/hotel.html" />
         <option value="$PROJECT_DIR$/socialTourism/public/static/css/receptioncss/hotel.css" />
         <option value="$PROJECT_DIR$/socialTourism/public/static/css/receptioncss/hotelDetails.css" />
         <option value="$PROJECT_DIR$/socialTourism/public/static/css/receptioncss/goodsactive.css" />
@@ -138,8 +123,9 @@
         <option value="$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/hoteldetails.js" />
         <option value="$PROJECT_DIR$/socialTourism/application/reception/view/viewport/viewport.html" />
         <option value="$PROJECT_DIR$/socialTourism/application/reception/controller/Goodsactive.php" />
-        <option value="$PROJECT_DIR$/socialTourism/application/reception/view/goodsactive/goodsActive.html" />
         <option value="$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/goodsActive.js" />
+        <option value="$PROJECT_DIR$/socialTourism/application/reception/view/hotel/hotel.html" />
+        <option value="$PROJECT_DIR$/socialTourism/application/reception/view/goodsactive/goodsActive.html" />
       </list>
     </option>
   </component>
@@ -183,6 +169,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -667,7 +654,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
     </panes>
   </component>
@@ -736,8 +722,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="2" width="1382" height="742" extended-state="0" />
-    <editor active="false" />
+    <frame x="-8" y="2" width="1382" height="742" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18374817" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -997,10 +983,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.5951557">
           <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-          <folding>
-            <element signature="n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1029,7 +1011,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1037,7 +1018,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28892735">
           <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1045,69 +1025,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="187" column="26" selection-start-line="187" selection-start-column="26" selection-end-line="187" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#50#0" expanded="false" />
-            <element signature="e#1855#2071#0" expanded="false" />
-            <element signature="e#2150#2366#0" expanded="false" />
-            <element signature="e#2445#2703#0" expanded="false" />
-            <element signature="e#2765#3164#0" expanded="false" />
-            <element signature="e#2892#2951#0" expanded="false" />
-            <element signature="e#2972#3150#0" expanded="false" />
-            <element signature="e#3226#3641#0" expanded="false" />
-            <element signature="e#3340#3400#0" expanded="false" />
-            <element signature="e#3421#3627#0" expanded="false" />
-            <element signature="e#3711#3881#0" expanded="false" />
-            <element signature="e#4754#4831#0" expanded="false" />
-            <element signature="e#4983#5664#0" expanded="false" />
-            <element signature="e#5196#5532#0" expanded="false" />
-            <element signature="e#5294#5392#0" expanded="false" />
-            <element signature="e#5421#5510#0" expanded="false" />
-            <element signature="e#5573#5646#0" expanded="false" />
-            <element signature="e#5737#7387#0" expanded="false" />
-            <element signature="e#6746#6817#0" expanded="false" />
-            <element signature="e#6766#6807#0" expanded="false" />
-            <element signature="e#6845#7018#0" expanded="false" />
-            <element signature="e#6917#7006#0" expanded="false" />
-            <element signature="e#7036#7380#0" expanded="false" />
-            <element signature="e#7065#7128#0" expanded="false" />
-            <element signature="e#7157#7211#0" expanded="false" />
-            <element signature="e#7268#7370#0" expanded="false" />
-            <element signature="e#7850#10047#0" expanded="false" />
-            <element signature="e#7935#8369#0" expanded="false" />
-            <element signature="e#8009#8079#0" expanded="false" />
-            <element signature="e#8129#8199#0" expanded="false" />
-            <element signature="e#8394#10028#0" expanded="false" />
-            <element signature="e#8460#10004#0" expanded="false" />
-            <element signature="e#8650#9828#0" expanded="false" />
-            <element signature="e#8966#9754#0" expanded="false" />
-            <element signature="e#9266#9542#0" expanded="false" />
-            <element signature="e#9607#9720#0" expanded="false" />
-            <element signature="e#9883#9978#0" expanded="false" />
-            <element signature="e#10088#10157#0" expanded="false" />
-            <element signature="e#10267#10445#0" expanded="false" />
-            <element signature="e#10525#11038#0" expanded="false" />
-            <element signature="e#10677#10955#0" expanded="false" />
-            <element signature="e#10720#10812#0" expanded="false" />
-            <element signature="e#10841#10933#0" expanded="false" />
-            <element signature="e#10996#11020#0" expanded="false" />
-            <marker date="1515059051116" expanded="true" signature="212:1414" placeholder="..." />
-            <marker date="1515059051116" expanded="true" signature="303:1388" placeholder="..." />
-            <marker date="1515059051116" expanded="true" signature="355:1357" placeholder="..." />
-            <marker date="1515059051116" expanded="true" signature="519:1322" placeholder="..." />
-            <marker date="1515059051116" expanded="true" signature="727:729" placeholder="..." />
-            <marker date="1515059051116" expanded="true" signature="727:958" placeholder="..." />
-            <marker date="1515059051116" expanded="true" signature="727:968" placeholder="..." />
-            <marker date="1515059051116" expanded="true" signature="727:1004" placeholder="..." />
-            <marker date="1515059051116" expanded="true" signature="727:1006" placeholder="..." />
-            <marker date="1515059051116" expanded="true" signature="727:1149" placeholder="..." />
-            <marker date="1515059051116" expanded="false" signature="5761:6719" placeholder="..." />
-            <marker date="1515059051116" expanded="false" signature="5821:6691" placeholder="..." />
-            <marker date="1515059051116" expanded="false" signature="5874:6659" placeholder="..." />
-            <marker date="1515059051116" expanded="false" signature="5930:6181" placeholder="..." />
-            <marker date="1515059051116" expanded="false" signature="6019:6142" placeholder="..." />
-            <marker date="1515059051116" expanded="false" signature="6377:6624" placeholder="..." />
-            <marker date="1515059051116" expanded="false" signature="6462:6585" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1115,7 +1032,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-8.892858">
           <caret line="233" column="5" selection-start-line="233" selection-start-column="5" selection-end-line="233" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1123,7 +1039,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.96153843">
           <caret line="37" column="21" selection-start-line="37" selection-start-column="21" selection-end-line="37" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1131,11 +1046,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.61072665">
           <caret line="347" column="33" selection-start-line="347" selection-start-column="33" selection-end-line="347" selection-end-column="33" />
-          <folding>
-            <element signature="n#style#0;n#span#0;n#a#0;n#div#4;n#div#1;n#div#1;n#div#0;n#div#2;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1143,10 +1053,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43252596">
           <caret line="140" column="66" selection-start-line="140" selection-start-column="59" selection-end-line="140" selection-end-column="66" />
-          <folding>
-            <element signature="e#123#144#0#PHP" expanded="true" />
-            <element signature="e#1338#3542#0#PHP" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1154,9 +1060,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.61072665">
           <caret line="215" column="56" selection-start-line="215" selection-start-column="56" selection-end-line="215" selection-end-column="56" />
-          <folding>
-            <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1164,9 +1067,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5149007">
           <caret line="55" column="32" selection-start-line="55" selection-start-column="32" selection-end-line="55" selection-end-column="91" />
-          <folding>
-            <element signature="e#2447#3240#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1174,14 +1074,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2963576">
           <caret line="68" column="33" selection-start-line="68" selection-start-column="33" selection-end-line="68" selection-end-column="33" />
-          <folding>
-            <element signature="n#!!doc;n#putShoppingCar#0" expanded="false" />
-            <element signature="n#!!block;n#putShoppingCar#0" expanded="false" />
-            <element signature="e#3003#3795#0" expanded="false" />
-            <element signature="e#3080#3225#0" expanded="false" />
-            <element signature="e#3278#3345#0" expanded="false" />
-            <element signature="e#3351#3372#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1189,7 +1081,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49817517">
           <caret line="227" column="60" selection-start-line="227" selection-start-column="51" selection-end-line="227" selection-end-column="60" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1197,23 +1088,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4205298">
           <caret line="208" column="18" selection-start-line="208" selection-start-column="18" selection-end-line="208" selection-end-column="18" />
-          <folding>
-            <element signature="e#207#955#0" expanded="false" />
-            <element signature="e#1051#4746#0" expanded="false" />
-            <element signature="e#4787#6443#0" expanded="false" />
-            <marker date="1514865987394" expanded="true" signature="1114:1812" placeholder="..." />
-            <marker date="1514865987394" expanded="true" signature="1192:1786" placeholder="..." />
-            <marker date="1514865987394" expanded="true" signature="1255:1395" placeholder="..." />
-            <marker date="1514865987394" expanded="true" signature="1448:1755" placeholder="..." />
-            <marker date="1514865987394" expanded="true" signature="1505:1720" placeholder="..." />
-            <marker date="1514865987394" expanded="true" signature="4811:5769" placeholder="..." />
-            <marker date="1514865987394" expanded="true" signature="4871:5741" placeholder="..." />
-            <marker date="1514865987394" expanded="true" signature="4924:5709" placeholder="..." />
-            <marker date="1514865987394" expanded="true" signature="4962:5231" placeholder="..." />
-            <marker date="1514865987394" expanded="true" signature="5069:5192" placeholder="..." />
-            <marker date="1514865987394" expanded="true" signature="5409:5674" placeholder="..." />
-            <marker date="1514865987394" expanded="true" signature="5512:5635" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1221,7 +1095,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4689781">
           <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1229,9 +1102,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4689781">
           <caret line="196" column="33" selection-start-line="196" selection-start-column="33" selection-end-line="196" selection-end-column="33" />
-          <folding>
-            <element signature="e#134#155#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1239,14 +1109,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socialTourism/application/reception/controller/Goodsactive.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-42.307693">
+          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
+          <folding>
+            <element signature="e#134#155#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/socialTourism/application/reception/view/hotel/hotel.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.615385">
-          <caret line="201" column="4" selection-start-line="201" selection-start-column="4" selection-end-line="201" selection-end-column="73" />
+        <state vertical-scroll-proportion="0.17301038">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding>
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
@@ -1255,33 +1134,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/socialTourism/application/reception/controller/Goodsactive.php">
+    <entry file="file://$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/goodsActive.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.692307">
-          <caret line="49" column="13" selection-start-line="49" selection-start-column="13" selection-end-line="49" selection-end-column="13" />
-          <folding>
-            <element signature="e#134#155#0#PHP" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.0">
+          <caret line="48" column="36" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/socialTourism/application/reception/view/goodsactive/goodsActive.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.576923">
-          <caret line="128" column="97" selection-start-line="128" selection-start-column="97" selection-end-line="128" selection-end-column="97" />
+        <state vertical-scroll-proportion="0.12975779">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
           <folding>
             <element signature="n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/socialTourism/public/static/js/receptionjs/goodsActive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8758278">
-          <caret line="53" column="34" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
-          <folding />
         </state>
       </provider>
     </entry>

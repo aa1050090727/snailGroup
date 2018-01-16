@@ -172,5 +172,24 @@ class Redis extends Driver
         }
         return $this->handler->flushDB();
     }
-
+	/*
+	**@param $key
+	**@param $value
+	**@return int
+	*/
+	public function lPush($key,$value){
+		return $this->handler->lPush($key,$value);
+	}
+	/*
+	**@param $key
+	**@return int
+	*/
+	public function lPop($key){
+		return $this->handler->lPop($key);
+	}
+	public function lrange($key){
+		return $this->handler->lrange($key,0, -1);
+		    //$list = $redis->lrange('list', 0, -1);
+	}
+	
 }
