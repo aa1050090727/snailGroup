@@ -117,6 +117,16 @@
                     <span class="rec_price col-lg-3 col-md-3" v-if="viewDetail.f_science_states==2">￥{{viewDetail.f_science_aprice}}</span>
                     <span v-if="viewDetail.f_science_states==2" class="rec_aprice col-lg-3 col-md-3">￥{{viewDetail.f_science_price}}</span>
                     <span v-else="viewDetail.f_science_states==1" class="rec_price col-lg-3 col-md-3">￥{{viewDetail.f_science_price}}</span>
+<<<<<<< HEAD
+					<div class="col-lg-5 col-md-5 text-right" v-if="viewDetail.f_science_states==1">
+                        <button class="btn btn-danger detail_btn" @click="putShopCar(viewDetail.f_science_id)">加入购物车</button>
+                        <button class="btn btn-danger detail_btn" @click="nowBuy(viewDetail)">立即购买</button>
+                    </div>  
+					<div class="col-lg-5 col-md-5 text-right" v-else="viewDetail.f_science_states==2">
+						<p><strong>剩余房间数：</strong><span class="rec_price">{{viewDetail.f_science_num}}</span></p>
+                        <button class="btn btn-danger detail_btn" @click="nowGo(viewDetail)">立即抢购</button>
+                    </div> 					
+=======
                     <span class="shengyu col-lg-2 col-md-2" v-if="viewDetail.f_science_states==2">剩余：{{viewDetail.f_science_num}}</span>
                     <div class="col-lg-5 col-md-5 text-right" v-if="viewDetail.f_science_states==1">
                         <button class="btn btn-danger detail_btn" @click="putShopCar(viewDetail.f_science_id)">加入购物车</button>
@@ -125,6 +135,7 @@
                     <div class="col-lg-5 col-md-5 text-right" v-else="viewDetail.f_science_states==2">
                         <button class="btn btn-danger detail_btn" @click="panicBuying(viewDetail)">立即抢购</button>
                     </div>
+>>>>>>> db1569739341b8dc87192e217106f233c0c25a84
                     <!--<div class="col-lg-3 col-md-3 text-right"><span class="rec_sale">已售：11</span></div>-->
                 </div>
             </div>
@@ -259,7 +270,11 @@
     var hotelUrl="{:url('reception/Hotel/hotel')}";
 
     var center_url = "{:url('reception/Center/payment')}";
+<<<<<<< HEAD
+    var nowGo_url = "{:url('reception/Rediscon/nowBuy')}";
+=======
 
+>>>>>>> db1569739341b8dc87192e217106f233c0c25a84
 </script>
 <script src="__STATIC__/js/receptionjs/public.js"></script>
 <script src="__STATIC__/js/receptionjs/viewdetail.js"></script>

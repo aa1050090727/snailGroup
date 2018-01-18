@@ -226,7 +226,7 @@ class Viewport extends Controller
             $science_sid = input('science_sid');//商品id
             $userId = session("nowlogin");//用户id
             date_default_timezone_set("PRC");
-            $timept=date("Y-m-d",time());
+            $timept=date("Y-m-d H:i:s",time());
             //生成订单
             $data = [
                 "b_order_id"=>null,
