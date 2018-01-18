@@ -371,7 +371,9 @@ var unpaidorder = new Vue({
 
         ],
         allpage:1,
-        nowpage:1
+        nowpage:1,
+        sciencedetails:[],
+        hoteldetails: []
     },
     created:function(){
         this.unpaidorder(1)
@@ -403,6 +405,7 @@ var unpaidorder = new Vue({
                 this.unpaidorder(lastpage)
             }
         },
+
         //下一页
         unpaidnext:function(){
             if(parseInt(this.nowpage)+1 > this.allpage){
@@ -418,7 +421,6 @@ var unpaidorder = new Vue({
             var orderID=$(event.target).attr("id");
             window.location.href=gopay+"?orderID="+orderID;
         },
-
 
         //取消订单
         alterorder:function(){
@@ -443,7 +445,69 @@ var unpaidorder = new Vue({
                 })
             }
 
-        }
+        },
+
+        //获取该订单的详情
+        getunpaidorder:function(){
+            var _this = this;
+            var orderID=$(event.target).attr("id");
+            $.ajax({
+                url:getthisorder,
+                dateType:"json",
+                data:'orderID='+orderID,
+                type:"post",
+                success:function(res){
+                    _this.sciencedetails  = res[0]
+                    _this.hoteldetails  = res[1]
+                }
+            })
+        },
+
+        //页面跳转
+        goDetail:function() {
+            var f_science_id = $(event.target).attr("id");
+            $.ajax({
+                type: "post",
+                data: {"f_science_id": f_science_id},
+                dataType: "json",
+                url: setViewId_url,
+                success: function (res) {
+                    console.log(res.result);
+                    if (res.result == true) {
+                        window.location.href = goViewdetailed_url;
+                    }
+                    else {
+                        window.location.href = error_url;
+                    }
+                },
+                error: function (res) {
+                    console.log("error", res);
+                }
+            });
+        },
+
+        showDetails:function() {
+            //发送ajax，将当前地点存起来
+            var id = $(event.target).attr("id");
+            $.ajax({
+                type: "post",
+                url: hotel_setCookie_Url,
+                data: {"f_hotel_id": id},
+                dataType: "json",
+                success: function (res) {
+                    console.log(res);
+                    if (res.code == 1) {
+                        location.href = hoteDetailsUrl;
+                    }
+                    else {
+                        location.reload();
+                    }
+                },
+                error: function (res) {
+                    console.log("error", res);
+                }
+            })
+        },
     }
 
 })
@@ -456,7 +520,9 @@ var paidorder = new Vue({
 
         ],
         allpage:1,
-        nowpage:1
+        nowpage:1,
+        sciencedetails:[],
+        hoteldetails: []
     },
     created:function(){
         this.paidordere(1)
@@ -497,6 +563,73 @@ var paidorder = new Vue({
                 this.paidordere(nextpage)
             }
         },
+        //获取该订单的详情
+        getunpaidorder:function(){
+            var _this = this;
+            var orderID=$(event.target).attr("id");
+            $.ajax({
+                url:getthisorder,
+                dateType:"json",
+                data:'orderID='+orderID,
+                type:"post",
+                success:function(res){
+                    _this.sciencedetails  = res[0]
+                    _this.hoteldetails  = res[1]
+                }
+            })
+        },
+
+        //景点详情页面跳转
+        goDetail:function() {
+            var f_science_id = $(event.target).attr("id");
+            $.ajax({
+                type: "post",
+                data: {"f_science_id": f_science_id},
+                dataType: "json",
+                url: setViewId_url,
+                success: function (res) {
+                    console.log(res.result);
+                    if (res.result == true) {
+                        window.location.href = goViewdetailed_url;
+                    }
+                    else {
+                        window.location.href = error_url;
+                    }
+                },
+                error: function (res) {
+                    console.log("error", res);
+                }
+            });
+        },
+        //酒店详情页面跳转
+        showDetails:function() {
+            //发送ajax，将当前地点存起来
+            var id = $(event.target).attr("id");
+            $.ajax({
+                type: "post",
+                url: hotel_setCookie_Url,
+                data: {"f_hotel_id": id},
+                dataType: "json",
+                success: function (res) {
+                    console.log(res);
+                    if (res.code == 1) {
+                        location.href = hoteDetailsUrl;
+                    }
+                    else {
+                        location.reload();
+                    }
+                },
+                error: function (res) {
+                    console.log("error", res);
+                }
+            })
+        },
+
+        //使用
+        employ:function(){
+            var b_order_details_id = $(event.target).attr("id");
+            console.log(b_order_details_id)
+        }
     }
 })
 
@@ -573,6 +706,125 @@ var Scenic_collection111 = new Vue({
                 }
             });
         },
+    }
+})
+
+
+//获取待评价订单
+var appraiseorders = new Vue({
+    el:"#appraiseorder",
+    data:{
+        orders : [
+
+        ],
+        allpage:1,
+        nowpage:1,
+        sciencedetails:[],
+        hoteldetails: []
+    },
+    created:function(){
+        this.appraiseorderr(1)
+    },
+    methods:{
+        //获取数据
+        appraiseorderr:function(page){
+            var _this = this;
+            $.ajax({
+                url:appraiseorderrUrl,
+                dateType:"json",
+                data:'nowpage='+page,
+                type:"post",
+                success:function(res){
+                    console.log(res)
+                    _this.orders=res['data'];
+                    _this.allpage = res['allpage']
+                    _this.nowpage = res['nowpage']
+                }
+            })
+        },
+
+        //上一页
+        unpaidprev:function(){
+            if(parseInt(this.nowpage)-1 <= 0){
+                alert('当前是第一页')
+            }else {
+                var lastpage =parseInt(this.nowpage)-1;
+                this.unpaidorder(lastpage)
+            }
+        },
+
+        //下一页
+        unpaidnext:function(){
+            if(parseInt(this.nowpage)+1 > this.allpage){
+                alert('当前是最后一页')
+            }else {
+                var nextpage =parseInt(this.nowpage)+1;
+                this.unpaidorder(nextpage)
+            }
+        },
+
+        //获取该订单的详情
+        getappraiseorder:function(){
+            var _this = this;
+            var orderID=$(event.target).attr("id");
+            $.ajax({
+                url:getthisorder,
+                dateType:"json",
+                data:'orderID='+orderID,
+                type:"post",
+                success:function(res){
+                    _this.sciencedetails  = res[0]
+                    _this.hoteldetails  = res[1]
+                }
+            })
+        },
+
+        //页面跳转
+        goDetail:function() {
+            var f_science_id = $(event.target).attr("id");
+            $.ajax({
+                type: "post",
+                data: {"f_science_id": f_science_id},
+                dataType: "json",
+                url: setViewId_url,
+                success: function (res) {
+                    console.log(res.result);
+                    if (res.result == true) {
+                        window.location.href = goViewdetailed_url;
+                    }
+                    else {
+                        window.location.href = error_url;
+                    }
+                },
+                error: function (res) {
+                    console.log("error", res);
+                }
+            });
+        },
+
+        showDetails:function() {
+            //发送ajax，将当前地点存起来
+            var id = $(event.target).attr("id");
+            $.ajax({
+                type: "post",
+                url: hotel_setCookie_Url,
+                data: {"f_hotel_id": id},
+                dataType: "json",
+                success: function (res) {
+                    console.log(res);
+                    if (res.code == 1) {
+                        location.href = hoteDetailsUrl;
+                    }
+                    else {
+                        location.reload();
+                    }
+                },
+                error: function (res) {
+                    console.log("error", res);
+                }
+            })
+        },
+
     }
 })
 

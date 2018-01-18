@@ -321,9 +321,6 @@
                                                 <li>
                                                     <a href="#panel-123123" data-toggle="tab">待评价</a>
                                                 </li>
-                                                <li>
-                                                    <a href="#panel-22211" data-toggle="tab">取消/退款</a>
-                                                </li>
                                             </ul>
                                             <div class="tab-content">
                                                 <div class="tab-pane active" id="panel-365437">
@@ -508,7 +505,50 @@
                                                                         <td>
                                                                             <button v-bind:id="order.b_order_id" type="button" class="btn btn-warning" v-on:click="gopay">去支付</button><br>
                                                                             <button v-bind:id="order.b_order_id" type="button" class="btn btn-default" v-on:click="alterorder">取消订单</button><br>
-                                                                            <button v-bind:id="order.b_order_id" type="button" class="btn btn-default">查看订单</button>
+                                                                            <!-- Button trigger modal -->
+                                                                            <button v-bind:id="order.b_order_id" v-on:click="getunpaidorder" type="button" class="btn btn-default" data-toggle="modal" data-target="#detailsunpaidorder">
+                                                                                查看订单
+                                                                            </button>
+                                                                            <!-- Modal -->
+                                                                            <div class="modal fade" id="detailsunpaidorder" tabindex="-1" role="dialog" aria-labelledby="mydetailsunpaidorder">
+                                                                                <div class="width modal-dialog" role="document">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                                            <h4 class="modal-title" id="mydetailsunpaidorder">订单详情</h4>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <div v-for="detail in sciencedetails">
+                                                                                                <div style="margin-top: 20px">
+                                                                                                    <div>
+                                                                                                        产品信息
+                                                                                                    </div>
+                                                                                                    <div>
+                                                                                                        商品名称：<span v-bind:id="detail.f_science_id" v-on:click="goDetail" style="color: #23527c">{{detail.f_science_name}}</span><br>
+                                                                                                        购买数量：{{detail.b_order_details_num}}<br>
+                                                                                                        价格：{{detail.b_order_details_price}}
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div v-for="detail in hoteldetails">
+                                                                                                <div style="margin-top: 20px">
+                                                                                                    <div>
+                                                                                                        产品信息
+                                                                                                    </div>
+                                                                                                    <div>
+                                                                                                        商品名称：<span v-bind:id="detail.f_hotel_id" v-on:click="showDetails" style="color: #23527c">{{detail.f_hotel_name}}</span><br>
+                                                                                                        出行日期：{{detail.b_order_details_num}}<br>
+                                                                                                        价格：{{detail.b_order_details_price}}
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="modal-footer">
+                                                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
                                                                         </td>
                                                                     </tr>
                                                                 </table>
@@ -521,97 +561,6 @@
                                                             </ul>
                                                         </nav>
                                                     </div>
-                                                </div>
-                                                <div class="tab-pane" id="panel-123123">
-
-                                                </div>
-                                                <div class="tab-pane" id="panel-22211">
-                                                    <div class="container">
-                                                        <div class="row" style="font-size: 20px;line-height: 40px;margin-top: 10px;background-color: #f5f5f5">
-                                                            <div class="col-lg-2">
-                                                                订单信息
-                                                            </div>
-                                                            <div class="col-lg-2"></div>
-                                                            <div class="col-lg-1">
-                                                                类型
-                                                            </div>
-                                                            <div class="col-lg-1"></div>
-                                                            <div class="col-lg-2">
-                                                                支付金额
-                                                            </div>
-                                                            <div class="col-lg-2">
-                                                                订单状态
-                                                            </div>
-                                                            <div class="col-lg-2">
-                                                                操作
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div >
-                                                        <div>
-                                                            <table class="table table-condensed text-center" style="margin-top: 20px;border: 1px solid">
-                                                                <tr style="background-color: #f5f5f5">
-                                                                    <td>
-                                                                        <span>订单号：</span>
-                                                                        <span>500355006</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span>下单时间：</span>
-                                                                        <span>2017-12-28 16:29</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span>商家：</span>
-                                                                        <span>蓝银草</span>
-                                                                    </td>
-                                                                    <td></td>
-                                                                    <td>
-                                                                        <span>联系电话：</span>
-                                                                        <span>4006588799</span>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="line-height: 120px">
-                                                                        <img style="width: 40px;height: 40px" src="__STATIC__/image/0.jpg" alt="">
-                                                                        <span>福建土楼永定景区</span>
-                                                                    </td>
-                                                                    <td style="line-height: 120px">
-                                                                        <span>景点</span>
-                                                                    </td>
-                                                                    <td style="line-height: 120px">
-                                                                        ￥<span>90</span>
-                                                                    </td>
-                                                                    <td style="line-height: 120px">
-                                                                        <span>待支付</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <button type="button" class="btn btn-warning">去支付</button><br>
-                                                                        <button type="button" class="btn btn-warning">联系客服</button><br>
-                                                                        <button type="button" class="btn btn-default">取消订单</button><br>
-                                                                        <button type="button" class="btn btn-default">查看订单</button>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </div>
-                                                    </div>
-                                                    <nav aria-label="Page navigation">
-                                                        <ul class="pagination">
-                                                            <li>
-                                                                <a href="#" aria-label="Previous">
-                                                                    <span aria-hidden="true">&laquo;</span>
-                                                                </a>
-                                                            </li>
-                                                            <li><a href="#">1</a></li>
-                                                            <li><a href="#">2</a></li>
-                                                            <li><a href="#">3</a></li>
-                                                            <li><a href="#">4</a></li>
-                                                             <li><a href="#">5</a></li>
-                                                            <li>
-                                                                <a href="#" aria-label="Next">
-                                                                    <span aria-hidden="true">&raquo;</span>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </nav>
                                                 </div>
                                                 <div class="tab-pane" id="panel-666666">
                                                     <table class="table table-condensed" style="margin-top: 20px;font-size: 20px;line-height: 40px;background-color: #f5f5f5">
@@ -651,7 +600,53 @@
                                                                             <span>{{order.b_order_state}}</span>
                                                                         </td>
                                                                         <td>
-                                                                            <button v-bind:id="order.b_order_id" type="button" class="btn btn-default">查看订单</button>
+                                                                            <!-- Button trigger modal -->
+                                                                            <button v-bind:id="order.b_order_id" v-on:click="getunpaidorder" type="button" class="btn btn-default" data-toggle="modal" data-target="#detailspaidorder">
+                                                                                查看订单
+                                                                            </button>
+                                                                            <!-- Modal -->
+                                                                            <div class="modal fade" id="detailspaidorder" tabindex="-1" role="dialog" aria-labelledby="mydetailspaidorder">
+                                                                                <div class="width modal-dialog" role="document">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                                            <h4 class="modal-title" id="mydetailspaidorder">订单详情</h4>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <div v-for="detail in sciencedetails">
+                                                                                                <div style="margin-top: 20px">
+                                                                                                    <div>
+                                                                                                        产品信息
+                                                                                                    </div>
+                                                                                                    <div>
+                                                                                                        商品名称：<span v-bind:id="detail.f_science_id" v-on:click="goDetail" style="color: #23527c">{{detail.f_science_name}}</span><br>
+                                                                                                        购买数量：{{detail.b_order_details_num}}<br>
+                                                                                                        价格：{{detail.b_order_details_price}}<br>
+                                                                                                        <button v-bind:id="detail.b_order_details_id" type="button" v-on:click="employ">使用</button>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div v-for="detail in hoteldetails">
+                                                                                                <div style="margin-top: 20px">
+                                                                                                    <div>
+                                                                                                        产品信息
+                                                                                                    </div>
+                                                                                                    <div>
+                                                                                                        商品名称：<span v-bind:id="detail.f_hotel_id" v-on:click="showDetails" style="color: #23527c">{{detail.f_hotel_name}}</span><br>
+                                                                                                        出行日期：{{detail.b_order_details_num}}<br>
+                                                                                                        价格：{{detail.b_order_details_price}}<br>
+                                                                                                        <button type="button">使用</button>
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="modal-footer">
+                                                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+
                                                                         </td>
                                                                     </tr>
                                                                 </table>
@@ -661,6 +656,101 @@
                                                             <ul class="pager">
                                                                 <li><a href="#" v-on:click="paidorderprev">上一页</a></li>
                                                                 <li><a href="#" v-on:click="paidordernext">下一页</a></li>
+                                                            </ul>
+                                                        </nav>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" id="panel-123123">
+                                                    <table class="table table-condensed" style="margin-top: 20px;font-size: 20px;line-height: 40px;background-color: #f5f5f5">
+                                                        <tr>
+                                                            <td>
+                                                                <span>订单号</span>
+                                                            </td>
+                                                            <td>
+                                                                <span>下单时间</span>
+                                                            </td>
+                                                            <td>
+                                                                <span>支付金额</span>
+                                                            </td>
+                                                            <td>
+                                                                <span>订单状态</span>
+                                                            </td>
+                                                            <td>
+                                                                <span> 操作</span>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                    <div id="appraiseorder">
+                                                        <div v-for="order in orders" >
+                                                            <div>
+                                                                <table class="table table-condensed" style="margin-top: 20px;border: 1px solid">
+                                                                    <tr>
+                                                                        <td style="padding-top: 60px;">
+                                                                            <span>{{order.b_order_id}}</span>
+                                                                        </td>
+                                                                        <td style="padding-top: 60px;">
+                                                                            <span>{{order.b_order_time}}</span>
+                                                                        </td>
+                                                                        <td style="padding-top: 60px">
+                                                                            ￥<span>{{order.b_order_total_price}}</span>
+                                                                        </td>
+                                                                        <td style="padding-top: 60px">
+                                                                            <span>{{order.b_order_state}}</span>
+                                                                        </td>
+                                                                        <td>
+                                                                            <!-- Button trigger modal -->
+                                                                            <button v-bind:id="order.b_order_id" v-on:click="getappraiseorder" type="button" class="btn btn-default" data-toggle="modal" data-target="#detailsappraiseorder">
+                                                                                查看订单
+                                                                            </button>
+                                                                            <!-- Modal -->
+                                                                            <div class="modal fade" id="detailsappraiseorder" tabindex="-1" role="dialog" aria-labelledby="mydetailsappraiseorder">
+                                                                                <div class="width modal-dialog" role="document">
+                                                                                    <div class="modal-content">
+                                                                                        <div class="modal-header">
+                                                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                                            <h4 class="modal-title" id="mydetailsappraiseorder">订单详情</h4>
+                                                                                        </div>
+                                                                                        <div class="modal-body">
+                                                                                            <div v-for="detail in sciencedetails">
+                                                                                                <div style="margin-top: 20px">
+                                                                                                    <div>
+                                                                                                        产品信息
+                                                                                                    </div>
+                                                                                                    <div>
+                                                                                                        商品名称：<span v-bind:id="detail.f_science_id" v-on:click="goDetail" style="color: #23527c">{{detail.f_science_name}}</span><br>
+                                                                                                        购买数量：{{detail.b_order_details_num}}<br>
+                                                                                                        价格：{{detail.b_order_details_price}}
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <div v-for="detail in hoteldetails">
+                                                                                                <div style="margin-top: 20px">
+                                                                                                    <div>
+                                                                                                        产品信息
+                                                                                                    </div>
+                                                                                                    <div>
+                                                                                                        商品名称：<span v-bind:id="detail.f_hotel_id" v-on:click="showDetails" style="color: #23527c">{{detail.f_hotel_name}}</span><br>
+                                                                                                        出行日期：{{detail.b_order_details_num}}<br>
+                                                                                                        价格：{{detail.b_order_details_price}}
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                        </div>
+                                                                                        <div class="modal-footer">
+                                                                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        </td>
+                                                                    </tr>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                        <nav>
+                                                            <ul class="pager">
+                                                                <li><a href="#" v-on:click="unpaidprev">上一页</a></li>
+                                                                <li><a href="#" v-on:click="unpaidnext">下一页</a></li>
                                                             </ul>
                                                         </nav>
                                                     </div>
@@ -1022,6 +1112,7 @@
     var activityUrl="{:url('reception/Goodsactive/goodsActive')}";
     var hotelUrl="{:url('reception/Hotel/hotel')}";
     var Scenic_collectionUrl = "{:url('reception/Center/Scenic_collectionUrl')}"
+    var appraiseorderrUrl = "{:url('reception/Center/appraiseorderrUrl')}"
 </script>
 <script src="__STATIC__/js/receptionjs/public.js"></script>
 <script src="__STATIC__/js/center.js" type="text/javascript"></script>

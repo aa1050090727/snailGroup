@@ -135,27 +135,8 @@ var vue = new Vue({
                 $('#codetps').css('color','red');
                 $('#codetps').css('font-size','20px');
                 $("#codetps").html("× 输入不能为空")
-            }else {
-                var user = {
-                'code': this.code
-                }
-                $.ajax({
-                    url:verifycode,
-                    dateType:"json",
-                    data:user,
-                    type:"post",
-                    success:function(res){
-                        if(res['code']==10000){
-                            $('#codetps').css('color','green');
-                            $('#codetps').css('font-size','20px');
-                            $("#codetps").html("√"+res['msg'])
-                        }else if(res['code']==10001){
-                            $('#codetps').css('color','red');
-                            $('#codetps').css('font-size','20px');
-                            $("#codetps").html("×"+res['msg'])
-                        }
-                    }
-                })
+            }else if(this.pwd.length<6 ){
+
             }
         } ,
 
