@@ -301,7 +301,6 @@ var allorder = new Vue({
                 data:'nowpage='+page,
                 type:"post",
                 success:function(res){
-                    console.log(res)
                     _this.orders=res['data'];
                     _this.allpage = res['allpage']
                     _this.nowpage = res['nowpage']
@@ -388,7 +387,7 @@ var unpaidorder = new Vue({
                 data:'nowpage='+page,
                 type:"post",
                 success:function(res){
-                    console.log(res)
+
                     _this.orders=res['data'];
                     _this.allpage = res['allpage']
                     _this.nowpage = res['nowpage']
@@ -537,7 +536,6 @@ var paidorder = new Vue({
                 data:'nowpage='+page,
                 type:"post",
                 success:function(res){
-                    console.log(res)
                     _this.orders=res['data'];
                     _this.allpage = res['allpage']
                     _this.nowpage = res['nowpage']
@@ -573,6 +571,7 @@ var paidorder = new Vue({
                 data:'orderID='+orderID,
                 type:"post",
                 success:function(res){
+                    console.log(res[0])
                     _this.sciencedetails  = res[0]
                     _this.hoteldetails  = res[1]
                 }
@@ -629,6 +628,17 @@ var paidorder = new Vue({
         employ:function(){
             var b_order_details_id = $(event.target).attr("id");
             console.log(b_order_details_id)
+            if(confirm('确定使用吗？')){
+                $.ajax({
+                    type: "post",
+                    url: useUrl,
+                    data: {"b_order_details_id": b_order_details_id},
+                    dataType: "json",
+                    success: function (res) {
+                        console.log(res);
+                    },
+                })
+            }
         }
     }
 })
@@ -656,11 +666,9 @@ var Scenic_collection111 = new Vue({
                 data:'nowpage='+page,
                 type:"post",
                 success:function(res){
-                    console.log(res)
                     _this.scenicdatas=res['data'];
                     _this.allpage = res['allpage']
                     _this.nowpage = res['nowpage']
-                    console.log(_this.scenicdatas)
                 }
             })
         },
@@ -735,7 +743,6 @@ var appraiseorders = new Vue({
                 data:'nowpage='+page,
                 type:"post",
                 success:function(res){
-                    console.log(res)
                     _this.orders=res['data'];
                     _this.allpage = res['allpage']
                     _this.nowpage = res['nowpage']

@@ -622,7 +622,8 @@
                                                                                                         商品名称：<span v-bind:id="detail.f_science_id" v-on:click="goDetail" style="color: #23527c">{{detail.f_science_name}}</span><br>
                                                                                                         购买数量：{{detail.b_order_details_num}}<br>
                                                                                                         价格：{{detail.b_order_details_price}}<br>
-                                                                                                        <button v-bind:id="detail.b_order_details_id" type="button" v-on:click="employ">使用</button>
+                                                                                                        <button v-bind:id="detail.b_order_details_id" v-if="detail.b_order_details_state==='未使用'" type="button" v-on:click="employ">使用</button>
+                                                                                                        <span v-if="detail.b_order_details_state==='已使用'">该订单已使用</span>
                                                                                                     </div>
                                                                                                 </div>
                                                                                             </div>
@@ -1113,6 +1114,7 @@
     var hotelUrl="{:url('reception/Hotel/hotel')}";
     var Scenic_collectionUrl = "{:url('reception/Center/Scenic_collectionUrl')}"
     var appraiseorderrUrl = "{:url('reception/Center/appraiseorderrUrl')}"
+    var useUrl = "{:url('reception/Center/useUrl')}"
 </script>
 <script src="__STATIC__/js/receptionjs/public.js"></script>
 <script src="__STATIC__/js/center.js" type="text/javascript"></script>
