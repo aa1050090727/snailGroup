@@ -10,7 +10,8 @@ var vue = new Vue({
         pwd:"",
         password:"",
         code:"",
-        cellcode:""
+        cellcode:"",
+        passwords:""
     },
     methods: {
         insert:function(){
@@ -63,23 +64,35 @@ var vue = new Vue({
         getnote:function(){
             $APPID='C41326166'
             $APPKEY  = '4fc2a6de51a7462b4121a0e1a5a1c0f9'
-            $.ajax({
-                url:getno ,
-                dateType:"json",
-                data:"",
-                type:"post",
-                success:function(res){
-                    $.ajax({
-                        url:"http://106.ihuyi.com/webservice/sms.php?method=Submit&account="+$APPID+"&password="+$APPKEY+"&mobile="+res["phone"]+"&content=您的验证码是："+res["code"]+"。请不要把验证码泄露给其他人。",
-                        dateType:"json",
-                        data:"",
-                        type:"get",
-                        success:function(res){
-                            console.log(res)
-                        }
-                    })
-                }
-            })
+            if(this.name==""){
+                alert('您的名号为空请输入后再获取验证码')
+            }else if(this.pwd==""){
+                alert('您的密码为空请输入后再获取验证码')
+            }
+            else if(this.password==""){
+                alert('您的二次密码为空请输入后再获取验证码')
+            }
+            else if(this.passwords==""){
+                alert('您的支付密码为空请输入后再获取验证码')
+            }else {
+                $.ajax({
+                    url:getno ,
+                    dateType:"json",
+                    data:"",
+                    type:"post",
+                    success:function(res){
+                        $.ajax({
+                            url:"http://106.ihuyi.com/webservice/sms.php?method=Submit&account="+$APPID+"&password="+$APPKEY+"&mobile="+res["phone"]+"&content=您的验证码是："+res["code"]+"。请不要把验证码泄露给其他人。",
+                            dateType:"json",
+                            data:"",
+                            type:"get",
+                            success:function(res){
+                                console.log(res)
+                            }
+                        })
+                    }
+                })
+            }
         },
 
         user:function(){

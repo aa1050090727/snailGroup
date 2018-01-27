@@ -92,7 +92,6 @@ $(function(){
                     }
                 });
             },
-<<<<<<< HEAD
 			 //点击立即抢购
             nowGo:function(viewDetail){
                 $.ajax({
@@ -127,10 +126,7 @@ $(function(){
                         console.log("error",result);
                     }
                 });
-=======
-            panicBuying:function(viewDetail){
-                alert(1)
->>>>>>> db1569739341b8dc87192e217106f233c0c25a84
+
             }
         }
 		

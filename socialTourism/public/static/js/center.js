@@ -208,7 +208,20 @@ var showwj = new Vue({
         /*阅读全文*/
         travelDetails:function(){
             var travelID=$(event.target).attr("travelID");
-            window.location.href=travelDetail+"?travelID="+travelID;
+            $.ajax({
+                type:"post",
+                url:travelAdd,
+                data:{"travelID":travelID},
+                dataType:"text",
+                success:function(res){
+                    if (res==0){
+                        window.location.href=travelDetail+"?travelID="+travelID;
+                    }
+                    else if(res==1){
+                        window.location.href=travelDetail+"?travelID="+travelID;
+                    }
+                }
+            })
         },
     }
 })
@@ -718,6 +731,172 @@ var Scenic_collection111 = new Vue({
 })
 
 
+
+//获取酒店收藏
+var Viewport_collection = new Vue({
+    el:'#Viewport_collection',
+    data:{
+        scenicdatas : [
+
+        ],
+        allpage:1,
+        nowpage:1
+    },
+    created:function(){
+        this.get_Scenic_collection(1)
+    },
+    methods:{
+        //获取自己收藏的景点
+        get_Scenic_collection:function(page){
+            var _this = this;
+            $.ajax({
+                url:Viewport_collectionUrl,
+                dateType:"json",
+                data:'nowpage='+page,
+                type:"post",
+                success:function(res){
+                    _this.scenicdatas=res['data'];
+                    _this.allpage = res['allpage']
+                    _this.nowpage = res['nowpage']
+                }
+            })
+        },
+
+        //上一页
+        Scenicprev:function(){
+            if(parseInt(this.nowpage)-1 <= 0){
+                alert('当前是第一页')
+            }else {
+                var lastpage =parseInt(this.nowpage)-1;
+                this.get_Scenic_collection(lastpage)
+            }
+        },
+        //下一页
+        Scenicnext:function(){
+            if(parseInt(this.nowpage)+1 > this.allpage){
+                alert('当前是最后一页')
+            }else {
+                var nextpage =parseInt(this.nowpage)+1;
+                this.get_Scenic_collection(nextpage)
+            }
+        },
+        //页面跳转
+        showDetails:function() {
+            //发送ajax，将当前地点存起来
+            var id = $(event.target).attr("id");
+            $.ajax({
+                type: "post",
+                url: hotel_setCookie_Url,
+                data: {"f_hotel_id": id},
+                dataType: "json",
+                success: function (res) {
+                    console.log(res);
+                    if (res.code == 1) {
+                        location.href = hoteDetailsUrl;
+                    }
+                    else {
+                        location.reload();
+                    }
+                },
+                error: function (res) {
+                    console.log("error", res);
+                }
+            })
+        },
+    }
+})
+
+
+//获取游记收藏
+var Travels_collection = new Vue({
+    el:'#Travels_collection',
+    data:{
+        todos : [
+
+        ],
+        allpage:1,
+        nowpage:1,
+        mynoname:'',
+        mymon:'',
+        myimg:''
+    },
+    created:function(){
+        this.getnote(1)
+    },
+    methods:{
+        getnote: function (page) {
+            var _this = this;
+            $.ajax({
+                url:Travels_collectionUrl,
+                dateType:"json",
+                data:'nowpage='+page,
+                type:"post",
+                success:function(res){
+                    _this.todos=res['data'];
+                    _this.allpage = res['allpage']
+                    _this.nowpage = res['nowpage']
+                }
+            })
+        },
+
+        init:function(){
+            var _this = this;
+            $.ajax({
+                url:getmy,
+                dateType:"json",
+                data:'',
+                type:"post",
+                success:function(res){
+                    _this.mynoname=res['f_user_name']
+                    _this.mymon=res['f_user_money']
+                    _this.myimg=res['f_user_img']
+                }
+            })
+        },
+
+        mysetprev:function(){
+            if(parseInt(this.nowpage)-1 <= 0){
+                alert('当前是第一页')
+            }else {
+                var lastpage =parseInt(this.nowpage)-1;
+                this.getnote(lastpage)
+            }
+
+
+        },
+        mysetnext:function(){
+            if(parseInt(this.nowpage)+1 > this.allpage){
+                alert('当前是最后一页')
+            }else {
+                var nextpage =parseInt(this.nowpage)+1;
+                this.getnote(nextpage)
+            }
+
+
+        },
+
+        /*阅读全文*/
+        travelDetails:function(){
+            var travelID=$(event.target).attr("travelID");
+            $.ajax({
+                type:"post",
+                url:travelAdd,
+                data:{"travelID":travelID},
+                dataType:"text",
+                success:function(res){
+                    if (res==0){
+                        window.location.href=travelDetail+"?travelID="+travelID;
+                    }
+                    else if(res==1){
+                        window.location.href=travelDetail+"?travelID="+travelID;
+                    }
+                }
+            })
+        },
+    }
+})
+
+
 //获取待评价订单
 var appraiseorders = new Vue({
     el:"#appraiseorder",
@@ -836,4 +1015,112 @@ var appraiseorders = new Vue({
 })
 
 
-//获取购物车
+//获取景点购物车
+var shopping_view = new Vue({
+    el:'#shopping_view',
+    data:{
+        orders : [
+
+        ],
+        allpage:1,
+        nowpage:1,
+    },
+    created:function(){
+        this.appraiseorderr(1)
+    },
+    methods:{
+        //获取数据
+        appraiseorderr:function(page){
+            var _this = this;
+            $.ajax({
+                url:shopping_viewUrl,
+                dateType:"json",
+                data:'nowpage='+page,
+                type:"post",
+                success:function(res){
+                    console.log(res['data'])
+                    _this.orders=res['data'];
+                    _this.allpage = res['allpage']
+                    _this.nowpage = res['nowpage']
+                }
+            })
+        },
+
+        //上一页
+        unpaidprev:function(){
+            if(parseInt(this.nowpage)-1 <= 0){
+                alert('当前是第一页')
+            }else {
+                var lastpage =parseInt(this.nowpage)-1;
+                this.appraiseorderr(lastpage)
+            }
+        },
+
+        //下一页
+        unpaidnext:function(){
+            if(parseInt(this.nowpage)+1 > this.allpage){
+                alert('当前是最后一页')
+            }else {
+                var nextpage =parseInt(this.nowpage)+1;
+                this.appraiseorderr(nextpage)
+            }
+        },
+
+    }
+})
+
+
+//获取酒店收藏
+var shopping_hotel = new Vue({
+    el:'#shopping_hotel',
+    data:{
+        orders : [
+
+        ],
+        allpage:1,
+        nowpage:1,
+    },
+    created:function(){
+        this.appraiseorderr(1)
+    },
+    methods:{
+        //获取数据
+        appraiseorderr:function(page){
+            var _this = this;
+            $.ajax({
+                url:shopping_hotelUrl,
+                dateType:"json",
+                data:'nowpage='+page,
+                type:"post",
+                success:function(res){
+                    console.log(res['data'])
+                    _this.orders=res['data'];
+                    _this.allpage = res['allpage']
+                    _this.nowpage = res['nowpage']
+                }
+            })
+        },
+
+        //上一页
+        unpaidprev:function(){
+            if(parseInt(this.nowpage)-1 <= 0){
+                alert('当前是第一页')
+            }else {
+                var lastpage =parseInt(this.nowpage)-1;
+                this.appraiseorderr(lastpage)
+            }
+        },
+
+        //下一页
+        unpaidnext:function(){
+            if(parseInt(this.nowpage)+1 > this.allpage){
+                alert('当前是最后一页')
+            }else {
+                var nextpage =parseInt(this.nowpage)+1;
+                this.appraiseorderr(nextpage)
+            }
+        },
+
+    }
+})
+

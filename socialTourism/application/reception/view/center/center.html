@@ -121,9 +121,6 @@
                     <li>
                         <a href="#panel-1811" data-toggle="tab">我的收藏</a>
                     </li>
-                    <li>
-                        <a href="#panel-18111" data-toggle="tab">我的点评</a>
-                    </li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane active" id="panel-1">
@@ -298,7 +295,124 @@
                     <div class="tab-pane" id="panel-13" >
                         <!--我的购物车-->
                         <div class=" mynest">
-
+                            <div class="container-fluid">
+                                <div class="row-fluid">
+                                    <div class="span12">
+                                        <div class="tabbable" id="tabs-958333">
+                                            <ul class="nav nav-tabs">
+                                                <li class="active">
+                                                    <a href="#panel-401084" data-toggle="tab">景点</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#panel-417629" data-toggle="tab">酒店</a>
+                                                </li>
+                                            </ul>
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="panel-401084">
+                                                    <div id="shopping_view">
+                                                        <div class="container-fluid" >
+                                                            <div class="row-fluid">
+                                                                <div class="span12">
+                                                                    <table class="table">
+                                                                        <thead>
+                                                                        <tr>
+                                                                            <th>
+                                                                                商品id
+                                                                            </th>
+                                                                            <th>
+                                                                                商品名称
+                                                                            </th>
+                                                                            <th>
+                                                                                价格
+                                                                            </th>
+                                                                            <th>
+                                                                                操作
+                                                                            </th>
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody v-for="order in orders">
+                                                                        <tr>
+                                                                            <td>
+                                                                                {{order.f_science_id}}
+                                                                            </td>
+                                                                            <td>
+                                                                                {{order.f_science_name}}
+                                                                            </td>
+                                                                            <td>
+                                                                                {{order.f_science_price}}
+                                                                            </td>
+                                                                            <td>
+                                                                                <button type="button">购买</button>
+                                                                            </td>
+                                                                        </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <nav>
+                                                            <ul class="pager">
+                                                                <li><a href="#" v-on:click="unpaidprev">上一页</a></li>
+                                                                <li><a href="#" v-on:click="unpaidnext">下一页</a></li>
+                                                            </ul>
+                                                        </nav>
+                                                    </div>
+                                                </div>
+                                                <div class="tab-pane" id="panel-417629">
+                                                    <div id="shopping_hotel">
+                                                        <div class="container-fluid" >
+                                                            <div class="row-fluid">
+                                                                <div class="span12">
+                                                                    <table class="table">
+                                                                        <thead>
+                                                                        <tr>
+                                                                            <th>
+                                                                                商品id
+                                                                            </th>
+                                                                            <th>
+                                                                                商品名称
+                                                                            </th>
+                                                                            <th>
+                                                                                价格
+                                                                            </th>
+                                                                            <th>
+                                                                                操作
+                                                                            </th>
+                                                                        </tr>
+                                                                        </thead>
+                                                                        <tbody v-for="order in orders">
+                                                                        <tr>
+                                                                            <td>
+                                                                                {{order.f_hotel_id}}
+                                                                            </td>
+                                                                            <td>
+                                                                                {{order.f_hotel_name}}
+                                                                            </td>
+                                                                            <td>
+                                                                                {{order.f_hotel_price}}
+                                                                            </td>
+                                                                            <td>
+                                                                                <button type="button">购买</button>
+                                                                            </td>
+                                                                        </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <nav>
+                                                            <ul class="pager">
+                                                                <li><a href="#" v-on:click="unpaidprev">上一页</a></li>
+                                                                <li><a href="#" v-on:click="unpaidnext">下一页</a></li>
+                                                            </ul>
+                                                        </nav>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="tab-pane" id="panel-181">
@@ -807,208 +921,66 @@
                                                     </div>
                                                 </div>
                                                 <div class="tab-pane" id="panel-187764">
-                                                    <div>
-                                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
+                                                    <div  id="Viewport_collection" >
+                                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid" v-for="scenicdata in scenicdatas">
                                                             <div class="row-fluid">
                                                                 <div class="span12">
                                                                     <div class="media">
-                                                                        <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
+                                                                        <a href="#" class="pull-left"><img width="100" height="100" v-bind:src="scenicdata.f_hotel_img" class="media-object" alt='' /></a>
                                                                         <div class="media-body">
-                                                                            <h4 class="media-heading">
-                                                                                嵌入媒体标题
-                                                                            </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
+                                                                            <h4 class="media-heading" v-bind:id="scenicdata.f_enshrine_sid" v-on:click="showDetails">
+                                                                                {{scenicdata.f_hotel_name}}
+                                                                            </h4> {{scenicdata.f_hotel_content}}
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
-                                                            <div class="row-fluid">
-                                                                <div class="span12">
-                                                                    <div class="media">
-                                                                        <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
-                                                                        <div class="media-body">
-                                                                            <h4 class="media-heading">
-                                                                                嵌入媒体标题
-                                                                            </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
-                                                            <div class="row-fluid">
-                                                                <div class="span12">
-                                                                    <div class="media">
-                                                                        <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
-                                                                        <div class="media-body">
-                                                                            <h4 class="media-heading">
-                                                                                嵌入媒体标题
-                                                                            </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                                        <nav>
+                                                            <ul class="pager">
+                                                                <li><a href="#" v-on:click="Scenicprev">上一页</a></li>
+                                                                <li><a href="#" v-on:click="Scenicnext">下一页</a></li>
+                                                            </ul>
+                                                        </nav>
                                                     </div>
-                                                    <nav aria-label="Page navigation">
-                                                        <ul class="pagination">
-                                                            <li>
-                                                                <a href="#" aria-label="Previous">
-                                                                    <span aria-hidden="true">&laquo;</span>
-                                                                </a>
-                                                            </li>
-                                                            <li><a href="#">1</a></li>
-                                                            <li><a href="#">2</a></li>
-                                                            <li><a href="#">3</a></li>
-                                                            <li><a href="#">4</a></li>
-                                                            <li><a href="#">5</a></li>
-                                                            <li>
-                                                                <a href="#" aria-label="Next">
-                                                                    <span aria-hidden="true">&raquo;</span>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </nav>
                                                 </div>
                                                 <div class="tab-pane" id="panel-187763">
-                                                    <div>
-                                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
-                                                            <div class="row-fluid">
-                                                                <div class="span12">
-                                                                    <div class="media">
-                                                                        <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
-                                                                        <div class="media-body">
-                                                                            <h4 class="media-heading">
-                                                                                嵌入媒体标题
-                                                                            </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
+                                                    <div  id="Travels_collection" >
+                                                        <div>
+                                                            <div style="margin-top: 40px;margin-bottom: 40px" class="container-fluid" v-for="todo in todos">
+                                                                <div class="row-fluid">
+                                                                    <div class="span12">
+                                                                        <div class="media">
+                                                                            <a href="#" class="pull-left"><img width="250" height="200" v-bind:src="todo.f_travel_note_img" class="media-object" alt='' /></a>
+                                                                            <div class="media-body">
+                                                                                <h4 class="media-heading">{{todo.f_travel_note_head}}</h4>
+                                                                                {{todo.f_travel_note_intro}}
+                                                                            </div>
+                                                                            <div class="travels_footer row">
+                                                                                <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">地点：{{todo.f_travel_note_place}}</span>
+                                                                                <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">发布者：{{todo.f_user_name}}</span>
+                                                                                <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">时间：{{todo.f_travel_note_time}}</span>
+                                                                                <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">浏览量：{{todo.f_travel_note_browse}}</span>
+                                                                                <a  v-on:click="travelDetails" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right" v-bind:travelID="todo.f_travel_note_id">阅读全文>></a>
+                                                                            </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
-                                                        </div>
-                                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
-                                                            <div class="row-fluid">
-                                                                <div class="span12">
-                                                                    <div class="media">
-                                                                        <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
-                                                                        <div class="media-body">
-                                                                            <h4 class="media-heading">
-                                                                                嵌入媒体标题
-                                                                            </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
-                                                            <div class="row-fluid">
-                                                                <div class="span12">
-                                                                    <div class="media">
-                                                                        <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
-                                                                        <div class="media-body">
-                                                                            <h4 class="media-heading">
-                                                                                嵌入媒体标题
-                                                                            </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
+                                                            <nav>
+                                                                <ul class="pager">
+                                                                    <li><a href="#" v-on:click="mysetprev">上一页</a></li>
+                                                                    <li><a href="#" v-on:click="mysetnext">下一页</a></li>
+                                                                </ul>
+                                                            </nav>
                                                         </div>
                                                     </div>
-                                                    <nav aria-label="Page navigation">
-                                                        <ul class="pagination">
-                                                            <li>
-                                                                <a href="#" aria-label="Previous">
-                                                                    <span aria-hidden="true">&laquo;</span>
-                                                                </a>
-                                                            </li>
-                                                            <li><a href="#">1</a></li>
-                                                            <li><a href="#">2</a></li>
-                                                            <li><a href="#">3</a></li>
-                                                            <li><a href="#">4</a></li>
-                                                            <li><a href="#">5</a></li>
-                                                            <li>
-                                                                <a href="#" aria-label="Next">
-                                                                    <span aria-hidden="true">&raquo;</span>
-                                                                </a>
-                                                            </li>
-                                                        </ul>
-                                                    </nav>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="panel-18111">
-                        <!--我的点评-->
-                        <div class=" mynest">
-                            <div>
-                                <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
-                                    <div class="row-fluid">
-                                        <div class="span12">
-                                            <div class="media">
-                                                <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading">
-                                                        嵌入媒体标题
-                                                    </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
-                                    <div class="row-fluid">
-                                        <div class="span12">
-                                            <div class="media">
-                                                <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading">
-                                                        嵌入媒体标题
-                                                    </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div style="margin-top: 20px;margin-bottom: 20px" class="container-fluid">
-                                    <div class="row-fluid">
-                                        <div class="span12">
-                                            <div class="media">
-                                                <a href="#" class="pull-left"><img width="100" height="100" src="__STATIC__/image/0.jpg" class="media-object" alt='' /></a>
-                                                <div class="media-body">
-                                                    <h4 class="media-heading">
-                                                        嵌入媒体标题
-                                                    </h4> 请尽量使用HTML5兼容的视频格式和视频代码实现视频播放, 以达到更好的体验效果.
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <nav aria-label="Page navigation">
-                                <ul class="pagination">
-                                    <li>
-                                        <a href="#" aria-label="Previous">
-                                            <span aria-hidden="true">&laquo;</span>
-                                        </a>
-                                    </li>
-                                    <li><a href="#">1</a></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li>
-                                        <a href="#" aria-label="Next">
-                                            <span aria-hidden="true">&raquo;</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
                         </div>
                     </div>
                 </div>
@@ -1113,8 +1085,12 @@
     var activityUrl="{:url('reception/Goodsactive/goodsActive')}";
     var hotelUrl="{:url('reception/Hotel/hotel')}";
     var Scenic_collectionUrl = "{:url('reception/Center/Scenic_collectionUrl')}"
+    var Viewport_collectionUrl = "{:url('reception/Center/Viewport_collectionUrl')}"
+    var Travels_collectionUrl = "{:url('reception/Center/Travels_collectionUrl')}"
     var appraiseorderrUrl = "{:url('reception/Center/appraiseorderrUrl')}"
     var useUrl = "{:url('reception/Center/useUrl')}"
+    var shopping_viewUrl = "{:url('reception/Center/shopping_viewUrl')}"
+    var shopping_hotelUrl = "{:url('reception/Center/shopping_hotelUrl')}"
 </script>
 <script src="__STATIC__/js/receptionjs/public.js"></script>
 <script src="__STATIC__/js/center.js" type="text/javascript"></script>
