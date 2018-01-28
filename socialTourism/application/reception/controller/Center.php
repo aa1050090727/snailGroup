@@ -178,7 +178,7 @@ class Center extends Controller
                                     'b_order_id'=>$orderID
                                 ];
                                 $update = [
-                                    'b_order_state'=>'已支付'
+                                    'b_order_state'=>'待使用'
                                 ];
                                 Db::table('b_order')->where($where)->update($update);//修改订单状态
                                 return json(['code'=>10000,'msg'=>$paybalance['paybalance_success'],'data'=>[],'url' => url('reception/Center/center')]);
@@ -288,11 +288,11 @@ class Center extends Controller
     //获取待出行订单
     public function paidorders(){
         $nowlogin = Session::get('nowlogin');
-        $count = Db::query("select count(*) count  from b_order WHERE b_order_user={$nowlogin} and b_order_state = '已支付'") ;//获取待出行的订单有多少条
+        $count = Db::query("select count(*) count  from b_order WHERE b_order_user={$nowlogin} and b_order_state = '待使用'") ;//获取待出行的订单有多少条
         $allpage = ceil($count[0]['count']/3);
         $nowpage = input('param.nowpage');
         $start = ($nowpage-1)*3;
-        $res = Db::query("select * from b_order where b_order_user={$nowlogin} and b_order_state = '已支付' limit {$start},3");//获取当前页待出行的三条信息
+        $res = Db::query("select * from b_order where b_order_user={$nowlogin} and b_order_state = '待使用' limit {$start},3");//获取当前页待出行的三条信息
         $arr = [
             'nowpage'=>$nowpage,
             'allpage'=>$allpage,
@@ -304,8 +304,8 @@ class Center extends Controller
     public function getthisorder(){
         if(input('?post.orderID')){
             $orderID = input('param.orderID');
-            $sciencearr = Db::query("select a.b_order_details_num, a.b_order_details_price , b.f_science_name , b.f_science_id from b_order_details a,f_science b WHERE a.b_order_details_classid=1 AND a.b_order_details_gid=b.f_science_id AND a.b_order_details_oid= {$orderID}");
-            $hotelarr = Db::query("select a.b_order_details_num, a.b_order_details_price , b.f_hotel_name , b.f_hotel_id from b_order_details a,f_hotel b WHERE a.b_order_details_classid=2 AND a.b_order_details_gid=b.f_hotel_id AND a.b_order_details_oid= {$orderID}");
+            $sciencearr = Db::query("select a.b_order_details_state, a.b_order_details_id, a.b_order_details_num, a.b_order_details_price , b.f_science_name , b.f_science_id from b_order_details a,f_science b WHERE a.b_order_details_classid=1 AND a.b_order_details_gid=b.f_science_id AND a.b_order_details_oid= {$orderID}");
+            $hotelarr = Db::query("select a.b_order_details_state, a.b_order_details_id, a.b_order_details_num, a.b_order_details_price , b.f_hotel_name , b.f_hotel_id from b_order_details a,f_hotel b WHERE a.b_order_details_classid=2 AND a.b_order_details_gid=b.f_hotel_id AND a.b_order_details_oid= {$orderID}");
             $resarr = [
                 '0'=>$sciencearr,
                 '1'=>$hotelarr
@@ -328,5 +328,111 @@ class Center extends Controller
         ];
         return $arr;
     }
+    //获取已收藏的酒店
+    public function Viewport_collectionUrl(){
+        $nowlogin = Session::get('nowlogin');
+        $count = Db::query("select count(*) count  from f_enshrine WHERE f_enshrine_uid={$nowlogin} and f_enshrine_cid = 1") ;//获取总条数
+        $allpage = ceil($count[0]['count']/3);
+        $nowpage = input('param.nowpage');
+        $start = ($nowpage-1)*3;
+        $res = Db::query("select a.f_enshrine_sid,b.f_hotel_img,b.f_hotel_content,b.f_hotel_name from f_enshrine a,f_hotel b where a.f_enshrine_uid={$nowlogin} and a.f_enshrine_cid = 1 and a.f_enshrine_sid=b.f_hotel_id limit {$start},3");//获取当前页的数据
+        $arr = [
+            'nowpage'=>$nowpage,
+            'allpage'=>$allpage,
+            'data'=>$res
+        ];
+        return $arr;
+    }
+
+    //获取已收藏的游记
+    public function Travels_collectionUrl(){
+        $nowlogin = Session::get('nowlogin');
+        $count = Db::query("select count(*) count  from f_enshrine WHERE f_enshrine_uid={$nowlogin} and f_enshrine_cid = 3") ;//获取总条数
+        $allpage = ceil($count[0]['count']/3);
+        $nowpage = input('param.nowpage');
+        $start = ($nowpage-1)*3;
+        $res = Db::query("select a.f_enshrine_sid,f_travel_note_img,b.f_travel_note_intro,f_travel_note_head from f_enshrine a,f_travel_note b where a.f_enshrine_uid={$nowlogin} and a.f_enshrine_cid = 3 and a.f_enshrine_sid=b.f_travel_note_id limit {$start},3");//获取当前页的数据
+        $arr = [
+            'nowpage'=>$nowpage,
+            'allpage'=>$allpage,
+            'data'=>$res
+        ];
+        return $arr;
+    }
+    //获取待评价订单
+    public function appraiseorderrUrl(){
+        $nowlogin = Session::get('nowlogin');
+        $count = Db::query("select count(*) count  from b_order WHERE b_order_user={$nowlogin} and b_order_state = '交易成功'") ;//获取待出行的订单有多少条
+        $allpage = ceil($count[0]['count']/3);
+        $nowpage = input('param.nowpage');
+        $start = ($nowpage-1)*3;
+        $res = Db::query("select * from b_order where b_order_user={$nowlogin} and b_order_state = '交易成功' limit {$start},3");//获取当前页待出行的三条信息
+        $arr = [
+            'nowpage'=>$nowpage,
+            'allpage'=>$allpage,
+            'data'=>$res
+        ];
+        return $arr;
+    }
+    //使用订单
+    public function useUrl(){
+
+        $uppwdmsg = config('msg')['use']; //调用配置文件
+
+        $nowlogin = Session::get('nowlogin');
+
+        if($nowlogin!=''){
+
+            if(input('?post.b_order_details_id')){
+                $orderID = input('param.b_order_details_id');
+                $where = [
+                    'b_order_details_id'=>$orderID
+                ];
+
+                $res = Db::query('UPDATE b_order_details  SET "b_order_details_state"="已使用"  WHERE  b_order_details_id = 12');//改变订单状态
+//                if($res==1){
+//                    return json(['code'=>10000,'msg'=>$uppwdmsg['use_success'],'data'=>[],'url' => '']);
+//                }
+//                else{
+//                    return json(['code'=>10001,'msg'=>$uppwdmsg['use_error'],'data'=>[],'url' => '']);
+//                }
+            }
+        }else{
+            echo '非法操作';
+        }
+
+    }
+
+    //获取景点购物车信息
+    public function shopping_viewUrl(){
+        $nowlogin = Session::get('nowlogin');
+        $count = Db::query("select count(*) count  from f_shopping_cart WHERE f_shopping_cart_uid={$nowlogin} and f_shopping_cart_classid = 1") ;//获取总条数
+        $allpage = ceil($count[0]['count']/3);
+        $nowpage = input('param.nowpage');
+        $start = ($nowpage-1)*3;
+        $res = Db::query("select b.f_science_id,b.f_science_name,b.f_science_price from f_shopping_cart a,f_science b where a.f_shopping_cart_uid={$nowlogin} and a.f_shopping_cart_classid = 1 and a.f_shopping_cart_gid=b.f_science_id limit {$start},3");//获取当前页的数据
+        $arr = [
+            'nowpage'=>$nowpage,
+            'allpage'=>$allpage,
+            'data'=>$res
+        ];
+        return $arr;
+    }
+    //获取景点购物车信息
+    public function shopping_hotelUrl(){
+        $nowlogin = Session::get('nowlogin');
+        $count = Db::query("select count(*) count  from f_shopping_cart WHERE f_shopping_cart_uid={$nowlogin} and f_shopping_cart_classid = 2") ;//获取总条数
+        $allpage = ceil($count[0]['count']/3);
+        $nowpage = input('param.nowpage');
+        $start = ($nowpage-1)*3;
+        $res = Db::query("select b.f_hotel_id,b.f_hotel_name,b.f_hotel_price from f_shopping_cart a,f_hotel b where a.f_shopping_cart_uid={$nowlogin} and a.f_shopping_cart_classid = 2 and a.f_shopping_cart_gid=b.f_hotel_id limit {$start},3");//获取当前页的数据
+        $arr = [
+            'nowpage'=>$nowpage,
+            'allpage'=>$allpage,
+            'data'=>$res
+        ];
+        return $arr;
+    }
+
 
 }
