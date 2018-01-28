@@ -173,23 +173,40 @@ class Redis extends Driver
         return $this->handler->flushDB();
     }
 	/*
-	**@param $key
-	**@param $value
-	**@return int
+	* @param $key
+	* @param $value
+	* @return int
 	*/
 	public function lPush($key,$value){
 		return $this->handler->lPush($key,$value);
 	}
 	/*
-	**@param $key
-	**@return int
+	* @param $key
+	* @return int
 	*/
 	public function lPop($key){
 		return $this->handler->lPop($key);
 	}
 	public function lrange($key){
-		return $this->handler->lrange($key,0, -1);
-		    //$list = $redis->lrange('list', 0, -1);
+		return $this->handler->lrange($key,0,-1);
 	}
-	
+    /*
+     * 哈希
+     * @param：哈希表名
+     * @param：哈希key
+     * @param：哈希值
+     * @return:int
+     * */
+    public function hSet($h_name,$key,$value){
+        return $this->handler->hSet($h_name,$key,$value);
+    }
+	/*
+	 * @param：哈希表名
+     * @param：哈希key
+     * @return:int
+	 * */
+    public function hGet($key,$h_name){
+        return $this->handler->hGet($key,$h_name);
+    }
+
 }

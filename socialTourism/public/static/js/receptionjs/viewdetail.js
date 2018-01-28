@@ -53,7 +53,7 @@ $(function(){
                         if(result["code"]==1){
                             if(confirm("立即支付")){
                                 //跳转至支付页面
-                                window.location.href=center_url+"?orderID="+result.orderId;
+                                window.location.href=centerpayment_url+"?orderID="+result.orderId;
                             }
 
                         }
@@ -92,7 +92,6 @@ $(function(){
                     }
                 });
             },
-<<<<<<< HEAD
 			 //点击立即抢购
             nowGo:function(viewDetail){
                 $.ajax({
@@ -118,19 +117,18 @@ $(function(){
                         }
                         else if(result["code"]==2){
                             alert("添加失败");
-                        }
-                        else{
-                            alert("您还没有登录哦~");
                         }*/
+                        else{
+                            alert("立即添加~");
+                        }
                     },
                     error:function(result){
                         console.log("error",result);
                     }
                 });
-=======
+            },
             panicBuying:function(viewDetail){
                 alert(1)
->>>>>>> db1569739341b8dc87192e217106f233c0c25a84
             }
         }
 		
