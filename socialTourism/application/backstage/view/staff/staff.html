@@ -9,7 +9,7 @@
 <div class="site-text layui-elem-quote" style="display: flex">
     <input id="staffSearch" type="text" name="text" placeholder="请输入关键字" class="layui-input" style="width: 200px">
     <button class="layui-btn" id="searchBut">搜索</button>
-    <button class="layui-btn layui-btn-normal">+添加</button>
+    <button id="addStaff" class="layui-btn layui-btn-normal">+添加</button>
 </div>
 <table class="layui-table" lay-data="{ url:'{:url('backstage/Staff/getStaff')}?keyword', page:true, id:'staffData'}" lay-filter="test" id="test">
     <thead>
@@ -24,12 +24,12 @@
     </thead>
 </table>
 <script type="text/html" id="barDemo">
-    {{#  if(d.b_user_status === "使用"){ }}
-        <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="state">锁定</a>
-    {{#  }else{ }}
-        <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="state">使用</a>
-    {{#  } }}
-    <a class="layui-btn layui-btn-primary layui-btn-xs" lay-event="detail">查看</a>
+    <!--{{#  if(d.b_user_status === "使用"){ }}-->
+        <!--<a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="state">锁定</a>-->
+    <!--{{#  }else{ }}-->
+        <!--<a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="state">使用</a>-->
+    <!--{{#  } }}-->
+    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="state">锁定/使用</a>
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
@@ -44,6 +44,7 @@
     var upStaffStatus = "{:url('backstage/Staff/upStaffStatus')}";
     var upStaffPsw = "{:url('backstage/Staff/upStaffPsw')}";
     var upStaff = "{:url('backstage/Staff/upStaff')}";
+    var addStaff = "{:url('backstage/Staff/addStaff')}";
 </script>
 <script src="__STATIC__/js/backstage/staff.js"></script>
 </html>

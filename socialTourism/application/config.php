@@ -185,7 +185,7 @@ return [
 
     'cache'                  => [
         // 驱动方式
-        'type'   => 'File',
+        'type'   => 'redis',
         // 缓存保存目录
         'path'   => CACHE_PATH,
         // 缓存前缀
@@ -326,6 +326,35 @@ return [
             'up_success' => '修改成功',
             'up_fail' => '修改失败',
             'up_error' => '对不起你不能修改自己'
+        ],
+        'addmsg' => [
+            'add_success' => '添加成功',
+            'add_fail' => '添加失败',
+            'add_error' => '对不起该账户重名'
+        ],
+        'preview_msg' => [
+            'preview_success' => '预览成功',
+            'preview_fail' => '预览失败',
+            'examine_success' => '审核成功',
+            'examine_fail' => '审核失败',
+            'del_success' => '下架成功',
+            'del_fail' => '下架失败'
+        ],
+        'open_msg' => [
+            'open_success' => '打开成功',
+            'open_fail' => '打开失败'
+        ],
+        'role_msg' => [
+            'role_error' => '超级管理员的角色名不能修改',
+            'role_fail' => '角色名重名',
+            'up_success' => '修改成功',
+            'up_fail' => '修改失败',
+            'add_success' => '添加成功',
+            'add_fail' => '添加失败'
+        ],
+        'use' =>[
+            'use_error' => '使用失败',
+            'use_success' => '使用成功'
         ]
     ]
 

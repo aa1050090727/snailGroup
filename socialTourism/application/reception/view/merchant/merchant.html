@@ -173,7 +173,7 @@
                                     <td style="line-height: 100px;height: 100px">{{goods.b_order_state}}</td>
                                     <td style="line-height: 100px;height: 100px" v-bind:orderid='goods.b_order_details_oid'>
                                         <div v-if="goods.b_order_state=='未支付'" >等待支付</div>
-                                        <button v-else-if="goods.b_order_state=='已支付'" class="btn btn-info" v-on:click="orderIssu">出单</button>
+                                        <button v-else-if="goods.b_order_state=='待使用'" class="btn btn-info" v-on:click="orderIssu">出单</button>
                                         <div v-else-if="goods.b_order_state=='订单关闭'" >买家取消了订单</div>
                                         <div v-else-if="goods.b_order_state=='交易成功'" ></div>
                                     </td>

@@ -95,4 +95,29 @@ class Staff extends Controller
             return json(['code'=>10001,'msg'=>$upmsg["up_fail"],'data'=>'','url'=>'']);
         }
     }
+    //添加员工
+    public function addStaff(){
+        $addmsg = config('msg')['addmsg']; //调用配置文件
+        $staffArr = isset($_GET["staffArr"])?$_GET["staffArr"]:"";
+//        var_dump($staffArr);
+        $count = Db::table('b_user')->where('b_user_account',$staffArr['staffAccount'])->count();
+        if($count === 0){
+            $data = [
+                'b_user_account' => $staffArr['staffAccount'],
+                'b_user_pwd' => md5('666666'),
+                'b_user_name' => $staffArr['staffName'],
+                'b_user_role_id' => $staffArr['role'],
+                'b_user_status' => '使用',
+                'b_user_head' => '__STATIC__/image/qq.png'
+            ];
+            $res = Db::table('b_user')->insert($data);
+            if($res === 1){
+                return json(['code'=>10000,'msg'=>$addmsg["add_success"],'data'=>'','url'=>'']);
+            }else{
+                return json(['code'=>10001,'msg'=>$addmsg["add_fail"],'data'=>'','url'=>'']);
+            }
+        }else{
+            return json(['code'=>10002,'msg'=>$addmsg["add_error"],'data'=>'','url'=>'']);
+        }
+    }
 }

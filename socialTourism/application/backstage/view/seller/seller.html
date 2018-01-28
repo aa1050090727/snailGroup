@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>员工管理</title>
+    <link rel="stylesheet" href="__STATIC__/kit_admin/plugins/layui/css/layui.css" media="all">
+</head>
+<body>
+<div class="site-text layui-elem-quote" style="display: flex">
+    <input id="staffSearch" type="text" name="text" placeholder="请输入关键字" class="layui-input" style="width: 200px">
+    <button class="layui-btn" id="searchBut">搜索</button>
+    <button id="addStaff" class="layui-btn layui-btn-normal">+添加</button>
+</div>
+<table class="layui-table" lay-data="{ url:'{:url('backstage/Seller/getSeller')}?keyword', page:true, id:'staffData'}" lay-filter="test" id="test">
+    <thead>
+    <tr>
+        <th lay-data="{field:'f_seller_id', width:80, sort: true}">ID</th>
+        <th lay-data="{field:'f_user_phone', width:120}">商家账号</th>
+        <th lay-data="{field:'f_seller_idnumber', width:200}">商家身份证</th>
+        <th lay-data="{field:'f_seller_stats', width:120}">商家状态</th>
+        <!--<th lay-data="{field:'f_province_name', width:100}">省份</th>-->
+        <!--<th lay-data="{field:'f_city_name', width:100}">市级</th>-->
+        <!--<th lay-data="{field:'f_district_name', width:100}">区域</th>-->
+        <!--<th lay-data="{field:'f_seller_site', width:120}">详细地址</th>-->
+        <th lay-data="{field:'f_seller_time', width:180}">申请时间</th>
+        <th lay-data="{fixed: 'right', width: 220, align:'center', toolbar: '#barDemo'}">操作</th>
+    </tr>
+    </thead>
+</table>
+<script type="text/html" id="barDemo">
+    <!--{{#  if(d.b_user_status === "使用"){ }}-->
+    <!--<a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="state">锁定</a>-->
+    <!--{{#  }else{ }}-->
+    <!--<a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="state">使用</a>-->
+    <!--{{#  } }}-->
+    <a class="layui-btn layui-btn-normal layui-btn-xs" lay-event="state">锁定/使用</a>
+    <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+</script>
+</body>
+
+<script src="__STATIC__/kit_admin/plugins/layui/layui.js"></script>
+<script src="__STATIC__/js/jquery-1.12.3.min.js"></script>
+<script>
+    var getStaff = "{:url('backstage/Staff/getStaff')}";
+    var delStaff = "{:url('backstage/Staff/delStaff')}";
+    var getRoleName = "{:url('backstage/Role/getRoleName')}";
+    var upStaffStatus = "{:url('backstage/Staff/upStaffStatus')}";
+    var upStaffPsw = "{:url('backstage/Staff/upStaffPsw')}";
+    var upStaff = "{:url('backstage/Staff/upStaff')}";
+    var addStaff = "{:url('backstage/Staff/addStaff')}";
+</script>
+<script src="__STATIC__/js/backstage/staff.js"></script>
+</html>
