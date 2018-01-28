@@ -53,7 +53,7 @@ $(function(){
                         if(result["code"]==1){
                             if(confirm("立即支付")){
                                 //跳转至支付页面
-                                window.location.href=center_url+"?orderID="+result.orderId;
+                                window.location.href=centerpayment_url+"?orderID="+result.orderId;
                             }
 
                         }
@@ -117,16 +117,22 @@ $(function(){
                         }
                         else if(result["code"]==2){
                             alert("添加失败");
-                        }
-                        else{
-                            alert("您还没有登录哦~");
                         }*/
+                        else{
+                            alert("立即添加~");
+                        }
                     },
                     error:function(result){
                         console.log("error",result);
                     }
                 });
+<<<<<<< HEAD
+            },
+            panicBuying:function(viewDetail){
+                alert(1)
+=======
 
+>>>>>>> ebb2a9a345e3360d852da2daa1958bdd1553f702
             }
         }
 		
