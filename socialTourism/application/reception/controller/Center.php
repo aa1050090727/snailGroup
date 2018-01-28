@@ -260,11 +260,15 @@ class Center extends Controller
                 'b_order_id'=>$orderID
             ];
             $res = Db::table('b_order')->where($where)->update(['b_order_state' => '订单关闭']);//改变订单状态
+
+//            var_dump($res) ;
             if($res==1){
-                return json(['code'=>10000,'msg'=>$uppwdmsg['alterorder_success'],'data'=>[],'url' => '']);
+                echo 1;
+                return json(['code'=>10000,'msg'=>$uppwdmsg['alterorder_success'],'data'=>"",'url' => '']);
             }
             else{
-                return json(['code'=>10001,'msg'=>$uppwdmsg['alterorder_error1'],'data'=>[],'url' => '']);
+//                echo 2;
+                return json(['code'=>10001,'msg'=>$uppwdmsg['alterorder_error1'],'data'=>"",'url' => '']);
             }
         }else{
             return json(['code'=>10002,'msg'=>$uppwdmsg['alterorder_error'],'data'=>[],'url' => '']);
@@ -389,10 +393,11 @@ class Center extends Controller
                     'b_order_details_id'=>$orderID
                 ];
 
-                $res = Db::query('UPDATE b_order_details  SET "b_order_details_state"="已使用"  WHERE  b_order_details_id = 12');//改变订单状态
+                $res = Db::table('b_order_details')->fetchSql()->where($where)->update(['b_order_details_state' => '已使用']);//改变订单状态
+              echo $res;
 //                if($res==1){
 //                    return json(['code'=>10000,'msg'=>$uppwdmsg['use_success'],'data'=>[],'url' => '']);
-//                }
+//               }
 //                else{
 //                    return json(['code'=>10001,'msg'=>$uppwdmsg['use_error'],'data'=>[],'url' => '']);
 //                }
