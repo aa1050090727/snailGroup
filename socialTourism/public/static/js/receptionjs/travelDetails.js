@@ -34,6 +34,7 @@ var app=new Vue({
         /*发布评论*/
         writeSure:function(){
             var wreteContent=editor.getContent();
+            var _this=this;
             $.ajax({
                 data:{'wreteContent':wreteContent},
                 type:'post',
@@ -43,7 +44,8 @@ var app=new Vue({
                     if(res.code==1)
                     {
                         alert('评论成功！')
-                        $('#myModal').modal('hide')
+                        $('#myModal').modal('hide');
+                        _this.commentShow(1);
                     }else {
                         alert("评论失败！")
                     }

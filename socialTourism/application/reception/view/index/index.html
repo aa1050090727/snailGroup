@@ -42,7 +42,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li class="user_money">
-                                    金币 <span>0</span>
+                                    金币 <span>{{nowlogin[0]['f_user_money']}}</span>
                                 </li>
                                 <li>
                                     <a href="{:url('reception/Center/center')}" class="show_center ">
@@ -207,292 +207,107 @@
         </div>
         <div class="container">
             <!--热门游记-->
-            <div class="row">
-                <div>
-                    <ul id="myTab" class="nav nav-tabs">
-                        <li class="active">
-                            <a href="#travels" data-toggle="tab">热门游记</a>
-                        </li>
-                        <li>
-                            <a href="#newest" data-toggle="tab">最新发表</a>
-                        </li>
-                    </ul>
-                    <div id="myTabContent" class="tab-content">
-                        <!--游记列表-->
-                        <div class="tab-pane fade in active travels_box" id="travels">
-                            <div>
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <img class="img-responsive" style="margin-right: auto;margin-left: auto" src="http://p4-q.mafengwo.net/s10/M00/2D/44/wKgBZ1oBPqeAIE3pAA4mS5AOfto51.jpeg?imageMogr2%2Fthumbnail%2F%21220x150r%2Fstrip%2Fgravity%2FCenter%2Fcrop%2F%21220x150%2Fquality%2F90"
-                                             alt="">
-                                    </div>
-                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                        <div class="travels_content">
-                                            <div class="travels_title">土耳其 | 星月环游记 | 这里有关于色彩的全部浪漫</div>
-                                            <p class="travels_body">“瞠目结舌的自然风光，波澜壮阔的传奇历史，热情洋溢的老百姓……这个横跨欧亚古老大陆的国家到处充满了惊喜” 蓝色清真寺，信徒们沐浴在夕阳中显得格外虔诚 普鲁士海峡乘坐游轮的当地游客 ...听说，你的男票拍照，总是巧妙的躲过你美丽的瞬间，没关系。
-                                                听说，你因为拍不好女票的美照，默默承受了不少吐槽，没关系。
-                                                这个圣诞节，跟着老夫的少女心，拍出属于你的圣诞美片  。
-
-                                                为了满足各位小主们的少女心，老夫跑断了双腿，收集了全深圳最美、最齐全的拍照打卡点。这些点如果你都去过，老夫跪服 ！</p>
-                                            <div class="travels_footer">
-                                                <span>德国</span>
-                                                <span>张三</span>
-                                                <span>1751/14</span>
-                                                <span>顶</span>
+            <div id="travel">
+                <div class="row">
+                    <div>
+                        <ul id="myTab" class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#travels" data-toggle="tab">热门游记</a>
+                            </li>
+                            <li>
+                                <a href="#newest" data-toggle="tab">最新发表</a>
+                            </li>
+                        </ul>
+                        <div id="myTabContent" class="tab-content">
+                            <!--游记列表-->
+                            <div class="tab-pane fade in active travels_box" id="travels">
+                                <div>
+                                    <div class="row" v-for="travel in hotTravel">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                            <img class="img-responsive" style="margin-right: auto;margin-left: auto" v-bind:src="travel.f_travel_note_img"
+                                                 alt="">
+                                        </div>
+                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                            <div class="travels_content">
+                                                <div class="travels_title">{{travel.f_travel_note_head}}</div>
+                                                <p class="travels_body">{{travel.f_travel_note_intro}}</p>
+                                                <div class="travels_footer">
+                                                    <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">地点：{{travel.f_travel_note_place}}</span>
+                                                    <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">发布者：{{travel.f_user_name}}</span>
+                                                    <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">时间：{{travel.f_travel_note_time}}</span>
+                                                    <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">浏览量：{{travel.f_travel_note_browse}}</span>
+                                                    <a   class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right" v-bind:travelID="travel.f_travel_note_id" v-on:click="readHot">阅读全文>></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <img class="img-responsive" style="margin-right: auto;margin-left: auto" src="http://p4-q.mafengwo.net/s10/M00/2D/44/wKgBZ1oBPqeAIE3pAA4mS5AOfto51.jpeg?imageMogr2%2Fthumbnail%2F%21220x150r%2Fstrip%2Fgravity%2FCenter%2Fcrop%2F%21220x150%2Fquality%2F90"
-                                             alt="">
-                                    </div>
-                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                        <div class="travels_content">
-                                            <div class="travels_title">土耳其 | 星月环游记 | 这里有关于色彩的全部浪漫</div>
-                                            <p class="travels_body">“瞠目结舌的自然风光，波澜壮阔的传奇历史，热情洋溢的老百姓……这个横跨欧亚古老大陆的国家到处充满了惊喜” 蓝色清真寺，信徒们沐浴在夕阳中显得格外虔诚 普鲁士海峡乘坐游轮的当地游客 ...听说，你的男票拍照，总是巧妙的躲过你美丽的瞬间，没关系。
-                                                听说，你因为拍不好女票的美照，默默承受了不少吐槽，没关系。
-                                                这个圣诞节，跟着老夫的少女心，拍出属于你的圣诞美片  。
-
-                                                为了满足各位小主们的少女心，老夫跑断了双腿，收集了全深圳最美、最齐全的拍照打卡点。这些点如果你都去过，老夫跪服 ！</p>
-                                            <div class="travels_footer">
-                                                <span>德国</span>
-                                                <span>张三</span>
-                                                <span>1751/14</span>
-                                                <span>顶</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <img class="img-responsive" style="margin-right: auto;margin-left: auto" src="http://p4-q.mafengwo.net/s10/M00/2D/44/wKgBZ1oBPqeAIE3pAA4mS5AOfto51.jpeg?imageMogr2%2Fthumbnail%2F%21220x150r%2Fstrip%2Fgravity%2FCenter%2Fcrop%2F%21220x150%2Fquality%2F90"
-                                             alt="">
-                                    </div>
-                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                        <div class="travels_content">
-                                            <div class="travels_title">土耳其 | 星月环游记 | 这里有关于色彩的全部浪漫</div>
-                                            <p class="travels_body">“瞠目结舌的自然风光，波澜壮阔的传奇历史，热情洋溢的老百姓……这个横跨欧亚古老大陆的国家到处充满了惊喜” 蓝色清真寺，信徒们沐浴在夕阳中显得格外虔诚 普鲁士海峡乘坐游轮的当地游客 ...听说，你的男票拍照，总是巧妙的躲过你美丽的瞬间，没关系。
-                                                听说，你因为拍不好女票的美照，默默承受了不少吐槽，没关系。
-                                                这个圣诞节，跟着老夫的少女心，拍出属于你的圣诞美片  。
-
-                                                为了满足各位小主们的少女心，老夫跑断了双腿，收集了全深圳最美、最齐全的拍照打卡点。这些点如果你都去过，老夫跪服 ！</p>
-                                            <div class="travels_footer">
-                                                <span>德国</span>
-                                                <span>张三</span>
-                                                <span>1751/14</span>
-                                                <span>顶</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <img class="img-responsive" style="margin-right: auto;margin-left: auto" src="http://p4-q.mafengwo.net/s10/M00/2D/44/wKgBZ1oBPqeAIE3pAA4mS5AOfto51.jpeg?imageMogr2%2Fthumbnail%2F%21220x150r%2Fstrip%2Fgravity%2FCenter%2Fcrop%2F%21220x150%2Fquality%2F90"
-                                             alt="">
-                                    </div>
-                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                        <div class="travels_content">
-                                            <div class="travels_title">土耳其 | 星月环游记 | 这里有关于色彩的全部浪漫</div>
-                                            <p class="travels_body">“瞠目结舌的自然风光，波澜壮阔的传奇历史，热情洋溢的老百姓……这个横跨欧亚古老大陆的国家到处充满了惊喜” 蓝色清真寺，信徒们沐浴在夕阳中显得格外虔诚 普鲁士海峡乘坐游轮的当地游客 ...听说，你的男票拍照，总是巧妙的躲过你美丽的瞬间，没关系。
-                                                听说，你因为拍不好女票的美照，默默承受了不少吐槽，没关系。
-                                                这个圣诞节，跟着老夫的少女心，拍出属于你的圣诞美片  。
-
-                                                为了满足各位小主们的少女心，老夫跑断了双腿，收集了全深圳最美、最齐全的拍照打卡点。这些点如果你都去过，老夫跪服 ！</p>
-                                            <div class="travels_footer">
-                                                <span>德国</span>
-                                                <span>张三</span>
-                                                <span>1751/14</span>
-                                                <span>顶</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <img class="img-responsive" style="margin-right: auto;margin-left: auto" src="http://p4-q.mafengwo.net/s10/M00/2D/44/wKgBZ1oBPqeAIE3pAA4mS5AOfto51.jpeg?imageMogr2%2Fthumbnail%2F%21220x150r%2Fstrip%2Fgravity%2FCenter%2Fcrop%2F%21220x150%2Fquality%2F90"
-                                             alt="">
-                                    </div>
-                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                        <div class="travels_content">
-                                            <div class="travels_title">土耳其 | 星月环游记 | 这里有关于色彩的全部浪漫</div>
-                                            <p class="travels_body">“瞠目结舌的自然风光，波澜壮阔的传奇历史，热情洋溢的老百姓……这个横跨欧亚古老大陆的国家到处充满了惊喜” 蓝色清真寺，信徒们沐浴在夕阳中显得格外虔诚 普鲁士海峡乘坐游轮的当地游客 ...听说，你的男票拍照，总是巧妙的躲过你美丽的瞬间，没关系。
-                                                听说，你因为拍不好女票的美照，默默承受了不少吐槽，没关系。
-                                                这个圣诞节，跟着老夫的少女心，拍出属于你的圣诞美片  。
-
-                                                为了满足各位小主们的少女心，老夫跑断了双腿，收集了全深圳最美、最齐全的拍照打卡点。这些点如果你都去过，老夫跪服 ！</p>
-                                            <div class="travels_footer">
-                                                <span>德国</span>
-                                                <span>张三</span>
-                                                <span>1751/14</span>
-                                                <span>顶</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <!--分页-->
+                                <div>
+                                    <nav aria-label="Page navigation" style="text-align: center">
+                                        <ul class="pagination">
+                                            <li>
+                                                <a  aria-label="Previous" v-on:click="hotLast">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            <li v-for="page in hotAllPage"><a v-on:click="hotNow">{{page}}</a></li>
+                                            <li>
+                                                <a  aria-label="Next" v-on:click="hotNext">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
-                            <div>
-                                <nav aria-label="Page navigation" style="text-align: center">
-                                    <ul class="pagination">
-                                        <li>
-                                            <a href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li>
-                                            <a href="#" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-                        <!--最新游记列表-->
-                        <div class="tab-pane fade travels_box" id="newest">
-                            <div>
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <img class="img-responsive" style="margin-right: auto;margin-left: auto" src="http://p4-q.mafengwo.net/s10/M00/2D/44/wKgBZ1oBPqeAIE3pAA4mS5AOfto51.jpeg?imageMogr2%2Fthumbnail%2F%21220x150r%2Fstrip%2Fgravity%2FCenter%2Fcrop%2F%21220x150%2Fquality%2F90"
-                                             alt="">
-                                    </div>
-                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                        <div class="travels_content">
-                                            <div class="travels_title">土耳其 | 星月环游记 | 这里有关于色彩的全部浪漫</div>
-                                            <p class="travels_body">“瞠目结舌的自然风光，波澜壮阔的传奇历史，热情洋溢的老百姓……这个横跨欧亚古老大陆的国家到处充满了惊喜” 蓝色清真寺，信徒们沐浴在夕阳中显得格外虔诚 普鲁士海峡乘坐游轮的当地游客 ...听说，你的男票拍照，总是巧妙的躲过你美丽的瞬间，没关系。
-                                                听说，你因为拍不好女票的美照，默默承受了不少吐槽，没关系。
-                                                这个圣诞节，跟着老夫的少女心，拍出属于你的圣诞美片  。
-
-                                                为了满足各位小主们的少女心，老夫跑断了双腿，收集了全深圳最美、最齐全的拍照打卡点。这些点如果你都去过，老夫跪服 ！</p>
-                                            <div class="travels_footer">
-                                                <span>德国</span>
-                                                <span>张三</span>
-                                                <span>1751/14</span>
-                                                <span>顶</span>
+                            <!--最新游记列表-->
+                            <div class="tab-pane fade travels_box" id="newest">
+                                <div>
+                                    <div class="row" v-for="travel in newTravel">
+                                        <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                                            <img class="img-responsive" style="margin-right: auto;margin-left: auto" v-bind:src="travel.f_travel_note_img"
+                                                 alt="">
+                                        </div>
+                                        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                                            <div class="travels_content">
+                                                <div class="travels_title">{{travel.f_travel_note_head}}</div>
+                                                <p class="travels_body">{{travel.f_travel_note_intro}}</p>
+                                                <div class="travels_footer">
+                                                    <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">地点：{{travel.f_travel_note_place}}</span>
+                                                    <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">发布者：{{travel.f_user_name}}</span>
+                                                    <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">时间：{{travel.f_travel_note_time}}</span>
+                                                    <span class="col-lg-3 col-md-3 col-sm-3 col-xs-12">浏览量：{{travel.f_travel_note_browse}}</span>
+                                                    <a   class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-right" v-bind:travelID="travel.f_travel_note_id" v-on:click="readHot">阅读全文>></a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <img class="img-responsive" style="margin-right: auto;margin-left: auto" src="http://p4-q.mafengwo.net/s10/M00/2D/44/wKgBZ1oBPqeAIE3pAA4mS5AOfto51.jpeg?imageMogr2%2Fthumbnail%2F%21220x150r%2Fstrip%2Fgravity%2FCenter%2Fcrop%2F%21220x150%2Fquality%2F90"
-                                             alt="">
-                                    </div>
-                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                        <div class="travels_content">
-                                            <div class="travels_title">土耳其 | 星月环游记 | 这里有关于色彩的全部浪漫</div>
-                                            <p class="travels_body">“瞠目结舌的自然风光，波澜壮阔的传奇历史，热情洋溢的老百姓……这个横跨欧亚古老大陆的国家到处充满了惊喜” 蓝色清真寺，信徒们沐浴在夕阳中显得格外虔诚 普鲁士海峡乘坐游轮的当地游客 ...听说，你的男票拍照，总是巧妙的躲过你美丽的瞬间，没关系。
-                                                听说，你因为拍不好女票的美照，默默承受了不少吐槽，没关系。
-                                                这个圣诞节，跟着老夫的少女心，拍出属于你的圣诞美片  。
-
-                                                为了满足各位小主们的少女心，老夫跑断了双腿，收集了全深圳最美、最齐全的拍照打卡点。这些点如果你都去过，老夫跪服 ！</p>
-                                            <div class="travels_footer">
-                                                <span>德国</span>
-                                                <span>张三</span>
-                                                <span>1751/14</span>
-                                                <span>顶</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <!--分页-->
+                                <div>
+                                    <nav aria-label="Page navigation" style="text-align: center">
+                                        <ul class="pagination">
+                                            <li>
+                                                <a  aria-label="Previous" v-on:click="newLast">
+                                                    <span aria-hidden="true">&laquo;</span>
+                                                </a>
+                                            </li>
+                                            <li v-for="page in newAllPage"><a v-on:click="newNow">{{page}}</a></li>
+                                            <li>
+                                                <a  aria-label="Next" v-on:click="newNext">
+                                                    <span aria-hidden="true">&raquo;</span>
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </nav>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <img class="img-responsive" style="margin-right: auto;margin-left: auto" src="http://p4-q.mafengwo.net/s10/M00/2D/44/wKgBZ1oBPqeAIE3pAA4mS5AOfto51.jpeg?imageMogr2%2Fthumbnail%2F%21220x150r%2Fstrip%2Fgravity%2FCenter%2Fcrop%2F%21220x150%2Fquality%2F90"
-                                             alt="">
-                                    </div>
-                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                        <div class="travels_content">
-                                            <div class="travels_title">土耳其 | 星月环游记 | 这里有关于色彩的全部浪漫</div>
-                                            <p class="travels_body">“瞠目结舌的自然风光，波澜壮阔的传奇历史，热情洋溢的老百姓……这个横跨欧亚古老大陆的国家到处充满了惊喜” 蓝色清真寺，信徒们沐浴在夕阳中显得格外虔诚 普鲁士海峡乘坐游轮的当地游客 ...听说，你的男票拍照，总是巧妙的躲过你美丽的瞬间，没关系。
-                                                听说，你因为拍不好女票的美照，默默承受了不少吐槽，没关系。
-                                                这个圣诞节，跟着老夫的少女心，拍出属于你的圣诞美片  。
-
-                                                为了满足各位小主们的少女心，老夫跑断了双腿，收集了全深圳最美、最齐全的拍照打卡点。这些点如果你都去过，老夫跪服 ！</p>
-                                            <div class="travels_footer">
-                                                <span>德国</span>
-                                                <span>张三</span>
-                                                <span>1751/14</span>
-                                                <span>顶</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <img class="img-responsive" style="margin-right: auto;margin-left: auto" src="http://p4-q.mafengwo.net/s10/M00/2D/44/wKgBZ1oBPqeAIE3pAA4mS5AOfto51.jpeg?imageMogr2%2Fthumbnail%2F%21220x150r%2Fstrip%2Fgravity%2FCenter%2Fcrop%2F%21220x150%2Fquality%2F90"
-                                             alt="">
-                                    </div>
-                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                        <div class="travels_content">
-                                            <div class="travels_title">土耳其 | 星月环游记 | 这里有关于色彩的全部浪漫</div>
-                                            <p class="travels_body">“瞠目结舌的自然风光，波澜壮阔的传奇历史，热情洋溢的老百姓……这个横跨欧亚古老大陆的国家到处充满了惊喜” 蓝色清真寺，信徒们沐浴在夕阳中显得格外虔诚 普鲁士海峡乘坐游轮的当地游客 ...听说，你的男票拍照，总是巧妙的躲过你美丽的瞬间，没关系。
-                                                听说，你因为拍不好女票的美照，默默承受了不少吐槽，没关系。
-                                                这个圣诞节，跟着老夫的少女心，拍出属于你的圣诞美片  。
-
-                                                为了满足各位小主们的少女心，老夫跑断了双腿，收集了全深圳最美、最齐全的拍照打卡点。这些点如果你都去过，老夫跪服 ！</p>
-                                            <div class="travels_footer">
-                                                <span>德国</span>
-                                                <span>张三</span>
-                                                <span>1751/14</span>
-                                                <span>顶</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                                        <img class="img-responsive" style="margin-right: auto;margin-left: auto" src="http://p4-q.mafengwo.net/s10/M00/2D/44/wKgBZ1oBPqeAIE3pAA4mS5AOfto51.jpeg?imageMogr2%2Fthumbnail%2F%21220x150r%2Fstrip%2Fgravity%2FCenter%2Fcrop%2F%21220x150%2Fquality%2F90"
-                                             alt="">
-                                    </div>
-                                    <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                                        <div class="travels_content">
-                                            <div class="travels_title">土耳其 | 星月环游记 | 这里有关于色彩的全部浪漫</div>
-                                            <p class="travels_body">“瞠目结舌的自然风光，波澜壮阔的传奇历史，热情洋溢的老百姓……这个横跨欧亚古老大陆的国家到处充满了惊喜” 蓝色清真寺，信徒们沐浴在夕阳中显得格外虔诚 普鲁士海峡乘坐游轮的当地游客 ...听说，你的男票拍照，总是巧妙的躲过你美丽的瞬间，没关系。
-                                                听说，你因为拍不好女票的美照，默默承受了不少吐槽，没关系。
-                                                这个圣诞节，跟着老夫的少女心，拍出属于你的圣诞美片  。
-
-                                                为了满足各位小主们的少女心，老夫跑断了双腿，收集了全深圳最美、最齐全的拍照打卡点。这些点如果你都去过，老夫跪服 ！</p>
-                                            <div class="travels_footer">
-                                                <span>德国</span>
-                                                <span>张三</span>
-                                                <span>1751/14</span>
-                                                <span>顶</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div>
-                                <nav aria-label="Page navigation" style="text-align: center">
-                                    <ul class="pagination">
-                                        <li>
-                                            <a href="#" aria-label="Previous">
-                                                <span aria-hidden="true">&laquo;</span>
-                                            </a>
-                                        </li>
-                                        <li><a href="#">1</a></li>
-                                        <li><a href="#">2</a></li>
-                                        <li><a href="#">3</a></li>
-                                        <li><a href="#">4</a></li>
-                                        <li><a href="#">5</a></li>
-                                        <li>
-                                            <a href="#" aria-label="Next">
-                                                <span aria-hidden="true">&raquo;</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
     <!--页脚-->
@@ -575,6 +390,11 @@
     var travelsUrl="{:url('reception/travels/travels')}";
     var activityUrl="{:url('reception/Goodsactive/goodsActive')}";
     var hotelUrl="{:url('reception/Hotel/hotel')}";
+    /*游记模块*/
+    var hotTravelUrl="{:url('reception/Index/hotTravel')}";
+    var hotTravelAdd="{:url('reception/Travels/travelAdd')}";
+    var travelDetail="{:url('reception/Travels/travelDetails')}";
+    var newTravelUrl="{:url('reception/Index/newTravel')}";
 </script>
 <!--引用js文件-->
 <script src="__STATIC__/js/receptionjs/public.js"></script>

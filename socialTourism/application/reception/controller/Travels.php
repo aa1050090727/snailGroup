@@ -10,14 +10,12 @@ use think\Response;
 use think\Session;
 /*引用请求类*/
 use \think\Request;
-/*引用视图*/
-use \think\View;
 class Travels extends Controller
 {
     /*游记主页面跳转*/
     public function travels(){
         $search=Session::set("travelSearch",'');
-        $list=Db::table('f_travel_note')->alias('a')->join('f_user b','a.f_travel_note_uid = b.f_user_id')->where('f_travel_note_place','like','%'.$search.'%')->where('a.f_travel_note_state',1)->paginate(3);
+        $list=Db::table('f_travel_note')->alias('a')->join('f_user b','a.f_travel_note_uid = b.f_user_id')->where('f_travel_note_place','like','%'.$search.'%')->where('a.f_travel_note_state',1)->order('f_travel_note_time desc')->paginate(3);
         $this->assign("list",$list);
         return $this->fetch();
     }
@@ -32,6 +30,13 @@ class Travels extends Controller
         $travles[0]['f_travel_note_content'] = str_replace('img','img class="img-responsive center-block"',$travles[0]['f_travel_note_content']);
         $this->assign("content",$travles);
         return $this->fetch();
+    }
+    /*游记详情*/
+    public function mytraveldetails(){
+        $travelid=input("param.travelID");
+        $travles=Db::table('f_travel_note')->alias('a')->join('f_user b','a.f_travel_note_uid = b.f_user_id')->where('f_travel_note_id',$travelid)->select();
+        $this->assign("content",$travles);
+        return $this->fetch("travelDetails");
     }
     /*游记搜索*/
     public function travelSearch(){
@@ -138,7 +143,7 @@ class Travels extends Controller
     public function conmmentUrl(){
         $travelId=Session::get('travelId');
         $page=input('param.page');
-        $travelComment=Db::table('f_tn_comment')->alias('a')->join('f_user b','a.f_tn_comment_uid=b.f_user_id')->where('f_tn_comment_nid',$travelId)->page($page,3)->select();
+        $travelComment=Db::table('f_tn_comment')->alias('a')->join('f_user b','a.f_tn_comment_uid=b.f_user_id')->where('f_tn_comment_nid',$travelId)->order('f_tn_comment_time desc')->page($page,3)->select();
         $travelpage=Db::table('f_tn_comment')->alias('a')->join('f_user b','a.f_tn_comment_uid=b.f_user_id')->where('f_tn_comment_nid',$travelId)->count();
         $request = Request::instance();
         /*替换图片路径*/

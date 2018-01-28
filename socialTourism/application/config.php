@@ -351,6 +351,10 @@ return [
             'up_fail' => '修改失败',
             'add_success' => '添加成功',
             'add_fail' => '添加失败'
+        ],
+        'use' =>[
+            'use_error' => '使用失败',
+            'use_success' => '使用成功'
         ]
     ]
 
