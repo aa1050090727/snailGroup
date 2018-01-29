@@ -87,7 +87,7 @@ var vue = new Vue({
                             data:"",
                             type:"get",
                             success:function(res){
-                                console.log(res)
+
                             }
                         })
                     }
@@ -137,19 +137,29 @@ var vue = new Vue({
                 $('#passwordtps').css('font-size','20px');
                 $("#passwordtps").html("× 两次密码输入不一致")
             }else {
-                $('#pwdtps').css('color','green');
-                $('#pwdtps').css('font-size','20px');
-                $("#pwdtps").html("√ ")
+                $('#passwordtps').css('color','green');
+                $('#passwordtps').css('font-size','20px');
+                $("#passwordtps").html("√ ")
             }
         },
 
         codein:function(){
-            if(this.code==''){
+            if(this.passwords==''){
                 $('#codetps').css('color','red');
                 $('#codetps').css('font-size','20px');
                 $("#codetps").html("× 输入不能为空")
-            }else if(this.pwd.length<6 ){
-
+            }else if(this.passwords.length<6 ){
+                $('#codetps').css('color','red');
+                $('#codetps').css('font-size','20px');
+                $("#codetps").html("×长度不能小于6")
+            }else if(this.passwords.length>6 ){
+                $('#codetps').css('color','red');
+                $('#codetps').css('font-size','20px');
+                $("#codetps").html("×长度不能于于6")
+            }else {
+                $('#codetps').css('color','green');
+                $('#codetps').css('font-size','20px');
+                $("#codetps").html("√ ")
             }
         } ,
 

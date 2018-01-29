@@ -136,8 +136,6 @@ class Login extends Controller
                 return json(['code'=>10003,'msg'=>$registermsg['register_error2'],'data'=>[],'url' => []]);
             }elseif($pwd2!=$password2){
                 return json(['code'=>10004,'msg'=>$registermsg['register_error3'],'data'=>[],'url' => []]);
-            }elseif(!captcha_check($code)){
-                return json(['code'=>10005,'msg'=>$registermsg['register_error4'],'data'=>[],'url' => []]);
             }else{
                 $phone = Session::get('phone');
                 $where = [
