@@ -29,6 +29,7 @@ var vue = new Vue({
                     'name':this.name,
                     'pwd':this.pwd,
                     'password':this.password,
+                    'passwords':this.passwords,
                     'code':this.code,
                     'cellcode':this.cellcode
                 };
