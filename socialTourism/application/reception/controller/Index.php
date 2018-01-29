@@ -11,8 +11,6 @@ use think\Request;
 
 use think\Cache;
 
-
-
 //首页控制器
 class Index extends Controller
 {
