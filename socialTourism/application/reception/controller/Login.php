@@ -150,7 +150,7 @@ class Login extends Controller
                         'f_user_phone'=>$phone,
                         'f_user_pwd' =>md5($pwd2),
                         'f_user_name'=>$f_user_name,
-                        'f_user_img'=>'__STATIC__/image/0.png',
+                        'f_user_img'=>'__STATIC__/image/0.jpg',
                         'f_user_money'=>50,
                         'f_user_sell' => 1,
                         'f_user_states' => '使用'
