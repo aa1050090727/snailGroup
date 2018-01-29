@@ -3,13 +3,13 @@ namespace app\reception\controller;
 
 use think\Controller;
 use think\Db;
-<<<<<<< HEAD
+
 use think\Session;
 use think\Response;
 use think\Request;
-=======
+
 use think\Cache;
->>>>>>> a233b05f035b10640663db6f7ba95c36972201df
+
 //首页控制器
 class Index extends Controller
 {
@@ -17,7 +17,7 @@ class Index extends Controller
     public function index(){
         return $this->fetch();
     }
-<<<<<<< HEAD
+
     /*热门游记显示*/
     public function hotTravel(){
         $nowpage=input('param.nowPage');
@@ -44,7 +44,7 @@ class Index extends Controller
         }
         return json(['nowPage'=>$nowpage,'allPage'=>$allPage,'hotTravel'=>$res]);
     }
-=======
+
 	public function setredis(){
 		date_default_timezone_set("PRC");
         $timept=date("Y-m-d 12:00:00",time());
@@ -63,6 +63,6 @@ class Index extends Controller
 		//$res = $redis->lPop('f_science');
     }
 
->>>>>>> a233b05f035b10640663db6f7ba95c36972201df
+
 }
 

@@ -204,6 +204,10 @@ var showwj = new Vue({
 
 
         },
+        selecttravels:function(){
+
+            window.location.href = selectUrl;
+        },
 
         /*阅读全文*/
         travelDetails:function(){
@@ -648,7 +652,13 @@ var paidorder = new Vue({
                     data: {"b_order_details_id": b_order_details_id},
                     dataType: "json",
                     success: function (res) {
-                        console.log(res);
+                        if(res['code']==10000){
+                            alert(res['msg'])
+                            _this.init()
+                            $("#upmon").val('')
+                        }else if(res['code']==10001){
+                            alert(res['msg'])
+                        }
                     },
                 })
             }
@@ -1123,4 +1133,5 @@ var shopping_hotel = new Vue({
 
     }
 })
+
 
