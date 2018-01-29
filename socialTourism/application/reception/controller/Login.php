@@ -117,6 +117,7 @@ class Login extends Controller
             $password = input('param.password');
             $code = input('param.code');
             $cellcode = input('param.cellcode');
+            $passwords = input('param.passwords');
             $notecode = Session::get('cellcode');
             $name1 = addslashes($name);
             $f_user_name = strip_tags($name1);
@@ -124,6 +125,8 @@ class Login extends Controller
             $pwd2 = strip_tags($pwd1);
             $password1 = addslashes($password);
             $password2 = strip_tags($password1);
+            $passwords = addslashes($passwords);
+            $passwords = strip_tags($passwords);
             $code1 = addslashes($code);
             $code2 = strip_tags($code1);
             if($cellcode!=$notecode){
@@ -153,7 +156,8 @@ class Login extends Controller
                         'f_user_img'=>'__STATIC__/image/0.jpg',
                         'f_user_money'=>50,
                         'f_user_sell' => 1,
-                        'f_user_states' => '使用'
+                        'f_user_states' => '使用',
+                        'f_user_pass' =>md5($passwords)
                     ];
                     Db::table('f_user')->insert($data);
                     return json(['code'=>10000,'msg'=>$registermsg['register_success'],'data'=>[],'url' => url('reception/Index/index')]);
