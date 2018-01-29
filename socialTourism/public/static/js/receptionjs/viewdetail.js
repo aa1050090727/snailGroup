@@ -126,13 +126,9 @@ $(function(){
                         console.log("error",result);
                     }
                 });
-<<<<<<< HEAD
             },
             panicBuying:function(viewDetail){
                 alert(1)
-=======
-
->>>>>>> ebb2a9a345e3360d852da2daa1958bdd1553f702
             }
         }
 		
