@@ -260,14 +260,10 @@ class Center extends Controller
                 'b_order_id'=>$orderID
             ];
             $res = Db::table('b_order')->where($where)->update(['b_order_state' => '订单关闭']);//改变订单状态
-
-//            var_dump($res) ;
             if($res==1){
-                echo 1;
                 return json(['code'=>10000,'msg'=>$uppwdmsg['alterorder_success'],'data'=>"",'url' => '']);
             }
             else{
-//                echo 2;
                 return json(['code'=>10001,'msg'=>$uppwdmsg['alterorder_error1'],'data'=>"",'url' => '']);
             }
         }else{
@@ -393,14 +389,14 @@ class Center extends Controller
                     'b_order_details_id'=>$orderID
                 ];
 
-                $res = Db::table('b_order_details')->fetchSql()->where($where)->update(['b_order_details_state' => '已使用']);//改变订单状态
-              echo $res;
-//                if($res==1){
-//                    return json(['code'=>10000,'msg'=>$uppwdmsg['use_success'],'data'=>[],'url' => '']);
-//               }
-//                else{
-//                    return json(['code'=>10001,'msg'=>$uppwdmsg['use_error'],'data'=>[],'url' => '']);
-//                }
+                $res = Db::table('b_order_details')->where($where)->update(['b_order_details_state' => '已使用']);//改变订单状态
+
+                if($res==1){
+                    return json(['code'=>10000,'msg'=>$uppwdmsg['use_success'],'data'=>[],'url' => '']);
+               }
+                else{
+                    return json(['code'=>10001,'msg'=>$uppwdmsg['use_error'],'data'=>[],'url' => '']);
+                }
             }
         }else{
             echo '非法操作';
@@ -437,6 +433,12 @@ class Center extends Controller
             'data'=>$res
         ];
         return $arr;
+    }
+
+    //发布游记
+    public function selectUrl(){
+        echo 123;
+        return $this->fetch('travels/travelPublic');
     }
 
 
