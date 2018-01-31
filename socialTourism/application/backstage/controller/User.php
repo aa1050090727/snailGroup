@@ -32,9 +32,9 @@ class User extends Controller
 
         foreach($resArr as $key=>&$value){
             if($value['f_user_sell']==1){
-                $value['f_user_sell'] = "是";
-            }else{
                 $value['f_user_sell'] = "否";
+            }elseif($value['f_user_sell']==5){
+                $value['f_user_sell'] = "是";
             }
         }
         $resArrJson = '{"code": 0,"msg": "","count": '.$resCount.',"data": '.json_encode($resArr,JSON_UNESCAPED_UNICODE).'}';
